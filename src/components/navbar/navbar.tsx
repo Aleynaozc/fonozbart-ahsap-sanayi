@@ -53,12 +53,12 @@ const pathname = usePathname()
                                 <li key={item.href} className="flex flex-col items-center">
                                     <Link
                                         href={item.href}
-                                        className={`text-gray-800 hover:text-orange-600 transition-colors ${isActive ? 'text-orange-600' : ''}`}
+                                        className={`${scrolled ? 'text-[#3b2616]' : 'text-white'} hover:text-orange-600 transition-colors ${isActive ? 'text-orange-600' : ''}`}
                                     >
                                         {item.label}
                                     </Link>
                                     {isActive && (
-                                        <hr className="w-full border-[1px] border-white " />
+                                        <hr className="w-full border-[1px] border-orange-600 " />
                                     )}
                                 </li>
                             )

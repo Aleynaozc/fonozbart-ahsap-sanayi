@@ -15,7 +15,7 @@ export function AboutSection() {
                 {/* Left Image - Full Size */}
                 <div className="relative">
                     <Image
-                        src="/assets/images/about-sections/about-secion2.jpg"
+                        src="/assets/images/about-sections/about-secion1.jpg"
                         alt="Abstract architectural element"
                         fill
                         className="object-cover"
@@ -25,7 +25,7 @@ export function AboutSection() {
                 {/* Right Content */}
                 <div className="flex items-center px-8 lg:px-16 py-16 bg-white">
                     <div className="space-y-8 max-w-3xl">
-                        <div className="text-sm font-medium text-gray-400 tracking-[0.2em] uppercase">ABOUT COMPANY</div>
+                        <div className="text-sm font-medium text-gray-400 tracking-[0.2em] uppercase">HAKKIMIZDA</div>
                         <h2 className="text-4xl lg:text-5xl font-bold text-gray-700 leading-[1.1] font-sans">
                             50 Yılı Aşan Sektör Tecrübesi
                         </h2>

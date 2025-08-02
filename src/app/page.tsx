@@ -4,18 +4,20 @@ import { Badge } from "@/components/ui/badge"
 import { Check, Star, Zap, Shield, Users, BarChart3, ArrowRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import {HeroSlider} from "@/components/hero/hero-slider"
+import { HeroSlider } from "@/components/hero/hero-slider"
 import { AboutSection } from "@/components/aboutSection/about-section"
+import ServicesSection from "@/components/servicesSection/services-section"
 
 export default function home() {
   return (
-<div className="min-h-screen">
-     {/* Header */}
-      
-      {/* Hero Section */}
-      <HeroSlider/>
-     <AboutSection/>
+    <div className="min-h-screen">
 
+
+      {/* Hero Section */}
+      <HeroSlider />
+      {/* About Section */}
+      <AboutSection />
+      <ServicesSection />
       {/* Features Section */}
       <section id="features" className="py-20 md:py-32">
         <div className="container px-4 md:px-6">
