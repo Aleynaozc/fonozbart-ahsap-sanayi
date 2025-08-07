@@ -16,7 +16,7 @@ const projects = [
     id: 1,
     category: "Interior",
     title: "Otel Odaları",
-    image: "/assets/images/services-section/hotel.jpg",
+    image: "/assets/images/services-section/oda9.jpg",
   },
   {
     id: 2,
@@ -28,31 +28,31 @@ const projects = [
     id: 3,
     category: "Interior",
     title: "Banyo",
-    image: "/assets/images/services-section/banyo.jpg",
+    image: "/assets/images/services-section/banyo2.jpg",
   },
   {
     id: 4,
     category: "Interior",
     title: "Ahşap Deck",
-    image: "/assets/images/services-section/about-secion1.jpg",
+    image: "/assets/images/services-section/deck2.jpg",
   },
   {
     id: 5,
     category: "Interior",
     title: "Pergola",
-    image: "/assets/images/services-section/about-secion1.jpg",
+    image: "/assets/images/services-section/ahsappergola.jpg",
   },
   {
     id: 6,
     category: "Interior",
     title: "Kapı",
-    image: "/assets/images/services-section/about-secion1.jpg",
+    image: "/assets/images/services-section/kapı3.jpg",
   },
   {
     id: 7,
     category: "Interior",
     title: "Yangın Kapısı",
-    image: "/assets/images/services-section/about-secion1.jpg",
+    image: "/assets/images/services-section/yangınkapısı.jpg",
   },
 ]
 
@@ -89,7 +89,10 @@ export default function ProjectGallery() {
   }
 
   return (
-    <section className={`w-full ${poppins.className} font-normal relative`}>
+    <section
+      className={`w-full relative overflow-hidden  ${poppins.className} font-normal`}
+    >
+
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
@@ -118,7 +121,7 @@ export default function ProjectGallery() {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="group relative h-[600px] overflow-hidden cursor-pointer flex-shrink-0"
+              className="group relative h-[600px] overflow-hidden cursor-pointer flex-shrink-0 section-gradient"
               style={{ width: `${100 / slidesToShow}%` }}
             >
               {/* Image */}
@@ -155,7 +158,7 @@ export default function ProjectGallery() {
 
                 {/* View Project - slides up from bottom on hover */}
                 <div className="relative inline-block group/btn mt-1 opacity-0 translate-y-8 transition-all duration-500 delay-100 group-hover:opacity-100 group-hover:translate-y-0">
-                  <span className="text-white text-md font-medium tracking-wide cursor-pointer mb-2">Daha Fazlası</span>
+                  <span className="text-white text-md font-medium tracking-wide cursor-pointer mb-2 z-[9999]">Daha Fazlası</span>
                   {/* Orange underline */}
                   <div className="absolute bottom-0 left-0 h-0.5 bg-orange-500 w-[45px] group-hover/btn:w-[95px] transition-all duration-500"></div>
                 </div>
@@ -174,9 +177,8 @@ export default function ProjectGallery() {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              Math.floor(currentIndex / slidesToShow) === index ? "bg-orange-500" : "bg-gray-300 hover:bg-gray-400"
-            }`}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${Math.floor(currentIndex / slidesToShow) === index ? "bg-orange-500" : "bg-gray-300 hover:bg-gray-400"
+              }`}
           />
         ))}
       </div>
