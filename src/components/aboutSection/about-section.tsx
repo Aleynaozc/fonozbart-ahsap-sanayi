@@ -1,14 +1,16 @@
-
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ChevronDown, Search, ShoppingBag, Menu } from "lucide-react"
-import { Inter } from "next/font/google"
+import { ChevronDown, Search, ShoppingBag, Menu } from 'lucide-react'
+import { Inter, Cairo } from 'next/font/google'
 import Image from "next/image"
 
+const cairo = Cairo({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+})
 
 export function AboutSection() {
     return (
-
         <section className="py-0">
             {/* About Section */}
             <div className="grid lg:grid-cols-2 min-h-[600px]">
@@ -21,7 +23,6 @@ export function AboutSection() {
                         className="object-cover"
                     />
                 </div>
-
                 {/* Right Content */}
                 <div className="flex items-center px-8 lg:px-16 py-16 bg-white">
                     <div className="space-y-8 max-w-3xl">
@@ -30,12 +31,11 @@ export function AboutSection() {
                             50 Yılı Aşan Sektör Tecrübesi
                         </h2>
                         <div className="detailcontent">
-                            <p className="textdetail ">
+                            <p className={`textdetail ${cairo.className}`}>
                                 Yarım asrı aşkın tecrübesiyle modern ahşap mobilya tasarımı ve üretimi alanında faaliyet gösteren FNZ Mobilya,
                                 satış öncesi sunduğu kaliteli hizmet anlayışını, satış sonrası müşteri memnuniyetiyle de sürdürülebilir kılmayı amaçlamaktadır.
                                 Uzun yıllara dayanan bilgi birikimi ve deneyimiyle sektörde güvenilir bir marka olmayı başaran FNZ Mobilya,
                                 müşteri odaklı yaklaşımıyla fark yaratmaya devam etmektedir.
-
                             </p>
                         </div>
                         <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-base font-medium rounded-sm">

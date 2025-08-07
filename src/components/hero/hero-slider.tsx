@@ -1,5 +1,4 @@
 'use client'
-
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -56,7 +55,7 @@ export function HeroSlider() {
     return (
         <>
             <Header />
-            <div className="relative w-full overflow-hidden min-h-[60vh]  sm:min-h-[70vh] md:min-h-screen">
+            <div className="relative w-full overflow-hidden min-h-[60vh] sm:min-h-[70vh] md:min-h-screen">
                 <AnimatePresence initial={false} mode="wait">
                     <motion.div
                         key={currentSlide}
@@ -64,7 +63,7 @@ export function HeroSlider() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.7 }}
-                        className="absolute inset-0 "
+                        className="absolute inset-0"
                     >
                         <Image
                             src={slides[currentSlide].image || "/placeholder.svg"}
@@ -74,9 +73,7 @@ export function HeroSlider() {
                             priority
                             sizes="100vw"
                         />
-
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-transparent sm:from-black/40 sm:via-black/25 lg:from-black/30 lg:via-black/20" />
-
                         <motion.div
                             initial={{ y: 30, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
@@ -91,7 +88,6 @@ export function HeroSlider() {
                             >
                                 {slides[currentSlide].subtitle}
                             </motion.span>
-
                             <motion.h1
                                 initial={{ y: 30, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
@@ -100,7 +96,6 @@ export function HeroSlider() {
                             >
                                 {slides[currentSlide].title}
                             </motion.h1>
-
                             <motion.p
                                 initial={{ y: 20, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
@@ -121,11 +116,10 @@ export function HeroSlider() {
                 >
                     <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 group-hover:-translate-x-1" />
                 </button>
-
                 <button
                     onClick={nextSlide}
                     aria-label="Sonraki slayt"
-                    className=" hidden sm:flex group absolute top-1/2 -translate-y-1/2 right-4 sm:right-6 lg:right-10 w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 items-center justify-center bg-white/70 hover:bg-white text-black rounded-full shadow-md backdrop-blur-md transition-all duration-300 hover:scale-110"
+                    className="hidden sm:flex group absolute top-1/2 -translate-y-1/2 right-4 sm:right-6 lg:right-10 w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 items-center justify-center bg-white/70 hover:bg-white text-black rounded-full shadow-md backdrop-blur-md transition-all duration-300 hover:scale-110"
                 >
                     <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 group-hover:translate-x-1" />
                 </button>
@@ -148,7 +142,6 @@ export function HeroSlider() {
                         />
                     ))}
                 </div>
-                
             </div>
         </>
     )

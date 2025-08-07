@@ -1,23 +1,24 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Check, Star, Zap, Shield, Users, BarChart3, ArrowRight } from "lucide-react"
+import { Check, Star, Zap, Shield, Users, BarChart3, ArrowRight } from 'lucide-react'
 import Image from "next/image"
 import Link from "next/link"
 import { HeroSlider } from "@/components/hero/hero-slider"
 import { AboutSection } from "@/components/aboutSection/about-section"
 import ServicesSection from "@/components/servicesSection/services-section"
 
-export default function home() {
+export default function Home() {
   return (
     <div className="min-h-screen">
-
-
       {/* Hero Section */}
       <HeroSlider />
+      
       {/* About Section */}
       <AboutSection />
+      
       <ServicesSection />
+      
       {/* Features Section */}
       <section id="features" className="py-20 md:py-32">
         <div className="container px-4 md:px-6">
@@ -29,7 +30,6 @@ export default function home() {
               Powerful features designed to streamline your workflow and boost team productivity
             </p>
           </div>
-
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
@@ -44,7 +44,6 @@ export default function home() {
                 </CardDescription>
               </CardContent>
             </Card>
-
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-green-100">
@@ -58,7 +57,6 @@ export default function home() {
                 </CardDescription>
               </CardContent>
             </Card>
-
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-purple-100">
@@ -72,7 +70,6 @@ export default function home() {
                 </CardDescription>
               </CardContent>
             </Card>
-
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-orange-100">
@@ -97,7 +94,6 @@ export default function home() {
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-4">Loved by teams worldwide</h2>
             <p className="text-lg text-gray-600">See what our customers have to say about StreamLine</p>
           </div>
-
           <div className="grid gap-8 md:grid-cols-3">
             <Card className="border-0 shadow-lg">
               <CardContent className="pt-6">
@@ -125,7 +121,6 @@ export default function home() {
                 </div>
               </CardContent>
             </Card>
-
             <Card className="border-0 shadow-lg">
               <CardContent className="pt-6">
                 <div className="flex mb-4">
@@ -151,7 +146,6 @@ export default function home() {
                 </div>
               </CardContent>
             </Card>
-
             <Card className="border-0 shadow-lg">
               <CardContent className="pt-6">
                 <div className="flex mb-4">
@@ -192,7 +186,6 @@ export default function home() {
               Choose the plan that's right for your team. Upgrade or downgrade at any time.
             </p>
           </div>
-
           <div className="grid gap-8 lg:grid-cols-3">
             {/* Starter Plan */}
             <Card className="border-2 hover:border-blue-200 transition-colors">
@@ -228,7 +221,6 @@ export default function home() {
                 </Button>
               </CardContent>
             </Card>
-
             {/* Professional Plan */}
             <Card className="border-2 border-blue-600 relative hover:border-blue-700 transition-colors">
               <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600">Most Popular</Badge>
@@ -268,7 +260,6 @@ export default function home() {
                 </Button>
               </CardContent>
             </Card>
-
             {/* Enterprise Plan */}
             <Card className="border-2 hover:border-purple-200 transition-colors">
               <CardHeader>
@@ -371,7 +362,6 @@ export default function home() {
                 </Link>
               </div>
             </div>
-
             <div>
               <h3 className="font-semibold mb-4">Product</h3>
               <ul className="space-y-2 text-gray-400">
@@ -397,7 +387,6 @@ export default function home() {
                 </li>
               </ul>
             </div>
-
             <div>
               <h3 className="font-semibold mb-4">Company</h3>
               <ul className="space-y-2 text-gray-400">
@@ -423,7 +412,6 @@ export default function home() {
                 </li>
               </ul>
             </div>
-
             <div>
               <h3 className="font-semibold mb-4">Support</h3>
               <ul className="space-y-2 text-gray-400">
@@ -450,9 +438,10 @@ export default function home() {
               </ul>
             </div>
           </div>
-
           <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">© {new Date().getFullYear()} StreamLine. All rights reserved.</p>
+            <p className="text-gray-400 text-sm">
+              © {new Date().getFullYear()} fONOZBART AHŞAP SANAYİ. All rights reserved.
+            </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
                 Privacy Policy

@@ -1,5 +1,4 @@
 "use client"
-
 import Link from "next/link"
 import { useEffect, useState } from 'react'
 import { FaFacebookF, FaInstagram, FaPhoneVolume } from "react-icons/fa6"
@@ -44,8 +43,9 @@ export function Header() {
 
     return (
         <>
-            <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out 
+            <header className={`fixed top-0 left-0 w-full transition-all duration-300 ease-in-out 
                 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-lg' : 'bg-transparent'}
+                ${isOpen ? 'z-30' : 'z-50'}
                 h-14 xs:h-16 sm:h-18 md:h-20 lg:h-22 xl:h-24 2xl:h-26`}>
                 
                 <nav className="mx-auto h-full flex items-center justify-between px-3 xs:px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
@@ -150,7 +150,7 @@ export function Header() {
             </header>
 
             {/* Mobile Menu Overlay - Responsive for all mobile/tablet sizes */}
-            <div className={`lg:hidden fixed inset-0 z-40 transition-all duration-300 ${
+            <div className={`lg:hidden fixed inset-0 z-50 transition-all duration-300 ${
                 isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
             }`}>
                 {/* Backdrop */}
@@ -160,7 +160,7 @@ export function Header() {
                 ></div>
                 
                 {/* Mobile Menu Panel - Responsive width */}
-                <div className={`absolute top-0 right-0 h-full bg-white shadow-2xl transform transition-transform duration-300 
+                <div className={`absolute top-0 right-0 h-full bg-white shadow-2xl transform transition-transform duration-300
                     w-72 xs:w-80 sm:w-96 md:w-[28rem] ${
                     isOpen ? 'translate-x-0' : 'translate-x-full'
                 }`}>
@@ -193,7 +193,7 @@ export function Header() {
                                     onClick={() => setIsOpen(false)}
                                     className={`block py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base font-medium tracking-wide uppercase transition-all duration-200 border-l-4 ${
                                         isActive 
-                                            ? 'text-orange-600 bg-orange-50 border-orange-600' 
+                                            ? 'text-orange-600 bg-orange-50 border-orange-600'
                                             : 'text-gray-700 hover:text-orange-600 hover:bg-gray-50 border-transparent hover:border-orange-300'
                                     }`}
                                 >
@@ -237,9 +237,10 @@ export function Header() {
                     </div>
                 </div>
             </div>
+
             {/* Floating Phone Button - Only visible on mobile/tablet */}
             <div className={`lg:hidden fixed bottom-6 right-4 z-50 transition-all duration-300 ${
-                scrolled ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+                scrolled && !isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
             }`}>
                 <a
                     href="https://api.whatsapp.com/send/?phone=%2B905323335067&text&type=phone_number&app_absent=0"
