@@ -170,7 +170,7 @@ export function Header() {
                         <img
                             src="/assets/images/logo2.png"
                             alt="FNZ Logo"
-                            className="h-6 xs:h-8 sm:h-10 w-auto object-contain"
+                            className="h-10 xs:h-8 sm:h-10 w-auto object-contain"
                         />
                         <Button
                             variant="ghost"
