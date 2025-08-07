@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { FaFacebookF, FaInstagram, FaPhoneVolume } from "react-icons/fa6"
 import { Button } from "../ui/button"
 import { usePathname } from 'next/navigation'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, MapPin, Phone, Mail } from 'lucide-react'
 
 export function Header() {
     const [isOpen, setIsOpen] = useState(false)
@@ -183,7 +183,7 @@ export function Header() {
                     </div>
 
                     {/* Mobile Navigation Links */}
-                    <div className="flex flex-col py-4 sm:py-6 overflow-y-auto max-h-[calc(100vh-200px)]">
+                    <div className="flex flex-col py-4 sm:py-6 overflow-y-auto max-h-[calc(100vh-400px)]">
                         {navItems.map((item) => {
                             const isActive = pathname === item.href
                             return (
@@ -203,8 +203,50 @@ export function Header() {
                         })}
                     </div>
 
+                    {/* Map and Contact Section */}
+                    <div className="px-4 sm:px-6 py-4 border-t border-gray-200 bg-gray-50/50">
+                        {/* Contact Info */}
+                        <div className="mb-4 space-y-3">
+                            <h3 className="text-sm font-semibold text-gray-800 uppercase tracking-wide">İLETİŞİM</h3>
+                            
+                            {/* Address */}
+                            <div className="flex items-start space-x-3">
+                                <MapPin className="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0" />
+                                <div className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                                    <p className="font-medium text-gray-800">Fonozbart Ahşap Sanayi</p>
+                                    <p>Marmaris, Muğla, Türkiye</p>
+                                </div>
+                            </div>
+
+                            {/* Phone */}
+                            <div className="flex items-center space-x-3">
+                                <Phone className="w-4 h-4 text-orange-500 flex-shrink-0" />
+                                <a 
+                                    href="tel:+905323335067" 
+                                    className="text-xs sm:text-sm text-gray-600 hover:text-orange-600 transition-colors"
+                                >
+                                    +90 532 333 50 67
+                                </a>
+                            </div>
+                        </div>
+
+                        {/* Map */}
+                        <div className="rounded-lg overflow-hidden shadow-md border border-gray-200">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3193.3989397538653!2d28.1428904!3d36.8329206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bfb9542100a983%3A0x897c830fcb7a8d3!2sFonozbart%20Ah%C5%9Fap%20Sanayi!5e0!3m2!1str!2str!4v1754570764352!5m2!1str!2str" 
+                                width="100%" 
+                                height="180" 
+                                style={{ border: 0 }}
+                                allowFullScreen={true}
+                                loading="lazy" 
+                                referrerPolicy="no-referrer-when-downgrade"
+                                className="w-full"
+                            />
+                        </div>
+                    </div>
+
                     {/* Mobile Social Links - Fixed at bottom */}
-                    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 border-t border-gray-200 bg-gray-50">
+                    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 border-t border-gray-200 bg-white">
                         <div className="flex items-center justify-center space-x-4 sm:space-x-6">
                             <a
                                 href="https://www.facebook.com/fnzwood/"
