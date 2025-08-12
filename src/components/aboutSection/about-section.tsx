@@ -1,6 +1,5 @@
     import Link from "next/link"
     import { Button } from "@/components/ui/button"
-    import { ChevronDown, Search, ShoppingBag, Menu } from 'lucide-react'
     import { Inter, Cairo } from 'next/font/google'
     import Image from "next/image"
 
@@ -27,6 +26,10 @@
                     <div className="flex items-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 md:py-16 bg-white">
                         <div className="space-y-4 sm:space-y-6 md:space-y-8 max-w-3xl w-full">
                             <div className="text-xs sm:text-sm font-medium text-gray-400 tracking-[0.2em] uppercase">HAKKIMIZDA</div>
+                             <div className="flex items-center mb-4">
+                <div className="w-8 h-0.5 bg-[#D4A574]"></div>
+                <div className="w-1 h-1 bg-gray-400 rounded-full ml-1"></div>
+              </div>
                             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700 leading-[1.1] font-sans">
                                 50 Yılı Aşan Sektör Tecrübesi
                             </h2>

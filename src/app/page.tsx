@@ -12,10 +12,12 @@ import OurProcess from "@/components/ourProcess/our-process"
 import OurProcess2 from "@/components/ourProcess/our-process2"
 import { Footer } from "@/components/footer"
 import { CtaSection } from "@/components/ctaSections/cta-section"
+import { Header } from "@/components/navbar/navbar"
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+   <div className="min-h-screen bg-white overflow-x-hidden">
+        <Header/>
       {/* Hero Section */}
       <HeroSlider />
 
