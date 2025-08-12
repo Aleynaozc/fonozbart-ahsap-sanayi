@@ -6,10 +6,6 @@ import { BreadcrumbProvider } from "@/components/bradcrumps/breadcrumb-provider"
 
 import { LoadingBar } from "@/components/loading-bar"
 import { PageTransition } from "@/components/page-transition"
-import { CacheProvider } from "@/hooks/use-cache"
-import { PreloaderProvider } from "@/hooks/use-preloader"
-
-import { PerformanceMonitor } from "@/components/preloading/performance-monitor"
  import { LoadingProvider } from "@/hooks/use-loading"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -75,18 +71,12 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className={inter.className}>
-        {/* 🚀 Performance & Caching Providers */}
-        <CacheProvider>
-          <PreloaderProvider>
-            <LoadingProvider>
-              <BreadcrumbProvider>
-                <LoadingBar />
-                <PageTransition>{children}</PageTransition>
-                <PerformanceMonitor />
-              </BreadcrumbProvider>
-            </LoadingProvider>
-          </PreloaderProvider>
-        </CacheProvider>
+        <LoadingProvider>
+          <BreadcrumbProvider>
+            <LoadingBar />
+            <PageTransition>{children}</PageTransition>
+          </BreadcrumbProvider>
+        </LoadingProvider>
       </body>
     </html>
   )
