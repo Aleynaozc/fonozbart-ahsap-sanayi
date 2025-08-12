@@ -67,7 +67,7 @@ export default function ProjectGallery() {
   }, [slidesToShow])
 
   return (
-    <section className={`relative w-full ${poppins.className} font-normal`}>
+    <section className={`relative w-full overflow-hidden ${poppins.className} font-normal`}>
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
@@ -85,17 +85,20 @@ export default function ProjectGallery() {
         <ChevronRight className="w-6 h-6 text-white" />
       </button>
 
-      {/* Slider Container: mobil ve tablet için overflow-x-auto ile scroll destekli */}
+      {/* Slider Container */}
       <div className="overflow-hidden">
         <div
           className="flex transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(-${currentIndex * (100 / slidesToShow)}%)` }}
+          style={{
+            width: `${(projects.length * 100) / slidesToShow}%`,
+            transform: `translateX(-${(currentIndex * 100) / projects.length}%)`,
+          }}
         >
           {projects.map((project) => (
             <div
               key={project.id}
               className="border-r border-amber-500 last:border-none group relative h-[600px] overflow-hidden cursor-pointer flex-shrink-0 section-gradient"
-              style={{ width: `${100 / slidesToShow}%`, minWidth: `${100 / slidesToShow}%` }}
+              style={{ width: `${100 / projects.length}%` }}
             >
               <Image
                 src={project.image}
@@ -130,10 +133,11 @@ export default function ProjectGallery() {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${Math.floor(currentIndex / slidesToShow) === index
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              Math.floor(currentIndex / slidesToShow) === index
                 ? "bg-amber-500"
                 : "bg-gray-300 hover:bg-gray-400"
-              }`}
+            }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
