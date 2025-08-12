@@ -12,17 +12,64 @@ const poppins = Poppins({
 })
 
 const projects = [
-  { id: 1, category: "Interior", title: "Otel Odaları", image: "/assets/images/services-section/oda9.jpg" },
-  { id: 2, category: "Furniture", title: "Mutfak", image: "/assets/images/services-section/mutfak.jpg" },
-  { id: 3, category: "Interior", title: "Banyo", image: "/assets/images/services-section/banyo2.jpg" },
-  { id: 8, category: "Interior", title: "Ofis Mobilyaları", image: "/assets/images/services-section/office2.jpg" },
-  { id: 5, category: "Interior", title: "Pergola", image: "/assets/images/services-section/ahsappergola.jpg" },
-  { id: 4, category: "Interior", title: "Ahşap Deck", image: "/assets/images/services-section/deck2.jpg" },
-  { id: 6, category: "Interior", title: "Kapı", image: "/assets/images/services-section/kapı3.jpg" },
-  { id: 7, category: "Interior", title: "Yangın Kapısı", image: "/assets/images/services-section/yangınkapısı.jpg" },
+  {
+    id: 1,
+    category: "Interior",
+    title: "Otel Odaları",
+    image:
+      "/assets/images/services-section/oda9.jpg"
+  },
+  {
+    id: 2,
+    category: "Furniture",
+    title: "Mutfak",
+    image: "/assets/images/services-section/mutfak.jpg"
+  },
+  {
+    id: 3,
+    category: "Interior",
+    title: "Banyo",
+    image:
+      "/assets/images/services-section/banyo2.jpg"
+  },
+  {
+    id: 4,
+    category: "Interior",
+    title: "Ofis Mobilyaları",
+    image:
+      "/assets/images/services-section/office2.jpg"
+  },
+  {
+    id: 5,
+    category: "Interior",
+    title: "Pergola",
+    image:
+      "/assets/images/services-section/ahsappergola.jpg"
+  },
+  {
+    id: 6,
+    category: "Interior",
+    title: "Ahşap Deck",
+    image:
+      "/assets/images/services-section/deck2.jpg"
+  },
+  {
+    id: 7,
+    category: "Interior",
+    title: "Kapı",
+    image:
+      "/assets/images/services-section/kapı3.jpg"
+  },
+  {
+    id: 8,
+    category: "Interior",
+    title: "Yangın Kapısı",
+    image:
+      "/assets/images/services-section/yangınkapısı.jpg"
+  },
 ]
 
-export default function ProjectGallery() {
+export default function ProjectSlider() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [slidesToShow, setSlidesToShow] = useState(5)
 
@@ -42,15 +89,11 @@ export default function ProjectGallery() {
   }, [])
 
   const nextSlide = () => {
-    setCurrentIndex((prev) =>
-      prev + slidesToShow >= projects.length ? 0 : prev + 1
-    )
+    setCurrentIndex((prev) => (prev + slidesToShow >= projects.length ? 0 : prev + 1))
   }
 
   const prevSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? Math.max(0, projects.length - slidesToShow) : prev - 1
-    )
+    setCurrentIndex((prev) => (prev === 0 ? Math.max(0, projects.length - slidesToShow) : prev - 1))
   }
 
   const goToSlide = (index: number) => {
@@ -67,7 +110,7 @@ export default function ProjectGallery() {
   }, [slidesToShow])
 
   return (
-    <section className={`relative w-full overflow-hidden ${poppins.className} font-normal`}>
+    <section className={`relative w-full overflow-hidden bg-[#3d3d3d] ${poppins.className} font-normal`}>
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
@@ -97,11 +140,11 @@ export default function ProjectGallery() {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="border-r border-amber-500 last:border-none group relative h-[600px] overflow-hidden cursor-pointer flex-shrink-0 section-gradient"
+              className="border-r border-[#D4A574] last:border-none group relative h-[600px] overflow-hidden cursor-pointer flex-shrink-0"
               style={{ width: `${100 / projects.length}%` }}
             >
               <Image
-                src={project.image}
+                src={project.image || "/placeholder.svg"}
                 alt={project.title}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -117,8 +160,10 @@ export default function ProjectGallery() {
                   </h3>
                 </div>
                 <div className="relative inline-block group/btn mt-1 opacity-0 translate-y-8 transition-all duration-500 delay-100 group-hover:opacity-100 group-hover:translate-y-0">
-                  <span className="text-white text-md font-medium tracking-wide cursor-pointer mb-2 z-[9999]">Daha Fazlası</span>
-                  <div className="absolute bottom-0 left-0 h-0.5 bg-amber-500 w-[45px] group-hover/btn:w-[95px] transition-all duration-500"></div>
+                  <span className="text-white text-md font-medium tracking-wide cursor-pointer mb-2 z-[9999]">
+                    Daha Fazlası
+                  </span>
+                  <div className="absolute bottom-0 left-0 h-0.5 bg-[#D4A574] w-[45px] group-hover/btn:w-[95px] transition-all duration-500"></div>
                 </div>
               </div>
               <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/70 to-transparent"></div>
@@ -134,9 +179,7 @@ export default function ProjectGallery() {
             key={index}
             onClick={() => goToSlide(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              Math.floor(currentIndex / slidesToShow) === index
-                ? "bg-amber-500"
-                : "bg-gray-300 hover:bg-gray-400"
+              Math.floor(currentIndex / slidesToShow) === index ? "bg-[#D4A574]" : "bg-gray-300 hover:bg-gray-400"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
