@@ -1,20 +1,20 @@
 "use client"
 
-import { Facebook, Instagram, Phone,  Twitter, X } from "lucide-react"
-import { FaPinterest } from "react-icons/fa"
+import { useLoading } from "@/hooks/use-loading"
+import { Facebook, Instagram, Phone, X } from "lucide-react"
 import Image from "next/image"
 import { useState, useRef, useEffect } from "react"
-import { useLoading } from "@/hooks/use-loading"
+
+import { PiPhoneCall } from "react-icons/pi"
 
 export function Header() {
   const [activeMenu, setActiveMenu] = useState("Home")
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null)
   const [clickedMenu, setClickedMenu] = useState<string | null>(null)
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 })
   const menuRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
   const { startPageTransition, isLoading } = useLoading()
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-
   const menuItems = [
     { name: "Home", label: "ANASAYFA", path: "/" },
     { name: "About", label: "HAKKIMIZDA", path: "/about" },
@@ -42,7 +42,7 @@ export function Header() {
   const handleMenuClick = (menuName: string, path: string) => {
     setClickedMenu(menuName)
     setActiveMenu(menuName)
-
+    setIsMobileMenuOpen(false)
     // LoadingProvider'dan gelen startPageTransition fonksiyonunu kullan
     startPageTransition(path)
 
@@ -53,13 +53,11 @@ export function Header() {
   }
 
   return (
-    <header className="bg-[#3d3d3d] fixed top-0 left-0 right-0 z-50 transition-all duration-300 shadow-lg w-full group">
-      {/* Desktop Optimized Container */}
-      <div className="w-full max-w-[1920px] mx-auto px-6 sm:px-8 md:px-12 lg:px-16 xl:px-24 2xl:px-32 py-4 lg:py-5 xl:py-6">
-        <div className="flex items-center justify-between">
-          {/* Logo and Social Media Section - Enhanced Desktop Spacing */}
-          <div className="flex items-center space-x-6 lg:space-x-8 xl:space-x-10">
-            {/* Logo with enhanced desktop sizing */}
+    <header className="bg-[#3f3834] fixed top-0 left-0 right-0 z-50 transition-all duration-300 shadow-lg w-full">
+      <div className="w-full px-4 lg:px-8 py-4"  >
+        <div className="hidden lg:flex items-center justify-around w-full">
+          {/* Logo Section */}
+          <div className="flex items-center space-x-2 sm:space-x-4 lg:space-x-6 xl:space-x-8 flex-shrink-0">
             <div className="flex items-center animate-fade-in group/logo cursor-pointer">
               <div className="relative overflow-hidden rounded-lg">
                 <Image
@@ -67,134 +65,99 @@ export function Header() {
                   alt="FNZ Mobilya Logo"
                   width={230}
                   height={60}
-                  className="object-contain"
+                  className="object-contain w-auto h-8 sm:h-10 md:h-12 lg:h-14 xl:h-16 max-w-[120px] sm:max-w-[150px] md:max-w-[180px] lg:max-w-[200px] xl:max-w-[230px]"
+                  priority
                 />
-                
               </div>
-            </div>
-
-            {/* Social Media Icons with enhanced desktop spacing */}
-            <div className="hidden lg:flex items-center space-x-4 xl:space-x-5 2xl:space-x-6">
-              {[
-                { Icon: Twitter, color: "hover:bg-blue-500", name: "Twitter" },
-                { Icon: Facebook, color: "hover:bg-blue-600", name: "Facebook" },
-                { Icon: FaPinterest, color: "hover:bg-red-500", name: "Pinterest" },
-                { Icon: Instagram, color: "hover:bg-pink-500", name: "Instagram" },
-              ].map(({ Icon, color, name }, index) => (
-                <div
-                  key={name}
-                  className={`bg-gray-600 ${color} rounded-full p-2.5 xl:p-3 transition-all duration-300 cursor-pointer hover:scale-125 hover:rotate-12 hover:shadow-lg group/social relative overflow-hidden`}
-                  style={{ transitionDelay: `${index * 50}ms` }}
-                >
-                  <Icon className="w-4 h-4 xl:w-5 xl:h-5 text-white transition-all duration-300 group-hover/social:scale-110 relative z-10" />
-                  {/* Ripple effect */}
-                  <div className="absolute inset-0 bg-white/20 rounded-full scale-0 group-hover/social:scale-100 transition-transform duration-300"></div>
-                  {/* Tooltip */}
-                  <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs px-3 py-1.5 rounded opacity-0 group-hover/social:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap">
-                    {name}
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
-
-          {/* Navigation Menu - Enhanced Desktop Layout */}
-          <nav className="hidden lg:flex items-center justify-center flex-1 mx-12 xl:mx-16 2xl:mx-20">
-            <div className="relative flex items-center space-x-10 xl:space-x-12 2xl:space-x-16">
-              {menuItems.map((item) => (
-                <div key={item.name} className="relative">
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault()
-                      handleMenuClick(item.name, item.path)
-                    }}
-                    className={`relative inline-block text-sm font-medium tracking-wide transition-all duration-300  py-2 sm:py-3 ${
-                      activeMenu === item.name ? "text-white" : "text-gray-300 hover:text-white"
-                    } ${clickedMenu === item.name ? "animate-pulse" : ""}`}
-                  >
-                    {item.label}
-
-                    {/* Loading spinner for clicked menu */}
-                    {clickedMenu === item.name && isLoading && (
-                      <div className="absolute -top-1 -right-1">
-                        <div className="w-3 h-3 border border-[#D4A574] border-t-transparent rounded-full animate-spin"></div>
-                      </div>
-                    )}
-
-                    {/* ÜÇLÜ DİKEY ÇİZGİ (masaüstü) - Enhanced for desktop */}
-                    {activeMenu === item.name && (
-                      <span className="absolute left-1/2 top-full -translate-x-1/2 mt-2 flex items-end gap-0.5 z-50 transition-all duration-300">
-                        <span className="w-px h-2 bg-white rounded-sm animate-fade-in" />
-                        <span className="w-px h-3 bg-[#D4A574] rounded-sm animate-fade-in delay-75" />
-                        <span className="w-px h-2 bg-white rounded-sm animate-fade-in delay-150" />
-                      </span>
-                    )}
-
-                    {/* Hover preview indicator */}
-                    {hoveredMenu === item.name && activeMenu !== item.name && (
-                      <span className="absolute left-1/2 top-full -translate-x-1/2 mt-2 flex items-end gap-0.5 z-50 transition-all duration-300 opacity-50">
-                        <span className="w-px h-1.5 bg-gray-400 rounded-sm" />
-                        <span className="w-px h-2 bg-[#D4A574] rounded-sm" />
-                        <span className="w-px h-1.5 bg-gray-400 rounded-sm" />
-                      </span>
-                    )}
-                  </a>
-                </div>
-              ))}
-            </div>
-          </nav>
-
-          {/* Contact Info and Search - Enhanced Desktop Layout */}
-          <div className="flex items-center space-x-6 xl:space-x-8">
-            {/* Contact Info with enhanced desktop styling */}
-            <div className="hidden xl:flex items-center space-x-5 2xl:space-x-6 group/contact cursor-pointer">
-              <div className="text-right transition-all duration-300 group-hover/contact:transform group-hover/contact:scale-105">
-                <div className="text-xs 2xl:text-sm text-gray-400 transition-all duration-300 group-hover/contact:text-[#D4A574]">
-                  Call anytime
-                </div>
-                <div className="text-sm 2xl:text-base text-white font-medium transition-all duration-300 group-hover/contact:text-[#D4A574] relative">
-                  +90 (212) 555 0123
-                  {/* Underline effect */}
-                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#D4A574] group-hover/contact:w-full transition-all duration-300"></div>
-                </div>
+          <div className="justify-around flex">
+            <div className="hidden xl:flex items-center space-x-3 mx-4">
+              <div className="bg-[#2f2a27] hover:bg-blue-600 rounded-full p-2 transition-all duration-300 cursor-pointer">
+                <Facebook className="w-5 h-5 text-white" />
               </div>
-              <div className="bg-gray-600 p-3 2xl:p-3.5 rounded-full transition-all duration-300 group-hover/contact:bg-[#D4A574] group-hover/contact:scale-110 group-hover/contact:rotate-12 relative overflow-hidden">
-                <Phone className="w-5 h-5 2xl:w-6 2xl:h-6 text-white transition-all duration-300 group-hover/contact:scale-110 relative z-10" />
-                {/* Pulse effect */}
-                <div className="absolute inset-0 bg-[#D4A574] rounded-full scale-0 group-hover/contact:scale-150 opacity-0 group-hover/contact:opacity-30 transition-all duration-500"></div>
+              <div className="bg-[#2f2a27] hover:bg-pink-500 rounded-full p-2 transition-all duration-300 cursor-pointer">
+                <Instagram className="w-5 h-5 text-white" />
               </div>
             </div>
 
-            
+            <nav className="hidden lg:flex items-center justify-center flex mx-4 xl:mx-8 2xl:mx-12 overflow-hidden">
+              <div className="relative flex items-center justify-center space-x-4 xl:space-x-6 2xl:space-x-8 max-w-full">
+                {menuItems.map((item) => (
+                  <div key={item.name} className="relative flex-shrink-0">
+                    <a
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        handleMenuClick(item.name, item.path)
+                      }}
+                      className={`relative inline-block text-xs xl:text-sm font-medium tracking-wide transition-all duration-300  py-2 px-1 whitespace-nowrap ${activeMenu === item.name ? "text-white" : "text-gray-300 hover:text-white"
+                        } ${clickedMenu === item.name ? "animate-pulse" : ""}`}
+                    >
+                      {item.label}
 
-            {/* Mobile Toggle Button - Enhanced Hover Effects */}
+                      {activeMenu === item.name && (
+                        <div className="absolute flex items-center  flex items-center">
+                          <div className="w-8 h-0.5 bg-[#D4A574]"></div>
+                          <div className="w-1 h-1 bg-gray-400 rounded-full ml-1"></div>
+                        </div>
+                      )}
+
+                      {/* Hover preview indicator */}
+                      {hoveredMenu === item.name && activeMenu !== item.name && (
+                        <span className="absolute left-1/2 top-full -translate-x-1/2 mt-1.5 xl:mt-2 flex items-end gap-0.5 z-50 transition-all duration-300 opacity-50">
+                          <span className="w-px h-1 xl:h-1.5 bg-gray-400 rounded-sm" />
+                          <span className="w-px h-1.5 xl:h-2 bg-[#D4A574] rounded-sm" />
+                          <span className="w-px h-1 xl:h-1.5 bg-gray-400 rounded-sm" />
+                        </span>
+                      )}
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </nav>
+          </div>
+
+
+          {/* Phone Contact Section */}
+          <div className="flex items-center space-x-2 sm:space-x-3 lg:space-x-4 flex-shrink-0">
+            <div className="hidden xl:flex items-center space-x-2 xl:space-x-3 group cursor-pointer">
+              <div className="p-1.5 xl:p-2 rounded-full group-hover:bg-white transition-all duration-300 flex-shrink-0">
+                <PiPhoneCall className="w-5 h-5 xl:w-6 xl:h-6 2xl:w-7 2xl:h-7 text-[#D4A574]" />
+              </div>
+              <div className="text-right min-w-0">
+                <div className="text-xs text-gray-400 group-hover:text-[#D4A574] transition-colors duration-300 whitespace-nowrap">
+                  Bize Ulaşın
+                </div>
+                <div className="text-sm text-white font-medium group-hover:text-[#D4A574] transition-colors duration-300 whitespace-nowrap">
+                  +90 532 333 50 67
+                </div>
+              </div>
+            </div>
+
             <button
-              className="lg:hidden flex flex-col justify-center items-center w-10 h-10 p-2 group/hamburger relative overflow-hidden rounded-lg transition-all duration-300 hover:bg-[#D4A574]/10 active:scale-95"
+              className="lg:hidden flex flex-col justify-center items-center w-10 h-10 sm:w-11 sm:h-11 p-2 group/hamburger relative overflow-hidden rounded-lg transition-all duration-300 hover:bg-[#D4A574]/10 active:scale-95 flex-shrink-0"
               onClick={() => setIsMobileMenuOpen((prev) => !prev)}
               aria-label={isMobileMenuOpen ? "Menüyü kapat" : "Menüyü aç"}
             >
               {isMobileMenuOpen ? (
                 /* Close Icon with Enhanced Animation */
                 <div className="relative">
-                  <X className="w-6 h-6 text-white transition-all duration-300 group-hover/hamburger:text-[#D4A574] group-hover/hamburger:scale-110 group-hover/hamburger:rotate-90" />
+                  <X className="w-5 h-5 sm:w-6 sm:h-6 text-white transition-all duration-300 group-hover/hamburger:text-[#D4A574] group-hover/hamburger:scale-110 group-hover/hamburger:rotate-90" />
                   {/* Pulse effect for close button */}
                   <div className="absolute inset-0 bg-[#D4A574]/20 rounded-full scale-0 group-hover/hamburger:scale-150 transition-all duration-500 opacity-0 group-hover/hamburger:opacity-100"></div>
                 </div>
               ) : (
                 /* Hamburger Lines with Advanced Animations */
-                <div className="relative w-6 h-6 flex flex-col justify-center items-center">
+                <div className="relative w-5 h-5 sm:w-6 sm:h-6 flex flex-col justify-center items-center">
                   {/* Top Line */}
-                  <div className="w-5 h-0.5 bg-white transition-all duration-300 group-hover/hamburger:bg-[#D4A574] group-hover/hamburger:w-6 origin-left group-hover/hamburger:rotate-12 group-hover/hamburger:translate-y-0.5 mb-1"></div>
+                  <div className="w-4 sm:w-5 h-0.5 bg-white transition-all duration-300 group-hover/hamburger:bg-[#D4A574] group-hover/hamburger:w-5 sm:group-hover/hamburger:w-6 origin-left group-hover/hamburger:rotate-12 group-hover/hamburger:translate-y-0.5 mb-1"></div>
 
                   {/* Middle Line */}
-                  <div className="w-5 h-0.5 bg-white transition-all duration-300 group-hover/hamburger:bg-[#D4A574] group-hover/hamburger:w-4 group-hover/hamburger:translate-x-1 group-hover/hamburger:opacity-75 mb-1"></div>
+                  <div className="w-4 sm:w-5 h-0.5 bg-white transition-all duration-300 group-hover/hamburger:bg-[#D4A574] group-hover/hamburger:w-3 sm:group-hover/hamburger:w-4 group-hover/hamburger:translate-x-1 group-hover/hamburger:opacity-75 mb-1"></div>
 
                   {/* Bottom Line */}
-                  <div className="w-5 h-0.5 bg-white transition-all duration-300 group-hover/hamburger:bg-[#D4A574] group-hover/hamburger:w-6 origin-left group-hover/hamburger:-rotate-12 group-hover/hamburger:-translate-y-0.5"></div>
-
-                  {/* Animated Background Circle */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#D4A574]/20 via-[#D4A574]/30 to-[#D4A574]/20 rounded-full scale-0 group-hover/hamburger:scale-100 transition-all duration-500 opacity-0 group-hover/hamburger:opacity-100"></div>
+                  <div className="w-4 sm:w-5 h-0.5 bg-white transition-all duration-300 group-hover/hamburger:bg-[#D4A574] group-hover/hamburger:w-5 sm:group-hover/hamburger:w-6 origin-left group-hover/hamburger:-rotate-12 group-hover/hamburger:-translate-y-0.5"></div>
 
                   {/* Ripple Effect */}
                   <div className="absolute inset-0 border-2 border-[#D4A574]/50 rounded-full scale-0 group-hover/hamburger:scale-125 transition-all duration-700 opacity-0 group-hover/hamburger:opacity-100"></div>
@@ -204,22 +167,21 @@ export function Header() {
                 </div>
               )}
 
-              {/* Tooltip */}
-              <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover/hamburger:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap">
+              <div className="absolute -bottom-8 sm:-bottom-10 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover/hamburger:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-50">
                 {isMobileMenuOpen ? "Kapat" : "Menü"}
               </div>
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu - Enhanced with Slide Animation */}
+        {/* Mobile Menu */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${
-            isMobileMenuOpen ? "max-h-96 opacity-100 mt-4 border-t border-gray-600 pt-4" : "max-h-0 opacity-0 mt-0"
-          }`}
+          className={`lg:hidden w-full overflow-hidden transition-all duration-500 ease-in-out ${isMobileMenuOpen
+              ? "max-h-[80vh] opacity-100 mt-3 sm:mt-4 border-t border-gray-600 pt-3 sm:pt-4"
+              : "max-h-0 opacity-0 mt-0"
+            }`}
         >
-          {/* Menu Links with Stagger Animation */}
-          <nav className="flex flex-col space-y-3">
+          <nav className="flex flex-col space-y-2 sm:space-y-3 max-h-[50vh] overflow-y-auto">
             {menuItems.map((item, index) => (
               <a
                 key={item.name}
@@ -228,70 +190,63 @@ export function Header() {
                   e.preventDefault()
                   handleMenuClick(item.name, item.path)
                 }}
-                className={`block text-sm font-medium py-2 px-2 rounded-lg transition-all duration-300 hover:bg-[#D4A574]/10 hover:translate-x-2 ${
-                  activeMenu === item.name ? "text-white bg-[#D4A574]/20" : "text-gray-300 hover:text-white"
-                } ${isMobileMenuOpen ? "translate-x-0 opacity-100" : "-translate-x-5 opacity-0"}`}
+                className={`block text-sm sm:text-base font-medium py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg transition-all duration-300 hover:bg-[#D4A574]/10 hover:translate-x-2 min-h-[44px] flex items-center ${activeMenu === item.name ? "text-white bg-[#D4A574]/20" : "text-gray-300 hover:text-white"
+                  } ${isMobileMenuOpen ? "translate-x-0 opacity-100" : "-translate-x-5 opacity-0"}`}
                 style={{
                   transitionDelay: isMobileMenuOpen ? `${index * 50}ms` : "0ms",
                 }}
               >
-                {item.label}
+                <span className="flex-1">{item.label}</span>
                 {/* Active indicator */}
                 {activeMenu === item.name && (
-                  <span className="inline-block ml-2 w-2 h-2 bg-[#D4A574] rounded-full animate-pulse"></span>
+                  <span className="inline-block ml-2 w-2 h-2 bg-[#D4A574] rounded-full animate-pulse flex-shrink-0"></span>
                 )}
               </a>
             ))}
           </nav>
 
-          {/* Social Media with Enhanced Hover */}
-          <div className="flex items-center space-x-3 mt-4 pt-4 border-t border-gray-600">
+          <div className="flex items-center space-x-3 sm:space-x-4 mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-600">
             {[
-              { Icon: Twitter, color: "hover:bg-blue-500", name: "Twitter" },
               { Icon: Facebook, color: "hover:bg-blue-600", name: "Facebook" },
-              { Icon: FaPinterest, color: "hover:bg-red-500", name: "Pinterest" },
               { Icon: Instagram, color: "hover:bg-pink-500", name: "Instagram" },
             ].map(({ Icon, color, name }, index) => (
               <div
                 key={index}
-                className={`bg-gray-600 ${color} rounded-full p-2 cursor-pointer hover:scale-125 hover:rotate-12 group/social relative overflow-hidden transition-all duration-300 ${
-                  isMobileMenuOpen ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
-                }`}
+                className={`bg-gray-600 ${color} rounded-full p-2 sm:p-2.5 cursor-pointer hover:scale-125 hover:rotate-12 group/social relative overflow-hidden transition-all duration-300 flex-shrink-0 ${isMobileMenuOpen ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
+                  }`}
                 style={{
                   transitionDelay: isMobileMenuOpen ? `${(index + menuItems.length) * 50}ms` : "0ms",
                 }}
               >
-                <Icon className="w-4 h-4 text-white transition-all duration-300 group-hover/social:scale-110 relative z-10" />
+                <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-white transition-all duration-300 group-hover/social:scale-110 relative z-10" />
                 {/* Ripple effect */}
                 <div className="absolute inset-0 bg-white/20 rounded-full scale-0 group-hover/social:scale-100 transition-transform duration-300"></div>
                 {/* Tooltip */}
-                <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover/social:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap">
+                <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover/social:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-50">
                   {name}
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Phone Info with Enhanced Styling */}
           <div
-            className={`mt-4 pt-4 border-t border-gray-600 group/contact cursor-pointer transition-all duration-300 ${
-              isMobileMenuOpen ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
-            }`}
+            className={`mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-600 group/contact cursor-pointer transition-all duration-300 ${isMobileMenuOpen ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
+              }`}
             style={{
               transitionDelay: isMobileMenuOpen ? `${(menuItems.length + 4) * 50}ms` : "0ms",
             }}
           >
-            <div className="flex items-center space-x-3 p-2 rounded-lg transition-all duration-300 group-hover/contact:bg-[#D4A574]/10 group-hover/contact:translate-x-1">
-              <div className="bg-gray-600 p-2 rounded-full transition-all duration-300 group-hover/contact:bg-[#D4A574] group-hover/contact:scale-110 relative overflow-hidden">
-                <Phone className="w-4 h-4 text-white transition-all duration-300 group-hover/contact:scale-110 relative z-10" />
+            <div className="flex items-center space-x-3 sm:space-x-4 p-2 sm:p-3 rounded-lg transition-all duration-300 group-hover/contact:bg-[#D4A574]/10 group-hover/contact:translate-x-1 min-h-[44px]">
+              <div className="bg-gray-600 p-2 sm:p-2.5 rounded-full transition-all duration-300 group-hover/contact:bg-[#D4A574] group-hover/contact:scale-110 relative overflow-hidden flex-shrink-0">
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-white transition-all duration-300 group-hover/contact:scale-110 relative z-10" />
                 {/* Pulse ring */}
                 <div className="absolute inset-0 border-2 border-[#D4A574] rounded-full scale-100 group-hover/contact:scale-150 opacity-0 group-hover/contact:opacity-100 transition-all duration-500"></div>
               </div>
-              <div className="transition-all duration-300 group-hover/contact:transform group-hover/contact:scale-105">
-                <div className="text-xs text-gray-400 transition-colors duration-300 group-hover/contact:text-[#D4A574]">
+              <div className="transition-all duration-300 group-hover/contact:transform group-hover/contact:scale-105 min-w-0 flex-1">
+                <div className="text-xs sm:text-sm text-gray-400 transition-colors duration-300 group-hover/contact:text-[#D4A574] whitespace-nowrap overflow-hidden text-ellipsis">
                   Her zaman arayın
                 </div>
-                <div className="text-sm text-white font-medium transition-colors duration-300 group-hover/contact:text-[#D4A574]">
+                <div className="text-sm sm:text-base text-white font-medium transition-colors duration-300 group-hover/contact:text-[#D4A574] whitespace-nowrap overflow-hidden text-ellipsis">
                   +90 (212) 555 0123
                 </div>
               </div>
