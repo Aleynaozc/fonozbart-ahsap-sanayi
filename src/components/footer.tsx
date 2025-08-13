@@ -18,7 +18,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="w-full bg-[#3d3d3d] text-white ">
+    <footer className="w-full bg-[#3f3834] text-white ">
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto pt-[112px] pb-[91px] px-0">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">

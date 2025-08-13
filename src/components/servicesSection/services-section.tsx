@@ -110,7 +110,7 @@ export default function ProjectSlider() {
   }, [slidesToShow])
 
   return (
-    <section className={`relative w-full overflow-hidden bg-[#3d3d3d] ${poppins.className} font-normal`}>
+    <section className={`relative w-full overflow-hidden bg-[#3f3834] ${poppins.className} font-normal`}>
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}

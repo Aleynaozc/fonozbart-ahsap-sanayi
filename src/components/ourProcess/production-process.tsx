@@ -69,7 +69,7 @@ export function ProductionProcess() {
                 <div className="w-1 h-1 bg-gray-400 rounded-full ml-1"></div>
               </div>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#3d3d3d] leading-[1.1] font-sans">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#3f3834] leading-[1.1] font-sans">
               4 Adımda Mükemmel Sonuç
             </h2>
 
@@ -84,7 +84,7 @@ export function ProductionProcess() {
                     <div className="flex-1">
                       <div className="flex items-center space-x-3 mb-2">
                         <span className="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs font-bold">{step.id}</span>
-                        <h3 className="text-lg font-bold text-[#3d3d3d]">{step.title}</h3>
+                        <h3 className="text-lg font-bold text-[#3f3834]">{step.title}</h3>
                       </div>
                       <p className={`${cairo.className} text-sm text-gray-600 mb-2`}>{step.description}</p>
                       <p className={`${cairo.className} text-xs text-gray-500 leading-relaxed`}>{step.details}</p>

@@ -93,7 +93,7 @@ export function OurProjects() {
               <div className="w-1 h-1 bg-gray-400 rounded-full ml-1"></div>
             </div>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#3d3d3d] leading-[1.1] font-sans mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#3f3834] leading-[1.1] font-sans mb-6">
             Tamamlanan Çalışmalarımız
           </h2>
           <p className={`${cairo.className} text-sm sm:text-base leading-relaxed text-gray-600 max-w-3xl mx-auto`}>
@@ -141,7 +141,7 @@ export function OurProjects() {
               {/* Project Info */}
               <div className="w-full space-y-2">
                 <div className="text-xs font-medium text-[#D4A574] tracking-[0.2em] uppercase">{project.year}</div>
-                <h3 className="text-base sm:text-lg font-bold text-[#3d3d3d]">{project.title}</h3>
+                <h3 className="text-base sm:text-lg font-bold text-[#3f3834]">{project.title}</h3>
                 <p className={`${cairo.className} text-sm text-gray-600`}>{project.client}</p>
                 <p className={`${cairo.className} text-xs text-gray-500`}>{project.location}</p>
               </div>

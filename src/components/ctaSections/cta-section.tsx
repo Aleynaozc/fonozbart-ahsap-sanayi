@@ -86,7 +86,7 @@ export function CtaSection() {
               </Button>
               <Button
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-[#3d3d3d] px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base font-medium rounded-sm w-full sm:w-auto bg-transparent"
+                className="border-white text-white hover:bg-white hover:text-[#3f3834] px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base font-medium rounded-sm w-full sm:w-auto bg-transparent"
               >
                 Katalog İndir
               </Button>
