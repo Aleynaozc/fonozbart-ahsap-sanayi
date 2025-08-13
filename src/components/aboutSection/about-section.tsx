@@ -14,7 +14,7 @@ export function AboutSection() {
             {/* About Section */}
             <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[400px] sm:min-h-[500px] md:min-h-[600px]">
                 {/* Left Image - Full Size */}
-                <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-auto">
+                <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-auto hidden lg:flex">
                     <Image
                         src="/assets/images/about-sections/about-secion1.jpg"
                         alt="Abstract architectural element"
