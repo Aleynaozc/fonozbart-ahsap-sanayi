@@ -93,7 +93,7 @@ export function OurProjects() {
               <div className="w-1 h-1 bg-gray-400 rounded-full ml-1"></div>
             </div>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#3f3834] leading-[1.1] font-sans mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#333333] leading-[1.1] font-sans mb-6">
             Tamamlanan Çalışmalarımız
           </h2>
           <p className={`${cairo.className} text-sm sm:text-base leading-relaxed text-gray-600 max-w-3xl mx-auto`}>
@@ -141,7 +141,7 @@ export function OurProjects() {
               {/* Project Info */}
               <div className="w-full space-y-2">
                 <div className="text-xs font-medium text-[#D4A574] tracking-[0.2em] uppercase">{project.year}</div>
-                <h3 className="text-base sm:text-lg font-bold text-[#3f3834]">{project.title}</h3>
+                <h3 className="text-base sm:text-lg font-bold text-[#333333]">{project.title}</h3>
                 <p className={`${cairo.className} text-sm text-gray-600`}>{project.client}</p>
                 <p className={`${cairo.className} text-xs text-gray-500`}>{project.location}</p>
               </div>
@@ -151,9 +151,9 @@ export function OurProjects() {
 
         {/* CTA Button */}
         <div className="w-full text-center mt-8 sm:mt-12">
-          <Button className="bg-[#D4A574] hover:bg-[#C19A68] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base font-medium rounded-sm w-full sm:w-auto group">
-            Tüm Projeleri Görüntüle
-            <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+          <Button className="relative overflow-hidden bg-[#4a3e36] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base font-medium rounded-sm w-full sm:w-auto group transition-all duration-500 before:absolute before:top-0 before:left-1/2 before:w-0 before:h-full before:bg-[#533721]  before:transition-all before:duration-500 before:transform before:-translate-x-1/2 hover:before:w-full">
+            <span className="relative z-10 ">Tüm Projeleri Görüntüle</span>
+            <ArrowRight className="relative z-10 ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Button>
         </div>
       </div>

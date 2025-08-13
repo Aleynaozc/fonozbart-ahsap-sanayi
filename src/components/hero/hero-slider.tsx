@@ -60,7 +60,7 @@ export function HeroSlider() {
     <>
   
       <div className="absolute top-0 right-0 z-20">
-       <div className=" flex items-center mt-[80px] mr-2">
+       <div className=" flex items-center mt-[100px] mr-2">
             <ChevronRight className="w-4 h-4 text-[#5f3409] mx-2" />
             <EnhancedAutoBreadcrumb enableSEO={true} showRichSnippets={true} />
           </div>

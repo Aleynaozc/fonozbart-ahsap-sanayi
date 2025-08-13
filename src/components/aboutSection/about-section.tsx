@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Inter, Cairo } from 'next/font/google'
 import Image from "next/image"
+import { ArrowRight } from "lucide-react"
 
 const cairo = Cairo({
     subsets: ['latin'],
@@ -46,9 +47,10 @@ export function AboutSection() {
                                 müşteri odaklı yaklaşımıyla fark yaratmaya devam etmektedir.
                             </p>
                         </div>
-                        <Button className="bg-[#D4A574] hover:bg-[#C19A68] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base font-medium rounded-sm w-full sm:w-auto">
-                            Daha Fazla Bilgi
-                        </Button>
+                       <Button className="relative overflow-hidden bg-[#4a3e36] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base font-medium rounded-sm w-full sm:w-auto group transition-all duration-500 before:absolute before:top-0 before:left-1/2 before:w-0 before:h-full before:bg-[#533721] before:transition-all before:duration-500 before:transform before:-translate-x-1/2 hover:before:w-full">
+               <span className="relative z-10">Daha Fazla Bilgi</span>
+              <ArrowRight className="relative z-10 ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Button>
                     </div>
                 </div>
             </div>

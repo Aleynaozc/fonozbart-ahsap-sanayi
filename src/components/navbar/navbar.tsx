@@ -53,7 +53,7 @@ export function Header() {
   }
 
   return (
-    <header className="bg-[#3f3834] fixed top-0 left-0 right-0 z-50 transition-all duration-300 shadow-lg w-full">
+    <header className="bg-[#333333] fixed top-0 left-0 right-0 z-50 transition-all duration-300 shadow-lg w-full">
       <div className="w-full px-4 lg:px-8 py-4"  >
         <div className="hidden lg:flex items-center justify-around w-full">
           {/* Logo Section */}
@@ -73,11 +73,13 @@ export function Header() {
           </div>
           <div className="justify-around flex">
             <div className="hidden xl:flex items-center space-x-3 mx-4">
-              <div className="bg-[#2f2a27] hover:bg-blue-600 rounded-full p-2 transition-all duration-300 cursor-pointer">
-                <Facebook className="w-5 h-5 text-white" />
+              <div className="relative bg-[#2f2a27] rounded-full p-2 cursor-pointer group overflow-hidden transition-all duration-300">
+                <div className="absolute inset-0 bg-white transform -translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out rounded-full"></div>
+                <Facebook className="w-5 h-5 text-white group-hover:text-[#2f2a27] transition-colors duration-700 relative z-10" />
               </div>
-              <div className="bg-[#2f2a27] hover:bg-pink-500 rounded-full p-2 transition-all duration-300 cursor-pointer">
-                <Instagram className="w-5 h-5 text-white" />
+              <div className="relative bg-[#2f2a27] rounded-full p-2 cursor-pointer group overflow-hidden transition-all duration-300">
+                <div className="absolute inset-0 bg-white transform -translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out rounded-full"></div>
+                <Instagram className="w-5 h-5 text-white group-hover:text-[#2f2a27] transition-colors duration-700 relative z-10" />
               </div>
             </div>
 
@@ -98,7 +100,7 @@ export function Header() {
 
                       {activeMenu === item.name && (
                         <div className="absolute flex items-center  flex items-center">
-                          <div className="w-8 h-0.5 bg-[#D4A574]"></div>
+                          <div className="w-8 h-0.5 bg-[#9c7256]"></div>
                           <div className="w-1 h-1 bg-gray-400 rounded-full ml-1"></div>
                         </div>
                       )}
@@ -107,7 +109,7 @@ export function Header() {
                       {hoveredMenu === item.name && activeMenu !== item.name && (
                         <span className="absolute left-1/2 top-full -translate-x-1/2 mt-1.5 xl:mt-2 flex items-end gap-0.5 z-50 transition-all duration-300 opacity-50">
                           <span className="w-px h-1 xl:h-1.5 bg-gray-400 rounded-sm" />
-                          <span className="w-px h-1.5 xl:h-2 bg-[#D4A574] rounded-sm" />
+                          <span className="w-px h-1.5 xl:h-2 bg-[#9c7256] rounded-sm" />
                           <span className="w-px h-1 xl:h-1.5 bg-gray-400 rounded-sm" />
                         </span>
                       )}
@@ -207,8 +209,8 @@ export function Header() {
 
           <div className="flex items-center space-x-3 sm:space-x-4 mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-600">
             {[
-              { Icon: Facebook, color: "hover:bg-blue-600", name: "Facebook" },
-              { Icon: Instagram, color: "hover:bg-pink-500", name: "Instagram" },
+              { Icon: Facebook, color: "hover:bg-[#2f2a27]", name: "Facebook" },
+              { Icon: Instagram, color: "hover:bg-[#2f2a27]", name: "Instagram" },
             ].map(({ Icon, color, name }, index) => (
               <div
                 key={index}

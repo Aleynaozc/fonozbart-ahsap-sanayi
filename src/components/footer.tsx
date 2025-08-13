@@ -18,7 +18,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="w-full bg-[#3f3834] text-white ">
+    <footer className="w-full bg-[#333333] text-white ">
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto pt-[112px] pb-[91px] px-0">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -29,9 +29,9 @@ export function Footer() {
               <Image
                 src="/assets/images/footer-logo.png"
                 alt="FNZ Mobilya Logo"
-                width={180}
+                width={2300}
                 height={70}
-                className="object-contain"
+                className="object-contain mx-4"
               />
             </div>
             <p className={`${rubik.className} text-md text-[#c1b8b3] mb-6 leading-relaxed`}>
@@ -40,14 +40,16 @@ export function Footer() {
 
             {/* Social Media */}
             <div className="flex space-x-3">
-              {[Twitter, Facebook, Instagram].map((Icon, index) => (
-                <div
-                  key={index}
-                  className="w-8 h-8 flex items-center justify-center rounded-full bg-black hover:bg-[#D4A574] transition-colors duration-300 cursor-pointer"
-                >
-                  <Icon className="w-4 h-4 text-white" />
-                </div>
-              ))}
+              <div className="hidden xl:flex items-center space-x-3 mx-4">
+              <div className="relative bg-[#2f2a27] rounded-full p-2 cursor-pointer group overflow-hidden transition-all duration-300">
+                <div className="absolute inset-0 bg-white transform -translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out rounded-full"></div>
+                <Facebook className="w-5 h-5 text-white group-hover:text-[#2f2a27] transition-colors duration-700 relative z-10" />
+              </div>
+              <div className="relative bg-[#2f2a27] rounded-full p-2 cursor-pointer group overflow-hidden transition-all duration-300">
+                <div className="absolute inset-0 bg-white transform -translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out rounded-full"></div>
+                <Instagram className="w-5 h-5 text-white group-hover:text-[#2f2a27] transition-colors duration-700 relative z-10" />
+              </div>
+            </div>
             </div>
           </div>
 
