@@ -12,10 +12,21 @@ const cairo = Cairo({
 
 export function CtaSection() {
   return (
-    <section className="w-full py-0">
+    <section className=" w-full py-0">
+      {/* Arka plan */}
+
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 min-h-[400px] sm:min-h-[500px] md:min-h-[600px]">
         {/* Left Content */}
-        <div className="w-full flex items-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 md:py-16 bg-[#3d3d3d]">
+        <div className="relative w-full flex items-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 md:py-16 ">
+          <div
+            className="absolute top-0 left-0 right-0 h-[578px] bg-no-repeat bg-cover bg-center opacity-[1] -z-[10]"
+            style={{
+              backgroundColor: "#f2eeeb",
+              backgroundImage: "url('/assets/images/cta-bg.jpg')",
+              backgroundBlendMode: "luminosity",
+            }}
+          ></div>
+
           <div className="w-full space-y-4 sm:space-y-6 md:space-y-8 max-w-3xl">
             <div>
               <div className="text-xs sm:text-sm font-medium text-[#D4A574] tracking-[0.2em] uppercase mb-2">

@@ -1,12 +1,15 @@
 "use client"
 
-import { Cairo } from "next/font/google"
-import { Facebook, Instagram, Twitter, Phone, Mail, MapPin, ArrowUp } from "lucide-react"
+import { Rubik } from "next/font/google"
+import { Facebook, Instagram, Twitter, Mail, MapPin, ArrowUp } from "lucide-react"
 import Image from "next/image"
+import { LuPhoneCall } from "react-icons/lu"
+import { CiLocationOn, CiMail } from "react-icons/ci"
 
-const cairo = Cairo({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+const rubik = Rubik({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  variable: '--font-rubik',
 })
 
 export function Footer() {
@@ -15,23 +18,23 @@ export function Footer() {
   }
 
   return (
-    <footer className="w-full bg-[#2b2624] text-white">
+    <footer className="w-full bg-[#3d3d3d] text-white ">
       {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto pt-[112px] pb-[91px] px-0">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          
+
           {/* Company Info */}
           <div>
             <div className="flex items-center mb-6">
               <Image
                 src="/assets/images/footer-logo.png"
                 alt="FNZ Mobilya Logo"
-                width={150}
-                height={50}
+                width={180}
+                height={70}
                 className="object-contain"
               />
             </div>
-            <p className={`${cairo.className} text-sm text-gray-300 mb-6 leading-relaxed`}>
+            <p className={`${rubik.className} text-md text-[#c1b8b3] mb-6 leading-relaxed`}>
               Müşterilerimizin hayallerini gerçeğe dönüştürmek ve sektörde yeni standartlar oluşturmak için tutkuyla çalışıyoruz.
             </p>
 
@@ -49,18 +52,20 @@ export function Footer() {
           </div>
 
           {/* Explore */}
-          <div>
-            <h3 className="text-lg font-bold mb-2">Hızlı Linkler</h3>
+          <div className="relative block ml-[70px]">
+            <h3 className="relative inline-block text-[20px] text-white font-bold leading-[30px] mb-[5px]">
+              Hızlı Linkler
+            </h3>
             <div className="flex items-center mb-6">
               <div className="w-8 h-0.5 bg-[#D4A574]"></div>
               <div className="w-1 h-1 bg-white rounded-full ml-1"></div>
             </div>
-            <ul className="space-y-3">
-              {["Hakkımızda", "Hizmetlerimiz", "Projelerimiz", "Referanslar", "İletişim"].map((item, i) => (
+            <ul className="space-y-3 relative block pl-0 list-none">
+              {["Hakkımızda", "Hizmetlerimiz", "Projelerimiz", "Referanslar", "İletişim", "Blog"].map((item, i) => (
                 <li key={i}>
                   <a
                     href="#"
-                    className={`${cairo.className} text-sm text-gray-300 hover:text-white transition-colors duration-300 flex items-center`}
+                    className={`${rubik.className} font-normal leading-[30px] relative inline-block text-[16px] text-[#c1b8b3] transition-all duration-500 ease-in-out hover:text-white transition-colors duration-300 flex items-center`}
                   >
                     <span className="mr-2">›</span>
                     {item}
@@ -71,8 +76,10 @@ export function Footer() {
           </div>
 
           {/* Services */}
-          <div>
-            <h3 className="text-lg font-bold mb-2">Hizmetlerimiz</h3>
+          <div className="relative block">
+            <h3 className="relative inline-block text-[20px] text-white font-bold leading-[30px] mb-[5px]">
+              Hizmetlerimiz
+            </h3>
             <div className="flex items-center mb-6">
               <div className="w-8 h-0.5 bg-[#D4A574]"></div>
               <div className="w-1 h-1 bg-white rounded-full ml-1"></div>
@@ -83,7 +90,7 @@ export function Footer() {
                   <li key={i}>
                     <a
                       href="#"
-                      className={`${cairo.className} text-sm text-gray-300 hover:text-white transition-colors duration-300 flex items-center`}
+                      className={`${rubik.className} font-normal leading-[30px] relative inline-block text-[16px] text-[#c1b8b3] transition-all duration-500 ease-in-out hover:text-white transition-colors duration-300 flex items-center`}
                     >
                       <span className="mr-2">›</span>
                       {item}
@@ -95,48 +102,55 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
-            <h3 className="text-lg font-bold mb-2">İletişim</h3>
+          <div className="relative block">
+            <h3 className="relative inline-block text-[20px] text-white font-bold leading-[30px] mb-[5px]">
+              İletişim
+            </h3>
             <div className="flex items-center mb-6">
               <div className="w-8 h-0.5 bg-[#D4A574]"></div>
               <div className="w-1 h-1 bg-white rounded-full ml-1"></div>
             </div>
-            <div className="space-y-5">
-              <div className="flex items-start space-x-3">
-                <div className="bg-black p-2 rounded-full">
-                  <Phone className="w-4 h-4 text-white" />
+            <ul className="relative block mt-[9px] list-none">
+              <li className="flex border-b border-white/10 mb-[20px] pb-[9px]">
+                <div className=" h-[40px] w-[40px] bg-[#2f2a27] rounded-full flex items-center justify-center transition-all duration-500 ease-in-out">
+                  <span className="icon-phone-call text-[22px] text-[#a47c68] relative inline-block font-icomoon">
+                    <LuPhoneCall />
+                  </span>
                 </div>
-                <div>
-                  <p className={`${cairo.className} text-xs text-gray-400`}>Hemen arayın</p>
-                  <a
-                    href="tel:+905323335067"
-                    className="text-sm font-medium"
-                  >
-                    +90 532 333 50 67
-                  </a>
+                <div className="text ml-[15px] relative top-[-1px]">
+                  <h5 className="text-[14px] text-[#c1b8b3] font-normal leading-[14px]">Telefon </h5>
+                  <p className="text-[16px] font-medium text-white pt-[4px]">
+                    <a href="tel:980009630">+90 532 333 50 67</a>
+                  </p>
                 </div>
-              </div>
+              </li>
 
-              <div className="flex items-start space-x-3">
-                <div className="bg-black p-2 rounded-full">
-                  <Mail className="w-4 h-4 text-white" />
+              <li className="flex border-b border-white/10 mb-[20px] pb-[9px]">
+                <div className="icon h-[40px] w-[40px] bg-[#2f2a27] rounded-full flex items-center justify-center transition-all duration-500 ease-in-out">
+                  <span className="icon-message text-[22px] text-[#a47c68] relative inline-block font-icomoon">
+                  <CiMail /> 
+                  </span>
                 </div>
-                <div>
-                  <p className={`${cairo.className} text-xs text-gray-400`}>Mail</p>
-                  <p className="text-sm font-medium">fonozbart@hotmail.com</p>
+                <div className="text ml-[15px] relative top-[-1px]">
+                  <h5 className="text-[14px] text-[#c1b8b3] font-normal leading-[14px]">E-Mail</h5>
+                  <p className="text-[16px] font-medium text-white pt-[4px]">
+                    <a href="mailto:ambed@company.com">fonozbart@hotmail.com</a>
+                  </p>
                 </div>
-              </div>
+              </li>
 
-              <div className="flex items-start space-x-3">
-                <div className="bg-black p-2 rounded-full">
-                  <MapPin className="w-4 h-4 text-white" />
+              <li className="flex  border-white/10 mb-[20px] pb-[9px]">
+                <div className="icon h-[40px] w-[40px] bg-[#2f2a27] rounded-full flex items-center justify-center transition-all duration-500 ease-in-out">
+                  <span className="icon-location text-[22px] text-[#a47c68] relative inline-block font-icomoon">
+                    <CiLocationOn />
+                  </span>
                 </div>
-                <div>
-                  <p className={`${cairo.className} text-xs text-gray-400`}>Adres</p>
-                  <p className="text-sm font-medium">Marmaris, Muğla, Türkiye</p>
+                <div className="text ml-[15px] relative top-[-1px]">
+                  <h5 className="text-[14px] text-[#c1b8b3] font-normal leading-[14px]">Adres</h5>
+                  <p className="text-[16px] font-medium text-white pt-[4px]">Marmaris, Muğla</p>
                 </div>
-              </div>
-            </div>
+              </li>
+            </ul>
           </div>
 
         </div>
@@ -145,7 +159,7 @@ export function Footer() {
       {/* Bottom Bar */}
       <div className="bg-[#231f1e] py-4">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between">
-          <p className={`${cairo.className} text-sm text-gray-400`}>
+          <p className={`${rubik.className} text-sm text-gray-400`}>
             © Copyright 2025 by FNZ Mobilya Template
           </p>
           <button
