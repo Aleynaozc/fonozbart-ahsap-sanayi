@@ -35,13 +35,13 @@ export function PageTransition({ children }: PageTransitionProps) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-white/80 backdrop-blur-sm z-50 flex items-center justify-center"
+              className="fixed inset-0 bg-[#2b2624]/80 backdrop-blur-sm z-50 flex items-center justify-center"
             >
               <div className="text-center">
                 {/* Spinning loader */}
                 <div className="relative w-16 h-16 mx-auto mb-4">
                   <div className="absolute inset-0 border-4 border-gray-200 rounded-full"></div>
-                  <div className="absolute inset-0 border-4 border-[#D4A574] rounded-full border-t-transparent animate-spin"></div>
+                  <div className="absolute inset-0 border-4 border-[#cb7315] rounded-full border-t-transparent animate-spin"></div>
                 </div>
               </div>
             </motion.div>

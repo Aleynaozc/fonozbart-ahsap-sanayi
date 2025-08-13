@@ -1,6 +1,6 @@
 "use client"
 
-import { Facebook, Instagram, Phone, Search, Twitter, X } from "lucide-react"
+import { Facebook, Instagram, Phone,  Twitter, X } from "lucide-react"
 import { FaPinterest } from "react-icons/fa"
 import Image from "next/image"
 import { useState, useRef, useEffect } from "react"
@@ -65,12 +65,11 @@ export function Header() {
                 <Image
                   src="/assets/images/footer-logo.png"
                   alt="FNZ Mobilya Logo"
-                  width={120}
+                  width={230}
                   height={60}
-                  className="object-contain transition-all duration-500 group-hover/logo:scale-110 group-hover/logo:brightness-110 lg:w-[140px] lg:h-[70px] xl:w-[160px] xl:h-[80px]"
+                  className="object-contain"
                 />
-                {/* Subtle glow effect on hover */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#D4A574]/0 via-[#D4A574]/20 to-[#D4A574]/0 opacity-0 group-hover/logo:opacity-100 transition-opacity duration-500 blur-xl"></div>
+                
               </div>
             </div>
 
@@ -110,7 +109,7 @@ export function Header() {
                       e.preventDefault()
                       handleMenuClick(item.name, item.path)
                     }}
-                    className={`relative inline-block text-sm font-medium tracking-wide transition-all duration-300 hover:scale-105 py-2 sm:py-3 ${
+                    className={`relative inline-block text-sm font-medium tracking-wide transition-all duration-300  py-2 sm:py-3 ${
                       activeMenu === item.name ? "text-white" : "text-gray-300 hover:text-white"
                     } ${clickedMenu === item.name ? "animate-pulse" : ""}`}
                   >
@@ -167,18 +166,7 @@ export function Header() {
               </div>
             </div>
 
-            {/* Search Icon with enhanced desktop styling */}
-            <div className="bg-gray-600 hover:bg-[#D4A574] rounded-full p-2.5 xl:p-3 2xl:p-3.5 transition-all duration-300 cursor-pointer hover:scale-125 hover:rotate-12 group/search relative overflow-hidden hover:shadow-lg hover:shadow-[#D4A574]/50">
-              <Search className="w-4 h-4 xl:w-5 xl:h-5 2xl:w-6 2xl:h-6 text-white transition-all duration-300 group-hover/search:scale-110 relative z-10" />
-              {/* Rotating border effect */}
-              <div className="absolute inset-0 border-2 border-[#D4A574] rounded-full scale-0 group-hover/search:scale-100 transition-transform duration-300 opacity-0 group-hover/search:opacity-100"></div>
-              {/* Ripple effect */}
-              <div className="absolute inset-0 bg-[#D4A574]/30 rounded-full scale-0 group-hover/search:scale-150 transition-transform duration-500"></div>
-              {/* Tooltip */}
-              <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs px-3 py-1.5 rounded opacity-0 group-hover/search:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap">
-                Ara
-              </div>
-            </div>
+            
 
             {/* Mobile Toggle Button - Enhanced Hover Effects */}
             <button

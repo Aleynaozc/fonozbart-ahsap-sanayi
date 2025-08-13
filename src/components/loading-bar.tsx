@@ -4,6 +4,8 @@ import { useLoading } from "@/hooks/use-loading"
 
 
 
+
+
 export function LoadingBar() {
   const { isLoading, loadingProgress } = useLoading()
 
@@ -22,14 +24,7 @@ export function LoadingBar() {
         </div>
       </div>
 
-      {/* Pulse indicator */}
-      <div className="fixed top-2 right-4 z-[60]">
-        <div className="flex items-center space-x-2">
-          <div className="w-2 h-2 bg-[#D4A574] rounded-full animate-pulse"></div>
-          <div className="w-2 h-2 bg-[#D4A574] rounded-full animate-pulse delay-75"></div>
-          <div className="w-2 h-2 bg-[#D4A574] rounded-full animate-pulse delay-150"></div>
-        </div>
-      </div>
+     
 
       <style jsx>{`
         @keyframes shimmer {
