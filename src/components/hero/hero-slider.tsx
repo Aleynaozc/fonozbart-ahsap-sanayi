@@ -58,12 +58,11 @@ export function HeroSlider() {
 
   return (
     <>
-  
       <div className="absolute top-0 right-0 z-20">
-       <div className=" flex items-center mt-[100px] mr-2">
-            <ChevronRight className="w-4 h-4 text-[#5f3409] mx-2" />
-            <EnhancedAutoBreadcrumb enableSEO={true} showRichSnippets={true} />
-          </div>
+        <div className=" flex items-center mt-[100px] mr-2">
+          <ChevronRight className="w-4 h-4 text-[#5f3409] mx-2" />
+          <EnhancedAutoBreadcrumb enableSEO={true} showRichSnippets={true} />
+        </div>
       </div>
 
       <div className="relative w-full overflow-hidden min-h-[60vh] sm:min-h-[70vh] md:min-h-screen">
@@ -84,7 +83,7 @@ export function HeroSlider() {
               priority
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-transparent sm:from-black/40 sm:via-black/25 lg:from-black/30 lg:via-black/20" />
+            <div className="absolute inset-0 bg-[rgba(0,0,0,0.5)]" />
             <motion.div
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -145,11 +144,10 @@ export function HeroSlider() {
                 setCurrentSlide(index)
               }}
               aria-label={`Slayt ${index + 1}`}
-              className={`rounded-full transition-all duration-300 hover:scale-110 active:scale-95 ${
-                index === currentSlide
+              className={`rounded-full transition-all duration-300 hover:scale-110 active:scale-95 ${index === currentSlide
                   ? "bg-[#D4A574] w-6 h-2.5 sm:w-8 sm:h-3 md:w-10 md:h-4"
                   : "bg-white/50 hover:bg-white/75 w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4"
-              }`}
+                }`}
             />
           ))}
         </div>

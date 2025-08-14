@@ -13,13 +13,14 @@ import { CtaSection } from "@/components/ctaSections/cta-section"
 import { Header } from "@/components/navbar/navbar"
 import { OurProjects } from "@/components/ourProject/our-projects-section"
 import { ProductionProcess } from "@/components/ourProcess/production-process"
+import { HeroSlider2 } from "@/components/hero/hero-slider2"
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
       <Header />
       {/* Hero Section */}
-      <HeroSlider />
+      <HeroSlider2 />
 
       {/* About Section */}
       <AboutSection />

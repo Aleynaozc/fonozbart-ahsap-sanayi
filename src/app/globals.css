@@ -5,8 +5,49 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-cairo);
   --font-mono: var(--font-geist-mono);
+
+  /* Dinamik renk sistemi için genişletilmiş CSS değişkenleri */
+
+  /* Marka renkleri */
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-secondary: var(--brand-secondary);
+  --color-brand-accent: var(--brand-accent);
+
+  /* Sıcak kahverengi tonları */
+  --color-warm-50: var(--warm-50);
+  --color-warm-100: var(--warm-100);
+  --color-warm-200: var(--warm-200);
+  --color-warm-300: var(--warm-300);
+  --color-warm-400: var(--warm-400);
+  --color-warm-500: var(--warm-500);
+  --color-warm-600: var(--warm-600);
+  --color-warm-700: var(--warm-700);
+  --color-warm-800: var(--warm-800);
+  --color-warm-900: var(--warm-900);
+
+  /* Nötr renkler */
+  --color-neutral-white: var(--neutral-white);
+  --color-neutral-black: var(--neutral-black);
+  --color-neutral-gray-50: var(--neutral-gray-50);
+  --color-neutral-gray-100: var(--neutral-gray-100);
+  --color-neutral-gray-200: var(--neutral-gray-200);
+  --color-neutral-gray-300: var(--neutral-gray-300);
+  --color-neutral-gray-400: var(--neutral-gray-400);
+  --color-neutral-gray-500: var(--neutral-gray-500);
+  --color-neutral-gray-600: var(--neutral-gray-600);
+  --color-neutral-gray-700: var(--neutral-gray-700);
+  --color-neutral-gray-800: var(--neutral-gray-800);
+  --color-neutral-gray-900: var(--neutral-gray-900);
+
+  /* Durum renkleri */
+  --color-status-success: var(--status-success);
+  --color-status-warning: var(--status-warning);
+  --color-status-error: var(--status-error);
+  --color-status-info: var(--status-info);
+
+  /* Mevcut sistem renkleri */
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -44,72 +85,344 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.141 0.005 285.823);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.141 0.005 285.823);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.141 0.005 285.823);
-  --primary: oklch(0.21 0.006 285.885);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.967 0.001 286.375);
-  --secondary-foreground: oklch(0.21 0.006 285.885);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.21 0.006 285.885);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.705 0.015 286.067);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-primary: oklch(0.21 0.006 285.885);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.705 0.015 286.067);
+
+  /* Dinamik renk değişkenleri tanımlandı */
+
+  /* Marka renkleri */
+  --brand-primary: oklch(0.68 0.18 45);
+  --brand-secondary: oklch(0.75 0.15 45);
+  --brand-accent: oklch(0.6 0.2 50);
+
+  /* Sıcak kahverengi tonları */
+  --warm-50: oklch(0.98 0.005 30);
+  --warm-100: oklch(0.95 0.01 30);
+  --warm-200: oklch(0.9 0.015 30);
+  --warm-300: oklch(0.8 0.02 30);
+  --warm-400: oklch(0.6 0.025 30);
+  --warm-500: oklch(0.4 0.03 30);
+  --warm-600: oklch(0.32 0.025 30);
+  --warm-700: oklch(0.28 0.02 30);
+  --warm-800: oklch(0.22 0.02 30);
+  --warm-900: oklch(0.18 0.02 30);
+
+  /* Nötr renkler */
+  --neutral-white: oklch(1 0 0);
+  --neutral-black: oklch(0.15 0.01 30);
+  --neutral-gray-50: oklch(0.98 0.002 30);
+  --neutral-gray-100: oklch(0.96 0.005 30);
+  --neutral-gray-200: oklch(0.9 0.01 30);
+  --neutral-gray-300: oklch(0.8 0.01 30);
+  --neutral-gray-400: oklch(0.7 0.01 30);
+  --neutral-gray-500: oklch(0.5 0.01 30);
+  --neutral-gray-600: oklch(0.4 0.01 30);
+  --neutral-gray-700: oklch(0.3 0.01 30);
+  --neutral-gray-800: oklch(0.2 0.01 30);
+  --neutral-gray-900: oklch(0.15 0.01 30);
+
+  /* Durum renkleri */
+  --status-success: oklch(0.6 0.15 140);
+  --status-warning: oklch(0.7 0.15 70);
+  --status-error: oklch(0.6 0.2 15);
+  --status-info: oklch(0.6 0.15 220);
+
+  /* Mevcut sistem renkleri (dinamik renklerle güncellendi) */
+  --background: var(--neutral-white);
+  --foreground: var(--warm-900);
+  --card: var(--neutral-white);
+  --card-foreground: var(--warm-900);
+  --popover: var(--neutral-white);
+  --popover-foreground: var(--warm-900);
+  --primary: var(--brand-primary);
+  --primary-foreground: var(--neutral-white);
+  --secondary: var(--warm-100);
+  --secondary-foreground: var(--warm-900);
+  --muted: var(--neutral-gray-100);
+  --muted-foreground: var(--neutral-gray-500);
+  --accent: var(--brand-secondary);
+  --accent-foreground: var(--neutral-white);
+  --destructive: var(--status-error);
+  --border: var(--warm-200);
+  --input: var(--warm-100);
+  --ring: var(--brand-primary);
+  --chart-1: var(--brand-primary);
+  --chart-2: var(--brand-secondary);
+  --chart-3: var(--warm-600);
+  --chart-4: var(--brand-accent);
+  --chart-5: var(--status-warning);
+  --sidebar: var(--neutral-white);
+  --sidebar-foreground: var(--warm-900);
+  --sidebar-primary: var(--brand-primary);
+  --sidebar-primary-foreground: var(--neutral-white);
+  --sidebar-accent: var(--warm-100);
+  --sidebar-accent-foreground: var(--warm-900);
+  --sidebar-border: var(--warm-200);
+  --sidebar-ring: var(--brand-primary);
+  --font-cairo: "Cairo", sans-serif;
 }
 
 .dark {
-  --background: oklch(0.141 0.005 285.823);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.21 0.006 285.885);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.21 0.006 285.885);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.92 0.004 286.32);
-  --primary-foreground: oklch(0.21 0.006 285.885);
-  --secondary: oklch(0.274 0.006 286.033);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.274 0.006 286.033);
-  --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.552 0.016 285.938);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.21 0.006 285.885);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.552 0.016 285.938);
+  /* Karanlık mod için dinamik renkler */
+  --background: var(--warm-900);
+  --foreground: var(--warm-100);
+  --card: var(--warm-800);
+  --card-foreground: var(--warm-100);
+  --popover: var(--warm-800);
+  --popover-foreground: var(--warm-100);
+  --primary: var(--brand-primary);
+  --primary-foreground: var(--warm-900);
+  --secondary: var(--warm-700);
+  --secondary-foreground: var(--warm-100);
+  --muted: var(--warm-700);
+  --muted-foreground: var(--warm-400);
+  --accent: var(--brand-secondary);
+  --accent-foreground: var(--warm-900);
+  --destructive: var(--status-error);
+  --border: var(--warm-600);
+  --input: var(--warm-700);
+  --ring: var(--brand-primary);
+  --chart-1: var(--brand-primary);
+  --chart-2: var(--brand-secondary);
+  --chart-3: var(--warm-600);
+  --chart-4: var(--brand-accent);
+  --chart-5: var(--status-warning);
+  --sidebar: var(--warm-800);
+  --sidebar-foreground: var(--warm-100);
+  --sidebar-primary: var(--brand-primary);
+  --sidebar-primary-foreground: var(--warm-900);
+  --sidebar-accent: var(--warm-700);
+  --sidebar-accent-foreground: var(--warm-100);
+  --sidebar-border: var(--warm-600);
+  --sidebar-ring: var(--brand-primary);
 }
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Genişletilmiş yardımcı sınıflar */
+
+/* Marka renkleri için yardımcı sınıflar */
+.text-brand-primary {
+  color: var(--brand-primary);
+}
+.bg-brand-primary {
+  background-color: var(--brand-primary);
+}
+.border-brand-primary {
+  border-color: var(--brand-primary);
+}
+
+.text-brand-secondary {
+  color: var(--brand-secondary);
+}
+.bg-brand-secondary {
+  background-color: var(--brand-secondary);
+}
+.border-brand-secondary {
+  border-color: var(--brand-secondary);
+}
+
+.text-brand-accent {
+  color: var(--brand-accent);
+}
+.bg-brand-accent {
+  background-color: var(--brand-accent);
+}
+.border-brand-accent {
+  border-color: var(--brand-accent);
+}
+
+/* Sıcak tonlar için yardımcı sınıflar */
+.text-warm-50 {
+  color: var(--warm-50);
+}
+.bg-warm-50 {
+  background-color: var(--warm-50);
+}
+.text-warm-100 {
+  color: var(--warm-100);
+}
+.bg-warm-100 {
+  background-color: var(--warm-100);
+}
+.text-warm-200 {
+  color: var(--warm-200);
+}
+.bg-warm-200 {
+  background-color: var(--warm-200);
+}
+.text-warm-300 {
+  color: var(--warm-300);
+}
+.bg-warm-300 {
+  background-color: var(--warm-300);
+}
+.text-warm-400 {
+  color: var(--warm-400);
+}
+.bg-warm-400 {
+  background-color: var(--warm-400);
+}
+.text-warm-500 {
+  color: var(--warm-500);
+}
+.bg-warm-500 {
+  background-color: var(--warm-500);
+}
+.text-warm-600 {
+  color: var(--warm-600);
+}
+.bg-warm-600 {
+  background-color: var(--warm-600);
+}
+.text-warm-700 {
+  color: var(--warm-700);
+}
+.bg-warm-700 {
+  background-color: var(--warm-700);
+}
+.text-warm-800 {
+  color: var(--warm-800);
+}
+.bg-warm-800 {
+  background-color: var(--warm-800);
+}
+.text-warm-900 {
+  color: var(--warm-900);
+}
+.bg-warm-900 {
+  background-color: var(--warm-900);
+}
+
+/* Durum renkleri için yardımcı sınıflar */
+.text-status-success {
+  color: var(--status-success);
+}
+.bg-status-success {
+  background-color: var(--status-success);
+}
+.text-status-warning {
+  color: var(--status-warning);
+}
+.bg-status-warning {
+  background-color: var(--status-warning);
+}
+.text-status-error {
+  color: var(--status-error);
+}
+.bg-status-error {
+  background-color: var(--status-error);
+}
+.text-status-info {
+  color: var(--status-info);
+}
+.bg-status-info {
+  background-color: var(--status-info);
+}
+
+/* Gradyan yardımcıları */
+.bg-brand-gradient {
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+}
+
+.bg-warm-gradient {
+  background: linear-gradient(135deg, var(--warm-700), var(--warm-900));
+}
+
+/* Gölge efektleri */
+.shadow-brand {
+  box-shadow: 0 4px 14px 0 var(--brand-primary);
+  opacity: 0.3;
+}
+
+.shadow-warm {
+  box-shadow: 0 4px 14px 0 var(--warm-800);
+  opacity: 0.2;
+}
+
+/* Mevcut animasyonlar ve stiller */
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  25% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  75% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+.animate-heartbeat {
+  animation: heartbeat 2s infinite;
+}
+
+a:hover .icon {
+  animation: heartbeat 2s infinite;
+}
+
+.detailcontent .textdetail {
+  font-weight: 500;
+  margin-bottom: 30px;
+  line-height: 2;
+  letter-spacing: 0.3px;
+  font-style: normal;
+  color: var(--neutral-gray-600);
+}
+
+.section-gradient::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(0deg, var(--warm-800), var(--warm-800));
+  opacity: 0.3;
+  transition: all .1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  z-index: 20;
+}
+
+/* Güncellenmiş scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brand-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-accent);
+}
+
+/* Logo gölgesi */
+.logo-shadow {
+  filter: drop-shadow(0 4px 8px var(--brand-primary));
+  opacity: 0.3;
+}
+
 
 @layer base {
   * {
@@ -141,10 +454,6 @@
     transform: scale(1);
     opacity: 0.7;
   }
-}
-
-.animate-heartbeat {
-  animation: heartbeat 2s infinite;
 }
 
 a:hover .icon {
