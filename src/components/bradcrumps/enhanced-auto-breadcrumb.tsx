@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { ChevronRight, Home } from "lucide-react"
+import { ChevronRight} from "lucide-react"
 import { Cairo } from "next/font/google"
 import { useBreadcrumb } from "@/hooks/use-breadcrumb"
 import { SEOBreadcrumb } from "./seo-breadcrumb"

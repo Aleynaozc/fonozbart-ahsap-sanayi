@@ -1,6 +1,5 @@
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Inter, Cairo } from 'next/font/google'
+import { Cairo } from 'next/font/google'
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
 

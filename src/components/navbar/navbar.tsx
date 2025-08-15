@@ -89,7 +89,7 @@ export function Header() {
   }
 
   return (
-    <header className="bg-[#333333] fixed top-0 left-0 right-0 z-50 transition-all duration-300 shadow-lg w-full">
+    <header className="bg-[#1e1e1f] fixed top-0 left-0 right-0 z-50 transition-all duration-300 shadow-lg w-full">
       <div className="w-full px-4 lg:px-8 py-4">
         <div className="hidden lg:flex items-center justify-around w-full">
           <div className="flex items-center space-x-2 sm:space-x-4 lg:space-x-6 xl:space-x-8 flex-shrink-0">
