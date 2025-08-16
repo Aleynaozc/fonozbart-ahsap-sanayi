@@ -16,7 +16,7 @@ interface NavigationItem {
 }
 
 const navigationItems: NavigationItem[] = [
-  { id: "hero", label: "Ana Sayfa", icon: Home, href: "#hero" },
+  { id: "home", label: "Ana Sayfa", icon: Home, href: "#home" },
   { id: "about", label: "Hakkımızda", icon: Info, href: "#about" },
   { id: "services", label: "Hizmetler", icon: Briefcase, href: "#services" },
   { id: "contact", label: "İletişim", icon: Phone, href: "#contact" },
@@ -24,7 +24,7 @@ const navigationItems: NavigationItem[] = [
 
 export function MobileNavigation() {
   const [isOpen, setIsOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState("hero")
+  const [activeSection, setActiveSection] = useState("home")
 
   // Close menu on swipe up
   const { touchHandlers } = useTouchGestures({

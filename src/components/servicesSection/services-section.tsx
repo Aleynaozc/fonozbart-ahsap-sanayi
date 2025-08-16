@@ -121,7 +121,7 @@ export default function ProjectSlider() {
         {/* Navigation Arrows */}
         <button
           onClick={prevSlide}
-          className="absolute left-2 sm:-left-6 top-1/2 -translate-y-1/2 z-30 bg-gradient-to-r from-[#FF6B35]/20 to-[#E55A2B]/20 hover:from-[#FF6B35]/30 hover:to-[#E55A2B]/30 backdrop-blur-xl border border-[#FF6B35]/20 rounded-full p-3 transition-all duration-300 group"
+          className="cursor-pointer absolute left-0  top-1/2 -translate-y-1/2 z-30 bg-gradient-to-r from-[#FF6B35]/20 to-[#E55A2B]/20 hover:from-[#FF6B35]/30 hover:to-[#E55A2B]/30 backdrop-blur-xl border border-[#FF6B35]/20 rounded-full p-3 transition-all duration-300 group"
           aria-label="Previous Slide"
         >
           <ChevronLeft className="w-5 h-5 text-white group-hover:text-[#FF6B35] transition-colors duration-300" />
@@ -129,7 +129,7 @@ export default function ProjectSlider() {
 
         <button
           onClick={nextSlide}
-          className="absolute right-2 sm:-right-6 top-1/2 -translate-y-1/2 z-30 bg-gradient-to-r from-[#FF6B35]/20 to-[#E55A2B]/20 hover:from-[#FF6B35]/30 hover:to-[#E55A2B]/30 backdrop-blur-xl border border-[#FF6B35]/20 rounded-full p-3 transition-all duration-300 group"
+          className="cursor-pointer absolute right-0 top-1/2 -translate-y-1/2 z-30 bg-gradient-to-r from-[#FF6B35]/20 to-[#E55A2B]/20 hover:from-[#FF6B35]/30 hover:to-[#E55A2B]/30 backdrop-blur-xl border border-[#FF6B35]/20 rounded-full p-3 transition-all duration-300 group"
           aria-label="Next Slide"
         >
           <ChevronRight className="w-5 h-5 text-white group-hover:text-[#FF6B35] transition-colors duration-300" />
