@@ -8,6 +8,7 @@ import { OurProjects } from "@/components/ourProject/our-projects-section"
 import { ProductionProcess } from "@/components/ourProcess/production-process"
 import { AboutSection } from "@/components/aboutSection/about-section"
 import { HeroSlider } from "@/components/hero/hero-slider"
+import { CompletedProjectsSection } from "@/components/completed-projects/completed-projects-section"
 
 export default function Home() {
   return (
@@ -15,13 +16,12 @@ export default function Home() {
       <Header />
       {/* Hero Section */}
       <HeroSlider />
-
       {/* About Section */}
-
       <AboutSection />
-
-
+      {/* Services Section */}
       <ServicesSection />
+      {/* Completed Project Section */}
+      <CompletedProjectsSection/>
       <OurProjects />
       <ProductionProcess />
       <CtaSection />
