@@ -169,7 +169,7 @@ export default function ProjectSlider() {
                   <h3 className="text-xl sm:text-2xl font-bold mb-2 leading-tight">{project.title}</h3>
 
                   <p className="text-gray-300 text-sm mb-4 leading-relaxed opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
-                    {project.category}
+                    {project.description}
                   </p>
 
                   {/* CTA Button */}
