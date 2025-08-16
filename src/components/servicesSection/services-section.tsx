@@ -83,7 +83,7 @@ export default function ProjectSlider() {
       } else if (window.innerWidth < 1024) {
         setSlidesToShow(3)
       } else {
-        setSlidesToShow(4)
+        setSlidesToShow(5)
       }
     }
     handleResize()

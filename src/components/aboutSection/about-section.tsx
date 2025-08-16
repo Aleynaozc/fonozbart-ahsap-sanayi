@@ -23,7 +23,7 @@ export function AboutSection() {
   ]
 
   return (
-    <section id="about" className="bg-[#1e1e1f] relative lg:hidden h-screen">
+    <section id="about" className="bg-[#1e1e1f] relative h-screen">
       <div className="absolute inset-0 opacity-5">
         <div
           className="absolute inset-0"
@@ -32,7 +32,7 @@ export function AboutSection() {
           }}
         ></div>
       </div>
-
+<div className="absolute -bottom-8 -left-8 w-16 h-16 border-2 border-[#FF6B35]/70 rotate-45 z-50"></div>
       {/* Mobile Layout */}
       <div className="lg:hidden">
         {/* Mobile Content */}
@@ -174,7 +174,7 @@ export function AboutSection() {
         </div>
 
         {/* Image - Sağ taraf */}
-        <div className="relative h-screen lg:h-auto lg:min-h-[700px]">
+        <div className="relative h-screen  lg:min-h-[700px]">
           <Image
             src="/assets/images/about-sections/about2.png"
             alt="Ahşap atölye"
@@ -184,6 +184,7 @@ export function AboutSection() {
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30 sm:from-black/60 sm:via-black/40 sm:to-transparent"></div>
           {/* Desktop Floating Card */}
           <div className="absolute -top-8 -right-8 w-16 h-16 border-2 border-[#FF6B35]/30 rotate-45"></div>
+          
           <div className="absolute bottom-12 -left-10 group">
             {/* Glow effect */}
             <div className=""></div>
