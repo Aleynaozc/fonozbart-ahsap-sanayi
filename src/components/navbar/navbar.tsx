@@ -1,9 +1,8 @@
 "use client"
 
 import type React from "react"
-
 import { useLoading } from "@/hooks/use-loading"
-import { Facebook, Instagram, Phone, X, ChevronDown } from "lucide-react"
+import { Facebook, Instagram, X } from "lucide-react"
 import Image from "next/image"
 import { useState, useRef, useEffect } from "react"
 import { useRouter, usePathname } from "next/navigation"
@@ -21,12 +20,10 @@ export function Header() {
   const menuRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
   const { startPageTransition, isLoading } = useLoading()
 
-  const homepageOptions = [
-    { name: "Home2", label: "ANASAYFA 2", path: "/home1" },
-  ]
+  const homepageOptions = [{ name: "Home2", label: "ANASAYFA 2", path: "/home1" }]
 
   const menuItems = [
-    { name: "Home", label: "ANASAYFA", path: "/", hasDropdown: true },
+    { name: "Home", label: "ANASAYFA", path: "/"},
     { name: "About", label: "HAKKIMIZDA", path: "/about" },
     { name: "Project", label: "PROJELERİMİZ", path: "/projects" },
     { name: "Services", label: "HİZMETLERİMİZ", path: "/services" },
@@ -71,6 +68,29 @@ export function Header() {
     return () => document.removeEventListener("click", handleClickOutside)
   }, [isHomepageDropdownOpen])
 
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false)
+      }
+    }
+
+    document.addEventListener("keydown", handleEscape)
+    return () => document.removeEventListener("keydown", handleEscape)
+  }, [isMobileMenuOpen])
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = "unset"
+    }
+
+    return () => {
+      document.body.style.overflow = "unset"
+    }
+  }, [isMobileMenuOpen])
+
   const handleMenuClick = (menuName: string, path: string) => {
     setClickedMenu(menuName)
     setActiveMenu(menuName)
@@ -90,9 +110,10 @@ export function Header() {
 
   return (
     <header className="bg-[#1e1e1f] fixed top-0 left-0 right-0 z-50 transition-all duration-300 shadow-lg w-full">
-      <div className="w-full px-4 lg:px-8 py-4">
-        <div className="hidden lg:flex items-center justify-around w-full">
-          <div className="flex items-center space-x-2 sm:space-x-4 lg:space-x-6 xl:space-x-8 flex-shrink-0">
+      <div className="w-full px-4 lg:px-8 py-3 md:py-4">
+        <div className="flex items-center justify-between w-full lg:justify-around">
+          {/* Logo Section */}
+          <div className="flex items-center flex-shrink-0">
             <div className="flex items-center animate-fade-in group/logo cursor-pointer">
               <div className="relative overflow-hidden rounded-lg">
                 <Image
@@ -100,13 +121,16 @@ export function Header() {
                   alt="FNZ Mobilya Logo"
                   width={230}
                   height={60}
-                   className="object-contain w-auto h-8 sm:h-10 md:h-12 lg:h-14 xl:h-16 max-w-[200px] sm:max-w-[160px] md:max-w-[200px] lg:max-w-[260px] xl:max-w-[300px]"
+                  className="object-contain w-auto h-6 sm:h-8 md:h-10 lg:h-12 xl:h-14 2xl:h-16 max-w-[120px] sm:max-w-[160px] md:max-w-[200px] lg:max-w-[260px] xl:max-w-[300px]"
                   priority
                 />
               </div>
             </div>
           </div>
-          <div className="justify-around flex">
+
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex justify-around flex-1 max-w-4xl">
+            {/* Social Icons */}
             <div className="hidden xl:flex items-center space-x-3 mx-4">
               <div className="relative bg-[#2f2a27] rounded-full p-2 cursor-pointer group overflow-hidden transition-all duration-300">
                 <div className="absolute inset-0 bg-white transform -translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out rounded-full"></div>
@@ -118,15 +142,19 @@ export function Header() {
               </div>
             </div>
 
-            <nav className="hidden lg:flex items-center justify-center mx-4 xl:mx-8 2xl:mx-12 relative">
+            {/* Navigation Menu */}
+            <nav className="flex items-center justify-center mx-4 xl:mx-8 2xl:mx-12 relative">
               <div className="relative flex items-center justify-center space-x-4 xl:space-x-6 2xl:space-x-8 max-w-full">
                 {menuItems.map((item) => (
                   <div key={item.name} className="relative flex-shrink-0">
                     <div className="relative">
                       <button
                         onClick={() => handleMenuClick(item.name, item.path)}
-                        className={`relative inline-block text-xs xl:text-sm font-medium tracking-wide transition-all duration-300 py-2 px-1 whitespace-nowrap ${activeMenu === item.name ? "text-white" : "text-gray-300 hover:text-white"
-                          } ${clickedMenu === item.name ? "animate-pulse" : ""}`}
+                        onMouseEnter={() => setHoveredMenu(item.name)}
+                        onMouseLeave={() => setHoveredMenu(null)}
+                        className={`relative inline-block text-xs xl:text-sm font-medium tracking-wide transition-all duration-300 py-2 px-1 whitespace-nowrap ${
+                          activeMenu === item.name ? "text-white" : "text-gray-300 hover:text-white"
+                        } ${clickedMenu === item.name ? "animate-pulse" : ""}`}
                       >
                         {item.label}
 
@@ -152,7 +180,9 @@ export function Header() {
             </nav>
           </div>
 
+          {/* Contact Info & Mobile Menu Button */}
           <div className="flex items-center space-x-2 sm:space-x-3 lg:space-x-4 flex-shrink-0">
+            {/* Desktop Contact Info */}
             <div className="hidden xl:flex items-center space-x-2 xl:space-x-3 group cursor-pointer">
               <div className="p-1.5 xl:p-2 rounded-full group-hover:bg-white transition-all duration-300 flex-shrink-0">
                 <PiPhoneCall className="w-5 h-5 xl:w-6 xl:h-6 2xl:w-7 2xl:h-7 text-[#D4A574]" />
@@ -167,8 +197,9 @@ export function Header() {
               </div>
             </div>
 
+            {/* Mobile Menu Button */}
             <button
-              className="lg:hidden flex flex-col justify-center items-center w-10 h-10 sm:w-11 sm:h-11 p-2 group/hamburger relative overflow-hidden rounded-lg transition-all duration-300 hover:bg-[#D4A574]/10 active:scale-95 flex-shrink-0"
+              className="flex flex-col justify-center items-center w-10 h-10 sm:w-11 sm:h-11 p-2 group/hamburger relative overflow-hidden rounded-lg transition-all duration-300 hover:bg-[#D4A574]/10 active:scale-95 flex-shrink-0 lg:hidden"
               onClick={() => setIsMobileMenuOpen((prev) => !prev)}
               aria-label={isMobileMenuOpen ? "Menüyü kapat" : "Menüyü aç"}
             >
@@ -193,100 +224,87 @@ export function Header() {
             </button>
           </div>
         </div>
+      </div>
 
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm transition-all duration-300 ${
+          isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        }`}
+        style={{ top: "0" }}
+        onClick={() => setIsMobileMenuOpen(false)}
+      >
+        {/* Mobile Menu Content */}
         <div
-          className={`lg:hidden w-full overflow-visible transition-all duration-500 ease-in-out ${isMobileMenuOpen
-              ? "max-h-[80vh] opacity-100 mt-3 sm:mt-4 border-t border-gray-600 pt-3 sm:pt-4"
-              : "max-h-0 opacity-0 mt-0 overflow-hidden"
-            }`}
+          className={`absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-[#1e1e1f] shadow-2xl transform transition-transform duration-300 ease-out ${
+            isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+          onClick={(e) => e.stopPropagation()}
         >
-          <nav className="flex flex-col space-y-2 sm:space-y-3 max-h-[50vh] overflow-y-auto">
-            <div className="relative">
-              <button
-                onClick={() => setIsHomepageDropdownOpen(!isHomepageDropdownOpen)}
-                className={`flex items-center justify-between w-full text-sm sm:text-base font-medium py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg transition-all duration-300 hover:bg-[#D4A574]/10 min-h-[44px] text-left ${activeMenu === "Home" ? "text-white bg-[#D4A574]/20" : "text-gray-300 hover:text-white"
-                  }`}
-              >
-                <span>ANASAYFA</span>
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 ${isHomepageDropdownOpen ? "rotate-180" : ""}`}
-                />
-              </button>
-
-              {isHomepageDropdownOpen && (
-                <div className="ml-4 mt-2 space-y-1 bg-[#2a2a2a] rounded-lg p-2 border border-gray-600">
-                  {homepageOptions.map((option) => (
-                    <button
-                      key={option.name}
-                      onClick={() => handleMenuClick("Home", option.path)}
-                      className="block w-full text-left text-sm py-2 px-3 text-gray-400 hover:text-white hover:bg-[#D4A574]/10 rounded transition-colors duration-200"
-                    >
-                      {option.label}
-                    </button>
-                  ))}
-                </div>
-              )}
+          {/* Mobile Menu Header */}
+          <div className="flex items-center justify-between p-4 border-b border-gray-700">
+            <div className="flex items-center">
+              <Image
+                src="/assets/images/footer-logo.png"
+                alt="FNZ Mobilya Logo"
+                width={220}
+                height={32}
+                className="object-contain h-8"
+              />
             </div>
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="p-2 rounded-lg hover:bg-gray-700 transition-colors"
+            >
+              <X className="w-5 h-5 text-white" />
+            </button>
+          </div>
 
-            {menuItems.slice(1).map((item, index) => (
-              <button
-                key={item.name}
-                onClick={() => handleMenuClick(item.name, item.path)}
-                className={`block text-sm sm:text-base font-medium py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg transition-all duration-300 hover:bg-[#D4A574]/10 hover:translate-x-2 min-h-[44px] flex items-center text-left w-full ${activeMenu === item.name ? "text-white bg-[#D4A574]/20" : "text-gray-300 hover:text-white"
-                  } ${isMobileMenuOpen ? "translate-x-0 opacity-100" : "-translate-x-5 opacity-0"}`}
-                style={{
-                  transitionDelay: isMobileMenuOpen ? `${(index + 1) * 50}ms` : "0ms",
-                }}
-              >
-                <span className="flex-1">{item.label}</span>
-                {activeMenu === item.name && (
-                  <span className="inline-block ml-2 w-2 h-2 bg-[#D4A574] rounded-full animate-pulse flex-shrink-0"></span>
-                )}
-              </button>
+          {/* Mobile Navigation Links */}
+          <nav className="flex flex-col p-4 space-y-2">
+            {menuItems.map((item, index) => (
+              <div key={item.name} className="relative">
+                <button
+                  onClick={() => handleMenuClick(item.name, item.path)}
+                  className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 ${
+                    activeMenu === item.name
+                      ? "bg-[#D4A574] text-white"
+                      : "text-gray-300 hover:text-white hover:bg-gray-700/50"
+                  }`}
+                  style={{
+                    animationDelay: `${index * 50}ms`,
+                  }}
+                >
+                  <span className="font-medium tracking-wide">{item.label}</span>
+                  {activeMenu === item.name && (
+                    <div className="absolute right-4 top-1/2 -translate-y-1/2">
+                      <div className="w-2 h-2 bg-white rounded-full"></div>
+                    </div>
+                  )}
+                </button>
+              </div>
             ))}
           </nav>
 
-          <div className="flex items-center space-x-3 sm:space-x-4 mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-600">
-            {[
-              { Icon: Facebook, color: "hover:bg-[#2f2a27]", name: "Facebook" },
-              { Icon: Instagram, color: "hover:bg-[#2f2a27]", name: "Instagram" },
-            ].map(({ Icon, color, name }, index) => (
-              <div
-                key={index}
-                className={`bg-gray-600 ${color} rounded-full p-2 sm:p-2.5 cursor-pointer hover:scale-125 hover:rotate-12 group/social relative overflow-hidden transition-all duration-300 flex-shrink-0 ${isMobileMenuOpen ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
-                  }`}
-                style={{
-                  transitionDelay: isMobileMenuOpen ? `${(index + menuItems.length) * 50}ms` : "0ms",
-                }}
-              >
-                <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-white transition-all duration-300 group-hover/social:scale-110 relative z-10" />
-                <div className="absolute inset-0 bg-white/20 rounded-full scale-0 group-hover/social:scale-100 transition-transform duration-300"></div>
-                <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover/social:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-50">
-                  {name}
-                </div>
+          {/* Mobile Contact Info */}
+          <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-700">
+            <div className="flex items-center space-x-3 mb-4">
+              <div className="p-2 bg-[#D4A574] rounded-full">
+                <PiPhoneCall className="w-5 h-5 text-white" />
               </div>
-            ))}
-          </div>
+              <div>
+                <div className="text-xs text-gray-400">Bize Ulaşın</div>
+                <div className="text-sm text-white font-medium">+90 532 333 50 67</div>
+              </div>
+            </div>
 
-          <div
-            className={`mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-600 group/contact cursor-pointer transition-all duration-300 ${isMobileMenuOpen ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
-              }`}
-            style={{
-              transitionDelay: isMobileMenuOpen ? `${(menuItems.length + 4) * 50}ms` : "0ms",
-            }}
-          >
-            <div className="flex items-center space-x-3 sm:space-x-4 p-2 sm:p-3 rounded-lg transition-all duration-300 group-hover/contact:bg-[#D4A574]/10 group-hover/contact:translate-x-1 min-h-[44px]">
-              <div className="bg-gray-600 p-2 sm:p-2.5 rounded-full transition-all duration-300 group-hover/contact:bg-[#D4A574] group-hover/contact:scale-110 relative overflow-hidden flex-shrink-0">
-                <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-white transition-all duration-300 group-hover/contact:scale-110 relative z-10" />
-                <div className="absolute inset-0 border-2 border-[#D4A574] rounded-full scale-100 group-hover/contact:scale-150 opacity-0 group-hover/contact:opacity-100 transition-all duration-500"></div>
+            {/* Mobile Social Icons */}
+            <div className="flex items-center space-x-3">
+              <div className="bg-[#2f2a27] rounded-full p-2 cursor-pointer hover:bg-white group transition-all duration-300">
+                <Facebook className="w-4 h-4 text-white group-hover:text-[#2f2a27] transition-colors" />
               </div>
-              <div className="transition-all duration-300 group-hover/contact:transform group-hover/contact:scale-105 min-w-0 flex-1">
-                <div className="text-xs sm:text-sm text-gray-400 transition-colors duration-300 group-hover/contact:text-[#D4A574] whitespace-nowrap overflow-hidden text-ellipsis">
-                  Her zaman arayın
-                </div>
-                <div className="text-sm sm:text-base text-white font-medium transition-colors duration-300 group-hover/contact:text-[#D4A574] whitespace-nowrap overflow-hidden text-ellipsis">
-                  +90 (212) 555 0123
-                </div>
+              <div className="bg-[#2f2a27] rounded-full p-2 cursor-pointer hover:bg-white group transition-all duration-300">
+                <Instagram className="w-4 h-4 text-white group-hover:text-[#2f2a27] transition-colors" />
               </div>
             </div>
           </div>

@@ -58,18 +58,20 @@ const projects = [
     id: 7,
     category: "Kapı Sistemleri",
     title: "Kapı",
+     description: "Dayanıklı ve estetik deck sistemleri",
     image: "/assets/images/services-section/kapı3.jpg"
   },
   {
     id: 8,
     category: "Kapı Sistemleri",
     title: "Yangın Kapısı",
+    description: "Isıya Dayanıklı",
     image: "/assets/images/services-section/yangınkapısı.jpg"
   }
 
 ]
 
-export default function ProjectSlider() {
+export default function ServicesSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [slidesToShow, setSlidesToShow] = useState(5)
 
@@ -115,8 +117,8 @@ export default function ProjectSlider() {
   return (
 
     <section id="services" className={`relative w-full overflow-hidden bg-[#1e1e1f] ${poppins.className} font-normal`}>
-    
-      
+
+
       <div className="relative">
         {/* Navigation Arrows */}
         <button
@@ -134,80 +136,65 @@ export default function ProjectSlider() {
         >
           <ChevronRight className="w-5 h-5 text-white group-hover:text-[#FF6B35] transition-colors duration-300" />
         </button>
-          {/* Slider Container */}
-      <div className="overflow-hidden ">
-        <div
-          className="flex transition-transform duration-500 ease-in-out"
-          style={{
-            width: `${(projects.length * 100) / slidesToShow}%`,
-            transform: `translateX(-${(currentIndex * 100) / projects.length}%)`,
-          }}
-        >
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className="border-r border-[#FF6B35]/20 last:border-none group relative h-[600px] overflow-hidden cursor-pointer flex-shrink-0"
-              style={{ width: `${100 / projects.length}%` }}
-            >
-              <Image
-                src={project.image || "/placeholder.svg"}
-                alt={project.title}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+        {/* Slider Container */}
+        <div className="overflow-hidden ">
+          <div
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{
+              width: `${(projects.length * 100) / slidesToShow}%`,
+              transform: `translateX(-${(currentIndex * 100) / projects.length}%)`,
+            }}
+          >
+            {projects.map((project) => (
+              <div
+                key={project.id}
+                className="border-r border-[#FF6B35]/20 last:border-none group relative h-[800px] overflow-hidden cursor-pointer flex-shrink-0"
+                style={{ width: `${100 / projects.length}%` }}
+              >
+                <Image
+                  src={project.image || "/placeholder.svg"}
+                  alt={project.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
 
-              {/* Glassmorphism Overlay on Hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B35]/10 via-transparent to-[#8B4513]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              {/* Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-20">
-                <div className="transform transition-all duration-500 group-hover:-translate-y-2">
-                  <div className="inline-block px-3 py-1 bg-[#FF6B35]/20 backdrop-blur-sm rounded-full text-xs font-medium text-[#FF6B35] mb-3 border border-[#FF6B35]/20">
-                    {project.category}
-                  </div>
+                {/* Glassmorphism Overlay on Hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B35]/10 via-transparent to-[#8B4513]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {/* Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-20">
+                  <div className="transform transition-all duration-500 group-hover:-translate-y-2">
+                    <div className="inline-block px-3 py-1 bg-[#FF6B35]/20 backdrop-blur-sm rounded-full text-xs font-medium text-[#FF6B35] mb-3 border border-[#FF6B35]/20">
+                      {project.category}
+                    </div>
 
-                  <h3 className="text-xl sm:text-2xl font-bold mb-2 leading-tight">{project.title}</h3>
+                    <h3 className="text-2xl font-bold mb-2 leading-tight">{project.title}</h3>
 
-                  <p className="text-gray-300 text-sm mb-4 leading-relaxed opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
-                    {project.description}
-                  </p>
+                    <p className="text-gray-300 text-sm mb-4 leading-relaxed opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
+                      {project.description}
+                    </p>
 
-                  {/* CTA Button */}
-                  <div className="opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-200">
-                    <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] px-4 py-2 rounded-lg text-sm font-medium hover:shadow-lg hover:shadow-[#FF6B35]/25 transition-all duration-300">
-                      <span>Detayları Gör</span>
-                      <ArrowRight className="w-4 h-4" />
+                    {/* CTA Button */}
+                    <div className="opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-200">
+                      <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] px-4 py-2 rounded-lg text-sm font-medium hover:shadow-lg hover:shadow-[#FF6B35]/25 transition-all duration-300">
+                        <span>Detayları Gör</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Decorative Element */}
-                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#FF6B35] via-[#E55A2B] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  {/* Decorative Element */}
+                  <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#FF6B35] via-[#E55A2B] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/70 to-transparent"></div>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/70 to-transparent"></div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Dots Navigation */}
-      <div className="flex justify-center mt-8 space-x-3 mb-8">
-        {Array.from({ length: Math.ceil(projects.length / slidesToShow) }).map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${Math.floor(currentIndex / slidesToShow) === index
-              ? "bg-[#FF6B35] shadow-lg shadow-[#FF6B35]/50"
-              : "bg-gray-600 hover:bg-gray-500"
-              }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
-      </div>
 
 
-    
     </section>
   )
 }

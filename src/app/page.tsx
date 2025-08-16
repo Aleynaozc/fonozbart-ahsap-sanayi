@@ -6,8 +6,9 @@ import { CtaSection } from "@/components/ctaSections/cta-section"
 import { Header } from "@/components/navbar/navbar"
 import { OurProjects } from "@/components/ourProject/our-projects-section"
 import { ProductionProcess } from "@/components/ourProcess/production-process"
-import { HeroSlider } from "@/components/hero/hero-slider"
 import { AboutSection } from "@/components/aboutSection/about-section"
+import { HeroSlider } from "@/components/hero/hero-slider"
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">

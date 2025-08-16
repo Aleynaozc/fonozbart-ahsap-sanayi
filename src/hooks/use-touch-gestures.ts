@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState, useCallback, useRef } from "react"
+import { useState, useCallback } from "react"
 
 interface TouchGestureOptions {
   onSwipeLeft?: () => void
@@ -19,69 +19,58 @@ export function useTouchGestures({
   onSwipeDown,
   threshold = 50,
 }: TouchGestureOptions) {
-  const [isPressed, setIsPressed] = useState(false)
-  const touchStartRef = useRef<{ x: number; y: number } | null>(null)
+  const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null)
+  const [touchEnd, setTouchEnd] = useState<{ x: number; y: number } | null>(null)
 
   const handleTouchStart = useCallback((e: React.TouchEvent) => {
-    setIsPressed(true)
-    const touch = e.touches[0]
-    touchStartRef.current = { x: touch.clientX, y: touch.clientY }
+    setTouchEnd(null)
+    setTouchStart({
+      x: e.targetTouches[0].clientX,
+      y: e.targetTouches[0].clientY,
+    })
   }, [])
 
-  const handleTouchEnd = useCallback(
-    (e: React.TouchEvent) => {
-      setIsPressed(false)
-      if (!touchStartRef.current) return
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    setTouchEnd({
+      x: e.targetTouches[0].clientX,
+      y: e.targetTouches[0].clientY,
+    })
+  }, [])
 
-      const touch = e.changedTouches[0]
-      const deltaX = touch.clientX - touchStartRef.current.x
-      const deltaY = touch.clientY - touchStartRef.current.y
+  const handleTouchEnd = useCallback(() => {
+    if (!touchStart || !touchEnd) return
 
-      if (Math.abs(deltaX) > Math.abs(deltaY)) {
-        // Horizontal swipe
-        if (Math.abs(deltaX) > threshold) {
-          if (deltaX > 0) {
-            onSwipeRight?.()
-          } else {
-            onSwipeLeft?.()
-          }
-        }
-      } else {
-        // Vertical swipe
-        if (Math.abs(deltaY) > threshold) {
-          if (deltaY > 0) {
-            onSwipeDown?.()
-          } else {
-            onSwipeUp?.()
-          }
-        }
+    const distanceX = touchStart.x - touchEnd.x
+    const distanceY = touchStart.y - touchEnd.y
+    const isLeftSwipe = distanceX > threshold
+    const isRightSwipe = distanceX < -threshold
+    const isUpSwipe = distanceY > threshold
+    const isDownSwipe = distanceY < -threshold
+
+    if (Math.abs(distanceX) > Math.abs(distanceY)) {
+      // Horizontal swipe
+      if (isLeftSwipe && onSwipeLeft) {
+        onSwipeLeft()
       }
-
-      touchStartRef.current = null
-    },
-    [onSwipeLeft, onSwipeRight, onSwipeUp, onSwipeDown, threshold],
-  )
-
-  const handleMouseDown = useCallback(() => {
-    setIsPressed(true)
-  }, [])
-
-  const handleMouseUp = useCallback(() => {
-    setIsPressed(false)
-  }, [])
-
-  const handleMouseLeave = useCallback(() => {
-    setIsPressed(false)
-  }, [])
+      if (isRightSwipe && onSwipeRight) {
+        onSwipeRight()
+      }
+    } else {
+      // Vertical swipe
+      if (isUpSwipe && onSwipeUp) {
+        onSwipeUp()
+      }
+      if (isDownSwipe && onSwipeDown) {
+        onSwipeDown()
+      }
+    }
+  }, [touchStart, touchEnd, threshold, onSwipeLeft, onSwipeRight, onSwipeUp, onSwipeDown])
 
   return {
     touchHandlers: {
       onTouchStart: handleTouchStart,
+      onTouchMove: handleTouchMove,
       onTouchEnd: handleTouchEnd,
-      onMouseDown: handleMouseDown,
-      onMouseUp: handleMouseUp,
-      onMouseLeave: handleMouseLeave,
     },
-    isPressed,
   }
 }

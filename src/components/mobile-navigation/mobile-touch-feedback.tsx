@@ -5,16 +5,19 @@ import type { ReactNode } from "react"
 interface MobileTouchFeedbackProps {
   children: ReactNode
   className?: string
-  pressedClassName?: string
 }
 
-export function MobileTouchFeedback({
-  children,
-  className = "",
-  pressedClassName = "scale-95 opacity-80",
-}: MobileTouchFeedbackProps) {
+export function MobileTouchFeedback({ children, className = "" }: MobileTouchFeedbackProps) {
   return (
-    <div className={`touch-manipulation active:${pressedClassName} transition-all duration-150 ${className}`}>
+    <div
+      className={`touch-manipulation active:scale-95 transition-transform duration-150 ${className}`}
+      style={{
+        WebkitTapHighlightColor: "transparent",
+        WebkitTouchCallout: "none",
+        WebkitUserSelect: "none",
+        userSelect: "none",
+      }}
+    >
       {children}
     </div>
   )
