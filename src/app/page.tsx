@@ -1,14 +1,9 @@
 
 import ServicesSection from "@/components/servicesSection/services-section"
-
 import { Footer } from "@/components/footer"
-import { CtaSection } from "@/components/ctaSections/cta-section"
 import { Header } from "@/components/navbar/navbar"
-import { OurProjects } from "@/components/ourProject/our-projects-section"
-import { ProductionProcess } from "@/components/ourProcess/production-process"
 import { AboutSection } from "@/components/aboutSection/about-section"
 import { HeroSlider } from "@/components/hero/hero-slider"
-import { CompletedProjectsSection } from "@/components/completed-projects/completed-projects-section"
 import { SelectedProjectsSection } from "@/components/selected-project/selected-project"
 
 export default function Home() {
@@ -22,12 +17,7 @@ export default function Home() {
       {/* Services Section */}
       <ServicesSection />
       <SelectedProjectsSection/>
-      {/* Completed Project Section */}
-      {/* <CompletedProjectsSection/>
-      <OurProjects />
-      <ProductionProcess />
-      <CtaSection /> */}
-      {/* Responsive Footer */}
+     
       <Footer />
     </div>
   )

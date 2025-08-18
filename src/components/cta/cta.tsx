@@ -1,98 +1,265 @@
 "use client"
 
-import Image from "next/image"
-import { Cairo } from "next/font/google"
-import { ArrowRight, Phone, Mail, MapPin } from "lucide-react"
+import { ArrowRight, Phone, Mail, Clock, Award, Users, CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { PiPhoneCall } from "react-icons/pi"
+import { useState, useEffect, useRef } from "react"
+import { Poppins } from "next/font/google"
 
-const cairo = Cairo({
+const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal"],
 })
 
-export function CtaSection() {
+const benefits = [
+  {
+    icon: Award,
+    title: "50+ Yıl Deneyim",
+    description: "Yarım asrı aşkın sektör tecrübesi",
+  },
+  {
+    icon: Users,
+    title: "Uzman Ekip",
+    description: "Alanında uzman tasarımcı ve ustalar",
+  },
+  {
+    icon: CheckCircle,
+    title: "Kalite Garantisi",
+    description: "Her projede mükemmellik standardı",
+  },
+  {
+    icon: Clock,
+    title: "Zamanında Teslimat",
+    description: "Belirlenen sürede kusursuz teslim",
+  },
+]
+
+export function CTASection() {
+  const [isVisible, setIsVisible] = useState(false)
+  const [hoveredBenefit, setHoveredBenefit] = useState<number | null>(null)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.2 },
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section className="w-full py-0">
-      <div className="w-full grid grid-cols-1 lg:grid-cols-2 min-h-[400px] sm:min-h-[500px] md:min-h-[600px]">
-        {/* Left Content */}
-        <div className="w-full flex items-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 md:py-16 bg-[#3d3d3d]">
-          <div className="w-full space-y-4 sm:space-y-6 md:space-y-8 max-w-3xl">
-            <div>
-              <div className="text-xs sm:text-sm font-medium text-[#D4A574] tracking-[0.2em] uppercase mb-2">
-                BİZİMLE İLETİŞİME GEÇİN
-              </div>
-              {/* Coffee line with white dot */}
-              <div className="flex items-center mb-4">
-                <div className="w-8 h-0.5 bg-[#D4A574]"></div>
-                <div className="w-1 h-1 bg-white rounded-full ml-1"></div>
-              </div>
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.1] font-sans">
-              Projenizi Hayata Geçirelim
-            </h2>
-            <p className={`${cairo.className} text-sm sm:text-base leading-relaxed text-gray-300`}>
-              50 yılı aşkın tecrübemizle, hayalinizdeki mobilya projelerini gerçeğe dönüştürüyoruz. Ücretsiz keşif ve
-              danışmanlık hizmeti için hemen iletişime geçin.
-            </p>
+    <section
+      ref={sectionRef}
+      className={`relative bg-gradient-to-br from-[#1e1e1f] via-[#2a2a2b] to-[#1e1e1f] py-16 lg:py-24 overflow-hidden ${poppins.className}`}
+    >
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23FF6B35' fillOpacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        />
+      </div>
 
-            {/* Contact Info */}
-            <div className="w-full space-y-4">
-              <div className="flex items-start space-x-3">
-                <div className="bg-gray-600 p-1.5 rounded mt-0.5">
-                  <PiPhoneCall className="w-3 h-3 text-white" />
-                </div>
-                <div className="flex-1">
-                  <p className={`${cairo.className} text-xs text-gray-400 mb-1`}>Her zaman arayın</p>
-                  <p className="text-sm text-white font-medium">+90 (212) 555 0123</p>
-                </div>
-              </div>
+      {/* Floating Decorative Elements */}
+      <div
+        className={`absolute top-20 left-20 w-16 h-16 border-2 border-[#FF6B35]/20 rotate-45 transition-all duration-2000 ${
+          isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
+        }`}
+      />
+      <div
+        className={`absolute bottom-20 right-20 w-12 h-12 bg-gradient-to-r from-[#FF6B35]/20 to-[#8B4513]/20 rounded-full transition-all duration-2000 delay-500 ${
+          isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
+        }`}
+      />
 
-              <div className="flex items-start space-x-3">
-                <div className="bg-gray-600 p-1.5 rounded mt-0.5">
-                  <Mail className="w-3 h-3 text-white" />
-                </div>
-                <div className="flex-1">
-                  <p className={`${cairo.className} text-xs text-gray-400 mb-1`}>E-posta gönder</p>
-                  <p className="text-sm text-white font-medium">info@fnzmobilya.com</p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-3">
-                <div className="bg-gray-600 p-1.5 rounded mt-0.5">
-                  <MapPin className="w-3 h-3 text-white" />
-                </div>
-                <div className="flex-1">
-                  <p className={`${cairo.className} text-xs text-gray-400 mb-1`}>Merkez Ofis</p>
-                  <p className="text-sm text-white font-medium">İstanbul, Türkiye</p>
-                </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Content */}
+          <div className="space-y-8">
+            {/* Badge */}
+            <div
+              className={`transition-all duration-1000 delay-200 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
+            >
+              <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#FF6B35]/10 to-[#8B4513]/10 rounded-full border border-[#FF6B35]/20 backdrop-blur-sm">
+                <Award className="w-4 h-4 text-[#FF6B35] animate-pulse" />
+                <span className="text-[#FF6B35] font-medium text-sm tracking-wider uppercase">
+                  Projenizi Hayata Geçirin
+                </span>
               </div>
             </div>
 
-            <div className="w-full flex flex-col sm:flex-row gap-4">
-              <Button className="bg-[#D4A574] hover:bg-[#C19A68] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base font-medium rounded-sm w-full sm:w-auto group">
-                Ücretsiz Keşif
-                <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-[#3d3d3d] px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base font-medium rounded-sm w-full sm:w-auto bg-transparent"
-              >
-                Katalog İndir
-              </Button>
+            {/* Main Heading */}
+            <div
+              className={`transition-all duration-1200 delay-400 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+              }`}
+            >
+              <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight mb-6">
+                Hayalinizdeki Projeyi
+                <br />
+                <span className="text-[#FF6B35]">Birlikte Gerçekleştirelim</span>
+              </h2>
+              <p className="text-gray-300 text-lg leading-relaxed max-w-xl">
+                50+ yıllık deneyimimiz ve uzman ekibimizle, ahşap mobilya ve dekorasyon projelerinizde yanınızdayız.
+                Ücretsiz keşif ve danışmanlık hizmeti için hemen iletişime geçin.
+              </p>
+            </div>
+
+            {/* Contact Actions */}
+            <div
+              className={`space-y-4 transition-all duration-1000 delay-600 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
+            >
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] hover:from-[#E55A2B] hover:to-[#FF6B35] text-white px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-2xl group"
+                >
+                  <Phone className="mr-2 w-5 h-5 group-hover:animate-pulse" />
+                  Hemen Arayın
+                  <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                </Button>
+
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-[#FF6B35] text-[#FF6B35] hover:bg-[#FF6B35] hover:text-white px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 bg-transparent border-2"
+                >
+                  <Mail className="mr-2 w-5 h-5" />
+                  Teklif Alın
+                </Button>
+              </div>
+
+              {/* Quick Contact Info */}
+              <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-[#FF6B35]/20">
+                <div className="flex items-center space-x-3 text-gray-300">
+                  <div className="p-2 bg-[#FF6B35]/10 rounded-lg">
+                    <Phone className="w-4 h-4 text-[#FF6B35]" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-400">Telefon</div>
+                    <div className="font-medium">+90 532 333 50 67</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-3 text-gray-300">
+                  <div className="p-2 bg-[#FF6B35]/10 rounded-lg">
+                    <Mail className="w-4 h-4 text-[#FF6B35]" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-400">E-posta</div>
+                    <div className="font-medium">info@fnzmobilya.com</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Right Image */}
-        <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-auto">
-          <Image
-            src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-            alt="FNZ Ahşap Sanayi Atölyesi"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+          {/* Right Benefits Grid */}
+          <div className="space-y-6">
+            <div
+              className={`text-center lg:text-left mb-8 transition-all duration-1000 delay-800 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
+            >
+              <h3 className="text-2xl font-bold text-white mb-4">Neden FNZ Mobilya?</h3>
+              <p className="text-gray-300">Sektördeki liderliğimizin arkasındaki değerler</p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {benefits.map((benefit, index) => (
+                <div
+                  key={index}
+                  className={`group relative p-6 bg-gradient-to-br from-[#2a2a2b]/50 to-[#1e1e1f]/50 rounded-xl border border-[#FF6B35]/10 transition-all duration-700 hover:border-[#FF6B35]/30 hover:bg-gradient-to-br hover:from-[#FF6B35]/5 hover:to-[#8B4513]/5 cursor-pointer ${
+                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                  }`}
+                  style={{ transitionDelay: `${1000 + index * 200}ms` }}
+                  onMouseEnter={() => setHoveredBenefit(index)}
+                  onMouseLeave={() => setHoveredBenefit(null)}
+                >
+                  {/* Hover Glow Effect */}
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-r from-[#FF6B35]/10 to-[#8B4513]/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl`}
+                  />
+
+                  <div className="relative z-10">
+                    <div
+                      className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all duration-500 ${
+                        hoveredBenefit === index
+                          ? "bg-gradient-to-r from-[#FF6B35] to-[#8B4513] scale-110"
+                          : "bg-[#FF6B35]/10"
+                      }`}
+                    >
+                      <benefit.icon
+                        className={`w-6 h-6 transition-all duration-500 ${
+                          hoveredBenefit === index ? "text-white scale-110" : "text-[#FF6B35]"
+                        }`}
+                      />
+                    </div>
+
+                    <h4
+                      className={`font-semibold text-white mb-2 transition-all duration-300 ${
+                        hoveredBenefit === index ? "translate-x-2" : ""
+                      }`}
+                    >
+                      {benefit.title}
+                    </h4>
+                    <p
+                      className={`text-gray-300 text-sm transition-all duration-300 ${
+                        hoveredBenefit === index ? "translate-x-2" : ""
+                      }`}
+                    >
+                      {benefit.description}
+                    </p>
+                  </div>
+
+                  {/* Decorative Corner */}
+                  <div
+                    className={`absolute top-0 right-0 w-8 h-8 transition-all duration-500 ${
+                      hoveredBenefit === index ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    <div className="absolute top-2 right-2 w-4 h-0.5 bg-[#FF6B35]"></div>
+                    <div className="absolute top-2 right-2 w-0.5 h-4 bg-[#FF6B35]"></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Bottom Stats */}
+            <div
+              className={`grid grid-cols-3 gap-4 pt-8 border-t border-[#FF6B35]/20 transition-all duration-1000 delay-1200 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
+            >
+              <div className="text-center">
+                <div className="text-2xl font-bold text-[#FF6B35] mb-1">500+</div>
+                <div className="text-gray-300 text-sm">Tamamlanan Proje</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-[#FF6B35] mb-1">50+</div>
+                <div className="text-gray-300 text-sm">Yıllık Deneyim</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-[#FF6B35] mb-1">100%</div>
+                <div className="text-gray-300 text-sm">Memnuniyet</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
