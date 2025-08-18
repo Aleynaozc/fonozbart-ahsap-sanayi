@@ -57,10 +57,12 @@ const selectedProjects = [
     client: "Ahu Hastanesi",
     description:
       "Diyaliz binası için mobilya tefrişatı, özel kapılar ve ahşap uygulamaları. Fonksiyonellik ve hijyen öncelikli tasarımlar.",
-    images: ["/assets/images/selected-project/AHU-DİYALİZ-2-2025.jpg",
+    images: [
+      "/assets/images/selected-project/AHU-DİYALİZ-2-2025.jpg",
       "/assets/images/selected-project/AHU-DİYALİZ-3-2025.jpg",
       "/assets/images/selected-project/AHU-DİYALİZ-4-2025.jpg",
-      "/assets/images/selected-project/AHU-DİYALİZ-5-2025.jpg"],
+      "/assets/images/selected-project/AHU-DİYALİZ-5-2025.jpg",
+    ],
     stats: {
       floors: "3 Kat",
       duration: "3 Ay",
@@ -92,7 +94,7 @@ const selectedProjects = [
       "Bakım ve Onarım İşleri",
       "Hızlı Teslimat",
       "Dayanıklı Malzemeler",
-      "Otel Standartlarına Uygun"
+      "Otel Standartlarına Uygun",
     ],
   },
   {
@@ -109,7 +111,7 @@ const selectedProjects = [
       "/assets/images/selected-project/fnz-yapi-villa-2.webp",
       "/assets/images/selected-project/fnz-yapi-villa-3.webp",
       "/assets/images/selected-project/fnz-yapi-villa-4.webp",
-      "/assets/images/selected-project/fnz-yapi-villa.webp"
+      "/assets/images/selected-project/fnz-yapi-villa.webp",
     ],
     stats: {
       area: "500m²",
@@ -121,7 +123,7 @@ const selectedProjects = [
       "Anahtar Teslim İnşaat",
       "Özel Mobilya Tefrişatı",
       "Doğal Ahşap Uygulamaları",
-      "Lüks İç Mekan Tasarımı"
+      "Lüks İç Mekan Tasarımı",
     ],
   },
   {
@@ -137,7 +139,7 @@ const selectedProjects = [
       "/assets/images/selected-project/CLASS_UNIQUE_renovasyon.jpg",
       "/assets/images/selected-project/CLASS_UNIQUE_renovasyon2.jpg",
       "/assets/images/selected-project/CLASS_UNIQUE_renovasyon3.jpg",
-      "/assets/images/selected-project/CLASS_UNIQUE_renovasyon4.jpg"
+      "/assets/images/selected-project/CLASS_UNIQUE_renovasyon4.jpg",
     ],
     stats: {
       rooms: "62 Oda",
@@ -149,11 +151,9 @@ const selectedProjects = [
       "Beach Kabana Tasarımı",
       "Şezlong Üretimi",
       "Dayanıklı Malzemeler",
-      "Konfor & Estetik"
+      "Konfor & Estetik",
     ],
-  }
-
-
+  },
 ]
 
 function CaptureIcon({ className }: { className?: string }) {
@@ -260,8 +260,9 @@ function ImageModal({
           alt={`${title} - Image ${currentIndex + 1}`}
           width={1200}
           height={800}
-          className={`max-w-full max-h-full object-contain transition-all duration-500 ${imageLoaded ? "blur-0 opacity-100" : "blur-sm opacity-70"
-            }`}
+          className={`max-w-full max-h-full object-contain transition-all duration-500 ${
+            imageLoaded ? "blur-0 opacity-100" : "blur-sm opacity-70"
+          }`}
           placeholder="blur"
           blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
           onLoad={handleImageLoad}
@@ -324,19 +325,19 @@ function ProjectImageSlider({
           src={image || `/placeholder.svg?height=300&width=400&query=${category} project`}
           alt={`${title} - Image ${index + 1}`}
           fill
-          className={`object-cover transition-all duration-1000 group-hover:scale-110 ${index === currentImageIndex ? "opacity-100" : "opacity-0"
-            }`}
+          className={`object-cover transition-all duration-1000 group-hover:scale-110 ${
+            index === currentImageIndex ? "opacity-100" : "opacity-0"
+          }`}
         />
       ))}
 
       <div
-        className={`absolute inset-0 bg-black/60 transition-opacity duration-300 flex items-center justify-center ${isHovered ? "opacity-100" : "opacity-0"
-          }`}
+        className={`absolute inset-0 bg-black/60 transition-opacity duration-300 flex items-center justify-center ${
+          isHovered ? "opacity-100" : "opacity-0"
+        }`}
       >
         <CaptureIcon className="w-12 h-12" />
       </div>
-
-
     </div>
   )
 }
@@ -386,21 +387,24 @@ export function SelectedProjectsSection() {
 
       {/* Floating Decorative Elements */}
       <div
-        className={`absolute top-20 right-20 w-12 h-12 border-2 border-[#FF6B35]/30 rotate-45 transition-all duration-2000 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
-          }`}
+        className={`absolute top-20 right-20 w-12 h-12 border-2 border-[#FF6B35]/30 rotate-45 transition-all duration-2000 ${
+          isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
+        }`}
       />
 
       <div
-        className={`hidden lg:flex absolute bottom-20 left-20 w-8 h-8 bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] rounded-full transition-all duration-2000 delay-500 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
-          }`}
+        className={`hidden lg:flex absolute bottom-20 left-20 w-8 h-8 bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] rounded-full transition-all duration-2000 delay-500 ${
+          isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
+        }`}
       />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-12 lg:mb-16">
           <div
-            className={`mb-4 lg:mb-6 transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              }`}
+            className={`mb-4 lg:mb-6 transition-all duration-1000 delay-200 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
           >
             <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#FF6B35]/10 to-[#E55A2B]/10 rounded-full border border-[#FF6B35]/20 backdrop-blur-sm">
               <Award className="w-4 h-4 text-[#FF6B35] animate-pulse" />
@@ -409,8 +413,9 @@ export function SelectedProjectsSection() {
           </div>
 
           <h2
-            className={`text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 lg:mb-6 leading-tight transition-all duration-1200 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-              }`}
+            className={`text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 lg:mb-6 leading-tight transition-all duration-1200 delay-400 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+            }`}
           >
             <span className="text-[#FF6B35]">Uzmanlık</span> Alanlarımızı
             <br />
@@ -418,8 +423,9 @@ export function SelectedProjectsSection() {
           </h2>
 
           <p
-            className={`text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-600 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              }`}
+            className={`text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-600 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
           >
             Otel mobilyalarından villa projelerine, ofis tasarımından özel konutlara kadar geniş yelpazedeki
             uzmanlığımızı görün
@@ -431,8 +437,9 @@ export function SelectedProjectsSection() {
           {selectedProjects.map((project, index) => (
             <div
               key={project.id}
-              className={`group bg-[#2a2a2b]/30 rounded-2xl overflow-hidden border border-[#FF6B35]/10 transition-all duration-700 hover:border-[#FF6B35]/30  ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                }`}
+              className={`group bg-[#2a2a2b]/30 rounded-2xl overflow-hidden border border-[#FF6B35]/10 transition-all duration-700 hover:border-[#FF6B35]/30 flex flex-col h-full ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
               style={{ transitionDelay: `${800 + index * 200}ms` }}
               onMouseEnter={() => setHoveredProject(index)}
               onMouseLeave={() => setHoveredProject(null)}
@@ -460,9 +467,7 @@ export function SelectedProjectsSection() {
                   {/* Year Badge */}
                   <div className="flex-shrink-0 ml-2">
                     <div className="bg-black/70 backdrop-blur-sm px-2 xs:px-3 py-1 rounded-lg">
-                      <span className="text-white text-xs font-medium whitespace-nowrap">
-                        {project.year}
-                      </span>
+                      <span className="text-white text-xs font-medium whitespace-nowrap">{project.year}</span>
                     </div>
                   </div>
                 </div>
@@ -490,41 +495,43 @@ export function SelectedProjectsSection() {
 
                 <p className="text-gray-300 text-sm leading-relaxed mb-4 flex-1">{project.description}</p>
 
-                {/* Stats Grid */}
-                <div className="grid grid-cols-3 gap-2 mb-4">
-                  {Object.entries(project.stats).map(([key, value]) => (
-                    <div key={key} className="text-center p-2 bg-[#1e1e1f]/50 rounded-lg border border-[#FF6B35]/10">
-                      <div className="text-sm font-bold text-white">{value}</div>
-                      <div className="text-xs text-[#FF6B35]">
-                        {key === "rooms"
-                          ? "Oda"
-                          : key === "area"
-                            ? "Alan"
-                            : key === "floors"
-                              ? "Kat"
-                              : key === "duration"
-                                ? "Süre"
-                                : "Ekip"}
+                <div className="mt-auto">
+                  {/* Stats Grid */}
+                  <div className="grid grid-cols-3 gap-2 mb-4">
+                    {Object.entries(project.stats).map(([key, value]) => (
+                      <div key={key} className="text-center p-2 bg-[#1e1e1f]/50 rounded-lg border border-[#FF6B35]/10">
+                        <div className="text-sm font-bold text-white">{value}</div>
+                        <div className="text-xs text-[#FF6B35]">
+                          {key === "rooms"
+                            ? "Oda"
+                            : key === "area"
+                              ? "Alan"
+                              : key === "floors"
+                                ? "Kat"
+                                : key === "duration"
+                                  ? "Süre"
+                                  : "Ekip"}
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
 
-                {/* Features */}
-                <div className="flex flex-wrap gap-1">
-                  {project.features.slice(0, 3).map((feature, featureIndex) => (
-                    <span
-                      key={featureIndex}
-                      className="px-2 py-1 bg-[#FF6B35]/10 text-[#FF6B35] rounded-full text-xs border border-[#FF6B35]/20"
-                    >
-                      {feature}
-                    </span>
-                  ))}
-                  {project.features.length > 3 && (
-                    <span className="px-2 py-1 bg-gray-600/20 text-gray-400 rounded-full text-xs">
-                      +{project.features.length - 3}
-                    </span>
-                  )}
+                  {/* Features */}
+                  <div className="flex flex-wrap gap-1">
+                    {project.features.slice(0, 3).map((feature, featureIndex) => (
+                      <span
+                        key={featureIndex}
+                        className="px-2 py-1 bg-[#FF6B35]/10 text-[#FF6B35] rounded-full text-xs border border-[#FF6B35]/20"
+                      >
+                        {feature}
+                      </span>
+                    ))}
+                    {project.features.length > 3 && (
+                      <span className="px-2 py-1 bg-gray-600/20 text-gray-400 rounded-full text-xs">
+                        +{project.features.length - 3}
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -534,8 +541,9 @@ export function SelectedProjectsSection() {
         {/* Call to Action */}
         <div className="text-center">
           <div
-            className={`transition-all duration-1000 delay-1200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              }`}
+            className={`transition-all duration-1000 delay-1200 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
           >
             <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
               50+ yıllık deneyimimizle gerçekleştirdiğimiz tüm projelerimizi incelemek ve kendi projeniz için ilham
