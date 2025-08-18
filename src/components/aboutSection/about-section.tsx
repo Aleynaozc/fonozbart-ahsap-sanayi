@@ -111,7 +111,15 @@ export function AboutSection() {
           transform: `rotate(45deg) scale(${isVisible ? 1 : 0.5}) translate(${mousePosition.x * 10}px, ${mousePosition.y * 10}px)`,
         }}
       />
-
+   <div
+        className={`absolute -bottom-4 -left-4 xs:-bottom-6 xs:-left-6 sm:-bottom-8 sm:-left-8 w-8 h-8 xs:w-15 xs:h-15 sm:w-18 sm:h-18 border-2 border-[#9c7256]/70 transition-all duration-2000 ${
+          isVisible ? "rotate-45 scale-100 opacity-100" : "rotate-0 scale-50 opacity-0"
+        }`}
+        style={{
+          borderRadius: isVisible ? "12px" : "50%",
+          transform: `rotate(145deg) scale(${isVisible ? 1 : 0.5}) translate(${mousePosition.x * 10}px, ${mousePosition.y * 10}px)`,
+        }}
+      />
       <div
         className={`absolute top-10 right-10 xs:top-15 xs:right-15 sm:top-20 sm:right-20 w-4 h-4 xs:w-6 xs:h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] transition-all duration-2000 ${
           isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"

@@ -21,7 +21,7 @@ const projects = [
     year: "2025",
     category: "Otel Mobilyaları",
     description: "200 oda için özel tasarım ahşap mobilya seti. Premium kalite meşe ve ceviz ağacından üretim.",
-    image: "/assets/images/services-section/oda9.jpg",
+    image: "/assets/images/completed-project/D-MARİS-NUSRET.jpg",
     featured: true,
     completionDate: "Ocak 2025",
     value: "2.5M ₺",

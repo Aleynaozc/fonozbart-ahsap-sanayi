@@ -9,6 +9,7 @@ import { ProductionProcess } from "@/components/ourProcess/production-process"
 import { AboutSection } from "@/components/aboutSection/about-section"
 import { HeroSlider } from "@/components/hero/hero-slider"
 import { CompletedProjectsSection } from "@/components/completed-projects/completed-projects-section"
+import { SelectedProjectsSection } from "@/components/selected-project/selected-project"
 
 export default function Home() {
   return (
@@ -20,11 +21,12 @@ export default function Home() {
       <AboutSection />
       {/* Services Section */}
       <ServicesSection />
+      <SelectedProjectsSection/>
       {/* Completed Project Section */}
-      <CompletedProjectsSection/>
+      {/* <CompletedProjectsSection/>
       <OurProjects />
       <ProductionProcess />
-      <CtaSection />
+      <CtaSection /> */}
       {/* Responsive Footer */}
       <Footer />
     </div>

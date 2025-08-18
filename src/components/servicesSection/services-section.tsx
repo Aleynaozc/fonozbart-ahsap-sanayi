@@ -37,7 +37,7 @@ const projects = [
     id: 4,
     category: "Ofis Mobilyaları",
     title: "Ofis Mobilyaları",
-    description: "Profesyonel çalışma alanları için çözümler",
+    description: "Profesyonel çalışma alanları",
     image: "/assets/images/services-section/ofis4.png"
   },
   {
