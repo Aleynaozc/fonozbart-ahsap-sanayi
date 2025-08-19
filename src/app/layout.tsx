@@ -7,24 +7,26 @@ import { BreadcrumbProvider } from "@/components/bradcrumps/breadcrumb-provider"
 import { LoadingBar } from "@/components/loading-bar"
 import { PageTransition } from "@/components/page-transition"
  import { LoadingProvider } from "@/hooks/use-loading"
+import { Header } from "@/components/navbar/navbar"
+import { Footer } from "@/components/footer"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "FNZ Mobilya - Ahşap Mobilya Tasarımı ve Üretimi",
+  title: "FNZ Ahşap Sanayi - Ahşap Mobilya Tasarımı ve Üretimi",
   description:
     "50 yılı aşkın tecrübemizle modern ahşap mobilya tasarımı ve üretimi alanında kaliteli hizmet sunuyoruz.",
-  keywords: ["fnz mobilya", "ahşap mobilya", "mobilya tasarımı", "otel mobilyaları", "mutfak tasarımı"],
-  authors: [{ name: "FNZ Mobilya" }],
-  creator: "FNZ Mobilya",
-  publisher: "FNZ Mobilya",
+  keywords: ["fnz ahşap sanayi", "ahşap mobilya", "mobilya tasarımı", "otel mobilyaları", "mutfak tasarımı"],
+  authors: [{ name: "FNZ Ahşap Sanayi" }],
+  creator: "FNZ Ahşap Sanayi",
+  publisher: "FNZ Ahşap Sanayi",
   robots: "index, follow",
   openGraph: {
     type: "website",
     locale: "tr_TR",
     url: "https://fnzmobilya.com",
-    siteName: "FNZ Mobilya",
-    title: "FNZ Mobilya - Ahşap Mobilya Tasarımı ve Üretimi",
+    siteName: "FNZ Ahşap Sanayi",
+    title: "FNZ Ahşap Sanayi - Ahşap Mobilya Tasarımı ve Üretimi",
     description:
       "50 yılı aşkın tecrübemizle modern ahşap mobilya tasarımı ve üretimi alanında kaliteli hizmet sunuyoruz.",
     images: [
@@ -32,13 +34,13 @@ export const metadata: Metadata = {
         url: "/assets/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "FNZ Mobilya",
+        alt: "FNZ Ahşap Sanayi",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "FNZ Mobilya - Ahşap Mobilya Tasarımı ve Üretimi",
+    title: "FNZ Ahşap Sanayi - Ahşap Mobilya Tasarımı ve Üretimi",
     description:
       "50 yılı aşkın tecrübemizle modern ahşap mobilya tasarımı ve üretimi alanında kaliteli hizmet sunuyoruz.",
     images: ["/assets/images/og-image.jpg"],
@@ -74,7 +76,9 @@ export default function RootLayout({
         <LoadingProvider>
           <BreadcrumbProvider>
             <LoadingBar />
-            <PageTransition>{children}</PageTransition>
+            <Header />
+            <PageTransition >{children}</PageTransition>
+            <Footer/>
           </BreadcrumbProvider>
         </LoadingProvider>
       </body>

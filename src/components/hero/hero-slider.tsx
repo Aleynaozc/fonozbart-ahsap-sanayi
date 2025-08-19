@@ -85,7 +85,7 @@ export function HeroSlider() {
           >
             <div className="text-center sm:text-left">
               <div className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-bold text-[#FF6B35] mb-1 sm:mb-2">
-                500+
+                750+
               </div>
               <div className="text-gray-300 text-xs sm:text-sm leading-tight">
                 <span className="block sm:hidden">Proje</span>

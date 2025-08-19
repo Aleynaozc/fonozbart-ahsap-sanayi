@@ -42,8 +42,7 @@ export function CtaSection() {
               Projenizi Hayata Geçirelim
             </h2>
             <p className={`${cairo.className} text-sm sm:text-base leading-relaxed text-gray-300`}>
-              50 yılı aşkın tecrübemizle, hayalinizdeki mobilya projelerini gerçeğe dönüştürüyoruz. Ücretsiz keşif ve
-              danışmanlık hizmeti için hemen iletişime geçin.
+              Türkiye'nin dört bir yanında gerçekleştirdiğimiz başarılı projelerle, ahşap mobilya ve dekorasyon alanında güvenilir çözüm ortağınızız. Ücretsiz keşif hizmeti ile projenizi değerlendiriyoruz.
             </p>
 
             {/* Contact Info */}
@@ -64,7 +63,7 @@ export function CtaSection() {
                 </div>
                 <div className="flex-1">
                   <p className={`${cairo.className} text-xs text-gray-400 mb-1`}>E-posta gönder</p>
-                  <p className="text-sm text-white font-medium">info@fnzmobilya.com</p>
+                  <p className="text-sm text-white font-medium">fonozbart@hotmail.com</p>
                 </div>
               </div>
 
@@ -74,7 +73,7 @@ export function CtaSection() {
                 </div>
                 <div className="flex-1">
                   <p className={`${cairo.className} text-xs text-gray-400 mb-1`}>Merkez Ofis</p>
-                  <p className="text-sm text-white font-medium">İstanbul, Türkiye</p>
+                  <p className="text-sm text-white font-medium">Marmaris, Türkiye</p>
                 </div>
               </div>
             </div>

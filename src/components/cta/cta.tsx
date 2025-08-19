@@ -1,6 +1,6 @@
 "use client"
 
-import { ArrowRight, Phone, Mail, Clock, Award, Users, CheckCircle } from "lucide-react"
+import { ArrowRight, Phone, Mail,  Award, Users, Shield, Target, Zap, } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState, useEffect, useRef } from "react"
 import { Poppins } from "next/font/google"
@@ -13,24 +13,24 @@ const poppins = Poppins({
 
 const benefits = [
   {
-    icon: Award,
-    title: "50+ Yıl Deneyim",
-    description: "Yarım asrı aşkın sektör tecrübesi",
+    icon: Shield,
+    title: "Güvenilir Hizmet",
+    description: "Her aşamada şeffaf, dürüst ve kaliteli hizmet anlayışı",
+  },
+  {
+    icon: Target,
+    title: "Özel Tasarım",
+    description: "Her projeye özel konsept ve tasarım çözümleri",
+  },
+  {
+    icon: Zap,
+    title: "Hızlı Teslimat",
+    description: "Planlanan sürede eksiksiz proje teslimi",
   },
   {
     icon: Users,
-    title: "Uzman Ekip",
-    description: "Alanında uzman tasarımcı ve ustalar",
-  },
-  {
-    icon: CheckCircle,
-    title: "Kalite Garantisi",
-    description: "Her projede mükemmellik standardı",
-  },
-  {
-    icon: Clock,
-    title: "Zamanında Teslimat",
-    description: "Belirlenen sürede kusursuz teslim",
+    title: "Profesyonel Ekip",
+    description: "Deneyimli ustalarla kusursuz uygulama",
   },
 ]
 
@@ -113,8 +113,7 @@ export function CTASection() {
                 <span className="text-[#FF6B35]">Birlikte Gerçekleştirelim</span>
               </h2>
               <p className="text-gray-300 text-lg leading-relaxed max-w-xl">
-                50+ yıllık deneyimimiz ve uzman ekibimizle, ahşap mobilya ve dekorasyon projelerinizde yanınızdayız.
-                Ücretsiz keşif ve danışmanlık hizmeti için hemen iletişime geçin.
+                Türkiye'nin dört bir yanında gerçekleştirdiğimiz başarılı projelerle, ahşap mobilya ve dekorasyon alanında güvenilir çözüm ortağınızız. Ücretsiz keşif hizmeti ile projenizi değerlendiriyoruz.
               </p>
             </div>
 
@@ -127,20 +126,18 @@ export function CTASection() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] hover:from-[#E55A2B] hover:to-[#FF6B35] text-white px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-2xl group"
+                  className="bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] hover:from-[#E55A2B] hover:to-[#FF6B35] text-white px-8 py-4 text-lg font-semibold transition-all duration-300  shadow-lg hover:shadow-2xl group"
                 >
                   <Phone className="mr-2 w-5 h-5 group-hover:animate-pulse" />
+                   <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://api.whatsapp.com/send/?phone=%2B905323335067&text&type=phone_number&app_absent=0"
+                    
+                  >
                   Hemen Arayın
+                  </a>
                   <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-                </Button>
-
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-[#FF6B35] text-[#FF6B35] hover:bg-[#FF6B35] hover:text-white px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 bg-transparent border-2"
-                >
-                  <Mail className="mr-2 w-5 h-5" />
-                  Teklif Alın
                 </Button>
               </div>
 
@@ -152,7 +149,14 @@ export function CTASection() {
                   </div>
                   <div>
                     <div className="text-xs text-gray-400">Telefon</div>
-                    <div className="font-medium">+90 532 333 50 67</div>
+                    <div className="font-medium"> <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://api.whatsapp.com/send/?phone=%2B905323335067&text&type=phone_number&app_absent=0"
+                   
+                  >
+                    +90 532 333 50 67
+                  </a></div>
                   </div>
                 </div>
 
@@ -162,7 +166,7 @@ export function CTASection() {
                   </div>
                   <div>
                     <div className="text-xs text-gray-400">E-posta</div>
-                    <div className="font-medium">info@fnzmobilya.com</div>
+                    <div className="font-medium">fonozbart@hotmail.com</div>
                   </div>
                 </div>
               </div>
@@ -176,8 +180,8 @@ export function CTASection() {
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
             >
-              <h3 className="text-2xl font-bold text-white mb-4">Neden FNZ Mobilya?</h3>
-              <p className="text-gray-300">Sektördeki liderliğimizin arkasındaki değerler</p>
+              <h3 className="text-2xl font-bold text-white mb-4">Neden FNZ Ahşap Sanayi?</h3>
+              <p className="text-gray-300">Sektördeki başarımızın arkasındaki güçlü değerler</p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -247,12 +251,12 @@ export function CTASection() {
               }`}
             >
               <div className="text-center">
-                <div className="text-2xl font-bold text-[#FF6B35] mb-1">500+</div>
+                <div className="text-2xl font-bold text-[#FF6B35] mb-1">750+</div>
                 <div className="text-gray-300 text-sm">Tamamlanan Proje</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-[#FF6B35] mb-1">50+</div>
-                <div className="text-gray-300 text-sm">Yıllık Deneyim</div>
+                <div className="text-2xl font-bold text-[#FF6B35] mb-1">25+</div>
+                <div className="text-gray-300 text-sm">Şehirde Hizmet</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-[#FF6B35] mb-1">100%</div>

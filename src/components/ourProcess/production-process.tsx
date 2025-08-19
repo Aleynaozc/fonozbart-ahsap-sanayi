@@ -1,115 +1,278 @@
 "use client"
 
-import Image from "next/image"
-import { Cairo } from "next/font/google"
-import { Search, PenTool, Settings, CheckCircle, ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Search, Palette, Cog, Wrench, ArrowRight, Clock } from "lucide-react"
+import { useState, useEffect, useRef } from "react"
+import { Poppins } from "next/font/google"
 
-const cairo = Cairo({
+const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal"],
 })
 
 const processSteps = [
   {
     id: 1,
-    title: "Keşif",
-    description: "Proje alanının detaylı incelenmesi ve müşteri ihtiyaçlarının belirlenmesi",
     icon: Search,
-    details: "Sahada ölçüm ve analiz, müşteri görüşmeleri, ihtiyaç analizi ve teknik değerlendirme süreçlerini kapsar.",
+    title: "İhtiyaç Analizi ve Keşif",
+    duration: "1-2 Gün",
+    description:
+      "Müşterimizin taleplerini dinliyor, proje alanında ölçüm ve keşif yapıyor, malzeme ve tasarım seçeneklerini birlikte değerlendiriyoruz.",
   },
   {
     id: 2,
+    icon: Palette,
     title: "Tasarım ve Onay",
-    description: "Özel tasarım çözümlerinin geliştirilmesi ve müşteri onayının alınması",
-    icon: PenTool,
-    details: "3D tasarım ve modelleme, malzeme seçimi, teknik çizimler ve müşteri sunumu ile onay süreçlerini içerir.",
+    duration: "3-5 Gün",
+    description: "Projeyi 3D tasarıma dönüştürüyor, renk, malzeme ve detay onayını alıyor, gerekirse numune sunuyoruz.",
   },
   {
     id: 3,
+    icon: Cog,
     title: "Üretim",
-    description: "Kaliteli malzemeler ile özenli üretim sürecinin gerçekleştirilmesi",
-    icon: Settings,
-    details: "Malzeme tedariki, atölye üretimi, kalite kontrol ve paketleme hazırlık aşamalarını kapsamaktadır.",
+    duration: "1-4 Hafta",
+    description:
+      "Modern makine parkurumuzda kaliteli malzemelerle üretim gerçekleştiriyor, CNC kesim, bantlama ve montaj işlemlerini hassasiyetle yapıyoruz.",
   },
   {
     id: 4,
-    title: "Montaj",
-    description: "Profesyonel ekip tarafından hızlı ve titiz montaj işlemlerinin tamamlanması",
-    icon: CheckCircle,
-    details: "Sahaya nakliye, profesyonel montaj, son kontroller ve teslim garanti süreçlerini içermektedir.",
+    icon: Wrench,
+    title: "Montaj ve Teslimat",
+    duration: "1-3 Gün",
+    description:
+      "Uzman ekibimiz projeyi yerinde montajlıyor, kalite kontrol yapıyor ve anahtar teslim eksiksiz şekilde teslim ediyoruz.",
   },
 ]
 
-export function ProductionProcess() {
+export default function ProductionProcessSection() {
+  const [isVisible, setIsVisible] = useState(false)
+  const [hoveredStep, setHoveredStep] = useState<number | null>(null)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.2 },
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section className="w-full py-0">
-      <div className="w-full grid grid-cols-1 lg:grid-cols-2 min-h-[400px] sm:min-h-[500px] md:min-h-[600px]">
-        {/* Left Image */}
-        <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-auto">
-          <Image
-            src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-            alt="Üretim süreci"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
+    <section ref={sectionRef} className={`relative bg-[#1e1e1f] py-16 lg:py-20 overflow-hidden ${poppins.className}`}>
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23FF6B35' fillOpacity='0.1'%3E%3Cpath d='M20 20.5V18H18v2.5h-2.5V22H18v2.5h2V22h2.5v-1.5H20z'/%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        />
+      </div>
+
+      {/* Floating Decorative Elements */}
+      <div
+        className={`absolute top-20 right-20 w-12 h-12 border-2 border-[#FF6B35]/30 rotate-45 transition-all duration-2000 ${
+          isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
+        }`}
+      />
+      <div
+        className={`hidden lg:flex absolute bottom-20 left-20 w-8 h-8 bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] rounded-full transition-all duration-2000 delay-500 ${
+          isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
+        }`}
+      />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
+        <div className="text-center mb-12 lg:mb-16">
+          <div
+            className={`mb-4 lg:mb-6 transition-all duration-1000 delay-200 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
+            <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#FF6B35]/10 to-[#E55A2B]/10 rounded-full border border-[#FF6B35]/20 backdrop-blur-sm">
+              <Cog className="w-4 h-4 text-[#FF6B35] animate-spin" style={{ animationDuration: "3s" }} />
+              <span className="text-[#FF6B35] font-medium text-sm tracking-wider uppercase">Üretim Sürecimiz</span>
+            </div>
+          </div>
+
+          <h2
+            className={`text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 lg:mb-6 leading-tight transition-all duration-1200 delay-400 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+            }`}
+          >
+            <span className="text-[#FF6B35]">Profesyonel</span> Yaklaşımımızla
+            <br />
+            <span className="text-white">Projelerinizi Hayata Geçiriyoruz</span>
+          </h2>
+
+          <p
+            className={`text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-600 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
+            Kaliteli hizmet anlayışımız ve deneyimli ekibimizle her aşamada size rehberlik ediyoruz
+          </p>
         </div>
 
-        {/* Right Content */}
-        <div className="w-full flex items-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 md:py-16 bg-white">
-          <div className="w-full space-y-4 sm:space-y-6 md:space-y-8 max-w-3xl">
-            <div>
-              <div className="text-xs sm:text-sm font-medium text-gray-400 tracking-[0.2em] uppercase mb-2">
-                ÜRETİM SÜRECİMİZ
-              </div>
-              {/* Coffee line with white dot */}
-              <div className="flex items-center mb-4">
-                <div className="w-8 h-0.5 bg-[#D4A574]"></div>
-                <div className="w-1 h-1 bg-gray-400 rounded-full ml-1"></div>
-              </div>
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#333333] leading-[1.1] font-sans">
-              4 Adımda Mükemmel Sonuç
-            </h2>
+        {/* Process Steps - Desktop Layout */}
+        <div className="hidden lg:block">
+          <div className="relative">
+            {/* Connection Line */}
+            <div className="absolute top-20 left-0 right-0 h-0.5 bg-gradient-to-r from-[#FF6B35]/20 via-[#FF6B35]/60 to-[#FF6B35]/20"></div>
 
-            {/* Process Steps */}
-            <div className="w-full space-y-6">
-              {processSteps.map((step, index) => ( 
-                <div key={step.id} className="border-l-4 border-[#9c7256] pl-6 group">
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-[#D4A574] p-2 rounded-lg flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                      <step.icon className="w-4 h-4 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center space-x-3 mb-2">
-                        <span className="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs font-bold">{step.id}</span>
-                        <h3 className="text-lg font-bold text-[#4a3e36]">{step.title}</h3>
+            <div className="grid grid-cols-4 gap-8 items-stretch">
+              {processSteps.map((step, index) => {
+                const IconComponent = step.icon
+                return (
+                  <div
+                    key={step.id}
+                    className={`relative transition-all duration-700 flex flex-col ${
+                      isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                    }`}
+                    
+                  >
+                    {/* Step Number Circle */}
+                    <div className="relative z-10 flex justify-center mb-6">
+                      <div
+                        className={`w-16 h-16 rounded-full flex items-center justify-center transition-all duration-500 ${
+                          hoveredStep === index
+                            ? "bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] scale-110 shadow-lg shadow-[#FF6B35]/30"
+                            : "bg-[#2a2a2b] border-2 border-[#FF6B35]/30"
+                        }`}
+                      >
+                        <span
+                          className={`font-bold text-lg transition-colors duration-300 ${
+                            hoveredStep === index ? "text-white" : "text-[#FF6B35]"
+                          }`}
+                        >
+                          {step.id}
+                        </span>
                       </div>
-                      <p className={`${cairo.className} text-sm text-gray-600 mb-2`}>{step.description}</p>
-                      <p className={`${cairo.className} text-xs text-gray-500 leading-relaxed`}>{step.details}</p>
+
+                      {/* Arrow to next step */}
+                      {index < processSteps.length - 1 && (
+                        <ArrowRight
+                          className={`absolute -right-12 top-1/2 transform -translate-y-1/2 w-6 h-6 text-[#FF6B35] transition-all duration-500 ${
+                            hoveredStep === index ? "scale-125 text-[#E55A2B]" : ""
+                          }`}
+                        />
+                      )}
+                    </div>
+
+                    {/* Step Content */}
+                    <div
+                      className={`bg-gradient-to-br from-[#2a2a2b]/50 to-[#1e1e1f]/50 rounded-xl p-6 border transition-all duration-500 flex-1 flex flex-col ${
+                        hoveredStep === index
+                          ? "border-[#FF6B35]/50 bg-gradient-to-br from-[#FF6B35]/5 to-[#E55A2B]/5 transform -translate-y-2 shadow-xl shadow-[#FF6B35]/10"
+                          : "border-[#FF6B35]/20"
+                      }`}
+                    >
+                      {/* Icon */}
+                      <div className="flex justify-center mb-4">
+                        <div
+                          className={`w-12 h-12 rounded-lg flex items-center justify-center transition-all duration-500 ${
+                            hoveredStep === index ? "bg-gradient-to-r from-[#FF6B35] to-[#E55A2B]" : "bg-[#FF6B35]/10"
+                          }`}
+                        >
+                          <IconComponent
+                            className={`w-6 h-6 transition-all duration-500 ${
+                              hoveredStep === index ? "text-white" : "text-[#FF6B35]"
+                            }`}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Duration Badge */}
+                      <div className="flex justify-center mb-3">
+                        <div className="inline-flex items-center space-x-1 px-3 py-1 bg-[#FF6B35]/10 rounded-full border border-[#FF6B35]/20">
+                          <Clock className="w-3 h-3 text-[#FF6B35]" />
+                          <span className="text-[#FF6B35] text-xs font-medium">{step.duration}</span>
+                        </div>
+                      </div>
+
+                      <h3
+                        className={`text-lg font-semibold text-white mb-3 text-center transition-all duration-300 ${
+                          hoveredStep === index ? "text-[#FF6B35]" : ""
+                        }`}
+                      >
+                        {step.title}
+                      </h3>
+
+                      <p className="text-gray-300 text-sm leading-relaxed text-center flex-1 flex items-center justify-center">
+                        {step.description}
+                      </p>
                     </div>
                   </div>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* Process Steps - Mobile Layout */}
+        <div className="lg:hidden space-y-6">
+          {processSteps.map((step, index) => {
+            const IconComponent = step.icon
+            return (
+              <div
+                key={step.id}
+                className={`relative transition-all duration-700 ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                }`}
+                style={{ transitionDelay: `${800 + index * 200}ms` }}
+              >
+                {/* Timeline Line */}
+                {index < processSteps.length - 1 && (
+                  <div className="absolute left-8 top-16 w-0.5 h-16 bg-gradient-to-b from-[#FF6B35] to-[#FF6B35]/30"></div>
+                )}
+
+                <div className="flex items-start space-x-4">
+                  {/* Step Number */}
+                  <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] rounded-full flex items-center justify-center shadow-lg shadow-[#FF6B35]/30">
+                    <span className="font-bold text-lg text-white">{step.id}</span>
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex-1 bg-gradient-to-br from-[#2a2a2b]/50 to-[#1e1e1f]/50 rounded-xl p-6 border border-[#FF6B35]/20">
+                    <div className="flex items-center space-x-3 mb-3">
+                      <div className="w-10 h-10 bg-[#FF6B35]/10 rounded-lg flex items-center justify-center">
+                        <IconComponent className="w-5 h-5 text-[#FF6B35]" />
+                      </div>
+                      <div className="inline-flex items-center space-x-1 px-3 py-1 bg-[#FF6B35]/10 rounded-full border border-[#FF6B35]/20">
+                        <Clock className="w-3 h-3 text-[#FF6B35]" />
+                        <span className="text-[#FF6B35] text-xs font-medium">{step.duration}</span>
+                      </div>
+                    </div>
+
+                    <h3 className="text-lg font-semibold text-white mb-3">{step.title}</h3>
+                    <p className="text-gray-300 text-sm leading-relaxed">{step.description}</p>
+                  </div>
                 </div>
-              ))}
-            </div>
-
-            {/* Stats */}
-            <div className="w-full grid grid-cols-2 gap-6 pt-6 border-t border-gray-200">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-[#4a3e36] mb-1">500+</div>
-                <div className={`${cairo.className} text-xs text-gray-600`}>Tamamlanan Proje</div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-[#4a3e36] mb-1">50+</div>
-                <div className={`${cairo.className} text-xs text-gray-600`}>Yıllık Tecrübe</div>
-              </div>
-            </div>
+            )
+          })}
+        </div>
 
-            <Button className="relative overflow-hidden bg-[#4a3e36] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base font-medium rounded-sm w-full sm:w-auto group transition-all duration-500 before:absolute before:top-0 before:left-1/2 before:w-0 before:h-full before:bg-[#533721] before:transition-all before:duration-500 before:transform before:-translate-x-1/2 hover:before:w-full">
-               <span className="relative z-10">Süreç Hakkında Detay</span>
-              <ArrowRight className="relative z-10 ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </Button>
+        {/* Bottom CTA */}
+        <div
+          className={`text-center mt-12 lg:mt-16 transition-all duration-1000 delay-1200 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          <div className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-[#FF6B35]/10 to-[#E55A2B]/10 rounded-full border border-[#FF6B35]/30 backdrop-blur-sm">
+            <div className="w-2 h-2 bg-[#FF6B35] rounded-full animate-pulse"></div>
+            <span className="text-[#FF6B35] font-medium">
+              Kaliteli hizmet garantisi ile projelerinizi teslim ediyoruz
+            </span>
           </div>
         </div>
       </div>

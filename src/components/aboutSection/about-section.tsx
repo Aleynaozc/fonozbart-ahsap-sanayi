@@ -262,7 +262,7 @@ export function AboutSection() {
                 }`}
               >
                 {[
-                  { value: "500+", label: "Proje", icon: Target },
+                  { value: "750+", label: "Proje", icon: Target },
                   { value: "50+", label: "Yıl", icon: Award },
                   { value: "100%", label: "Memnuniyet", icon: CheckCircle },
                 ].map((stat, index) => (
