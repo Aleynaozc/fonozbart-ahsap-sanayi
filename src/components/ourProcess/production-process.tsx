@@ -1,6 +1,6 @@
 "use client"
 
-import { Search, Palette, Cog, Wrench, ArrowRight, Clock } from "lucide-react"
+import { Search, Palette, Cog, Wrench, ArrowRight, Clock, Play, X } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
 import { Poppins } from "next/font/google"
 
@@ -48,7 +48,7 @@ export default function ProductionProcessSection() {
   const [isVisible, setIsVisible] = useState(false)
   const [hoveredStep, setHoveredStep] = useState<number | null>(null)
   const sectionRef = useRef<HTMLElement>(null)
-
+  const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -68,6 +68,28 @@ export default function ProductionProcessSection() {
 
   return (
     <section ref={sectionRef} className={`relative bg-gradient-to-br from-[#1e1e1f] via-[#2a2a2b] to-[#1e1e1f] py-16 lg:py-20 overflow-hidden ${poppins.className}`}>
+      {isOpen && (
+  <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black bg-opacity-80">
+    <div className="relative w-full h-full max-w-5xl max-h-[90vh] mx-4">
+      {/* Kapat Butonu */}
+      <button
+        onClick={() => setIsOpen(false)}
+        className="absolute top-4 right-4 z-50 text-white bg-gray-800/50 p-2 rounded-full hover:bg-gray-800/70 transition cursor-pointer pointer-events-auto"
+      >
+        <X className="w-6 h-6" />
+      </button>
+
+      {/* Video */}
+      <video
+        className="relative z-0 w-full h-full object-contain rounded-md"
+        src="assets/images/fnz-wood-uretim.mp4"
+        controls
+        autoPlay
+      />
+    </div>
+  </div>
+)}
+
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div
@@ -77,26 +99,23 @@ export default function ProductionProcessSection() {
           }}
         />
       </div>
-
+     
       {/* Floating Decorative Elements */}
       <div
-        className={`absolute top-20 right-20 w-12 h-12 border-2 border-[#FF6B35]/30 rotate-45 transition-all duration-2000 ${
-          isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
-        }`}
+        className={`absolute top-20 right-20 w-12 h-12 border-2 border-[#FF6B35]/30 rotate-45 transition-all duration-2000 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
+          }`}
       />
       <div
-        className={`hidden lg:flex absolute bottom-20 left-20 w-8 h-8 bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] rounded-full transition-all duration-2000 delay-500 ${
-          isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
-        }`}
+        className={`hidden lg:flex absolute bottom-20 left-20 w-8 h-8 bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] rounded-full transition-all duration-2000 delay-500 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
+          }`}
       />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-12 lg:mb-16">
           <div
-            className={`mb-4 lg:mb-6 transition-all duration-1000 delay-200 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
+            className={`mb-4 lg:mb-6 transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
           >
             <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#FF6B35]/10 to-[#E55A2B]/10 rounded-full border border-[#FF6B35]/20 backdrop-blur-sm">
               <Cog className="w-4 h-4 text-[#FF6B35] animate-spin" style={{ animationDuration: "3s" }} />
@@ -105,9 +124,8 @@ export default function ProductionProcessSection() {
           </div>
 
           <h2
-            className={`text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 lg:mb-6 text-white leading-tight transition-all duration-1200 delay-400 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-            }`}
+            className={`text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 lg:mb-6 text-white leading-tight transition-all duration-1200 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+              }`}
           >
             <span className="text-[#FF6B35]">Profesyonel</span> Yaklaşımımızla
             <br />
@@ -115,9 +133,8 @@ export default function ProductionProcessSection() {
           </h2>
 
           <p
-            className={`text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-600 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
+            className={`text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-600 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
           >
             Kaliteli hizmet anlayışımız ve deneyimli ekibimizle her aşamada size rehberlik ediyoruz
           </p>
@@ -135,24 +152,21 @@ export default function ProductionProcessSection() {
                 return (
                   <div
                     key={step.id}
-                    className={`relative transition-all duration-700 flex flex-col ${
-                      isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                    }`}
-                    
+                    className={`relative transition-all duration-700 flex flex-col ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                      }`}
+
                   >
                     {/* Step Number Circle */}
-                    <div className="relative z-10 flex justify-center mb-6">
+                    <div className="relative z-10 flex justify-center mb-10">
                       <div
-                        className={`w-16 h-16 rounded-full flex items-center justify-center transition-all duration-500 ${
-                          hoveredStep === index
-                            ? "bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] scale-110 shadow-lg shadow-[#FF6B35]/30"
-                            : "bg-[#2a2a2b] border-2 border-[#FF6B35]/30"
-                        }`}
+                        className={`w-16 h-16 rounded-full flex items-center justify-center transition-all duration-500 ${hoveredStep === index
+                          ? "bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] scale-110 shadow-lg shadow-[#FF6B35]/30"
+                          : "bg-[#2a2a2b] border-2 border-[#FF6B35]/30"
+                          }`}
                       >
                         <span
-                          className={`font-bold text-lg transition-colors duration-300 ${
-                            hoveredStep === index ? "text-white" : "text-[#FF6B35]"
-                          }`}
+                          className={`font-bold text-lg transition-colors duration-300 ${hoveredStep === index ? "text-white" : "text-[#FF6B35]"
+                            }`}
                         >
                           {step.id}
                         </span>
@@ -161,32 +175,28 @@ export default function ProductionProcessSection() {
                       {/* Arrow to next step */}
                       {index < processSteps.length - 1 && (
                         <ArrowRight
-                          className={`absolute -right-12 top-1/2 transform -translate-y-1/2 w-6 h-6 text-[#FF6B35] transition-all duration-500 ${
-                            hoveredStep === index ? "scale-125 text-[#E55A2B]" : ""
-                          }`}
+                          className={`absolute -right-12 top-1/2 transform -translate-y-1/2 w-6 h-6 text-[#FF6B35] transition-all duration-500 ${hoveredStep === index ? "scale-125 text-[#E55A2B]" : ""
+                            }`}
                         />
                       )}
                     </div>
 
                     {/* Step Content */}
                     <div
-                      className={`bg-gradient-to-br from-[#2a2a2b]/50 to-[#1e1e1f]/50 rounded-xl p-6 border transition-all duration-500 flex-1 flex flex-col ${
-                        hoveredStep === index
-                          ? "border-[#FF6B35]/50 bg-gradient-to-br from-[#FF6B35]/5 to-[#E55A2B]/5 transform -translate-y-2 shadow-xl shadow-[#FF6B35]/10"
-                          : "border-[#FF6B35]/20"
-                      }`}
+                      className={`bg-gradient-to-br from-[#2a2a2b]/50 to-[#1e1e1f]/50 rounded-xl p-6 border transition-all duration-500 flex-1 flex flex-col ${hoveredStep === index
+                        ? "border-[#FF6B35]/50 bg-gradient-to-br from-[#FF6B35]/5 to-[#E55A2B]/5 transform -translate-y-2 shadow-xl shadow-[#FF6B35]/10"
+                        : "border-[#FF6B35]/20"
+                        }`}
                     >
                       {/* Icon */}
                       <div className="flex justify-center mb-4">
                         <div
-                          className={`w-12 h-12 rounded-lg flex items-center justify-center transition-all duration-500 ${
-                            hoveredStep === index ? "bg-gradient-to-r from-[#FF6B35] to-[#E55A2B]" : "bg-[#FF6B35]/10"
-                          }`}
+                          className={`w-12 h-12 rounded-lg flex items-center justify-center transition-all duration-500 ${hoveredStep === index ? "bg-gradient-to-r from-[#FF6B35] to-[#E55A2B]" : "bg-[#FF6B35]/10"
+                            }`}
                         >
                           <IconComponent
-                            className={`w-6 h-6 transition-all duration-500 ${
-                              hoveredStep === index ? "text-white" : "text-[#FF6B35]"
-                            }`}
+                            className={`w-6 h-6 transition-all duration-500 ${hoveredStep === index ? "text-white" : "text-[#FF6B35]"
+                              }`}
                           />
                         </div>
                       </div>
@@ -200,9 +210,8 @@ export default function ProductionProcessSection() {
                       </div>
 
                       <h3
-                        className={`text-lg font-semibold text-white mb-3 text-center transition-all duration-300 ${
-                          hoveredStep === index ? "text-[#FF6B35]" : ""
-                        }`}
+                        className={`text-lg font-semibold text-white mb-3 text-center transition-all duration-300 ${hoveredStep === index ? "text-[#FF6B35]" : ""
+                          }`}
                       >
                         {step.title}
                       </h3>
@@ -225,9 +234,8 @@ export default function ProductionProcessSection() {
             return (
               <div
                 key={step.id}
-                className={`relative transition-all duration-700 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                }`}
+                className={`relative transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                  }`}
                 style={{ transitionDelay: `${800 + index * 200}ms` }}
               >
                 {/* Timeline Line */}
@@ -261,20 +269,20 @@ export default function ProductionProcessSection() {
             )
           })}
         </div>
+        <div className="text-center mt-12 lg:mt-16 ">
+          <button
+            onClick={() => setIsOpen(true)}
+            className="group cursor-pointer inline-flex items-center space-x-3 px-8 py-4 bg-transparent border-2 border-[#FF6B35] text-[#FF6B35] rounded-full hover:bg-[#FF6B35] hover:text-white transition-all duration-300"
+          >
+            <Play className="w-5 h-5" />
+            <span>Süreci Keşfet</span>
+          </button>
+
+
+        </div>
 
         {/* Bottom CTA */}
-        <div
-          className={`text-center mt-12 lg:mt-16 transition-all duration-1000 delay-1200 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <div className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-[#FF6B35]/10 to-[#E55A2B]/10 rounded-full border border-[#FF6B35]/30 backdrop-blur-sm">
-            <div className="w-2 h-2 bg-[#FF6B35] rounded-full animate-pulse"></div>
-            <span className="text-[#FF6B35] font-medium">
-              Kaliteli hizmet garantisi ile projelerinizi teslim ediyoruz
-            </span>
-          </div>
-        </div>
+
       </div>
     </section>
   )

@@ -64,7 +64,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
         {/* Preload critical resources */}
-        <link rel="preload" href="/assets/images/footer-logo.png" as="image" />
+        <link rel="preload" href="/assets/images/fnz-beyaz.png" as="image" />
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
 

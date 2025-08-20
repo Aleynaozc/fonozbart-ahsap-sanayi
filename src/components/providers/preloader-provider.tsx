@@ -25,7 +25,7 @@ const PreloaderContext = createContext<PreloaderContextType | undefined>(undefin
 
 // Critical resources that should be preloaded immediately
 const CRITICAL_RESOURCES = [
-  "/assets/images/footer-logo.png",
+  "/assets/images/fnz-beyaz.png",
   "/assets/images/logo2.png",
   "/assets/images/sliders/hero7.jpg",
   "/assets/images/sliders/hero3.jpg",

@@ -5,6 +5,7 @@ import { useState, useEffect } from "react"
 import { useRouter, usePathname } from "next/navigation"
 import { Poppins } from "next/font/google"
 import { PiPhoneCall } from "react-icons/pi"
+import { useLoading } from "@/hooks/use-loading"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -20,14 +21,15 @@ export function Header() {
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null)
   const [clickedMenu, setClickedMenu] = useState<string | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
-
+  const { startPageTransition, isLoading } = useLoading()
   const menuItems = [
     { name: "Home", label: "ANASAYFA", path: "/" },
     { name: "About", label: "HAKKIMIZDA", path: "/hakkimizda" },
-    { name: "Services", label: "HİZMETLERİMİZ", path: "/services" },
-    { name: "Project", label: "PROJELERİMİZ", path: "/projects" },
+    { name: "Services", label: "HİZMETLERİMİZ", path: "/hizmetlerimiz" },
+    { name: "Project", label: "PROJELERİMİZ", path: "/projeler" },
     { name: "Blog", label: "BLOG", path: "/blog" },
-    { name: "Contact", label: "İLETİŞİM", path: "/contact" },
+    { name: "Contact", label: "İLETİŞİM", path: "/iletişim" },
+    { name: "Referance", label: "REFERANSLARIMIZ", path: "/referanslar" },
   ]
 
   const socialLinks = [
@@ -68,7 +70,7 @@ export function Header() {
     setActiveMenu(menuName)
     setIsMobileMenuOpen(false)
     router.push(path)
-
+    startPageTransition(path)
     setTimeout(() => {
       setClickedMenu(null)
     }, 600)
@@ -76,11 +78,10 @@ export function Header() {
 
   return (
     <header
-      className={`${poppins.className} fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? "bg-[#1e1e1f]/95 backdrop-blur-xl shadow-2xl border-b border-[#FF6B35]/20"
-          : "bg-[#1e1e1f]/90 backdrop-blur-sm"
-      }`}
+      className={`${poppins.className} fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+        ? "bg-[#1e1e1f]/95 backdrop-blur-xl shadow-2xl border-b border-[#FF6B35]/20"
+        : "bg-[#1e1e1f]/90 backdrop-blur-sm"
+        }`}
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
@@ -139,7 +140,7 @@ export function Header() {
           <div className="flex items-center flex-shrink-0">
             <div className="relative group cursor-pointer">
               <Image
-                src="/assets/images/footer-logo.png"
+                src="/assets/images/fnz-beyaz.png"
                 alt="FNZ AHŞAP SANAYİ Logo"
                 width={240}
                 height={60}
@@ -159,12 +160,11 @@ export function Header() {
                   onClick={() => handleMenuClick(item.name, item.path)}
                   onMouseEnter={() => setHoveredMenu(item.name)}
                   onMouseLeave={() => setHoveredMenu(null)}
-                  className={`relative text-sm xl:text-base font-medium tracking-wide transition-all duration-300 py-2 px-1 ${
-                    activeMenu === item.name ? "text-white" : "text-gray-300 hover:text-white"
-                  } ${clickedMenu === item.name ? "animate-pulse" : ""}`}
+                  className={`relative text-sm xl:text-base font-medium tracking-wide transition-all duration-300 py-2 px-1 ${activeMenu === item.name ? "text-white" : "text-gray-300 hover:text-white"
+                    } ${clickedMenu === item.name ? "animate-pulse" : ""}`}
                 >
                   {item.label}
-
+                 
                   {/* Active indicator */}
                   {activeMenu === item.name && (
                     <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 flex items-center">
@@ -182,9 +182,8 @@ export function Header() {
 
                   {/* Hover arrow */}
                   <ArrowRight
-                    className={`absolute -right-5 top-1/2 transform -translate-y-1/2 w-3 h-3 text-[#FF6B35] transition-all duration-300 ${
-                      hoveredMenu === item.name ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2"
-                    }`}
+                    className={`absolute -right-5 top-1/2 transform -translate-y-1/2 w-3 h-3 text-[#FF6B35] transition-all duration-300 ${hoveredMenu === item.name ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2"
+                      }`}
                   />
                 </button>
               </div>
@@ -193,12 +192,12 @@ export function Header() {
 
           {/* CTA Button & Mobile Menu */}
           <div className="flex items-center space-x-4">
-             {/* Desktop CTA Button */}
+            {/* Desktop CTA Button */}
             <div className="hidden xl:block">
               <button className="group relative bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] hover:from-[#E55A2B] hover:to-[#FF6B35] text-white px-6 py-3 rounded-lg font-semibold text-sm shadow-lg hover:shadow-2xl overflow-hidden">
                 <span className="relative z-10 flex items-center">
                   <Phone className="w-4 h-4 mr-2 group-hover:animate-pulse" />
-                   <a
+                  <a
                     target="_blank"
                     rel="noopener noreferrer"
                     href="https://api.whatsapp.com/send/?phone=%2B905323335067&text&type=phone_number&app_absent=0"
@@ -242,22 +241,20 @@ export function Header() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm transition-all duration-300 z-[9998] ${
-          isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
+        className={`lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm transition-all duration-300 z-[9998] ${isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
         onClick={() => setIsMobileMenuOpen(false)}
       >
         {/* Mobile Menu Content */}
         <div
-          className={`absolute z-[9999] top-0 right-0 h-full w-80 max-w-[85vw] bg-[#1e1e1f] shadow-2xl transform transition-transform duration-300 ease-out ${
-            isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`absolute z-[9999] top-0 right-0 h-full w-80 max-w-[85vw] bg-[#1e1e1f] shadow-2xl transform transition-transform duration-300 ease-out ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex items-center justify-between p-6 border-b border-gray-700 bg-[#1e1e1f]">
             <div className="flex items-center">
               <Image
-                src="/assets/images/footer-logo.png"
+                src="/assets/images/fnz-beyaz.png"
                 alt="FNZ Mobilya Logo"
                 width={220}
                 height={32}
@@ -277,15 +274,14 @@ export function Header() {
               <button
                 key={item.name}
                 onClick={() => handleMenuClick(item.name, item.path)}
-                className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 ${
-                  activeMenu === item.name
-                    ? "bg-[#FF6B35] text-white"
-                    : "text-gray-300 hover:text-white hover:bg-gray-700/50"
-                }`}
+                className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 ${activeMenu === item.name
+                  ? "bg-[#FF6B35] text-white"
+                  : "text-gray-300 hover:text-white hover:bg-gray-700/50"
+                  }`}
                 style={{
                   transitionDelay: `${index * 100}ms`,
                 }}
-              >
+              > 
                 <span className="font-medium tracking-wide text-base sm:text-lg">{item.label}</span>
               </button>
             ))}

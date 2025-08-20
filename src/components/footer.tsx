@@ -20,12 +20,12 @@ const services = [
 ]
 
 const quickLinks = [
-  { name: "Hakkımızda", href: "/about" },
-  { name: "Hizmetlerimiz", href: "/services" },
-  { name: "Projelerimiz", href: "/projects" },
+  { name: "Hakkımızda", href: "/hakkimizda" },
+  { name: "Hizmetlerimiz", href: "/hizmetlerimiz" },
+  { name: "Projelerimiz", href: "/projeler" },
   { name: "Blog", href: "/blog" },
-  { name: "İletişim", href: "/contact" },
-  { name: "Referanslar", href: "/references" },
+  { name: "İletişim", href: "/iletişim" },
+  { name: "Referanslar", href: "/referanslar" },
 ]
 
 const socialLinks = [
@@ -55,7 +55,7 @@ export function Footer() {
           <div className="lg:col-span-1 space-y-6">
             <div className="space-y-4">
               <Image
-                src="/assets/images/footer-logo.png"
+                src="/assets/images/fnz-beyaz.png"
                 alt="FNZ Ahşap Sanayi Logo"
                 width={200}
                 height={60}
@@ -70,7 +70,7 @@ export function Footer() {
             {/* Awards Badge */}
             <div className="inline-flex items-center space-x-2 px-3 py-2 bg-gradient-to-r from-[#FF6B35]/10 to-[#8B4513]/10 rounded-lg border border-[#FF6B35]/20">
               <Award className="w-4 h-4 text-[#FF6B35]" />
-              <span className="text-[#FF6B35] text-xs font-medium">50+ Yıl Güvenilir Hizmet</span>
+              <span className="text-[#ee7f1a] text-xs font-medium">50+ Yıl Güvenilir Hizmet</span>
             </div>
 
             {/* Social Media */}

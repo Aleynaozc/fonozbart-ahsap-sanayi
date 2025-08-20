@@ -4,6 +4,7 @@ import Image from "next/image"
 import { useState, useEffect, useRef } from "react"
 import { ArrowRight, MapPin, Users, Award, Eye, X, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 const selectedProjects = [
   {
@@ -21,9 +22,7 @@ const selectedProjects = [
       "/assets/images/selected-project/D-MARİS-NUSRET3.jpg",
     ],
     stats: {
-      area: "250m²",
-      duration: "1 Ay",
-      team: "8 Kişi",
+      area: "280m²",
     },
     features: ["Ahşap Deck", "Dış Mekan Dayanıklılığı", "Estetik", "Hızlı Uygulama"],
   },
@@ -42,9 +41,7 @@ const selectedProjects = [
       "/assets/images/selected-project/aurora-capri3.webp",
     ],
     stats: {
-      area: "250m²",
-      duration: "1 Ay",
-      team: "8 Kişi",
+      area: "285m²",
     },
     features: ["Ahşap Deck", "Dış Mekan Dayanıklılığı", "Estetik", "Hızlı Uygulama"],
   },
@@ -64,9 +61,8 @@ const selectedProjects = [
       "/assets/images/selected-project/AHU-DİYALİZ-5-2025.jpg",
     ],
     stats: {
-      floors: "3 Kat",
-      duration: "3 Ay",
-      team: "10 Kişi",
+      floors: "1 Kat",
+
     },
     features: ["Hijyenik Malzeme", "Özel Kapılar", "Mobilya Tefrişatı", "Ahşap Uygulama"],
   },
@@ -86,8 +82,6 @@ const selectedProjects = [
     ],
     stats: {
       rooms: "200 Oda",
-      duration: "2 Ay",
-      team: "15 Kişi",
     },
     features: [
       "Mobilya Renovasyonu",
@@ -115,8 +109,6 @@ const selectedProjects = [
     ],
     stats: {
       area: "500m²",
-      duration: "10 Ay",
-      team: "30 Kişi",
     },
     features: [
       "Modern Mimari",
@@ -143,8 +135,6 @@ const selectedProjects = [
     ],
     stats: {
       rooms: "62 Oda",
-      duration: "3 Ay",
-      team: "18 Kişi",
     },
     features: [
       "Mobilya Renovasyonu",
@@ -260,9 +250,8 @@ function ImageModal({
           alt={`${title} - Image ${currentIndex + 1}`}
           width={1200}
           height={800}
-          className={`max-w-full max-h-full object-contain transition-all duration-500 ${
-            imageLoaded ? "blur-0 opacity-100" : "blur-sm opacity-70"
-          }`}
+          className={`max-w-full max-h-full object-contain transition-all duration-500 ${imageLoaded ? "blur-0 opacity-100" : "blur-sm opacity-70"
+            }`}
           placeholder="blur"
           blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
           onLoad={handleImageLoad}
@@ -325,16 +314,14 @@ function ProjectImageSlider({
           src={image || `/placeholder.svg?height=300&width=400&query=${category} project`}
           alt={`${title} - Image ${index + 1}`}
           fill
-          className={`object-cover transition-all duration-1000 group-hover:scale-110 ${
-            index === currentImageIndex ? "opacity-100" : "opacity-0"
-          }`}
+          className={`object-cover transition-all duration-1000 group-hover:scale-110 ${index === currentImageIndex ? "opacity-100" : "opacity-0"
+            }`}
         />
       ))}
 
       <div
-        className={`absolute inset-0 bg-black/60 transition-opacity duration-300 flex items-center justify-center ${
-          isHovered ? "opacity-100" : "opacity-0"
-        }`}
+        className={`absolute inset-0 bg-black/60 transition-opacity duration-300 flex items-center justify-center ${isHovered ? "opacity-100" : "opacity-0"
+          }`}
       >
         <CaptureIcon className="w-12 h-12" />
       </div>
@@ -387,24 +374,21 @@ export function SelectedProjectsSection() {
 
       {/* Floating Decorative Elements */}
       <div
-        className={`absolute top-20 right-20 w-12 h-12 border-2 border-[#FF6B35]/30 rotate-45 transition-all duration-2000 ${
-          isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
-        }`}
+        className={`absolute top-20 right-20 w-12 h-12 border-2 border-[#FF6B35]/30 rotate-45 transition-all duration-2000 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
+          }`}
       />
 
       <div
-        className={`hidden lg:flex absolute bottom-20 left-20 w-8 h-8 bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] rounded-full transition-all duration-2000 delay-500 ${
-          isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
-        }`}
+        className={`hidden lg:flex absolute bottom-20 left-20 w-8 h-8 bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] rounded-full transition-all duration-2000 delay-500 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
+          }`}
       />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-12 lg:mb-16">
           <div
-            className={`mb-4 lg:mb-6 transition-all duration-1000 delay-200 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
+            className={`mb-4 lg:mb-6 transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
           >
             <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#FF6B35]/10 to-[#E55A2B]/10 rounded-full border border-[#FF6B35]/20 backdrop-blur-sm">
               <Award className="w-4 h-4 text-[#FF6B35] animate-pulse" />
@@ -413,9 +397,8 @@ export function SelectedProjectsSection() {
           </div>
 
           <h2
-            className={`text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 lg:mb-6 leading-tight transition-all duration-1200 delay-400 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-            }`}
+            className={`text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 lg:mb-6 leading-tight transition-all duration-1200 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+              }`}
           >
             <span className="text-[#FF6B35]">Uzmanlık</span> Alanlarımızı
             <br />
@@ -423,9 +406,8 @@ export function SelectedProjectsSection() {
           </h2>
 
           <p
-            className={`text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-600 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
+            className={`text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-600 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
           >
             Otel mobilyalarından villa projelerine, ofis tasarımından özel konutlara kadar geniş yelpazedeki
             uzmanlığımızı görün
@@ -437,9 +419,8 @@ export function SelectedProjectsSection() {
           {selectedProjects.map((project, index) => (
             <div
               key={project.id}
-              className={`group bg-[#2a2a2b]/30 rounded-2xl overflow-hidden border border-[#FF6B35]/10 transition-all duration-700 hover:border-[#FF6B35]/30 flex flex-col h-full ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              }`}
+              className={`group bg-[#2a2a2b]/30 rounded-2xl overflow-hidden border border-[#FF6B35]/10 transition-all duration-700 hover:border-[#FF6B35]/30 flex flex-col h-full ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                }`}
               style={{ transitionDelay: `${800 + index * 200}ms` }}
               onMouseEnter={() => setHoveredProject(index)}
               onMouseLeave={() => setHoveredProject(null)}
@@ -541,9 +522,8 @@ export function SelectedProjectsSection() {
         {/* Call to Action */}
         <div className="text-center">
           <div
-            className={`transition-all duration-1000 delay-1200 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
+            className={`transition-all duration-1000 delay-1200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
           >
             <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
               50+ yıllık deneyimimizle gerçekleştirdiğimiz tüm projelerimizi incelemek ve kendi projeniz için ilham
@@ -556,7 +536,10 @@ export function SelectedProjectsSection() {
                 className="bg-[#FF6B35] hover:bg-[#E55A2B] text-white px-8 py-4 text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-2xl"
               >
                 <Eye className="mr-2 w-5 h-5" />
-                Tüm Projelerimizi İncele
+                <Link
+                  href="/projeler">
+                  Tüm Projelerimizi İncele
+                </Link>
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
 
