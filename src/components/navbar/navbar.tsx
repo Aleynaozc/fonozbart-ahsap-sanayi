@@ -193,19 +193,23 @@ export function Header() {
 
           {/* CTA Button & Mobile Menu */}
           <div className="flex items-center space-x-4">
-            {/* Desktop Contact Info */}
-            <div className="hidden xl:flex items-center space-x-2 xl:space-x-3 group cursor-pointer">
-              <div className="p-1.5 xl:p-2 rounded-full group-hover:bg-white transition-all duration-300 flex-shrink-0">
-                <PiPhoneCall className="w-5 h-5 xl:w-6 xl:h-6 2xl:w-7 2xl:h-7 text-[#FF6B35]" />
-              </div>
-              <div className="text-right min-w-0">
-                <div className="text-xs text-gray-400 group-hover:text-[#FF6B35] transition-colors duration-300 whitespace-nowrap">
-                  Bize Ulaşın
-                </div>
-                <div className="text-sm text-white font-medium group-hover:text-[#FF6B35] transition-colors duration-300 whitespace-nowrap">
-                  +90 532 333 50 67
-                </div>
-              </div>
+             {/* Desktop CTA Button */}
+            <div className="hidden xl:block">
+              <button className="group relative bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] hover:from-[#E55A2B] hover:to-[#FF6B35] text-white px-6 py-3 rounded-lg font-semibold text-sm shadow-lg hover:shadow-2xl overflow-hidden">
+                <span className="relative z-10 flex items-center">
+                  <Phone className="w-4 h-4 mr-2 group-hover:animate-pulse" />
+                   <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://api.whatsapp.com/send/?phone=%2B905323335067&text&type=phone_number&app_absent=0"
+                    className="text-sm"
+                  >
+                    Hemen Arayın
+                  </a>
+                </span>
+                {/* Button glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              </button>
             </div>
 
             <button
