@@ -67,7 +67,7 @@ export default function ProductionProcessSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className={`relative bg-[#1e1e1f] py-16 lg:py-20 overflow-hidden ${poppins.className}`}>
+    <section ref={sectionRef} className={`relative bg-gradient-to-br from-[#1e1e1f] via-[#2a2a2b] to-[#1e1e1f] py-16 lg:py-20 overflow-hidden ${poppins.className}`}>
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div
@@ -105,13 +105,13 @@ export default function ProductionProcessSection() {
           </div>
 
           <h2
-            className={`text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 lg:mb-6 leading-tight transition-all duration-1200 delay-400 ${
+            className={`text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 lg:mb-6 text-white leading-tight transition-all duration-1200 delay-400 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
             }`}
           >
             <span className="text-[#FF6B35]">Profesyonel</span> Yaklaşımımızla
             <br />
-            <span className="text-white">Projelerinizi Hayata Geçiriyoruz</span>
+            <span className="text-white transition-all duration-1000 delay-600">Projelerinizi Hayata Geçiriyoruz</span>
           </h2>
 
           <p

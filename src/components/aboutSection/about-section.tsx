@@ -76,9 +76,8 @@ export function AboutSection() {
       <div className="absolute inset-0">
         {/* Main background pattern */}
         <div
-          className={`absolute inset-0 opacity-5 transition-all duration-3000 ${
-            isVisible ? "scale-100 rotate-0" : "scale-110 rotate-3"
-          }`}
+          className={`absolute inset-0 opacity-5 transition-all duration-3000 ${isVisible ? "scale-100 rotate-0" : "scale-110 rotate-3"
+            }`}
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23FF6B35' fillOpacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }}
@@ -88,9 +87,8 @@ export function AboutSection() {
         {Array.from({ length: 12 }).map((_, i) => (
           <div
             key={i}
-            className={`absolute w-1 h-1 xs:w-1.5 xs:h-1.5 sm:w-2 sm:h-2 bg-[#FF6B35] rounded-full opacity-20 transition-all duration-2000 ${
-              isVisible ? "animate-float" : "opacity-0"
-            }`}
+            className={`absolute w-1 h-1 xs:w-1.5 xs:h-1.5 sm:w-2 sm:h-2 bg-[#FF6B35] rounded-full opacity-20 transition-all duration-2000 ${isVisible ? "animate-float" : "opacity-0"
+              }`}
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -103,27 +101,24 @@ export function AboutSection() {
 
       {/* Morphing decorative elements */}
       <div
-        className={`absolute -bottom-4 -left-4 xs:-bottom-6 xs:-left-6 sm:-bottom-8 sm:-left-8 w-8 h-8 xs:w-12 xs:h-12 sm:w-16 sm:h-16 border-2 border-[#FF6B35]/70 transition-all duration-2000 ${
-          isVisible ? "rotate-45 scale-100 opacity-100" : "rotate-0 scale-50 opacity-0"
-        }`}
+        className={`absolute -bottom-4 -left-4 xs:-bottom-6 xs:-left-6 sm:-bottom-8 sm:-left-8 w-8 h-8 xs:w-12 xs:h-12 sm:w-16 sm:h-16 border-2 border-[#FF6B35]/70 transition-all duration-2000 ${isVisible ? "rotate-45 scale-100 opacity-100" : "rotate-0 scale-50 opacity-0"
+          }`}
         style={{
           borderRadius: isVisible ? "12px" : "50%",
           transform: `rotate(45deg) scale(${isVisible ? 1 : 0.5}) translate(${mousePosition.x * 10}px, ${mousePosition.y * 10}px)`,
         }}
       />
-   <div
-        className={`absolute -bottom-4 -left-4 xs:-bottom-6 xs:-left-6 sm:-bottom-8 sm:-left-8 w-8 h-8 xs:w-15 xs:h-15 sm:w-18 sm:h-18 border-2 border-[#9c7256]/70 transition-all duration-2000 ${
-          isVisible ? "rotate-45 scale-100 opacity-100" : "rotate-0 scale-50 opacity-0"
-        }`}
+      <div
+        className={`absolute -bottom-4 -left-4 xs:-bottom-6 xs:-left-6 sm:-bottom-8 sm:-left-8 w-8 h-8 xs:w-15 xs:h-15 sm:w-18 sm:h-18 border-2 border-[#9c7256]/70 transition-all duration-2000 ${isVisible ? "rotate-45 scale-100 opacity-100" : "rotate-0 scale-50 opacity-0"
+          }`}
         style={{
           borderRadius: isVisible ? "12px" : "50%",
           transform: `rotate(145deg) scale(${isVisible ? 1 : 0.5}) translate(${mousePosition.x * 10}px, ${mousePosition.y * 10}px)`,
         }}
       />
       <div
-        className={`absolute top-10 right-10 xs:top-15 xs:right-15 sm:top-20 sm:right-20 w-4 h-4 xs:w-6 xs:h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] transition-all duration-2000 ${
-          isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
-        }`}
+        className={`absolute top-10 right-10 xs:top-15 xs:right-15 sm:top-20 sm:right-20 w-4 h-4 xs:w-6 xs:h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] transition-all duration-2000 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
+          }`}
         style={{
           borderRadius: isVisible ? "50%" : "0%",
           transform: `scale(${isVisible ? 1 : 0}) translate(${mousePosition.x * -15}px, ${mousePosition.y * -15}px)`,
@@ -138,9 +133,8 @@ export function AboutSection() {
             <div className="max-w-3xl mx-auto lg:mx-0">
               {/* Animated badge */}
               <div
-                className={`mb-4 lg:mb-6 transition-all duration-1000 delay-200 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                }`}
+                className={`mb-4 lg:mb-6 transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                  }`}
               >
                 <div className="inline-flex items-center space-x-2 px-3 lg:px-4 py-1.5 lg:py-2 bg-gradient-to-r from-[#FF6B35]/10 to-[#E55A2B]/10 rounded-full border border-[#FF6B35]/20 backdrop-blur-sm">
                   <Sparkles className="w-3 h-3 lg:w-4 lg:h-4 text-[#FF6B35] animate-pulse" />
@@ -152,18 +146,16 @@ export function AboutSection() {
 
               {/* Morphing title */}
               <h2
-                className={`text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 lg:mb-6 leading-tight transition-all duration-1200 delay-400 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-                }`}
+                className={`text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 lg:mb-6 leading-tight transition-all duration-1200 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+                  }`}
               >
                 <span className="relative inline-block">
                   <span className="text-[#FF6B35] relative z-10">50 YILIN</span>
                 </span>
                 <br />
                 <span
-                  className={`text-white transition-all duration-1000 delay-600 ${
-                    isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
-                  }`}
+                  className={`text-white transition-all duration-1000 delay-600 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+                    }`}
                 >
                   ÜZERİNDE TECRÜBE
                 </span>
@@ -171,9 +163,8 @@ export function AboutSection() {
 
               {/* Animated description */}
               <p
-                className={`text-[#d1d1d1] text-base lg:text-lg mb-6 lg:mb-8 leading-relaxed transition-all duration-1000 delay-800 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                }`}
+                className={`text-[#d1d1d1] text-base lg:text-lg mb-6 lg:mb-8 leading-relaxed transition-all duration-1000 delay-800 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                  }`}
               >
                 FNZ Ahşap Sanayi, Marmaris'in özgün mimarisini ve doğal dokusunu, modern ahşap işçiliği ile buluşturan
                 bir mobilya ve dekorasyon firmasıdır. Kurulduğu günden bu yana, prestijli projelerde yer almış ve her
@@ -185,13 +176,11 @@ export function AboutSection() {
                 {features.map((feature, index) => (
                   <div
                     key={index}
-                    className={`group relative flex items-start space-x-3 lg:space-x-4 p-3 lg:p-4 rounded-xl transition-all duration-700 cursor-pointer ${
-                      isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
-                    } ${
-                      hoveredFeature === index
+                    className={`group relative flex items-start space-x-3 lg:space-x-4 p-3 lg:p-4 rounded-xl transition-all duration-700 cursor-pointer ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
+                      } ${hoveredFeature === index
                         ? "bg-gradient-to-r from-[#FF6B35]/10 to-transparent border border-[#FF6B35]/20"
                         : "hover:bg-[#2a2a2b]/30"
-                    }`}
+                      }`}
                     style={{ transitionDelay: `${1000 + index * 200}ms` }}
                     onMouseEnter={() => setHoveredFeature(index)}
                     onMouseLeave={() => setHoveredFeature(null)}
@@ -214,30 +203,26 @@ export function AboutSection() {
                     )}
 
                     <div
-                      className={`flex-shrink-0 w-10 h-10 lg:w-12 lg:h-12 rounded-xl flex items-center justify-center transition-all duration-500 ${
-                        hoveredFeature === index
+                      className={`flex-shrink-0 w-10 h-10 lg:w-12 lg:h-12 rounded-xl flex items-center justify-center transition-all duration-500 ${hoveredFeature === index
                           ? `bg-gradient-to-r ${feature.color} shadow-lg scale-110`
                           : "bg-[#FF6B35]/10"
-                      }`}
+                        }`}
                     >
                       <feature.icon
-                        className={`w-5 h-5 lg:w-6 lg:h-6 transition-all duration-500 ${
-                          hoveredFeature === index ? "text-white scale-110" : "text-[#FF6B35]"
-                        }`}
+                        className={`w-5 h-5 lg:w-6 lg:h-6 transition-all duration-500 ${hoveredFeature === index ? "text-white scale-110" : "text-[#FF6B35]"
+                          }`}
                       />
                     </div>
                     <div className="flex-1">
                       <h3
-                        className={`font-semibold mb-1 lg:mb-2 text-sm lg:text-base transition-all duration-300 ${
-                          hoveredFeature === index ? "text-white translate-x-2" : "text-[#f4f4f4]"
-                        }`}
+                        className={`font-semibold mb-1 lg:mb-2 text-sm lg:text-base transition-all duration-300 ${hoveredFeature === index ? "text-white translate-x-2" : "text-[#f4f4f4]"
+                          }`}
                       >
                         {feature.title}
                       </h3>
                       <p
-                        className={`text-gray-300 text-xs lg:text-sm transition-all duration-300 ${
-                          hoveredFeature === index ? "translate-x-2" : ""
-                        }`}
+                        className={`text-gray-300 text-xs lg:text-sm transition-all duration-300 ${hoveredFeature === index ? "translate-x-2" : ""
+                          }`}
                       >
                         {feature.description}
                       </p>
@@ -245,9 +230,8 @@ export function AboutSection() {
 
                     {/* Hover indicator */}
                     <div
-                      className={`absolute right-3 lg:right-4 top-1/2 -translate-y-1/2 transition-all duration-300 ${
-                        hoveredFeature === index ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"
-                      }`}
+                      className={`absolute right-3 lg:right-4 top-1/2 -translate-y-1/2 transition-all duration-300 ${hoveredFeature === index ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"
+                        }`}
                     >
                       <Zap className="w-3 h-3 lg:w-4 lg:h-4 text-[#FF6B35]" />
                     </div>
@@ -257,9 +241,8 @@ export function AboutSection() {
 
               {/* Animated stats */}
               <div
-                className={`flex items-center space-x-4 lg:space-x-8 transition-all duration-1000 delay-1600 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                }`}
+                className={`flex items-center space-x-4 lg:space-x-8 transition-all duration-1000 delay-1600 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                  }`}
               >
                 {[
                   { value: "750+", label: "Proje", icon: Target },
@@ -268,9 +251,8 @@ export function AboutSection() {
                 ].map((stat, index) => (
                   <div
                     key={index}
-                    className={`group text-center p-2 lg:p-4 rounded-xl transition-all duration-500 hover:bg-[#2a2a2b]/30 cursor-pointer ${
-                      isVisible ? "scale-100" : "scale-90"
-                    }`}
+                    className={`group text-center p-2 lg:p-4 rounded-xl transition-all duration-500 hover:bg-[#2a2a2b]/30 cursor-pointer ${isVisible ? "scale-100" : "scale-90"
+                      }`}
                     style={{ transitionDelay: `${1800 + index * 100}ms` }}
                   >
                     <div className="relative mb-1 lg:mb-2">
@@ -335,9 +317,8 @@ export function AboutSection() {
           <div className="max-w-lg mx-auto text-center">
             {/* Mobile badge */}
             <div
-              className={`mb-4 sm:mb-6 transition-all duration-1000 delay-200 ${
-                isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95"
-              }`}
+              className={`mb-4 sm:mb-6 transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95"
+                }`}
             >
               <div className="inline-flex items-center space-x-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-[#FF6B35]/10 to-[#E55A2B]/10 rounded-full border border-[#FF6B35]/20 backdrop-blur-sm">
                 <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-[#FF6B35] animate-pulse" />
@@ -349,9 +330,8 @@ export function AboutSection() {
 
             {/* Mobile title */}
             <h2
-              className={`text-2xl xs:text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6 leading-tight transition-all duration-1200 delay-400 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-              }`}
+              className={`text-2xl xs:text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6 leading-tight transition-all duration-1200 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+                }`}
             >
               Marmaris'te Ahşap Sanayinin
               <span className="text-[#FF6B35] block mt-1 sm:mt-2">Öncüsü</span>
@@ -359,9 +339,8 @@ export function AboutSection() {
 
             {/* Mobile description */}
             <p
-              className={`text-[#d1d1d1] text-sm xs:text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed transition-all duration-1000 delay-600 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              }`}
+              className={`text-[#d1d1d1] text-sm xs:text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed transition-all duration-1000 delay-600 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                }`}
             >
               FNZ Ahşap Sanayi, Marmaris'in özgün mimarisini ve doğal dokusunu, modern ahşap işçiliği ile buluşturan bir
               mobilya ve dekorasyon firmasıdır.
@@ -369,9 +348,8 @@ export function AboutSection() {
 
             {/* Mobile stats */}
             <div
-              className={`grid grid-cols-3 gap-2 xs:gap-3 sm:gap-4 mb-6 sm:mb-8 transition-all duration-1000 delay-800 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              }`}
+              className={`grid grid-cols-3 gap-2 xs:gap-3 sm:gap-4 mb-6 sm:mb-8 transition-all duration-1000 delay-800 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                }`}
             >
               {[
                 { value: "500+", label: "Proje" },
@@ -380,9 +358,8 @@ export function AboutSection() {
               ].map((stat, index) => (
                 <div
                   key={index}
-                  className={`text-center p-2 xs:p-3 sm:p-4 rounded-xl bg-[#2a2a2b]/30 border border-[#FF6B35]/10 transition-all duration-500 hover:bg-[#FF6B35]/10 ${
-                    isVisible ? "scale-100" : "scale-90"
-                  }`}
+                  className={`text-center p-2 xs:p-3 sm:p-4 rounded-xl bg-[#2a2a2b]/30 border border-[#FF6B35]/10 transition-all duration-500 hover:bg-[#FF6B35]/10 ${isVisible ? "scale-100" : "scale-90"
+                    }`}
                   style={{ transitionDelay: `${1000 + index * 100}ms` }}
                 >
                   <div className="text-lg xs:text-xl sm:text-2xl font-bold text-white">{stat.value}</div>
@@ -426,9 +403,8 @@ export function AboutSection() {
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className={`flex items-start space-x-3 xs:space-x-4 bg-[#2a2a2b]/50 p-3 xs:p-4 rounded-xl border border-[#FF6B35]/10 transition-all duration-700 ${
-                    isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
-                  }`}
+                  className={`flex items-start space-x-3 xs:space-x-4 bg-[#2a2a2b]/50 p-3 xs:p-4 rounded-xl border border-[#FF6B35]/10 transition-all duration-700 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+                    }`}
                   style={{ transitionDelay: `${1200 + index * 200}ms` }}
                 >
                   <div
