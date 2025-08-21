@@ -1,7 +1,6 @@
 "use client"
 
-import { usePathname } from "next/navigation"
-import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
+import { createContext, useContext, useState, type ReactNode } from "react"
 
 interface LoadingContextType {
   isLoading: boolean
@@ -16,11 +15,10 @@ interface LoadingContextType {
 const LoadingContext = createContext<LoadingContextType | undefined>(undefined)
 
 export function LoadingProvider({ children }: { children: ReactNode }) {
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true) // ilk açılışta loader çıksın
   const [loadingProgress, setLoadingProgress] = useState(0)
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [targetPage, setTargetPage] = useState<string | null>(null)
-  const pathname = usePathname()
 
   const setLoading = (loading: boolean) => {
     setIsLoading(loading)
@@ -39,7 +37,6 @@ export function LoadingProvider({ children }: { children: ReactNode }) {
     setIsTransitioning(true)
     setIsLoading(true)
 
-    // Simulate loading progress
     let progress = 0
     const interval = setInterval(() => {
       progress += Math.random() * 30
@@ -51,8 +48,7 @@ export function LoadingProvider({ children }: { children: ReactNode }) {
       }
     }, 100)
 
-    // Complete loading after transition
-    setTimeout(() => {
+    const finish = () => {
       clearInterval(interval)
       setProgress(100)
       setTimeout(() => {
@@ -61,21 +57,10 @@ export function LoadingProvider({ children }: { children: ReactNode }) {
         setTargetPage(null)
         setProgress(0)
       }, 300)
-    }, 1500)
-  }
-
-  // Reset loading state when pathname changes
-  useEffect(() => {
-    if (isTransitioning) {
-      setProgress(100)
-      setTimeout(() => {
-        setIsLoading(false)
-        setIsTransitioning(false)
-        setTargetPage(null)
-        setProgress(0)
-      }, 300)
     }
-  }, [pathname])
+
+    setTimeout(finish, 1500)
+  }
 
   return (
     <LoadingContext.Provider
@@ -101,5 +86,3 @@ export function useLoading() {
   }
   return context
 }
-
-export default LoadingProvider

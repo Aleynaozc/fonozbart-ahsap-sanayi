@@ -76,7 +76,7 @@ const pageTitle: Record<string, string> = {
 const pageDescriptions: Record<string, string> = {
   "/": "50 yılı aşkın tecrübemizle modern ahşap mobilya tasarımı ve üretimi alanında kaliteli hizmet sunuyoruz.",
   "/about":
-    "FNZ Mobilya olarak yarım asrı aşkın tecrübemizle ahşap mobilya sektöründe güvenilir bir marka olmayı başardık.",
+    "FNZ Wood olarak yarım asrı aşkın tecrübemizle ahşap mobilya sektöründe güvenilir bir marka olmayı başardık.",
   "/services":
     "Otel mobilyaları, mutfak tasarımı, banyo mobilyaları ve daha fazlası için profesyonel hizmetlerimizi keşfedin.",
   "/services/hotel-furniture":
@@ -86,7 +86,7 @@ const pageDescriptions: Record<string, string> = {
   "/services/bathroom-furniture":
     "Banyo mobilyaları ve wellness alanları için özel tasarım çözümleri. Su geçirmez ve dayanıklı.",
   "/projects": "Tamamladığımız mobilya projelerini inceleyin. Otel, ofis, konut ve ticari alan projelerimiz.",
-  "/contact": "FNZ Mobilya ile iletişime geçin. Ücretsiz keşif ve danışmanlık hizmeti için bize ulaşın.",
+  "/contact": "FNZ Wood ile iletişime geçin. Ücretsiz keşif ve danışmanlık hizmeti için bize ulaşın.",
 }
 
 export function useBreadcrumb() {
@@ -100,7 +100,7 @@ export function useBreadcrumb() {
         currentPage: "Ana Sayfa",
         fullPath: pathname,
         description: pageDescriptions[pathname] || "",
-        keywords: ["fnz mobilya", "ana sayfa", "ahşap mobilya", "mobilya tasarımı"],
+        keywords: ["FNZ Wood", "ana sayfa", "ahşap mobilya", "mobilya tasarımı"],
       }
     }
 
@@ -165,9 +165,9 @@ export function useBreadcrumb() {
 
     // SEO bilgilerini oluştur
     const description =
-      pageDescriptions[pathname] || `${currentPage} - FNZ Mobilya hizmetleri ve ürünleri hakkında detaylı bilgi.`
+      pageDescriptions[pathname] || `${currentPage} - FNZ Wood hizmetleri ve ürünleri hakkında detaylı bilgi.`
     const keywords = [
-      "fnz mobilya",
+      "FNZ Wood",
       currentPage.toLowerCase(),
       ...items.map((item) => item.label.toLowerCase()),
       "ahşap mobilya",
