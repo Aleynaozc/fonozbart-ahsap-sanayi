@@ -45,7 +45,6 @@ export function Header() {
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
-
   useEffect(() => {
     const currentItem = menuItems.find((item) => item.path === pathname)
     if (currentItem) {
@@ -65,16 +64,12 @@ export function Header() {
     }
   }, [isMobileMenuOpen])
 
-  const handleMenuClick = (menuName: string, path: string) => {
-    setClickedMenu(menuName)
-    setActiveMenu(menuName)
-    setIsMobileMenuOpen(false)
-    router.push(path)
-    startPageTransition(path)
-    setTimeout(() => {
-      setClickedMenu(null)
-    }, 600)
-  }
+ const handleMenuClick = (menuName: string, path: string) => {
+  setClickedMenu(menuName)
+  setIsMobileMenuOpen(false)
+  router.push(path) // sadece yönlendirme
+  setTimeout(() => setClickedMenu(null), 600)
+}
 
   return (
     <header
@@ -164,7 +159,7 @@ export function Header() {
                     } ${clickedMenu === item.name ? "animate-pulse" : ""}`}
                 >
                   {item.label}
-                 
+
                   {/* Active indicator */}
                   {activeMenu === item.name && (
                     <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 flex items-center">
@@ -255,7 +250,7 @@ export function Header() {
             <div className="flex items-center">
               <Image
                 src="/assets/images/fnz-beyaz.png"
-                alt="FNZ Mobilya Logo"
+                alt="FNZ Wood Logo"
                 width={220}
                 height={32}
                 className="object-contain h-8"
@@ -281,7 +276,7 @@ export function Header() {
                 style={{
                   transitionDelay: `${index * 100}ms`,
                 }}
-              > 
+              >
                 <span className="font-medium tracking-wide text-base sm:text-lg">{item.label}</span>
               </button>
             ))}
