@@ -426,15 +426,10 @@ a:hover .icon {
 }
 
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+body {
+  background-color: #000000; /* siyah */
+  color: #ffffff; /* isteğe bağlı, metin beyaz olsun */
 }
-
 @keyframes heartbeat {
   0% {
     transform: scale(1);
