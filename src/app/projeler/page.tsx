@@ -1,277 +1,340 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { Calendar, MapPin, User, ArrowUpRight } from "lucide-react"
+import { Calendar, X, ChevronLeft, ChevronRight } from "lucide-react"
+import { Poppins } from "next/font/google"
 import Image from "next/image"
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal"],
+})
+
+const projects = [
+  {
+    id: 1,
+    title: "D-Maris Bay Hotel - AURORA Restaurant ",
+    category: "Ahşap Deck & Dış Mekan",
+    location: "Marmaris, Muğla",
+    year: "2025",
+    client: "D-Maris Bay Hotel",
+    description:
+      "AURORA Restaurant için özel ahşap deck uygulamaları. Dayanıklı ve estetik dış mekan zemin kaplamaları ile lüks konseptin tamamlanması.",
+    images: [
+      "/assets/images/selected-project/aurora-capri.webp",
+      "/assets/images/selected-project/aurora-capri2.webp",
+      "/assets/images/selected-project/aurora-capri3.webp",
+    ],
+    features: ["Villa Mobilya", "Pergola", "Deck"],
+
+  },
+  {
+    id: 2,
+    title: "D-Maris Bay Hotel - NUSRET Restaurant ",
+    category: "Ahşap Deck & Dış Mekan",
+    year: "2025",
+    location: "Marmaris, Muğla",
+    client: "D-Maris Bay Hotel",
+    description:
+      "NUSRET Restaurant için özel ahşap deck uygulamaları. Dayanıklı ve estetik dış mekan zemin kaplamaları ile lüks konseptin tamamlanması.",
+    images: [
+      "/assets/images/selected-project/D-MARİS-NUSRET4.jpg",
+      "/assets/images/selected-project/D-MARİS-NUSRET.jpg",
+      "/assets/images/selected-project/D-MARİS-NUSRET3.jpg",
+    ],
+    features: ["Ahşap Kaplama", "Özel Tasarım", "Dayanıklı Malzeme"],
+  },
+  
+   {
+    id: 3,
+    title: "Ahu Hastanesi Diyaliz Binası",
+    category: "Sağlık Yapıları Mobilya ve Ahşap Uygulamaları",
+    location: "Marmaris, Muğla",
+    year: "2025",
+    client: "Ahu Hastanesi",
+    description:
+      "Diyaliz binası için mobilya tefrişatı, özel kapılar ve ahşap uygulamaları. Fonksiyonellik ve hijyen öncelikli tasarımlar.",
+    images: [
+      "/assets/images/selected-project/AHU-DİYALİZ-2-2025.jpg",
+      "/assets/images/selected-project/AHU-DİYALİZ-3-2025.jpg",
+      "/assets/images/selected-project/AHU-DİYALİZ-4-2025.jpg",
+      "/assets/images/selected-project/AHU-DİYALİZ-5-2025.jpg",
+    ],
+    features: ["Ahşap Kaplama", "Özel Tasarım", "Dayanıklı Malzeme"],
+  },
+
+  {
+    id: 4,
+    title: "TUI BLUE Tropical & Palace ",
+    category: "Otel Mobilya Renovasyonu ve Bakım İşleri",
+    location: "Sarıgerme, Muğla",
+    year: "2025",
+    client: "TUI BLUE Hotels",
+    description:
+      "TUI BLUE Tropical & Palace otelinin 200 odasında mobilya renovasyonu ve bakım işleri gerçekleştirildi. Mevcut mobilyaların yenilenmesi, bakım ve onarımları ile birlikte bazı özel üretim parçalar eklenerek otelin konfor ve estetiği güçlendirildi.",
+    images: [
+      "/assets/images/selected-project/tui-blue-oda.jpg",
+      "/assets/images/selected-project/tui-blue-oda2.jpg",
+      "/assets/images/selected-project/tui-blue-oda3.jpg",
+    ],
+    features: ["Şezlong", "Kabana", "Outdoor"],
+  },
+  {
+    id: 5,
+    title: "FNZ YAPI – Özel Villa Projesi",
+    category: "Anahtar Teslim Villa İnşaatı ve Mobilya Tefrişatı",
+    location: "Marmaris, Muğla",
+    year: "2023",
+    client: "FNZ YAPI",
+    description:
+      "Modern mimari anlayışla inşa edilen bu özel villa projesinde FNZ YAPI, inşaat sürecinden iç mekan tasarımına ve mobilya üretimine kadar tüm aşamaları üstlendi. Şık detaylar, doğal ahşap uygulamaları ve özel mobilya çözümleriyle lüks bir yaşam alanı oluşturuldu.",
+    images: [
+      "/assets/images/selected-project/fnz-yapi-villa-5.webp",
+      "/assets/images/selected-project/fnz-yapi-villa-2.webp",
+      "/assets/images/selected-project/fnz-yapi-villa-3.webp",
+      "/assets/images/selected-project/fnz-yapi-villa-4.webp",
+      "/assets/images/selected-project/fnz-yapi-villa.webp",
+    ],
+    stats: {
+      area: "500m²",
+    },
+    features: [
+      "Modern Mimari",
+      "Anahtar Teslim İnşaat",
+      "Özel Mobilya Tefrişatı",
+      "Doğal Ahşap Uygulamaları",
+      "Lüks İç Mekan Tasarımı",
+    ],
+  },
+  {
+    id: 6,
+    title: "Class Unique Beach Hotel ",
+    category: "Beach & Kabana Tasarımı ve Otel Mobilya Renovasyonu ",
+    location: "Marmaris, Muğla",
+    year: "2023",
+    client: "Class Unique Beach Hotel",
+    description:
+      "Class Unique Beach Hotel’de 62 odanın mobilya renovasyonu gerçekleştirilirken, aynı zamanda beach alanı için özel tasarım kabana ve şezlong uygulamaları yapıldı. Hem iç mekan hem de dış mekan konseptinde dayanıklı, estetik ve konforlu çözümler sunuldu.",
+    images: [
+      "/assets/images/selected-project/CLASS_UNIQUE_renovasyon.jpg",
+      "/assets/images/selected-project/CLASS_UNIQUE_renovasyon2.jpg",
+      "/assets/images/selected-project/CLASS_UNIQUE_renovasyon3.jpg",
+      "/assets/images/selected-project/CLASS_UNIQUE_renovasyon4.jpg",
+    ],
+    stats: {
+      rooms: "62 Oda",
+    },
+    features: [
+      "Mobilya Renovasyonu",
+      "Beach Kabana Tasarımı",
+      "Şezlong Üretimi",
+      "Dayanıklı Malzemeler",
+      "Konfor & Estetik",
+    ],
+  },
+]
 
 export default function ProjectsPage() {
-  const [filter, setFilter] = useState("all")
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null)
-  const [scrollY, setScrollY] = useState(0)
+  const [selectedProject, setSelectedProject] = useState<number | null>(null)
+  const [currentImage, setCurrentImage] = useState(0)
 
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  const openProject = (id: number) => {
+    setSelectedProject(id)
+    setCurrentImage(0)
+  }
 
-  const projects = [
-    {
-      id: 1,
-      title: "Modern Villa Mobilyaları",
-      category: "residential",
-      location: "Marmaris, Muğla",
-      date: "2024",
-      client: "Özel Müşteri",
-      description:
-        "Deniz manzaralı modern villada minimalist tasarım anlayışı ile hazırlanan özel mobilya koleksiyonu.",
-      image: "/modern-kitchen.png",
-      budget: "₺850.000",
-      duration: "3 ay",
-      size: "large",
-    },
-    {
-      id: 2,
-      title: "Lüks Otel Mobilyaları",
-      category: "commercial",
-      location: "Bodrum, Muğla",
-      date: "2024",
-      client: "Boutique Hotel",
-      description: "5 yıldızlı butik otelin tüm alanları için tasarlanan özel mobilya koleksiyonu.",
-      image: "/luxury-bedroom-furniture.png",
-      budget: "₺2.100.000",
-      duration: "6 ay",
-      size: "medium",
-    },
-    {
-      id: 3,
-      title: "Kurumsal Ofis Tasarımı",
-      category: "corporate",
-      location: "İstanbul",
-      date: "2023",
-      client: "Tech Company",
-      description: "Teknoloji şirketinin yeni ofisi için tasarlanan ergonomik ve modern çalışma alanları.",
-      image: "/corporate-office-furniture.png",
-      budget: "₺1.200.000",
-      duration: "4 ay",
-      size: "small",
-    },
-    {
-      id: 4,
-      title: "Antika Mobilya Restorasyonu",
-      category: "restoration",
-      location: "Ankara",
-      date: "2023",
-      client: "Müze Müdürlüğü",
-      description: "19. yüzyıla ait antika mobilyaların orijinal güzelliklerine kavuşturulması projesi.",
-      image: "/antique-cabinet-restoration.png",
-      budget: "₺650.000",
-      duration: "8 ay",
-      size: "medium",
-    },
-    {
-      id: 5,
-      title: "Özel Kütüphane Tasarımı",
-      category: "residential",
-      location: "Çeşme, İzmir",
-      date: "2023",
-      client: "Koleksiyoner",
-      description: "Kitap koleksiyoneri için tasarlanan özel kütüphane mobilyaları.",
-      image: "/custom-library.png",
-      budget: "₺750.000",
-      duration: "5 ay",
-      size: "large",
-    },
-    {
-      id: 6,
-      title: "Minimalist Mutfak Çözümü",
-      category: "residential",
-      location: "Antalya",
-      date: "2023",
-      client: "Genç Çift",
-      description: "Küçük alanlarda maksimum fonksiyonellik sağlayan akıllı mutfak tasarımı.",
-      image: "/minimalist-kitchen-solution.png",
-      budget: "₺450.000",
-      duration: "2 ay",
-      size: "small",
-    },
-  ]
+  const closeProject = () => setSelectedProject(null)
 
-  const categories = [
-    { id: "all", label: "Tümü" },
-    { id: "residential", label: "Konut" },
-    { id: "commercial", label: "Ticari" },
-    { id: "corporate", label: "Kurumsal" },
-    { id: "restoration", label: "Restorasyon" },
-  ]
+  const nextImage = () => {
+    if (selectedProject === null) return
+    const project = projects.find((p) => p.id === selectedProject)
+    if (!project) return
+    setCurrentImage((prev) => (prev + 1) % project.images.length)
+  }
 
-  const filteredProjects = filter === "all" ? projects : projects.filter((project) => project.category === filter)
-
-  const getMasonryHeight = (size: string, index: number) => {
-    const baseHeights = {
-      small: 300,
-      medium: 400,
-      large: 500,
-    }
-    return baseHeights[size as keyof typeof baseHeights] + (index % 3) * 50
+  const prevImage = () => {
+    if (selectedProject === null) return
+    const project = projects.find((p) => p.id === selectedProject)
+    if (!project) return
+    setCurrentImage((prev) => (prev - 1 + project.images.length) % project.images.length)
   }
 
   return (
-    <div className="min-h-screen bg-[#1e1e1f] text-white">
+    <div
+      className={`${poppins.className} min-h-screen bg-gradient-to-br from-[#1e1e1f] via-[#2a2a2b] to-[#1e1e1f]`}
+    >
+      {/* Hero Section */}
+      <section className="relative pt-40 md:pt-52 lg:pt-60 pb-16 md:pb-20 overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="container mx-auto px-4 lg:px-8 relative z-10 text-center"
+        >
+          <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-[#FF6B35]/10 border border-[#FF6B35]/20 rounded-full text-[#FF6B35] text-xs sm:text-sm font-medium mb-4 sm:mb-6">
+            <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+            FNZ Ahşap Sanayi Projelerimiz
+          </div>
 
-      {/* Floating hero section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-gradient-to-br from-[#FF6B35]/10 via-transparent to-[#FF6B35]/5"
-          style={{ transform: `translateY(${scrollY * 0.3}px)` }}
-        />
-
-        {/* Floating geometric elements */}
-        <div
-          className="absolute top-20 left-20 w-32 h-32 border border-[#FF6B35]/30 rounded-full"
-          style={{ transform: `rotate(${scrollY * 0.1}deg)` }}
-        />
-        <div
-          className="absolute bottom-32 right-32 w-24 h-24 bg-[#FF6B35]/20 rounded-full"
-          style={{ transform: `translateY(${Math.sin(scrollY * 0.01) * 20}px)` }}
-        />
-        <div
-          className="absolute top-1/2 left-1/3 w-16 h-16 border-2 border-[#FF6B35]/40 transform rotate-45"
-          style={{ transform: `rotate(${45 + scrollY * 0.05}deg)` }}
-        />
-
-        <div className="relative z-10 text-center max-w-5xl mx-auto px-4">
-          <h1 className="text-7xl md:text-9xl font-black mb-8 leading-none">
-            <span className="block text-white">PROJE</span>
-            <span className="block bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] bg-clip-text text-transparent">
-              LERİMİZ
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6">
+            <span className="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">
+              Projelerimiz
             </span>
           </h1>
-          <p className="text-2xl text-gray-300 mb-12 leading-relaxed">
-            Yaratıcılık ve ustalığın buluştuğu projelerimizi keşfedin
-          </p>
 
-          {/* Floating filter pills */}
-          <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setFilter(category.id)}
-                className={`px-6 py-3 rounded-full border transition-all duration-300 ${
-                  filter === category.id
-                    ? "bg-[#FF6B35] border-[#FF6B35] text-white"
-                    : "border-[#FF6B35]/30 text-gray-300 hover:border-[#FF6B35] hover:text-white"
-                }`}
-              >
-                {category.label}
-              </button>
-            ))}
-          </div>
-        </div>
+          <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed max-w-2xl md:max-w-3xl mx-auto">
+            FNZ Wood olarak Marmaris merkezli üretim tesisimizde otel, villa, beach club ve lüks
+            yaşam alanlarına yönelik projelerimizi hayata geçiriyoruz. Her proje, modern tasarım,
+            kaliteli işçilik ve müşteri memnuniyetini esas alır.
+          </p>
+        </motion.div>
       </section>
 
-      {/* Masonry project grid */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8" style={{ columnFill: "balance" }}>
-            {filteredProjects.map((project, index) => (
-              <div
+      {/* Projects Grid */}
+      <section className="py-16 md:py-20">
+        <div className="container mx-auto px-4 lg:px-8">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#FF6B35] text-center mb-12"
+          >
+            Öne Çıkan <span className="text-white">Projeler</span>
+          </motion.h2>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, i) => (
+              <motion.div
                 key={project.id}
-                className="break-inside-avoid mb-8 group cursor-pointer"
-                onMouseEnter={() => setHoveredProject(project.id)}
-                onMouseLeave={() => setHoveredProject(null)}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.15 }}
+                onClick={() => openProject(project.id)}
+                className="cursor-pointer bg-gradient-to-br from-[#2a2a2b] to-[#1e1e1f] rounded-xl border border-[#FF6B35]/20 shadow-md overflow-hidden group hover:shadow-lg hover:scale-[1.02] transition-transform duration-500"
               >
-                <div className="relative overflow-hidden rounded-3xl bg-[#2a2a2b] border border-[#FF6B35]/10 hover:border-[#FF6B35]/30 transition-all duration-500">
-                  {/* Project image */}
-                  <div className="relative overflow-hidden" style={{ height: getMasonryHeight(project.size, index) }}>
-                    <Image
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-
-                    {/* Floating project number */}
-                    <div className="absolute top-4 right-4 w-12 h-12 bg-[#FF6B35] rounded-full flex items-center justify-center text-white font-bold">
-                      {String(project.id).padStart(2, "0")}
-                    </div>
-
-                    {/* Hover overlay */}
-                    <div
-                      className={`absolute inset-0 bg-[#FF6B35]/90 flex items-center justify-center transition-opacity duration-300 ${
-                        hoveredProject === project.id ? "opacity-100" : "opacity-0"
-                      }`}
-                    >
-                      <ArrowUpRight className="w-12 h-12 text-white" />
-                    </div>
-                  </div>
-
-                  {/* Project content */}
-                  <div className="p-6 space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span className="px-3 py-1 bg-[#FF6B35]/20 text-[#FF6B35] text-sm font-medium rounded-full">
-                        {categories.find((cat) => cat.id === project.category)?.label}
-                      </span>
-                      <span className="text-gray-400 text-sm">{project.date}</span>
-                    </div>
-
-                    <h3 className="text-2xl font-bold leading-tight group-hover:text-[#FF6B35] transition-colors duration-300">
-                      {project.title}
-                    </h3>
-
-                    <p className="text-gray-300 leading-relaxed">{project.description}</p>
-
-                    <div className="space-y-2 text-sm text-gray-400">
-                      <div className="flex items-center space-x-2">
-                        <MapPin className="w-4 h-4 text-[#FF6B35]" />
-                        <span>{project.location}</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <User className="w-4 h-4 text-[#FF6B35]" />
-                        <span>{project.client}</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Calendar className="w-4 h-4 text-[#FF6B35]" />
-                        <span>{project.duration}</span>
-                      </div>
-                    </div>
-
-                    <div className="pt-4 border-t border-[#FF6B35]/10">
-                      <div className="flex justify-between items-center">
-                        <span className="text-[#FF6B35] font-bold text-lg">{project.budget}</span>
-                        <button className="text-gray-400 hover:text-[#FF6B35] transition-colors duration-300">
-                          Detayları Gör →
-                        </button>
-                      </div>
-                    </div>
+                <div className="relative">
+                  <Image
+                    src={project.images[0]}
+                    alt={project.title}
+                    width={600}
+                    height={400}
+                    className="w-full h-48 sm:h-56 object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute top-3 left-3 bg-[#FF6B35] text-white px-2 py-1 rounded-md text-xs font-medium">
+                    {project.category}
                   </div>
                 </div>
-              </div>
+
+                <div className="p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-[#FF6B35] transition-colors duration-300">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm mb-4">{project.description}</p>
+
+                  {/* Extra Info */}
+                  <div className="text-xs text-gray-400 space-y-1">
+                    <p>
+                      <strong>Yıl:</strong> {project.year}
+                    </p>
+                    <p>
+                      <strong>Lokasyon:</strong> {project.location}
+                    </p>
+                    <p>
+                      <strong>Müşteri:</strong> {project.client}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Contact section */}
-      <section className="py-32 px-4 bg-gradient-to-r from-[#2a2a2b] to-[#1e1e1f] relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-10 left-10 w-40 h-40 border border-[#FF6B35]/20 rounded-full animate-pulse" />
-          <div className="absolute bottom-20 right-20 w-32 h-32 bg-[#FF6B35]/10 rounded-full" />
-        </div>
+      {/* Modal for Gallery */}
+      <AnimatePresence>
+        {selectedProject !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="relative max-w-4xl w-full mx-auto px-4"
+            >
+              <button
+                onClick={closeProject}
+                className="absolute top-4 right-4 text-white hover:text-[#FF6B35] transition z-50"
+              >
+                <X size={28} />
+              </button>
 
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <h2 className="text-5xl md:text-6xl font-black mb-8">
-            Bir Sonraki Proje
-            <span className="block text-[#FF6B35]">Sizinki Olsun</span>
-          </h2>
-          <p className="text-xl text-gray-300 mb-12">Hayalinizdeki projeyi birlikte gerçekleştirelim</p>
-          <button className="px-12 py-4 bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] text-white font-bold text-lg rounded-full hover:shadow-2xl hover:shadow-[#FF6B35]/25 transition-all duration-300 transform hover:scale-105">
-            Proje Başlatalım
-          </button>
-        </div>
-      </section>
+              {(() => {
+                const project = projects.find((p) => p.id === selectedProject)
+                if (!project) return null
+                return (
+                  <div className="flex flex-col items-center">
+                    <div className="relative w-full h-[60vh] md:h-[70vh] mb-6">
+                      <Image
+                        src={project.images[currentImage]}
+                        alt={project.title}
+                        fill
+                        className="object-contain rounded-lg pointer-events-none"
+                      />
 
+                      {/* Prev Button */}
+                      <button
+                        onClick={prevImage}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-[#FF6B35]/70 transition z-40"
+                      >
+                        <ChevronLeft size={24} />
+                      </button>
+
+                      {/* Next Button */}
+                      <button
+                        onClick={nextImage}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-[#FF6B35]/70 transition z-40"
+                      >
+                        <ChevronRight size={24} />
+                      </button>
+                    </div>
+
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-300 text-center max-w-2xl">{project.description}</p>
+
+                    {/* Thumbnail Gallery */}
+                    <div className="flex gap-3 mt-6 overflow-x-auto pb-2">
+                      {project.images.map((img, idx) => (
+                        <div
+                          key={idx}
+                          onClick={() => setCurrentImage(idx)}
+                          className={`w-20 h-16 relative cursor-pointer rounded-md overflow-hidden border ${
+                            currentImage === idx
+                              ? "border-[#FF6B35]"
+                              : "border-transparent"
+                          }`}
+                        >
+                          <Image src={img} alt={project.title} fill className="object-cover" />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )
+              })()}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
-  )
+   )
 }
