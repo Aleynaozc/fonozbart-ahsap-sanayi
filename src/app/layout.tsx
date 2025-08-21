@@ -9,13 +9,14 @@ import { PageTransition } from "@/components/page-transition"
  import { LoadingProvider } from "@/hooks/use-loading"
 import { Header } from "@/components/navbar/navbar"
 import { Footer } from "@/components/footer"
+import InitialLoaderWrapper from "./initial-loader-wrapper"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "FNZ Ahşap Sanayi - Ahşap Mobilya Tasarımı ve Üretimi",
+  title: "FNZ Ahşap Sanayi | Marmaris Otel & Villa Mobilya Dekorasyon",
   description:
-    "50 yılı aşkın tecrübemizle modern ahşap mobilya tasarımı ve üretimi alanında kaliteli hizmet sunuyoruz.",
+    "FNZ Ahşap Sanayi, Marmaris merkezli modern mobilya dekorasyon firmasıdır. Otel mobilyaları, villa projeleri, mutfak ve banyo mobilyaları, pergola ve deck uygulamaları ile Bodrum, Fethiye ve tüm Türkiye’ye hizmet veriyoruz.",
   keywords: ["fnz ahşap sanayi", "ahşap mobilya", "mobilya tasarımı", "otel mobilyaları", "mutfak tasarımı"],
   authors: [{ name: "FNZ Ahşap Sanayi" }],
   creator: "FNZ Ahşap Sanayi",
@@ -74,12 +75,14 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <LoadingProvider>
+            <InitialLoaderWrapper>
           <BreadcrumbProvider>
             <LoadingBar />
             <Header />
             <PageTransition >{children}</PageTransition>
             <Footer/>
           </BreadcrumbProvider>
+          </InitialLoaderWrapper>
         </LoadingProvider>
       </body>
     </html>
