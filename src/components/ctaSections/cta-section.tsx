@@ -97,7 +97,7 @@ export function CtaSection() {
         <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-auto">
           <Image
             src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-            alt="FNZ Mobilya atölyesi"
+            alt="FNZ Wood atölyesi"
             fill
             className="object-cover"
           />

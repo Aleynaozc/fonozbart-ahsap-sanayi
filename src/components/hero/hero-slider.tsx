@@ -16,7 +16,7 @@ export function HeroSlider() {
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
-        <Image src="/assets/images/sliders/hero2.jpg" alt="Ahşap işçiliği" fill className="object-cover" priority />
+        <Image src="/assets/images/sliders/hero2.jpg"  alt="Ahşap işçiliği" fill className="object-cover" priority />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40 xs:from-black/70 xs:via-black/50 xs:to-black/30 sm:from-black/60 sm:via-black/40 sm:to-transparent"></div>
       </div>
 
