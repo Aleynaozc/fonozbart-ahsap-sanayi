@@ -4,6 +4,7 @@ import { ArrowRight, Award } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { useState, useEffect } from "react"
+import Link from "next/link"
 
 export function HeroSlider() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -60,8 +61,8 @@ export function HeroSlider() {
               className="bg-[#FF6B35] hover:bg-[#E55A2B] text-white px-4 xs:px-4 sm:px-8 py-3 xs:py-4 text-sm sm:text-lg flex-1 xs:flex-none transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-2xl touch-manipulation"
               onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
             >
-              <span className="hidden xs:inline">Projelerimizi Görün</span>
-              <span className="xs:hidden">Projelerimiz</span>
+              <Link href="/projeler"  className="xs:hidden ">Projelerimizi Görün</Link >
+              <Link href="/projeler"  className="hidden xs:inline">Projelerimiz</Link >
               <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
             </Button>
 
@@ -72,8 +73,8 @@ export function HeroSlider() {
               onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
             >
               <Award className="mr-2 xs:mr-3 w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="hidden xs:inline">Referanslarımız</span>
-              <span className="xs:hidden">Referanslar</span>
+              <Link href="/referanslar"  className="hidden xs:inline">Referanslarımız</Link >
+              <Link href="/referanslar"  className="xs:hidden">Referanslar</Link >
             </Button>
           </div>
 

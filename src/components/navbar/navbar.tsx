@@ -28,7 +28,7 @@ export function Header() {
     { name: "Services", label: "HİZMETLERİMİZ", path: "/hizmetlerimiz" },
     { name: "Project", label: "PROJELERİMİZ", path: "/projeler" },
     { name: "Blog", label: "BLOG", path: "/blog" },
-    { name: "Contact", label: "İLETİŞİM", path: "/iletişim" },
+    { name: "Contact", label: "İLETİŞİM", path: "/iletisim" },
     { name: "Referance", label: "REFERANSLARIMIZ", path: "/referanslar" },
   ]
 
