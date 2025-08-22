@@ -7,12 +7,14 @@ import { motion, AnimatePresence } from "framer-motion"
 interface ProjectImageSliderProps {
   images: string[]
   title: string
+  category:string
   onImageClick?: (index: number) => void
 }
 
 export default function ProjectImageSlider({
   images,
   title,
+  category,
   onImageClick,
 }: ProjectImageSliderProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
