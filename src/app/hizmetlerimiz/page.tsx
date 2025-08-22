@@ -115,7 +115,7 @@ export default function ServicesPage() {
             {/* Description */}
             <p className="text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto">
               FNZ Ahşap Sanayi, Marmaris merkezli mobilya & dekorasyon firmasıdır.
-              Bodrum, Fethiye ve tüm Türkiye’de otel, villa ve yaşam alanları için modern ahşap çözümler üretiyoruz.
+             Marmaris, Bodrum, Fethiye ve tüm Türkiye’de otel, villa ve yaşam alanları için modern ahşap çözümler üretiyoruz.
             </p>
           </motion.div>
         </div>

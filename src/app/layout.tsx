@@ -16,7 +16,7 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "FNZ Ahşap Sanayi | Marmaris Otel & Villa Mobilya Dekorasyon",
   description:
-    "FNZ Ahşap Sanayi, Marmaris merkezli modern mobilya dekorasyon firmasıdır. Otel mobilyaları, villa projeleri, mutfak ve banyo mobilyaları, pergola ve deck uygulamaları ile Bodrum, Fethiye ve tüm Türkiye’ye hizmet veriyoruz.",
+    "FNZ Ahşap Sanayi, Marmaris merkezli modern mobilya dekorasyon firmasıdır. Otel mobilyaları, villa projeleri, mutfak ve banyo mobilyaları, pergola ve deck uygulamaları ile Marmaris, Bodrum, Fethiye ve tüm Türkiye’ye hizmet veriyoruz.",
   keywords: ["fnz ahşap sanayi", "ahşap mobilya", "mobilya tasarımı", "otel mobilyaları", "mutfak tasarımı"],
   authors: [{ name: "FNZ Ahşap Sanayi" }],
   creator: "FNZ Ahşap Sanayi",
