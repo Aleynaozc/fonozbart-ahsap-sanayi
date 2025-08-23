@@ -1,7 +1,5 @@
 
 import ServicesSection from "@/components/servicesSection/services-section"
-import { Footer } from "@/components/footer"
-import { Header } from "@/components/navbar/navbar"
 import { AboutSection } from "@/components/aboutSection/about-section"
 import { HeroSlider } from "@/components/hero/hero-slider"
 import { SelectedProjectsSection } from "@/components/selected-project/selected-project"

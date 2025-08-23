@@ -176,11 +176,6 @@ export default function ProjectsPageClient() {
     return () => observer.disconnect();
   }, []);
 
-  const handleImageClick = (project: any, index: number) => {
-    setSelectedProject(project);
-    setSelectedImageIndex(index);
-    setModalOpen(true);
-  };
 
   return (
     <main className="bg-[#1e1e1f] text-white">

@@ -28,7 +28,8 @@ export default function BlogIndexPage() {
   const posts = getAllPosts()
 
   return (
-    <main className="bg-[#1e1e1f] text-white">
+    <section className="relative min-h-screen bg-[#1e1e1f] py-24">
+      <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/40"></div>
       <PageHero
         backgroundImage={BLOGDATA.heroImage}
         badgeText={BLOGDATA.intro.title}
@@ -38,46 +39,53 @@ export default function BlogIndexPage() {
         cta={{ label: "İletişime Geç", href: "/iletisim" }}
         icon={<Sparkles className="w-4 h-4" />}
       />
-      <h1 className="mb-6 text-3xl font-bold">Blog</h1>
-      <ul className="grid gap-8 md:grid-cols-2">
-        {posts.map((post) => (
-          <li key={post.slug} className="group rounded-lg border p-4 hover:shadow-md transition">
-            <Link href={`/blog/${post.slug}`}>
+
+      <div className="relative container mx-auto px-6 mt-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {posts.map((post) => (
+            <article
+              key={post.slug}
+              className="group relative bg-[#2a2a2b]/50 border border-white/10 rounded-2xl overflow-hidden  hover:shadow-[0_0_30px_rgba(255,107,53,0.2)] transition-all duration-500 backdrop-blur-lg"
+            >
               {post.image && (
-                <div className="mb-3 overflow-hidden rounded-md">
+                <div className="relative h-56 w-full overflow-hidden">
                   <Image
                     src={post.image}
                     alt={post.title}
-                    width={800}
-                    height={450}
-                    className="h-auto w-full object-cover transition group-hover:scale-[1.02]"
+                    fill
+                    className="object-cover  transition-transform duration-700"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                 </div>
               )}
-              <h2 className="text-xl font-semibold">{post.title}</h2>
-              <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">
-                {post.description}
-              </p>
-              <div className="mt-2 text-xs text-muted-foreground">
-                <time dateTime={post.date}>
-                  {format(new Date(post.date), "d MMMM yyyy", { locale: tr })}
-                </time>
-                <span aria-hidden> · </span>
-                <span>{post.readingTime}</span>
+
+              <div className="p-6">
+                <div className="flex items-center text-xs text-gray-400 gap-4 mb-3">
+                  <span className="flex items-center">
+                    <Calendar className="w-3 h-3 mr-1 text-[#FF6B35]" /> {post.date}
+                  </span>
+                  <span className="flex items-center">
+                    <Clock className="w-3 h-3 mr-1 text-[#FF6B35]" /> {post.readingTime}
+                  </span>
+                </div>
+
+                <h2 className="text-lg font-semibold text-white mb-2 group-hover:text-[#FF6B35] transition-colors">
+                  {post.title}
+                </h2>
+
+                <p className="text-gray-300 text-sm mb-4 line-clamp-3">{post.description}</p>
+
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="inline-flex items-center text-[#FF6B35] font-medium group-hover:underline"
+                >
+                  Devamını Oku <ArrowRight className="ml-2 w-4 h-4" />
+                </Link>
               </div>
-              {post.tags.length > 0 && (
-                <ul className="mt-2 flex flex-wrap gap-2">
-                  {post.tags.map((t) => (
-                    <li key={t} className="rounded bg-muted px-2 py-1 text-xs">
-                      #{t}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </main>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }
