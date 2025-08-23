@@ -1,90 +1,145 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
 import "./globals.css"
 import { BreadcrumbProvider } from "@/components/bradcrumps/breadcrumb-provider"
-
 import { LoadingBar } from "@/components/loading-bar"
 import { PageTransition } from "@/components/page-transition"
- import { LoadingProvider } from "@/hooks/use-loading"
+import { LoadingProvider } from "@/hooks/use-loading"
 import { Header } from "@/components/navbar/navbar"
 import { Footer } from "@/components/footer"
 import InitialLoaderWrapper from "./initial-loader-wrapper"
+import { defaultMetadata, pageMetadata } from "@/seo-data"
 
-const inter = Inter({ subsets: ["latin"] })
 
-export const metadata: Metadata = {
-  title: "FNZ Ahşap Sanayi | Marmaris Otel & Villa Mobilya Dekorasyon",
-  description:
-    "FNZ Ahşap Sanayi, Marmaris merkezli modern mobilya dekorasyon firmasıdır. Otel mobilyaları, villa projeleri, mutfak ve banyo mobilyaları, pergola ve deck uygulamaları ile Marmaris, Bodrum, Fethiye ve tüm Türkiye’ye hizmet veriyoruz.",
-  keywords: ["fnz ahşap sanayi", "ahşap mobilya", "mobilya tasarımı", "otel mobilyaları", "mutfak tasarımı"],
-  authors: [{ name: "FNZ Ahşap Sanayi" }],
-  creator: "FNZ Ahşap Sanayi",
-  publisher: "FNZ Ahşap Sanayi",
-  robots: "index, follow",
-  openGraph: {
-    type: "website",
-    locale: "tr_TR",
-    url: "https://fnzmobilya.com",
-    siteName: "FNZ Ahşap Sanayi",
-    title: "FNZ Ahşap Sanayi - Ahşap Mobilya Tasarımı ve Üretimi",
-    description:
-      "50 yılı aşkın tecrübemizle modern ahşap mobilya tasarımı ve üretimi alanında kaliteli hizmet sunuyoruz.",
-    images: [
-      {
-        url: "/assets/images/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "FNZ Ahşap Sanayi",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "FNZ Ahşap Sanayi - Ahşap Mobilya Tasarımı ve Üretimi",
-    description:
-      "50 yılı aşkın tecrübemizle modern ahşap mobilya tasarımı ve üretimi alanında kaliteli hizmet sunuyoruz.",
-    images: ["/assets/images/og-image.jpg"],
-  },
-  alternates: {
-    canonical: "https://fnzmobilya.com",
-  },
+
+export function generateMetadata({ params }: { params: any }): Metadata {
+  const path =
+    "/" + (Array.isArray(params?.slug) ? params.slug.join("/") : params?.slug || "")
+  return {
+    ...defaultMetadata,
+    ...pageMetadata[path],
+  }
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="tr">
-      <head>
-        <meta name="theme-color" content="#D4A574" />
-        <meta name="msapplication-TileColor" content="#D4A574" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-        {/* Preload critical resources */}
-        <link rel="preload" href="/assets/images/fnz-beyaz.png" as="image" />
-        <link rel="preconnect" href="https://images.unsplash.com" />
-        <link rel="dns-prefetch" href="https://images.unsplash.com" />
-
-        {/* Preload critical fonts */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      </head>
-      <body className={inter.className}>
+      <body>
         <LoadingProvider>
-            <InitialLoaderWrapper>
-          <BreadcrumbProvider>
-            <LoadingBar />
-            <Header />
-            <PageTransition >{children}</PageTransition>
-            <Footer/>
-          </BreadcrumbProvider>
+          <InitialLoaderWrapper>
+            <BreadcrumbProvider>
+              <LoadingBar />
+              <Header />
+              <PageTransition>{children}</PageTransition>
+              <Footer />
+            </BreadcrumbProvider>
           </InitialLoaderWrapper>
         </LoadingProvider>
+
+        {/* ✅ Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                name: "FNZ Ahşap Mobilya",
+                url: "https://fnzwood.com",
+                logo: "https://fnzwood.com/assets/images/logo.png",
+                sameAs: [
+                  "https://www.facebook.com/fnzwood",
+                  "https://www.instagram.com/fnzwood",
+                  "https://www.linkedin.com/company/fnzwood",
+                ],
+                contactPoint: [
+                  {
+                    "@type": "ContactPoint",
+                    telephone: "+90-532-000-0000",
+                    contactType: "customer service",
+                    areaServed: "TR",
+                    availableLanguage: ["Turkish", "English"],
+                  },
+                ],
+              },
+              null,
+              2
+            ),
+          }}
+        />
+
+        {/* ✅ WebSite Schema (arama kutusu için) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                url: "https://fnzwood.com",
+                name: "FNZ Ahşap Mobilya",
+              },
+              null,
+              2
+            ),
+          }}
+        />
+
+        {/* ✅ LocalBusiness Schema (Google Maps + Yerel SEO için) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              {
+                "@context": "https://schema.org",
+                "@type": "LocalBusiness",
+                "@id": "https://fnzwood.com/#localbusiness",
+                name: "FNZ Ahşap Mobilya",
+                image: "https://fnzwood.com/assets/images/logo.png",
+                url: "https://fnzwood.com",
+                telephone: "+90-532-000-0000",
+                priceRange: "$$",
+                address: {
+                  "@type": "PostalAddress",
+                  streetAddress: "Hisarönü, Marmaris Datça Yolu No:49",
+                  addressLocality: "Marmaris",
+                  addressRegion: "Muğla",
+                  postalCode: "48700",
+                  addressCountry: "TR",
+                },
+                geo: {
+                  "@type": "GeoCoordinates",
+                  "latitude": 36.852365,
+                  "longitude": 28.274382
+                },
+                openingHoursSpecification: [
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    dayOfWeek: [
+                      "Monday",
+                      "Tuesday",
+                      "Wednesday",
+                      "Thursday",
+                      "Friday",
+                      "Saturday",
+                    ],
+                    opens: "08:30",
+                    closes: "18:30",
+                  },
+                ],
+                sameAs: [
+                  "https://www.facebook.com/fnzwood",
+                  "https://www.instagram.com/fnzwood",
+                  "https://www.linkedin.com/company/fonozbart-ah%C5%9Fap-sanayi/",
+                ],
+              },
+              null,
+              2
+            ),
+          }}
+        />
       </body>
     </html>
   )
 }
+

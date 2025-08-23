@@ -15,21 +15,11 @@ export interface BreadcrumbItem {
 const breadcrumbConfig: Record<string, string> = {
   // Ana sayfalar
   "": "Ana Sayfa",
-  about: "Hakkımızda",
-  services: "Hizmetlerimiz",
-  projects: "Projelerimiz",
+  hakkimizda: "Hakkımızda",
+  hizmetlerimiz: "Hizmetlerimiz",
+  projeler: "Projelerimiz",
   blog: "Blog",
-  contact: "İletişim",
-  gallery: "Galeri",
-  team: "Ekibimiz",
-
-  // Hizmet alt sayfaları
-  "hotel-furniture": "Otel Mobilyaları",
-  "kitchen-design": "Mutfak Tasarımı",
-  "bathroom-furniture": "Banyo Mobilyaları",
-  "office-furniture": "Ofis Mobilyaları",
-  "outdoor-design": "Dış Mekan Tasarımı",
-  "interior-design": "İç Mekan Tasarımı",
+  iletisim: "İletişim",
 
   // Proje kategorileri
   completed: "Tamamlanan Projeler",
@@ -57,23 +47,14 @@ const breadcrumbConfig: Record<string, string> = {
  */
 const pageTitle: Record<string, string> = {
   "/": "Ana Sayfa",
-  "/about": "Hakkımızda",
-  "/services": "Hizmetlerimiz",
-  "/services/hotel-furniture": "Otel Mobilyaları",
-  "/services/kitchen-design": "Mutfak Tasarımı",
-  "/services/bathroom-furniture": "Banyo Mobilyaları",
-  "/services/office-furniture": "Ofis Mobilyaları",
-  "/services/outdoor-design": "Dış Mekan Tasarımı",
-  "/services/interior-design": "İç Mekan Tasarımı",
-  "/projects": "Projelerimiz",
-  "/projects/completed": "Tamamlanan Projeler",
-  "/projects/ongoing": "Devam Eden Projeler",
+  "/hakkimizda": "Hakkımızda",
+  "/hizmetlerimiz": "Hizmetlerimiz",
+  "/projeler": "Projelerimiz",
   "/blog": "Blog",
   "/blog/news": "Haberler",
   "/blog/tips": "İpuçları",
-  "/contact": "İletişim",
-  "/gallery": "Galeri",
-  "/team": "Ekibimiz",
+  "/iletisim": "İletişim",
+ 
 };
 
 /**

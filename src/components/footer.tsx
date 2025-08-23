@@ -31,8 +31,7 @@ const quickLinks = [
 const socialLinks = [
   { name: "Facebook", icon: Facebook, href: "https://www.facebook.com/fnzwood/", color: "hover:text-blue-500" },
   { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/fnzwood/", color: "hover:text-pink-500" },
-  { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/company/fonozbart-ah%C5%9Fap-sanayi/?originalSubdomain=tr", color: "hover:text-blue-600" },
-  { name: "Twitter", icon: Twitter, href: "#", color: "hover:text-blue-400" },
+  { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/company/fonozbart-ah%C5%9Fap-sanayi/", color: "hover:text-blue-600" },
 ]
 
 export function Footer() {
