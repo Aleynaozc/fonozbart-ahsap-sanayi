@@ -195,7 +195,7 @@ export function Header() {
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="https://api.whatsapp.com/send/?phone=%2B905323335067&text&type=phone_number&app_absent=0"
+                     href={`tel: +90 532 333 50 67`}
                     className="text-sm"
                   >
                     Hemen Arayın

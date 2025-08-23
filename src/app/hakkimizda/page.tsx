@@ -11,14 +11,16 @@ import {
   TrendingUp,
   ArrowRight,
 } from 'lucide-react';
+import { PageHero } from '@/components/pageHero/page-hero';
 
 const ABOUT = {
   heroImage: '/assets/images/sliders/hero1.jpg',
   intro: {
-    title: 'Hakkımızda',
-    heading: 'Zanaatten Sanata, Ahşabın Yolculuğu',
-    text: 'FNZ Ahşap olarak, yılların deneyimini modern tasarım anlayışı ile buluşturuyoruz. Her bir projemiz, ustalığımızın ve kaliteye olan bağlılığımızın bir yansımasıdır.',
-  },
+  title: 'Hakkımızda',
+  heading: 'Zanaatten Sanata,',
+  highlight: 'Ahşabın Yolculuğu ',
+  text: 'FNZ Ahşap Sanayi olarak, yılların deneyimini modern tasarım anlayışı ile buluşturuyoruz. FNZ markası, otel mobilyaları, villa dekorasyonları ve özel projelerde kaliteye olan bağlılığımızın bir yansımasıdır.',
+},
   story: {
     heading: 'Biz Kimiz?',
     past: `1970 yılında Trabzon'un Of ilçesinde başlayan mobilya yolculuğumuz, 
@@ -67,43 +69,16 @@ export default function AboutPage() {
   return (
     <main className="bg-[#1e1e1f] text-white">
       {/* HERO */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src={ABOUT.heroImage}
-            alt="Ahşap işçiliği"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40 sm:to-transparent" />
-        </div>
 
-        <div className="relative z-10 container mx-auto px-6">
-          <div
-            className={`inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#FF6B35]/10 to-[#E55A2B]/10 rounded-full border border-[#FF6B35]/20 backdrop-blur-sm transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
-              }`}
-          >
-            <Sparkles className="w-4 h-4 text-[#FF6B35]" />
-            <span className="text-[#FF6B35] text-sm font-medium">Hakkımızda</span>
-          </div>
-
-          <h1
-            className={`mt-4 text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight transition-all duration-1000 delay-150 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-              }`}
-          >
-            {ABOUT.intro.heading}
-          </h1>
-
-          <p
-            className={`mt-4 max-w-2xl text-gray-300 text-lg leading-relaxed transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-              }`}
-          >
-            {ABOUT.intro.text}
-          </p>
-        </div>
-      </section>
-
+      <PageHero
+        backgroundImage={ABOUT.heroImage}
+        badgeText={ABOUT.intro.title}
+        title={ABOUT.intro.heading}
+        highlight={ABOUT.intro.highlight}
+        description={ABOUT.intro.text}
+        cta={{ label: "Projelerimizi Keşfedin", href: "/projeler" }}
+        icon={<Sparkles className="w-4 h-4" />}
+      />
       {/* STORY SECTION */}
       <section ref={sectionRef} className="relative py-16 sm:py-20 lg:py-24 overflow-hidden">
         <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-10 items-center">
@@ -111,7 +86,7 @@ export default function AboutPage() {
             className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-6'}`}
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">{ABOUT.story.heading}</h2>
-           
+
             <p className="text-gray-300 leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: ABOUT.story.past }} />
 
             <p className="text-gray-300 leading-relaxed" dangerouslySetInnerHTML={{ __html: ABOUT.story.today }} />
@@ -174,7 +149,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">Projelerinize Değer Katmaya Hazırız</h2>
           <p className="text-gray-300 max-w-2xl mx-auto mb-8">
-            FNZ Ahşap ile prestijli projelerinizde farklılık yaratın. Kalite, özgünlük ve güvenin birleştiği noktadayız.
+            FNZ Wood ile prestijli projelerinizde farklılık yaratın. Kalite, özgünlük ve güvenin birleştiği noktadayız.
           </p>
           <a
             href="/iletisim"

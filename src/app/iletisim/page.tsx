@@ -20,13 +20,13 @@ import {
 const CONTACT = {
   addressTitle: 'Adres',
   addressText: 'Marmaris, Muğla, Türkiye',
-  addressLink: 'https://maps.google.com/?q=Marmaris,Muğla',
+  addressLink: 'https://www.google.com/maps/place/Fonozbart+Ah%C5%9Fap+Sanayi/@36.8329249,28.1403155,17z/data=!3m1!4b1!4m6!3m5!1s0x14bfb9542100a983:0x897c830fcb7a8d3!8m2!3d36.8329206!4d28.1428904!16s%2Fg%2F11hdjgj0tt?entry=ttu&g_ep=EgoyMDI1MDgxOS4wIKXMDSoASAFQAw%3D%3D',
   phoneTitle: 'Telefon',
-  phone: '+90 555 555 55 55',
+  phone: ' +90 532 333 50 67',
   emailTitle: 'E-posta',
-  email: 'info@fnz-wood.com',
+  email: 'fonozbart@hotmail.com',
   workingTitle: 'Çalışma Saatleri',
-  working: 'Hafta içi 09:00–18:00',
+  working: 'Hafta içi 08:30–18:30',
   whatsapp: 'https://api.whatsapp.com/send/?phone=%2B905323335067&text&type=phone_number&app_absent=0',
   heroImage: '/assets/images/sliders/hero2.jpg', // Landing ile uyumlu görsel
   showroomImage: '/assets/images/about-sections/about2.png',
@@ -227,8 +227,9 @@ export default function ContactPage() {
                   className="absolute inset-0 w-full h-full grayscale-[0.2] contrast-110 opacity-90"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  src="https://www.google.com/maps?q=Marmaris,Muğla&output=embed"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3193.398761674455!2d28.140315476405746!3d36.83292486585322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bfb9542100a983%3A0x897c830fcb7a8d3!2sFonozbart%20Ah%C5%9Fap%20Sanayi!5e0!3m2!1str!2str!4v1755930379716!5m2!1str!2str" 
                 />
+                
               </div>
 
               {/* Decorative overlay + badge */}
