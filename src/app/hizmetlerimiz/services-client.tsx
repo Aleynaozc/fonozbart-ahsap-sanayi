@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Sparkles, ArrowRight } from 'lucide-react';
 import { PageHero } from '@/components/pageHero/page-hero';
+import { useBreadcrumb } from '@/hooks/use-breadcrumb';
 
 const SERVICES = [
   {
@@ -70,6 +71,7 @@ export default function ServicesPageClient() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement | null>(null);
+ const { currentPage } = useBreadcrumb()
 
   useEffect(() => {
     setIsLoaded(true);
@@ -86,7 +88,7 @@ export default function ServicesPageClient() {
       {/* HERO */}
       <PageHero
         backgroundImage={Services.heroImage}
-        badgeText={Services.intro.title}
+        badgeText={currentPage}
         title={Services.intro.heading}
         highlight={Services.intro.highlight}
         description={Services.intro.text}

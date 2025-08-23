@@ -1,14 +1,13 @@
-// app/hakkimizda/page.tsx
-
-import { getSeoMetadata } from "@/hooks/useSeoMetadata";
-import type { Metadata } from "next"
+import { defaultMetadata, pageMetadata } from "@/seo-data";
 import AboutPageClient from "./about-client";
+import { Metadata } from "next";
 
 
-export const metadata: Metadata = getSeoMetadata("/hakkimizda")
+export const metadata: Metadata = {
+  ...defaultMetadata,
+  ...pageMetadata["/hakkimizda"],
+}
 
 export default function AboutPage() {
-
-
- return <AboutPageClient/>;
+return <AboutPageClient/>
 }

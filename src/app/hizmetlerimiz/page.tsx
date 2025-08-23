@@ -5,7 +5,7 @@ import { getSeoMetadata } from "@/hooks/useSeoMetadata";
 import type { Metadata } from "next"
 
 
-export const metadata: Metadata = getSeoMetadata("/projeler")
+export const metadata: Metadata = getSeoMetadata("/hizmetlerimiz")
 export default function ServicesPage() {
   return <ServicesPageClient />;
 }

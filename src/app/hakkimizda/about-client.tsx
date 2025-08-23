@@ -11,15 +11,16 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import { PageHero } from '@/components/pageHero/page-hero';
+import { useBreadcrumb } from '@/hooks/use-breadcrumb';
 
 const ABOUT = {
   heroImage: '/assets/images/sliders/hero1.jpg',
   intro: {
-  title: 'Hakkımızda',
-  heading: 'Zanaatten Sanata,',
-  highlight: 'Ahşabın Yolculuğu ',
-  text: 'FNZ Ahşap Sanayi olarak, yılların deneyimini modern tasarım anlayışı ile buluşturuyoruz. FNZ markası, otel mobilyaları, villa dekorasyonları ve özel projelerde kaliteye olan bağlılığımızın bir yansımasıdır.',
-},
+    title: 'Hakkımızda',
+    heading: 'Zanaatten Sanata,',
+    highlight: 'Ahşabın Yolculuğu ',
+    text: 'FNZ Ahşap Sanayi olarak, yılların deneyimini modern tasarım anlayışı ile buluşturuyoruz. FNZ markası, otel mobilyaları, villa dekorasyonları ve özel projelerde kaliteye olan bağlılığımızın bir yansımasıdır.',
+  },
   story: {
     heading: 'Biz Kimiz?',
     past: `1970 yılında Trabzon'un Of ilçesinde başlayan mobilya yolculuğumuz, 
@@ -55,7 +56,7 @@ export default function AboutPageClient() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement | null>(null);
-
+  const { currentPage } = useBreadcrumb()
   useEffect(() => {
     setIsLoaded(true);
     const io = new IntersectionObserver(
@@ -72,7 +73,7 @@ export default function AboutPageClient() {
 
       <PageHero
         backgroundImage={ABOUT.heroImage}
-        badgeText={ABOUT.intro.title}
+        badgeText={currentPage}
         title={ABOUT.intro.heading}
         highlight={ABOUT.intro.highlight}
         description={ABOUT.intro.text}

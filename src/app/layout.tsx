@@ -8,18 +8,36 @@ import { LoadingProvider } from "@/hooks/use-loading"
 import { Header } from "@/components/navbar/navbar"
 import { Footer } from "@/components/footer"
 import InitialLoaderWrapper from "./initial-loader-wrapper"
-import { defaultMetadata, pageMetadata } from "@/seo-data"
+import { defaultMetadata, pageMetadata,getBlogMetadata } from "@/seo-data"
 
 
 
-export function generateMetadata({ params }: { params: any }): Metadata {
-  const path =
-    "/" + (Array.isArray(params?.slug) ? params.slug.join("/") : params?.slug || "")
-  return {
-    ...defaultMetadata,
-    ...pageMetadata[path],
+
+export function generateMetadata({ params }: { params?: { slug?: string[] } }): Metadata {
+  const slugArray = params?.slug || []
+  const path = "/" + slugArray.join("/")
+
+  // ✅ Eğer params boşsa ve path="/" çıkıyorsa
+  // aslında bu index değil, farklı bir static route olabilir.
+  // Bu durumda "pageMetadata" kontrolünü yapalım:
+  if (pageMetadata[path]) {
+    return { ...defaultMetadata, ...pageMetadata[path] }
   }
+
+  // ✅ Blog yazısı (ör: /blog/modern-mutfak-tasarimi)
+  if (slugArray.length === 2 && slugArray[0] === "blog") {
+    return { ...defaultMetadata, ...getBlogMetadata(slugArray[1]) }
+  }
+
+  // ✅ Statik sayfaları yakala (ör: /hakkimizda)
+  if (slugArray.length === 1 && pageMetadata[`/${slugArray[0]}`]) {
+    return { ...defaultMetadata, ...pageMetadata[`/${slugArray[0]}`] }
+  }
+
+  // ✅ Fallback
+  return defaultMetadata
 }
+
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
