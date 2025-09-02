@@ -2,7 +2,7 @@
 title: "Marmaris’te Otel Mobilyaları ile Konfor ve Şıklık"
 date: "2025-08-27"
 category: "Otel Mobilyaları"
-excerpt: "Marmaris’te otellerde kullanılan mobilyalar, estetik ve fonksiyonellik açısından büyük önem taşıyor. Otel mobilyası modelleri ve kullanım alanları bu yazımızda."
+description: "Marmaris’te otellerde kullanılan mobilyalar, estetik ve fonksiyonellik açısından büyük önem taşıyor. Otel mobilyası modelleri ve kullanım alanları bu yazımızda."
 coverImage: "/assets/images/selected-project/CLASS_UNIQUE_fnz-wood-renovasyon.jpg"
 tags: ["Otel Mobilyaları", "Marmaris", "Hotel Decor", "Mobilya Modelleri"]
 seoTitle: "Marmaris Otel Mobilyaları | FNZ Yapı"

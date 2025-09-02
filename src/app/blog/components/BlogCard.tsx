@@ -5,16 +5,16 @@ import { Button } from "@/components/ui/button"
 type BlogCardProps = {
   slug: string
   title: string
-  excerpt: string
+  description: string
   date?: string
   coverImage: string
   category?: string
 }
 
-export function BlogCard({ slug, title, excerpt, date, coverImage, category }: BlogCardProps) {
+export function BlogCard({ slug, title, description, date, coverImage, category }: BlogCardProps) {
   return (
-    <Link
-      href={`/blog/${slug}`}
+    <div
+    
       className="group bg-[#2a2a2b] rounded-2xl shadow hover:shadow-lg transition overflow-hidden flex flex-col md:flex-row h-full"
     >
       {/* Sol tarafta görsel */}
@@ -50,20 +50,20 @@ export function BlogCard({ slug, title, excerpt, date, coverImage, category }: B
         </h2>
 
         <p className="text-gray-300 text-base mb-4 line-clamp-3">
-          {excerpt}
+          {description}
         </p>
 
         <div className="mt-auto flex items-center gap-4 text-sm text-gray-500">
       
           <Link href={`/blog/${slug}`} className="ml-auto">
             <Button
-              className="bg-[#FF6B35] text-white hover:bg-[#e65a25] px-4 py-2 text-sm rounded-full"
+              className="bg-[#FF6B35] cursor-pointer text-white hover:bg-[#e65a25] px-4 py-2 text-sm rounded-full"
             >
               Devamını Oku →
             </Button>
           </Link>
         </div>
       </div>
-    </Link>
+    </div>
   )
 }

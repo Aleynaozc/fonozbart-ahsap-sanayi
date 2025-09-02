@@ -2,7 +2,7 @@
 title: "Marmaris’te Ahşap Pergola Modelleri ve Kullanım Alanları"
 date: "2025-08-27"
 category: "Ahşap Pergola"
-excerpt: "Marmaris’te ahşap pergola kullanımı, bahçelerde ve villalarda sağladığı estetik ve işlevsellik ile öne çıkıyor. Pergola modelleri ve dekoratif fikirler bu yazımızda."
+description: "Marmaris’te ahşap pergola kullanımı, bahçelerde ve villalarda sağladığı estetik ve işlevsellik ile öne çıkıyor. Pergola modelleri ve dekoratif fikirler bu yazımızda."
 coverImage: "/assets/images/blog/ahsap-pergola/ahsap-pergola-fnz-ahsap-marmaris-5.jpg"
 tags: ["Ahşap Pergola", "Bahçe Dekorasyonu", "Marmaris", "Villa Projeleri"]
 seoTitle: "Marmaris Ahşap Pergola Modelleri | FNZ Yapı"

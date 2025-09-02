@@ -126,7 +126,7 @@ export function getBlogMetadata(slug: string): Partial<Metadata> {
         siteName,
         images: [
           {
-            url: post.image || "/assets/images/og-image.jpg",
+            url: post.coverImage || "/assets/images/og-image.jpg",
             width: 1200,
             height: 630,
             alt: post.title,
@@ -137,7 +137,7 @@ export function getBlogMetadata(slug: string): Partial<Metadata> {
         card: "summary_large_image",
         title: post.title,
         description: post.description,
-        images: [post.image || "/assets/images/og-image.jpg"],
+        images: [post.coverImage || "/assets/images/og-image.jpg"],
       },
     }
   } catch {

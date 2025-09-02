@@ -2,7 +2,7 @@
 title: "Modern Ofis Mobilyaları ile Verimli ve Şık Çalışma Alanları"
 date: "2025-09-02"
 category: "Ofis Mobilyaları"
-excerpt: "Ofis mobilyaları seçiminde ergonomi, fonksiyonellik ve estetik ön planda olmalı. Modern ofis mobilyaları ile iş yerinizde verimlilik ve şıklık sağlayın."
+description: "Ofis mobilyaları seçiminde ergonomi, fonksiyonellik ve estetik ön planda olmalı. Modern ofis mobilyaları ile iş yerinizde verimlilik ve şıklık sağlayın."
 coverImage: "/assets/images/blog/ofis-mobilyalari/ofis-mobilyalari-marmaris-fnz-wood-2.jpg"
 tags: ["Ofis Mobilyaları", "Ergonomik Tasarım", "Modern Ofis", "Ahşap Mobilya"]
 seoTitle: "Modern Ofis Mobilyaları | FNZ Ahşap Sanayi"
@@ -43,8 +43,8 @@ Yeni bir ofis kurarken veya mevcut alanı yenilerken şu unsurlara dikkat etmek 
 - **Dayanıklılık:** Uzun ömürlü kullanım için kaliteli malzemeler.  
 
 <ImageRow images={[
-  { src: "/assets/images/blog/ofis-mobilyalari/ofis-mobilyalari-marmaris-fnz-wood-1.jpg", alt: "Ergonomik Ofis Sandalyesi" },
-  { src: "/assets/images/blog/ofis-mobilyalari/ofis-mobilyalari-marmaris-fnz-wood-1.jpg", alt: "Minimalist Ofis Tasarımı" }
+  { src: "/assets/images/blog/ofis-mobilyalari/ofis-mobilyalari-marmaris-fnz-wood-6.jpg", alt: "Ergonomik Ofis Sandalyesi" },
+  { src: "/assets/images/blog/ofis-mobilyalari/ofis-mobilyalari-marmaris-fnz-wood-7.jpg", alt: "Minimalist Ofis Tasarımı" }
 ]} />
 
 ---
@@ -57,8 +57,8 @@ FNZ Ahşap Sanayi olarak, modern ve işlevsel **ofis mobilyaları** üretiyoruz.
 - **Endüstriyel ölçekli üretim** sayesinde kurumsal ofis projelerine toplu çözümler sunuyoruz.  
 
 <ImageRow images={[
-  { src: "/assets/images/blog/ofis-mobilyalari/ofis-mobilyalari-marmaris-fnz-wood-5.jpg", alt: "FNZ Ahşap Özel Tasarım Ofis Mobilyaları" },
-  { src: "/assets/images/blog/ofis-mobilyalari/ofis-mobilyalari-marmaris-fnz-wood-1.jpg", alt: "Kurumsal Ofis Mobilya Projeleri" }
+  { src: "/assets/images/blog/ofis-mobilyalari/ofis-mobilyalari-marmaris-fnz-wood-8.jpg", alt: "FNZ Ahşap Özel Tasarım Ofis Mobilyaları" },
+  { src: "/assets/images/blog/ofis-mobilyalari/ofis-mobilyalari-marmaris-fnz-wood-8.jpg", alt: "Kurumsal Ofis Mobilya Projeleri" }
 ]} />
 
 ---

@@ -3,7 +3,7 @@ import { BlogCard } from "./BlogCard"
 type Post = {
   title: string
   date?: string
-  excerpt: string
+  description: string
   coverImage: string
   slug: string
   category?: string
@@ -27,7 +27,7 @@ export function BlogList({ posts }: BlogListProps) {
               key={post.slug}
               slug={post.slug}
               title={post.title}
-              excerpt={post.excerpt}
+              description={post.description}
               date={post.date}
               coverImage={post.coverImage}
             />
