@@ -17,7 +17,7 @@ export function HeroSlider() {
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
-        <Image src="/assets/images/sliders/hero2.jpg"  alt="Ahşap işçiliği" fill className="object-cover" priority />
+        <Image src="/assets/images/sliders/page-hero-fnz-wood-2.jpg" alt="Ahşap işçiliği" fill className="object-cover" priority />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40 xs:from-black/70 xs:via-black/50 xs:to-black/30 sm:from-black/60 sm:via-black/40 sm:to-transparent"></div>
       </div>
 
@@ -25,9 +25,8 @@ export function HeroSlider() {
       <div className="relative z-10 container mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl text-left">
           <div
-            className={`mb-3 xs:mb-4 sm:mb-6 transition-all duration-1000 delay-300 ${
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
+            className={`mb-3 xs:mb-4 sm:mb-6 transition-all duration-1000 delay-300 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              }`}
           >
             <span className="inline-block px-2 py-1 xs:px-3 xs:py-1.5 sm:px-4 sm:py-2 bg-[#FF6B35]/20 text-[#FF6B35] rounded-full text-xs sm:text-sm font-medium backdrop-blur-sm border border-[#FF6B35]/20">
               50+ Yıllık Tecrübe
@@ -35,54 +34,53 @@ export function HeroSlider() {
           </div>
 
           <h1
-            className={`text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-3 xs:mb-4 sm:mb-6 leading-tight transition-all duration-1000 delay-500 ${
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
+            className={`text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-3 xs:mb-4 sm:mb-6 leading-tight transition-all duration-1000 delay-500 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
           >
             Ahşapın
             <span className="block text-[#FF6B35] mt-1 sm:mt-0">Sanatla Buluşması</span>
           </h1>
 
           <p
-            className={`text-sm xs:text-base sm:text-lg md:text-xl text-gray-200 mb-4 xs:mb-6 sm:mb-8 max-w-2xl leading-relaxed mx-auto sm:mx-0 transition-all duration-1000 delay-700 ${
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
+            className={`text-sm xs:text-base sm:text-lg md:text-xl text-gray-200 mb-4 xs:mb-6 sm:mb-8 max-w-2xl leading-relaxed mx-auto sm:mx-0 transition-all duration-1000 delay-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
           >
             Otel, Villa ve Prestijli Yaşam Alanları İçin Profesyonel Ahşap İşçiliği ve Özel Mobilya Üretimi
           </p>
 
           <div
-            className={`grid grid-cols-2 gap-4 xs:gap-4 max-w-xl transition-all duration-1000 delay-900 ${
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
+            className={`grid grid-cols-2 gap-3 xs:gap-4 max-w-xl transition-all duration-1000 delay-900 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
           >
-            <Button
-              size="lg"
-              className="bg-[#FF6B35] hover:bg-[#E55A2B] text-white px-4 xs:px-4 sm:px-8 py-3 xs:py-4 text-sm sm:text-lg flex-1 xs:flex-none transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-2xl touch-manipulation"
-              onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-            >
-              <Link href="/projeler"  className="xs:hidden ">Projelerimizi Görün</Link >
-              <Link href="/projeler"  className="hidden xs:inline">Projelerimiz</Link >
-              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
-            </Button>
+            {/* Projeler Butonu */}
+            <Link href="/projeler" className="w-full ">
+              <Button
+                size="lg"
+                className="cursor-pointer w-full flex items-center justify-center gap-2 sm:gap-3 bg-[#FF6B35]  text-white px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-lg shadow-lg "
+              >
+                <span className="truncate">Projelerimiz</span>
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+              </Button>
+            </Link>
 
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-transparent px-4 xs:px-4 sm:px-8 py-3 xs:py-4 text-sm sm:text-lg bg-transparent flex-1 xs:flex-none transition-all duration-300 hover:scale-105 backdrop-blur-sm border-2 border-white/20 hover:border-white/40 touch-manipulation"
-              onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
-            >
-              <Award className="mr-2 xs:mr-3 w-4 h-4 sm:w-5 sm:h-5" />
-              <Link href="/referanslar"  className="hidden xs:inline">Referanslarımız</Link >
-              <Link href="/referanslar"  className="xs:hidden">Referanslar</Link >
-            </Button>
+            {/* Referanslar Butonu */}
+            <Link href="/referanslar" className="w-full ">
+              <Button
+                size="lg"
+                variant="outline"
+                className="cursor-pointer w-full flex items-center justify-center gap-2 sm:gap-3 text-white border-2 border-white/20 hover:bg-transparent px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-lg  backdrop-blur-sm bg-transparent"
+              >
+                <Award className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span className="truncate">Referanslarımız</span>
+              </Button>
+            </Link>
           </div>
+
 
           {/* Stats */}
           <div
-            className={`grid grid-cols-3 gap-2 xs:gap-4 sm:gap-6 md:gap-8 mt-8 xs:mt-12 sm:mt-16 pt-4 xs:pt-6 sm:pt-8 border-t border-white/20 max-w-md sm:max-w-none mx-auto sm:mx-0 transition-all duration-1000 delay-1100 ${
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
+            className={`grid grid-cols-3 gap-2 xs:gap-4 sm:gap-6 md:gap-8 mt-8 xs:mt-12 sm:mt-16 pt-4 xs:pt-6 sm:pt-8 border-t border-white/20 max-w-md sm:max-w-none mx-auto sm:mx-0 transition-all duration-1000 delay-1100 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
           >
             <div className="text-center sm:text-left">
               <div className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-bold text-[#FF6B35] mb-1 sm:mb-2">

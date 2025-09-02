@@ -18,9 +18,9 @@ const PROJECTS = [
     description:
       "NUSRET Restaurant için özel ahşap deck uygulamaları. Dayanıklı ve estetik dış mekan zemin kaplamaları ile lüks konseptin tamamlanması.",
     images: [
-      "/assets/images/selected-project/D-MARİS-NUSRET4.jpg",
-      "/assets/images/selected-project/D-MARİS-NUSRET.jpg",
-      "/assets/images/selected-project/D-MARİS-NUSRET3.jpg",
+      "/assets/images/selected-project/D-maris-nusret-fnz-wood-4.jpg",
+      "/assets/images/selected-project/D-maris-nusret-fnz-wood.jpg",
+      "/assets/images/selected-project/D-maris-nusret-fnz-wood-3.jpg",
     ],
     stats: {
       area: "280m²",
@@ -56,10 +56,10 @@ const PROJECTS = [
     description:
       "Diyaliz binası için mobilya tefrişatı, özel kapılar ve ahşap uygulamaları. Fonksiyonellik ve hijyen öncelikli tasarımlar.",
     images: [
-      "/assets/images/selected-project/AHU-DİYALİZ-2-2025.jpg",
-      "/assets/images/selected-project/AHU-DİYALİZ-3-2025.jpg",
-      "/assets/images/selected-project/AHU-DİYALİZ-4-2025.jpg",
-      "/assets/images/selected-project/AHU-DİYALİZ-5-2025.jpg",
+      "/assets/images/selected-project/ahu-diyaliz-fnz-wood-2-2025.jpg",
+      "/assets/images/selected-project/ahu-diyaliz-fnz-wood-3-2025.jpg",
+      "/assets/images/selected-project/ahu-diyaliz-fnz-wood-4-2025.jpg",
+      "/assets/images/selected-project/ahu-diyaliz-fnz-wood-5-2025.jpg",
     ],
     stats: {
       floors: "1 Kat",
@@ -77,9 +77,9 @@ const PROJECTS = [
     description:
       "TUI BLUE Tropical & Palace otelinin 200 odasında mobilya renovasyonu ve bakım işleri gerçekleştirildi. Mevcut mobilyaların yenilenmesi, bakım ve onarımları ile birlikte bazı özel üretim parçalar eklenerek otelin konfor ve estetiği güçlendirildi.",
     images: [
-      "/assets/images/selected-project/tui-blue-oda.jpg",
-      "/assets/images/selected-project/tui-blue-oda2.jpg",
-      "/assets/images/selected-project/tui-blue-oda3.jpg",
+      "/assets/images/selected-project/tui-blue-oda-fnz-wood-2.jpg",
+      "/assets/images/selected-project/tui-blue-oda-fnz-wood-3.jpg",
+      "/assets/images/selected-project/tui-blue-oda-fnz-wood-1.jpg",
     ],
     stats: {
       rooms: "200 Oda",
@@ -102,11 +102,11 @@ const PROJECTS = [
     description:
       "Modern mimari anlayışla inşa edilen bu özel villa projesinde FNZ YAPI, inşaat sürecinden iç mekan tasarımına ve mobilya üretimine kadar tüm aşamaları üstlendi. Şık detaylar, doğal ahşap uygulamaları ve özel mobilya çözümleriyle lüks bir yaşam alanı oluşturuldu.",
     images: [
-      "/assets/images/selected-project/fnz-yapi-villa-5.webp",
-      "/assets/images/selected-project/fnz-yapi-villa-2.webp",
-      "/assets/images/selected-project/fnz-yapi-villa-3.webp",
-      "/assets/images/selected-project/fnz-yapi-villa-4.webp",
-      "/assets/images/selected-project/fnz-yapi-villa.webp",
+      "/assets/images/selected-project/fnz-yapi-villa-fnz-wood-5.webp",
+      "/assets/images/selected-project/fnz-yapi-villa-fnz-wood-2.webp",
+      "/assets/images/selected-project/fnz-yapi-villa-fnz-wood-3.webp",
+      "/assets/images/selected-project/fnz-yapi-villa-fnz-wood-4.webp",
+      "/assets/images/selected-project/fnz-yapi-villa-fnz-wood.webp",
     ],
     stats: {
       area: "500m²",
@@ -129,10 +129,10 @@ const PROJECTS = [
     description:
       "Class Unique Beach Hotel’de 62 odanın mobilya renovasyonu gerçekleştirilirken, aynı zamanda beach alanı için özel tasarım kabana ve şezlong uygulamaları yapıldı. Hem iç mekan hem de dış mekan konseptinde dayanıklı, estetik ve konforlu çözümler sunuldu.",
     images: [
-      "/assets/images/selected-project/CLASS_UNIQUE_renovasyon3.jpg",
-      "/assets/images/selected-project/CLASS_UNIQUE_renovasyon4.jpg",
-      "/assets/images/selected-project/CLASS_UNIQUE_renovasyon.jpg",
-      "/assets/images/selected-project/CLASS_UNIQUE_renovasyon2.jpg",
+      "/assets/images/selected-project/CLASS_UNIQUE_fnz-wood-renovasyon3.jpg",
+      "/assets/images/selected-project/CLASS_UNIQUE_fnz-wood-renovasyon-4.jpg",
+      "/assets/images/selected-project/CLASS_UNIQUE_fnz-wood-renovasyon.jpg",
+      "/assets/images/selected-project/CLASS_UNIQUE_fnz-wood-renovasyon-2.jpg",
     ],
     stats: {
       rooms: "62 Oda",
@@ -147,7 +147,7 @@ const PROJECTS = [
   },
 ]
 const PROJECTSDATA = {
-  heroImage: '/assets/images/sliders/hero1.jpg',
+  heroImage: '/assets/images/selected-project/aurora-capri2.webp',
   intro: {
     title: 'Projelerimiz',
     heading: 'Lüks otellerden özel villalara',
@@ -178,7 +178,7 @@ export default function ProjectsPageClient() {
 
 
   return (
-    <main className="bg-[#1e1e1f] text-white">
+    <main className="bg-[#1e1e1f] text-white min-h-screen py-24">
       {/* HERO */}
       <PageHero
         backgroundImage={PROJECTSDATA.heroImage}

@@ -29,6 +29,15 @@ export function PageHero({
 }: PageHeroProps) {
   const [isLoaded, setIsLoaded] = useState(false)
 
+  // background tipini otomatik algıla
+  const backgroundType = (() => {
+    const ext = backgroundImage.split(".").pop()?.toLowerCase()
+    if (["mp4", "webm", "ogg"].includes(ext || "")) {
+      return "video"
+    }
+    return "image"
+  })()
+
   useEffect(() => {
     setIsLoaded(true)
   }, [])
@@ -37,13 +46,24 @@ export function PageHero({
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
-        <Image
-          src={backgroundImage}
-          alt={badgeText || title}
-          fill
-          className="object-cover"
-          priority
-        />
+        {backgroundType === "image" ? (
+          <Image
+            src={backgroundImage}
+            alt={badgeText || title}
+            fill
+            className="object-cover"
+            priority
+          />
+        ) : (
+          <video
+            src={backgroundImage}
+            className="absolute inset-0 w-full h-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/40"></div>
       </div>
 
@@ -90,7 +110,6 @@ export function PageHero({
             >
               <Link href={cta.href}>
                 <span className="relative z-10">{cta.label}</span>
-                {/* subtle hover glow */}
                 <span className="absolute inset-0 bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
               </Link>
             </Button>

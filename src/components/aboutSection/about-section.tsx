@@ -204,8 +204,8 @@ export function AboutSection() {
 
                     <div
                       className={`flex-shrink-0 w-10 h-10 lg:w-12 lg:h-12 rounded-xl flex items-center justify-center transition-all duration-500 ${hoveredFeature === index
-                          ? `bg-gradient-to-r ${feature.color} shadow-lg scale-110`
-                          : "bg-[#FF6B35]/10"
+                        ? `bg-gradient-to-r ${feature.color} shadow-lg scale-110`
+                        : "bg-[#FF6B35]/10"
                         }`}
                     >
                       <feature.icon
@@ -273,7 +273,7 @@ export function AboutSection() {
           {/* Image - Sağ taraf */}
           <div className="relative h-screen  lg:min-h-[700px]">
             <Image
-              src="/assets/images/about-sections/about2.png"
+              src="/assets/images/about-sections/about-section-fnz-wood-2.png"
               alt="Ahşap atölye"
               fill
               className="object-cover"
@@ -371,7 +371,7 @@ export function AboutSection() {
             {/* Mobile Image */}
             <div className="relative h-48 xs:h-56 sm:h-64 md:h-80 mx-2 xs:mx-4 sm:mx-6 mb-6 sm:mb-8">
               <Image
-                src="/assets/images/about-sections/about2.png"
+                src="/assets/images/about-sections/about-section-fnz-wood-2.png"
                 alt="Ahşap atölye"
                 fill
                 className="object-cover rounded-2xl"

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { ArrowRight, Users, Eye, } from "lucide-react"
+import { ArrowRight, Users, Eye, PhoneCall, } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ProjectCardSection } from "../project-card"
@@ -17,9 +17,9 @@ const selectedProjects = [
     description:
       "NUSRET Restaurant için özel ahşap deck uygulamaları. Dayanıklı ve estetik dış mekan zemin kaplamaları ile lüks konseptin tamamlanması.",
     images: [
-      "/assets/images/selected-project/D-MARİS-NUSRET4.jpg",
-      "/assets/images/selected-project/D-MARİS-NUSRET.jpg",
-      "/assets/images/selected-project/D-MARİS-NUSRET3.jpg",
+      "/assets/images/selected-project/D-maris-nusret-fnz-wood-4.jpg",
+      "/assets/images/selected-project/D-maris-nusret-fnz-wood.jpg",
+      "/assets/images/selected-project/D-maris-nusret-fnz-wood-3.jpg",
     ],
     stats: {
       area: "280m²",
@@ -55,10 +55,10 @@ const selectedProjects = [
     description:
       "Diyaliz binası için mobilya tefrişatı, özel kapılar ve ahşap uygulamaları. Fonksiyonellik ve hijyen öncelikli tasarımlar.",
     images: [
-      "/assets/images/selected-project/AHU-DİYALİZ-2-2025.jpg",
-      "/assets/images/selected-project/AHU-DİYALİZ-3-2025.jpg",
-      "/assets/images/selected-project/AHU-DİYALİZ-4-2025.jpg",
-      "/assets/images/selected-project/AHU-DİYALİZ-5-2025.jpg",
+      "/assets/images/selected-project/ahu-diyaliz-fnz-wood-2-2025.jpg",
+      "/assets/images/selected-project/ahu-diyaliz-fnz-wood-3-2025.jpg",
+      "/assets/images/selected-project/ahu-diyaliz-fnz-wood-4-2025.jpg",
+      "/assets/images/selected-project/ahu-diyaliz-fnz-wood-5-2025.jpg",
     ],
     stats: {
       floors: "1 Kat",
@@ -76,9 +76,9 @@ const selectedProjects = [
     description:
       "TUI BLUE Tropical & Palace otelinin 200 odasında mobilya renovasyonu ve bakım işleri gerçekleştirildi. Mevcut mobilyaların yenilenmesi, bakım ve onarımları ile birlikte bazı özel üretim parçalar eklenerek otelin konfor ve estetiği güçlendirildi.",
     images: [
-      "/assets/images/selected-project/tui-blue-oda.jpg",
-      "/assets/images/selected-project/tui-blue-oda2.jpg",
-      "/assets/images/selected-project/tui-blue-oda3.jpg",
+      "/assets/images/selected-project/tui-blue-oda-fnz-wood-2.jpg",
+      "/assets/images/selected-project/tui-blue-oda-fnz-wood-3.jpg",
+      "/assets/images/selected-project/tui-blue-oda-fnz-wood-1.jpg",
     ],
     stats: {
       rooms: "200 Oda",
@@ -101,11 +101,11 @@ const selectedProjects = [
     description:
       "Modern mimari anlayışla inşa edilen bu özel villa projesinde FNZ YAPI, inşaat sürecinden iç mekan tasarımına ve mobilya üretimine kadar tüm aşamaları üstlendi. Şık detaylar, doğal ahşap uygulamaları ve özel mobilya çözümleriyle lüks bir yaşam alanı oluşturuldu.",
     images: [
-      "/assets/images/selected-project/fnz-yapi-villa-5.webp",
-      "/assets/images/selected-project/fnz-yapi-villa-2.webp",
-      "/assets/images/selected-project/fnz-yapi-villa-3.webp",
-      "/assets/images/selected-project/fnz-yapi-villa-4.webp",
-      "/assets/images/selected-project/fnz-yapi-villa.webp",
+      "/assets/images/selected-project/fnz-yapi-villa-fnz-wood-5.webp",
+      "/assets/images/selected-project/fnz-yapi-villa-fnz-wood-2.webp",
+      "/assets/images/selected-project/fnz-yapi-villa-fnz-wood-3.webp",
+      "/assets/images/selected-project/fnz-yapi-villa-fnz-wood-4.webp",
+      "/assets/images/selected-project/fnz-yapi-villa-fnz-wood.webp",
     ],
     stats: {
       area: "500m²",
@@ -128,10 +128,10 @@ const selectedProjects = [
     description:
       "Class Unique Beach Hotel’de 62 odanın mobilya renovasyonu gerçekleştirilirken, aynı zamanda beach alanı için özel tasarım kabana ve şezlong uygulamaları yapıldı. Hem iç mekan hem de dış mekan konseptinde dayanıklı, estetik ve konforlu çözümler sunuldu.",
     images: [
-      "/assets/images/selected-project/CLASS_UNIQUE_renovasyon.jpg",
-      "/assets/images/selected-project/CLASS_UNIQUE_renovasyon2.jpg",
-      "/assets/images/selected-project/CLASS_UNIQUE_renovasyon3.jpg",
-      "/assets/images/selected-project/CLASS_UNIQUE_renovasyon4.jpg",
+      "/assets/images/selected-project/CLASS_UNIQUE_fnz-wood-renovasyon.jpg",
+      "/assets/images/selected-project/CLASS_UNIQUE_fnz-wood-renovasyon-2.jpg",
+      "/assets/images/selected-project/CLASS_UNIQUE_fnz-wood-renovasyon3.jpg",
+      "/assets/images/selected-project/CLASS_UNIQUE_fnz-wood-renovasyon-4.jpg",
     ],
     stats: {
       rooms: "62 Oda",
@@ -190,53 +190,40 @@ export function SelectedProjectsSection() {
               50+ yıllık deneyimimizle gerçekleştirdiğimiz tüm projelerimizi incelemek ve kendi projeniz için ilham
               almak ister misiniz?
             </p>
-
-            <div
-              className={`grid grid-cols-2 gap-4 xs:gap-4 max-w-xl transition-all duration-1000 delay-900 items-center mx-auto`}
-            >
-              <Button
-                size="lg"
-                className="bg-[#FF6B35] hover:bg-[#E55A2B] text-white px-4 xs:px-4 sm:px-8 py-3 xs:py-4 text-sm sm:text-lg flex-1 xs:flex-none transition-all duration-300  shadow-lg hover:shadow-2xl touch-manipulation"
+            <div className="w-full ">
+              <div
+                className={`grid grid-cols-2 gap-3 xs:gap-4  transition-all duration-1000 delay-900 max-w-3xl  mx-auto`}
               >
-                <Eye className="mr-2 w-5 h-5" />
-                <Link
-                  href="/projeler" className="hidden xs:inline">
-
-                  Projelerimiz
+                {/* Projeler Butonu */}
+                <Link href="/projeler" >
+                  <Button
+                    size="lg"
+                    className="cursor-pointer w-full flex items-center justify-center gap-2 sm:gap-3 bg-[#FF6B35]  text-white px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-lg shadow-lg "
+                  >
+                    <span className="truncate">Projelerimiz</span>
+                    <Eye className="mr-2 w-5 h-5" />
+                  </Button>
                 </Link>
-                <Link
-                  href="/projeler" className="xs:hidden">
 
-                  Tüm Projelerimiz
-                </Link>
-              </Button>
-
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-transparent px-4 xs:px-4 sm:px-8 py-3 xs:py-4 text-sm sm:text-lg bg-transparent flex-1 xs:flex-none transition-all duration-300 backdrop-blur-sm border-2 border-white/20 hover:border-white/40 touch-manipulation"
-              >
-                <Users className="mr-2 w-5 h-5" />
+                {/* Referanslar Butonu */}
                 <Link
                   href="https://api.whatsapp.com/send/?phone=%2B905323335067&text&type=phone_number&app_absent=0"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hidden xs:inline"
                 >
-                  İletişim
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="cursor-pointer w-full flex items-center justify-center gap-2 sm:gap-3 text-white border-2 border-white/20 hover:bg-transparent px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-lg  backdrop-blur-sm bg-transparent"
+                  >
+                    <PhoneCall className="w-4 h-4 sm:w-5 sm:h-5" />
+                    <span className="truncate">İletişim</span>
+                  </Button>
                 </Link>
-
-                <Link
-                  href="https://api.whatsapp.com/send/?phone=%2B905323335067&text&type=phone_number&app_absent=0"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="xs:hidden"
-                >
-                  Bizimle İletişime Geç
-                </Link>
-
-              </Button>
+              </div>
             </div>
+
+
           </div>
         </div>
       </div>

@@ -5,8 +5,12 @@ import { HeroSlider } from "@/components/hero/hero-slider"
 import { SelectedProjectsSection } from "@/components/selected-project/selected-project"
 import { CTASection } from "@/components/cta/cta"
 import ProductionProcessSection from "@/components/ourProcess/production-process"
+import BlogPageSection from "@/components/blogSection/blog-section"
+
 
 export default function Home() {
+
+
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
    
@@ -22,6 +26,7 @@ export default function Home() {
       <ProductionProcessSection />
       {/* Cta Section */}
       <CTASection />
+      <BlogPageSection/>
     </div>
   )
 }

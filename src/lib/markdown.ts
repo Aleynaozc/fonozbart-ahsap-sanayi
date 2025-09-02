@@ -1,26 +1,56 @@
-import { unified } from "unified"
-import remarkParse from "remark-parse"
-import remarkGfm from "remark-gfm"
-import remarkSmartypants from "remark-smartypants"
-import remarkRehype from "remark-rehype"
-import rehypeStringify from "rehype-stringify"
-import rehypeSlug from "rehype-slug"
-import rehypeAutolinkHeadings from "rehype-autolink-headings"
-import rehypeExternalLinks from "rehype-external-links"
-import rehypePrism from "rehype-prism-plus"
+import fs from "fs"
+import path from "path"
+import matter from "gray-matter"
+import { serialize } from "next-mdx-remote/serialize"
 
-export async function renderMarkdown(markdown: string) {
-  const file = await unified()
-    .use(remarkParse)
-    .use(remarkGfm)
-    .use(remarkSmartypants)
-    .use(remarkRehype, { allowDangerousHtml: true })
-    .use(rehypeSlug)
-    .use(rehypeAutolinkHeadings, { behavior: "wrap" })
-    .use(rehypeExternalLinks, { target: "_blank", rel: ["nofollow", "noopener", "noreferrer"] })
-    .use(rehypePrism)
-    .use(rehypeStringify, { allowDangerousHtml: true })
-    .process(markdown)
+export type Post = {
+  title: string
+  date: string
+  excerpt: string
+  coverImage: string
+  tags: string[]
+  slug: string
+  content: any
+  category?: string
+}
 
-  return String(file)
+const contentPath = path.join(process.cwd(), "content", "blog")
+
+export async function getAllSlugs(): Promise<string[]> {
+  return fs.readdirSync(contentPath).map((file) => file.replace(/\.md$/, ""))
+}
+
+export async function getPostBySlug(slug: string): Promise<Post | null> {
+  const filePath = path.join(contentPath, `${slug}.md`)
+  if (!fs.existsSync(filePath)) return null
+
+  const fileContent = fs.readFileSync(filePath, "utf-8")
+  const { data, content } = matter(fileContent)
+
+  // Zorunlu alan kontrolü (title, date vs.)
+  if (!data.title || !data.date) return null
+
+  const mdxSource = await serialize(content)
+
+  return {
+    title: data.title,
+    date: data.date,
+    excerpt: data.excerpt ?? "",
+    coverImage: data.coverImage ?? "",
+    tags: data.tags ?? [],
+    slug,
+    content: mdxSource,
+    category: data.category ?? "",
+  }
+}
+
+export async function getAllPosts(): Promise<Post[]> {
+  const slugs = await getAllSlugs()
+  const posts = await Promise.all(slugs.map((slug) => getPostBySlug(slug)))
+
+  // null dönenleri filtrele
+  const validPosts: Post[] = posts.filter((p): p is Post => p !== null)
+
+  // date her zaman string → sort çalışır
+  return validPosts.sort((a, b) => (a.date > b.date ? -1 : 1))
 }

@@ -17,56 +17,56 @@ const projects = [
     category: "Otel Mobilyaları",
     title: "Otel Odaları",
     description: "Lüks otel projelerine özel tasarım ve üretim",
-    image: "/assets/images/services-section/oda9.jpg"
+    image: "/assets/images/services-section/otel-odasi-fnz-wood-1.jpg"
   },
   {
     id: 2,
     category: "Mutfak Mobilyaları",
     title: "Mutfak",
     description: "Modern ve fonksiyonel mutfak çözümleri",
-    image: "/assets/images/services-section/mutfak.jpg"
+    image: "/assets/images/services-section/mutfak-fnz-wood-1.jpg"
   },
   {
     id: 3,
     category: "Banyo Mobilyaları",
     title: "Banyo",
     description: "Şık ve dayanıklı banyo mobilyaları",
-    image: "/assets/images/services-section/banyo2.jpg"
+    image: "/assets/images/services-section/banyo-fnz-wood-1.jpg"
   },
   {
     id: 4,
     category: "Ofis Mobilyaları",
     title: "Ofis Mobilyaları",
     description: "Profesyonel çalışma alanları",
-    image: "/assets/images/services-section/ofis4.png"
+    image: "/assets/images/services-section/ofis-fnz-wood-3.png"
   },
   {
     id: 5,
     category: "Dış Mekân Yapıları",
     title: "Pergola",
     description: "Dış mekan ahşap yapıları",
-    image: "/assets/images/services-section/ahsappergola.jpg"
+    image: "/assets/images/services-section/ahsap-pergola-fnz-wood.jpg"
   },
   {
     id: 6,
     category: "Dış Mekân Yapıları",
     title: "Ahşap Deck",
     description: "Dayanıklı ve estetik deck sistemleri",
-    image: "/assets/images/services-section/deck2.jpg"
+    image: "/assets/images/services-section/deck-fnz-wood-1.jpg"
   },
   {
     id: 7,
     category: "Kapı Sistemleri",
     title: "Kapı",
-     description: "Dayanıklı ve estetik deck sistemleri",
-    image: "/assets/images/services-section/kapı3.jpg"
+    description: "Dayanıklı ve estetik deck sistemleri",
+    image: "/assets/images/services-section/kapi-fnz-wood-2.jpg"
   },
   {
     id: 8,
     category: "Kapı Sistemleri",
     title: "Yangın Kapısı",
     description: "Isıya Dayanıklı",
-    image: "/assets/images/services-section/yangınkapısı.jpg"
+    image: "/assets/images/services-section/yangın-kapısı-fnz-wood.jpg"
   }
 
 ]

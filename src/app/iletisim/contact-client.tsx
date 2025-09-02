@@ -28,8 +28,8 @@ const CONTACT = {
   workingTitle: 'Çalışma Saatleri',
   working: 'Hafta içi 08:30–18:30',
   whatsapp: 'https://api.whatsapp.com/send/?phone=%2B905323335067&text&type=phone_number&app_absent=0',
-  heroImage: '/assets/images/sliders/hero2.jpg', // Landing ile uyumlu görsel
-  showroomImage: '/assets/images/about-sections/about2.png',
+  heroImage: '/assets/images/sliders/page-hero-fnz-wood-2.jpg', // Landing ile uyumlu görsel
+  showroomImage: '/assets/images/about-sections/about-section-fnz-wood-2.png',
 };
 
 export default function ContactPageClient() {
@@ -66,9 +66,8 @@ export default function ContactPageClient() {
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
           <div
-            className={`inline-flex items-center space-x-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-[#FF6B35]/10 to-[#E55A2B]/10 rounded-full border border-[#FF6B35]/20 backdrop-blur-sm transition-all duration-700 ${
-              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
-            }`}
+            className={`inline-flex items-center space-x-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-[#FF6B35]/10 to-[#E55A2B]/10 rounded-full border border-[#FF6B35]/20 backdrop-blur-sm transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+              }`}
           >
             <Sparkles className="w-4 h-4 text-[#FF6B35]" />
             <span className="text-[#FF6B35] font-medium text-xs sm:text-sm tracking-wider uppercase">
@@ -77,27 +76,24 @@ export default function ContactPageClient() {
           </div>
 
           <h1
-            className={`mt-4 text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight transition-all duration-1000 delay-150 ${
-              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-            }`}
+            className={`mt-4 text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight transition-all duration-1000 delay-150 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
+              }`}
           >
             <span>Bizimle</span>{' '}
             <span className="text-[#FF6B35] block sm:inline">İletişime Geçin</span>
           </h1>
 
           <p
-            className={`mt-3 sm:mt-5 max-w-2xl text-gray-300 text-sm sm:text-lg leading-relaxed transition-all duration-1000 delay-300 ${
-              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-            }`}
+            className={`mt-3 sm:mt-5 max-w-2xl text-gray-300 text-sm sm:text-lg leading-relaxed transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
+              }`}
           >
             Prestijli projeleriniz için deneyimimizi yanınıza alın. Size en uygun kanal üzerinden bize ulaşabilirsiniz.
           </p>
 
           {/* CTA Row */}
           <div
-            className={`mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4 transition-all duration-1000 delay-500 ${
-              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-            }`}
+            className={`mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
+              }`}
           >
             <a
               href={`mailto:${CONTACT.email}`}
@@ -136,9 +132,8 @@ export default function ContactPageClient() {
         {/* Background pattern + floating particles (landing ile tutarlı) */}
         <div className="absolute inset-0 pointer-events-none">
           <div
-            className={`absolute inset-0 opacity-5 transition-all duration-[1800ms] ${
-              isVisible ? 'scale-100 rotate-0' : 'scale-110 rotate-3'
-            }`}
+            className={`absolute inset-0 opacity-5 transition-all duration-[1800ms] ${isVisible ? 'scale-100 rotate-0' : 'scale-110 rotate-3'
+              }`}
             style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23FF6B35' fillOpacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
             }}
@@ -146,9 +141,8 @@ export default function ContactPageClient() {
           {Array.from({ length: 10 }).map((_, i) => (
             <div
               key={i}
-              className={`absolute w-1.5 h-1.5 bg-[#FF6B35] rounded-full opacity-20 transition-all duration-[1600ms] ${
-                isVisible ? 'animate-[float_6s_ease-in-out_infinite]' : 'opacity-0'
-              }`}
+              className={`absolute w-1.5 h-1.5 bg-[#FF6B35] rounded-full opacity-20 transition-all duration-[1600ms] ${isVisible ? 'animate-[float_6s_ease-in-out_infinite]' : 'opacity-0'
+                }`}
               style={{
                 left: `${(i * 97) % 100}%`,
                 top: `${(i * 53) % 100}%`,
@@ -215,9 +209,8 @@ export default function ContactPageClient() {
 
             {/* Right: Map / Image with glass overlay */}
             <div
-              className={`relative rounded-2xl overflow-hidden border border-[#FF6B35]/20 bg-black/40 backdrop-blur-sm transition-all duration-700 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
+              className={`relative rounded-2xl overflow-hidden border border-[#FF6B35]/20 bg-black/40 backdrop-blur-sm transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
               style={{ transitionDelay: '200ms' }}
             >
               {/* Prefer map embed; dilersen Image ile değiştir */}
@@ -227,9 +220,9 @@ export default function ContactPageClient() {
                   className="absolute inset-0 w-full h-full grayscale-[0.2] contrast-110 opacity-90"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3193.398761674455!2d28.140315476405746!3d36.83292486585322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bfb9542100a983%3A0x897c830fcb7a8d3!2sFonozbart%20Ah%C5%9Fap%20Sanayi!5e0!3m2!1str!2str!4v1755930379716!5m2!1str!2str" 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3193.398761674455!2d28.140315476405746!3d36.83292486585322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bfb9542100a983%3A0x897c830fcb7a8d3!2sFonozbart%20Ah%C5%9Fap%20Sanayi!5e0!3m2!1str!2str!4v1755930379716!5m2!1str!2str"
                 />
-                
+
               </div>
 
               {/* Decorative overlay + badge */}
@@ -243,9 +236,8 @@ export default function ContactPageClient() {
 
           {/* Bottom CTA */}
           <div
-            className={`mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 transition-all duration-700 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-            }`}
+            className={`mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
+              }`}
           >
             <a
               href={CONTACT.whatsapp}
@@ -293,9 +285,8 @@ type InfoCardProps = {
 function InfoCard({ icon, title, lines, action, isVisible, delay = 0 }: InfoCardProps) {
   return (
     <div
-      className={`group relative p-4 sm:p-5 rounded-xl border bg-[#2a2a2b]/30 border-[#FF6B35]/10 transition-all duration-700 hover:border-[#FF6B35]/30 hover:bg-[#FF6B35]/5 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-      }`}
+      className={`group relative p-4 sm:p-5 rounded-xl border bg-[#2a2a2b]/30 border-[#FF6B35]/10 transition-all duration-700 hover:border-[#FF6B35]/30 hover:bg-[#FF6B35]/5 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
+        }`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       <div className="flex items-start gap-3 sm:gap-4">

@@ -1,19 +1,16 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { MapPin, Users, Award, } from "lucide-react"
+import { MapPin, Users, Award } from "lucide-react"
 import ProjectImageSlider from "./ProjectImageSlider"
 import { ImageModal } from "./ImageModal"
 
-
-
-// ✅ Artık data componentin içinde değil, props ile gelecek
 export function ProjectCardSection({
   projectsdata,
   title = "",
   subtitle = "",
-  subtitle2="",
-  subtitle3="",
+  subtitle2 = "",
+  subtitle3 = "",
   description = "",
 }: {
   projectsdata: {
@@ -41,7 +38,6 @@ export function ProjectCardSection({
   const sectionRef = useRef<HTMLElement>(null)
 
   const handleImageClick = (project: typeof projectsdata[0], imageIndex: number) => {
-     console.log("Clicked!", project.title, imageIndex) // 🔎 test
     setSelectedProject(project)
     setSelectedImageIndex(imageIndex)
     setModalOpen(true)
@@ -71,145 +67,177 @@ export function ProjectCardSection({
           }}
         />
       </div>
-       {/* Floating Decorative Elements */}
+
+      {/* Floating Decorative Elements */}
       <div
-        className={`absolute top-20 right-20 w-12 h-12 border-2 border-[#FF6B35]/30 rotate-45 transition-all duration-2000 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
-          }`}
+        className={`absolute top-20 right-20 w-12 h-12 border-2 border-[#FF6B35]/30 rotate-45 transition-all duration-2000 ${
+          isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
+        }`}
       />
 
       <div
-        className={`hidden lg:flex absolute bottom-20 left-20 w-8 h-8 bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] rounded-full transition-all duration-2000 delay-500 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
-          }`}
+        className={`hidden lg:flex absolute bottom-20 left-20 w-8 h-8 bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] rounded-full transition-all duration-2000 delay-500 ${
+          isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
+        }`}
       />
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-
-        {/* ✅ Props'tan gelen başlıklar */}
+        {/* ✅ Başlık */}
         <div className="text-center mb-12 lg:mb-16">
           <div
-            className={`mb-4 lg:mb-6 transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              }`}
+            className={`mb-4 lg:mb-6 transition-all duration-1000 delay-200 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
           >
             <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#FF6B35]/10 to-[#E55A2B]/10 rounded-full border border-[#FF6B35]/20 backdrop-blur-sm">
               <Award className="w-4 h-4 text-[#FF6B35] animate-pulse" />
               <span className="text-[#FF6B35] font-medium text-sm tracking-wider uppercase">{title}</span>
             </div>
           </div>
-       
 
           <h2
-            className={`text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 lg:mb-6 leading-tight transition-all duration-1200 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-              }`}
+            className={`text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 lg:mb-6 leading-tight transition-all duration-1200 delay-400 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+            }`}
           >
             <span className="text-[#FF6B35]">{subtitle}</span> {subtitle2}
             <br />
             <span className="text-white">{subtitle3}</span>
           </h2>
 
-          <p className={`text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed transition-all duration-1200 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-              }`}>{description}</p>
+          <p
+            className={`text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed transition-all duration-1200 delay-400 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+            }`}
+          >
+            {description}
+          </p>
         </div>
 
-        {/* ✅ Grid'i props.projects ile oluşturuyoruz */}
-        <div className={`grid lg:grid-cols-3 gap-6 lg:gap-8 mb-12 transition duration-2000 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
-          }`}>
-          {projectsdata.map((project, index) => (
-            <div key={project.id} className="bg-[#2a2a2b]/30 rounded-2xl overflow-hidden border border-[#FF6B35]/10 flex flex-col">
-              <div className="relative">
-                <ProjectImageSlider
-                  images={project.images}
-                  
-                  title={project.title}
-                  category={project.category}
-                  onImageClick={(imageIndex) => handleImageClick(project, imageIndex)}
-                />
+        {/* ✅ Proje Kartları */}
+        <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
+          {projectsdata.map((project, index) => {
+            const [isCardVisible, setIsCardVisible] = useState(false)
+            const cardRef = useRef<HTMLDivElement>(null)
 
-                {/* Badges Container - Flex layout for better responsive behavior */}
-                <div className="absolute top-4 left-4 right-4 flex justify-between items-start gap-2">
-                  {/* Category Badge */}
-                  <div className="flex-1 min-w-0">
-                    <span
-                      className="inline-block max-w-[90%] truncate px-2 xs:px-3 py-1 bg-[#FF6B35]/90 text-white rounded-full text-xs sm:text-xs font-medium backdrop-blur-sm leading-tight"
-                      title={project.category} // Hover'da tam metin gösterir
-                    >
-                      {project.category}
-                    </span>
-                  </div>
+            useEffect(() => {
+              const observer = new IntersectionObserver(
+                ([entry]) => {
+                  if (entry.isIntersecting) {
+                    setIsCardVisible(true)
+                    observer.disconnect()
+                  }
+                },
+                { threshold: 0.2 }
+              )
+              if (cardRef.current) observer.observe(cardRef.current)
+              return () => observer.disconnect()
+            }, [])
 
-                  {/* Year Badge */}
-                  <div className="flex-shrink-0 ml-2">
-                    <div className="bg-black/70 backdrop-blur-sm px-2 xs:px-3 py-1 rounded-lg">
-                      <span className="text-white text-xs font-medium whitespace-nowrap">{project.year}</span>
+            return (
+              <div
+                key={project.id}
+                ref={cardRef}
+                className={`bg-[#2a2a2b]/30 rounded-2xl overflow-hidden border border-[#FF6B35]/10 flex flex-col transform transition-all duration-700 ease-out ${
+                  isCardVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                }`}
+                style={{ transitionDelay: `${index * 150}ms` }}
+              >
+                {/* Slider */}
+                <div className="relative">
+                  <ProjectImageSlider
+                    images={project.images}
+                    title={project.title}
+                    category={project.category}
+                    onImageClick={(imageIndex) => handleImageClick(project, imageIndex)}
+                  />
+
+                  {/* Badges */}
+                  <div className="absolute top-4 left-4 right-4 flex justify-between items-start gap-2">
+                    <div className="flex-1 min-w-0">
+                      <span
+                        className="inline-block max-w-[90%] truncate px-2 xs:px-3 py-1 bg-[#FF6B35]/90 text-white rounded-full text-xs sm:text-xs font-medium backdrop-blur-sm leading-tight"
+                        title={project.category}
+                      >
+                        {project.category}
+                      </span>
+                    </div>
+                    <div className="flex-shrink-0 ml-2">
+                      <div className="bg-black/70 backdrop-blur-sm px-2 xs:px-3 py-1 rounded-lg">
+                        <span className="text-white text-xs font-medium whitespace-nowrap">{project.year}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="p-6 flex-1 flex flex-col">
-                <div className="min-h-[3.5rem] mb-3">
-                  <h3 className="text-xl font-bold text-white leading-tight group-hover:text-[#FF6B35] transition-colors duration-300 line-clamp-2">
-                    {project.title}
-                  </h3>
-                </div>
+                {/* İçerik */}
+                <div className="p-6 flex-1 flex flex-col">
+                  <div className="min-h-[3.5rem] mb-3">
+                    <h3 className="text-xl font-bold text-white leading-tight group-hover:text-[#FF6B35] transition-colors duration-300 line-clamp-2">
+                      {project.title}
+                    </h3>
+                  </div>
 
-                <div className="min-h-[2rem] mb-4">
-                  <div className="flex items-center space-x-4 text-gray-300 text-sm">
-                    <div className="flex items-center space-x-1">
-                      <MapPin className="w-3 h-3 text-[#FF6B35]" />
-                      <span>{project.location}</span>
-                    </div>
-                    <div className="flex items-center space-x-1">
-                      <Users className="w-3 h-3 text-[#FF6B35]" />
-                      <span className="truncate">{project.client}</span>
+                  <div className="min-h-[2rem] mb-4">
+                    <div className="flex items-center space-x-4 text-gray-300 text-sm">
+                      <div className="flex items-center space-x-1">
+                        <MapPin className="w-3 h-3 text-[#FF6B35]" />
+                        <span>{project.location}</span>
+                      </div>
+                      <div className="flex items-center space-x-1">
+                        <Users className="w-3 h-3 text-[#FF6B35]" />
+                        <span className="truncate">{project.client}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <p className="text-gray-300 text-sm leading-relaxed mb-4 flex-1">{project.description}</p>
+                  <p className="text-gray-300 text-sm leading-relaxed mb-4 flex-1">{project.description}</p>
 
-                <div className="mt-auto">
-                  {/* Stats Grid */}
-                  <div className="grid grid-cols-3 gap-2 mb-4">
-                    {Object.entries(project.stats).map(([key, value]) => (
-                      <div key={key} className="text-center p-2 bg-[#1e1e1f]/50 rounded-lg border border-[#FF6B35]/10">
-                        <div className="text-sm font-bold text-white">{value}</div>
-                        <div className="text-xs text-[#FF6B35]">
-                          {key === "rooms"
-                            ? "Oda"
-                            : key === "area"
+                  <div className="mt-auto">
+                    {/* Stats */}
+                    <div className="grid grid-cols-3 gap-2 mb-4">
+                      {Object.entries(project.stats).map(([key, value]) => (
+                        <div key={key} className="text-center p-2 bg-[#1e1e1f]/50 rounded-lg border border-[#FF6B35]/10">
+                          <div className="text-sm font-bold text-white">{value}</div>
+                          <div className="text-xs text-[#FF6B35]">
+                            {key === "rooms"
+                              ? "Oda"
+                              : key === "area"
                               ? "Alan"
                               : key === "floors"
-                                ? "Kat"
-                                : key === "duration"
-                                  ? "Süre"
-                                  : "Ekip"}
+                              ? "Kat"
+                              : key === "duration"
+                              ? "Süre"
+                              : "Ekip"}
+                          </div>
                         </div>
-                      </div>
-                    ))}
-                  </div>
+                      ))}
+                    </div>
 
-                  {/* Features */}
-                  <div className="flex flex-wrap gap-1">
-                    {project.features.slice(0, 3).map((feature, featureIndex) => (
-                      <span
-                        key={featureIndex}
-                        className="px-2 py-1 bg-[#FF6B35]/10 text-[#FF6B35] rounded-full text-xs border border-[#FF6B35]/20"
-                      >
-                        {feature}
-                      </span>
-                    ))}
-                    {project.features.length > 3 && (
-                      <span className="px-2 py-1 bg-gray-600/20 text-gray-400 rounded-full text-xs">
-                        +{project.features.length - 3}
-                      </span>
-                    )}
+                    {/* Features */}
+                    <div className="flex flex-wrap gap-1">
+                      {project.features.slice(0, 3).map((feature, featureIndex) => (
+                        <span
+                          key={featureIndex}
+                          className="px-2 py-1 bg-[#FF6B35]/10 text-[#FF6B35] rounded-full text-xs border border-[#FF6B35]/20"
+                        >
+                          {feature}
+                        </span>
+                      ))}
+                      {project.features.length > 3 && (
+                        <span className="px-2 py-1 bg-gray-600/20 text-gray-400 rounded-full text-xs">
+                          +{project.features.length - 3}
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
-        
       </div>
+
       {selectedProject && (
         <ImageModal
           isOpen={modalOpen}

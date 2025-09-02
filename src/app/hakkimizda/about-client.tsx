@@ -14,7 +14,7 @@ import { PageHero } from '@/components/pageHero/page-hero';
 import { useBreadcrumb } from '@/hooks/use-breadcrumb';
 
 const ABOUT = {
-  heroImage: '/assets/images/sliders/hero1.jpg',
+  heroImage: '/assets/images/sliders/fnz-wood-hakkımızda-hero.mp4',
   intro: {
     title: 'Hakkımızda',
     heading: 'Zanaatten Sanata,',
@@ -26,21 +26,21 @@ const ABOUT = {
     past: `1970 yılında Trabzon'un Of ilçesinde başlayan mobilya yolculuğumuz, 
 1980’lerde Ankara Siteler’de büyüyerek devam etti. 2005 yılında Marmaris’te 
 kurulan FNZ Ahşap Sanayi, ahşap mobilya üretimi ve otel projelerine yönelik 
-kapasitesini artırarak sektörde güçlü bir marka olma yolunda ilerledi.`,
+kapasitesini artırarak sektörde güçlü bir marka olma yolunda ilerliyor.`,
     today: `Bugün FNZ Wood, Marmaris merkezli üretim tesislerinde; 
 <strong>otel mobilyaları</strong>, <strong>villa dekorasyonları</strong>, 
 <strong>mutfak ve banyo mobilyaları</strong>, pergola ve deck üretimi gibi birçok alanda hizmet vermektedir. 
-Ayrıca <em>fason üretim desteği</em> (ebatlama, bantlama, minifix) ile sektördeki projelere çözüm ortaklığı sunmaktadır.
+Ayrıca <em>fason üretim desteği</em> (ebatlama, bantlama, cnc minifix) ile sektördeki projelere çözüm ortaklığı sunmaktadır.
 
 Bölgedeki oteller, villalar, beach club’lar ve özel yaşam alanları için 
 modern & şık tasarımlar geliştiren FNZ Ahşap Sanayi; kaliteli malzeme, 
 profesyonel işçilik ve proje bazlı üretim deneyimi ile <strong>Türkiye genelinde güvenilir bir ahşap mobilya markası</strong> haline gelmiştir.`,
-    image: '/assets/images/about-sections/about1.png',
+    image: '/assets/images/fnz-wood-about.jpg',
   },
   vision: {
     heading: 'Vizyon & Misyon',
     text: 'Vizyonumuz; ahşap tasarımında kalite ve prestiji en üst seviyeye taşımak. Misyonumuz ise; her projede özgünlük, işçilikte mükemmeliyet ve müşteri memnuniyetini esas almak.',
-    image: '/assets/images/about-sections/about2.png',
+    image: '/assets/images/about-sections/about-section-fnz-wood-2.png',
   },
   values: [
     { icon: <Award className="w-5 h-5" />, title: 'Kalite', text: 'Her üründe yüksek kalite standartları.' },
@@ -68,7 +68,7 @@ export default function AboutPageClient() {
   }, []);
 
   return (
-    <main className="bg-[#1e1e1f] text-white">
+    <main className="bg-[#1e1e1f] text-white min-h-screen py-24">
       {/* HERO */}
 
       <PageHero

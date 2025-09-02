@@ -22,7 +22,7 @@ export function CtaSection() {
             className="absolute top-0 left-0 right-0 h-[578px] bg-no-repeat bg-cover bg-center opacity-[1] -z-[10]"
             style={{
               backgroundColor: "#f2eeeb",
-              backgroundImage: "url('/assets/images/cta-bg.jpg')",
+              backgroundImage: "url('/assets/images/cta-bg-fnz-wood.jpg')",
               backgroundBlendMode: "luminosity",
             }}
           ></div>
@@ -79,10 +79,10 @@ export function CtaSection() {
             </div>
 
             <div className="w-full flex flex-col sm:flex-row gap-4">
-                 <Button className="relative overflow-hidden bg-[#4a3e36] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base font-medium rounded-sm w-full sm:w-auto group transition-all duration-500 before:absolute before:top-0 before:left-1/2 before:w-0 before:h-full before:bg-[#533721]  before:transition-all before:duration-500 before:transform before:-translate-x-1/2 hover:before:w-full">
-            <span className="relative z-10 ">Ücretsiz Keşif</span>
-            <ArrowRight className="relative z-10 ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </Button>
+              <Button className="relative overflow-hidden bg-[#4a3e36] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base font-medium rounded-sm w-full sm:w-auto group transition-all duration-500 before:absolute before:top-0 before:left-1/2 before:w-0 before:h-full before:bg-[#533721]  before:transition-all before:duration-500 before:transform before:-translate-x-1/2 hover:before:w-full">
+                <span className="relative z-10 ">Ücretsiz Keşif</span>
+                <ArrowRight className="relative z-10 ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Button>
               <Button
                 variant="outline"
                 className="border-white text-white hover:bg-white hover:text-[#333333] px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base font-medium rounded-sm w-full sm:w-auto bg-transparent"

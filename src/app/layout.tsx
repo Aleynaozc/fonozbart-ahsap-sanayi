@@ -8,7 +8,7 @@ import { LoadingProvider } from "@/hooks/use-loading"
 import { Header } from "@/components/navbar/navbar"
 import { Footer } from "@/components/footer"
 import InitialLoaderWrapper from "./initial-loader-wrapper"
-import { defaultMetadata, pageMetadata,getBlogMetadata } from "@/seo-data"
+import { defaultMetadata, pageMetadata, getBlogMetadata } from "@/seo-data"
 
 
 
@@ -62,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               {
                 "@context": "https://schema.org",
                 "@type": "Organization",
-                name: "FNZ Ahşap Mobilya",
+                name: "Fnz Ahsap Sanayi",
                 url: "https://fnzwood.com",
                 logo: "https://fnzwood.com/assets/images/logo.png",
                 sameAs: [
@@ -95,7 +95,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 "@context": "https://schema.org",
                 "@type": "WebSite",
                 url: "https://fnzwood.com",
-                name: "FNZ Ahşap Mobilya",
+                name: "Fnz Ahsap Sanayi",
               },
               null,
               2
@@ -112,7 +112,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 "@context": "https://schema.org",
                 "@type": "LocalBusiness",
                 "@id": "https://fnzwood.com/#localbusiness",
-                name: "FNZ Ahşap Mobilya",
+                name: "Fnz Ahsap Sanayi",
                 image: "https://fnzwood.com/assets/images/logo.png",
                 url: "https://fnzwood.com",
                 telephone: "+90-532-000-0000",

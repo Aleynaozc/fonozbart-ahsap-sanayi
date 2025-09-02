@@ -25,26 +25,25 @@ const PreloaderContext = createContext<PreloaderContextType | undefined>(undefin
 
 // Critical resources that should be preloaded immediately
 const CRITICAL_RESOURCES = [
-  "/assets/images/fnz-beyaz.png",
-  "/assets/images/logo2.png",
-  "/assets/images/sliders/hero7.jpg",
-  "/assets/images/sliders/hero3.jpg",
+  "/assets/images/fnz-wood-logo-1.png",
+  "/assets/images/sliders/page-hero-fnz-wood-3.jpg",
+  "/assets/images/sliders/page-hero-fnz-wood-4.jpg",
 ]
 
 // Page-specific resources mapping
 const PAGE_RESOURCES: Record<string, string[]> = {
   "/": [
-    "/assets/images/about-sections/about-secion1.jpg",
-    "/assets/images/sliders/hero7.jpg",
-    "/assets/images/sliders/hero3.jpg",
-    "/assets/images/services-section/oda9.jpg",
-    "/assets/images/services-section/mutfak.jpg",
-    "/assets/images/services-section/banyo2.jpg",
-    "/assets/images/services-section/office2.jpg",
-    "/assets/images/services-section/ahsappergola.jpg",
-    "/assets/images/services-section/deck2.jpg",
-    "/assets/images/services-section/kapı3.jpg",
-    "/assets/images/services-section/yangınkapısı.jpg",
+    "/assets/images/about-sections/about-section-fnz-wood.jpg",
+    "/assets/images/sliders/page-hero-fnz-wood-3.jpg",
+    "/assets/images/sliders/page-hero-fnz-wood-4.jpg",
+    "/assets/images/services-section/otel-odasi-fnz-wood-1.jpg",
+    "/assets/images/services-section/mutfak-fnz-wood-1.jpg",
+    "/assets/images/services-section/banyo-fnz-wood-1.jpg",
+    "/assets/images/services-section/ofis-fnz-wood-1.jpg",
+    "/assets/images/services-section/ahsap-pergola-fnz-wood.jpg",
+    "/assets/images/services-section/deck-fnz-wood-1.jpg",
+    "/assets/images/services-section/kapi-fnz-wood-2.jpg",
+    "/assets/images/services-section/yangın-kapısı-fnz-wood.jpg",
   ],
   "/about": [],
   "/projects": [],

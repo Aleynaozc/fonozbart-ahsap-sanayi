@@ -54,7 +54,7 @@ export function Footer() {
           <div className="lg:col-span-1 space-y-6">
             <div className="space-y-4">
               <Image
-                src="/assets/images/fnz-beyaz.png"
+                src="/assets/images/fnz-wood-logo-1.png"
                 alt="FNZ Ahşap Sanayi Logo"
                 width={200}
                 height={60}

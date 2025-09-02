@@ -1,0 +1,74 @@
+---
+title: "Deck ile Havuz Kenarları ve Verandalara Şıklık Katın"
+date: "2025-08-27"
+category: "Deck Ahşap Uygulamaları"
+excerpt: "Marmaris’te deck uygulamaları, havuz kenarları, verandalar ve teraslarda şık ve fonksiyonel açık alanlar yaratır. Deck modelleri ve uygulama fikirleri bu yazımızda."
+coverImage: "/assets/images/blog/deck/deck-fnz-ahsap-marmaris-3.jpg"
+tags: ["Deck Ahşap", "Teras ve Veranda Dekorasyonu", "Marmaris", "Ahşap Deck"]
+seoTitle: "Deck Ahşap Uygulamaları | FNZ Yapı"
+seoDescription: "Marmaris’te deck uygulamaları ve ahşap platformlar hakkında bilgiler. Havuz kenarları, verandalar ve teraslar için estetik ve dayanıklı çözümler. FNZ Yapı ile açık alanlarınızı şık hale getirin."
+seoKeywords: "deck ahşap Marmaris, havuz kenarı deck, veranda deck, teras deck, açık alan ahşap"
+popular: true
+---
+
+# Deck Ahşap Uygulamaları ile Havuz Kenarları ve Verandalara Şıklık
+
+Deck, açık alanlarda estetik ve fonksiyonel kullanım sağlayan ahşap döşeme sistemidir. Marmaris’in güneşli ikliminde havuz kenarları, veranda ve teraslarda doğru deck uygulaması ile yaşam alanlarınızı daha şık ve dayanıklı hale getirebilirsiniz. Bu yazımızda, Marmaris’te deck uygulamaları, kullanım alanları ve dekoratif fikirleri keşfedeceksiniz.
+
+---
+
+## Deck Nedir?
+
+Deck, genellikle ahşap malzemeden yapılan ve açık alanlarda zemini kaplamak veya platform oluşturmak için kullanılan bir yapıdır. Havuz kenarları, veranda, teras ve bahçelerde hem estetik hem de fonksiyonel bir alan yaratır. Ahşap deckler, doğru malzeme ve uygulama ile uzun ömürlü ve dayanıklı çözümler sunar.
+
+---
+
+## Deck Uygulamalarının Kullanım Alanları
+
+Deckler, farklı alanlarda şık ve fonksiyonel çözümler sağlar:
+
+- **Havuz Kenarları:** Kaymaz ve estetik yüzeyler ile güvenli ve şık dinlenme alanları.  
+- **Verandalar:** Yemek ve oturma alanları için doğal ve dayanıklı zemin.  
+- **Teras ve Bahçeler:** Sosyal alanlar ve oturma platformları oluşturur.  
+- **Otel ve Villa Açık Alanları:** Estetik ve dayanıklı açık alan çözümleri.
+
+---
+<ImageRow images={[
+  { src: "/assets/images/blog/deck/deck-fnz-ahsap-marmaris-5.jpg", alt: "Ahsap Pergola Isıklandırma" },
+  { src: "/assets/images/blog/deck/deck-fnz-ahsap-marmaris-4.jpg", alt: "Ev Bahcesinde Ahsap Pergola" }
+]} />
+## Deck Modelleri ve Malzemeleri
+
+Deck uygulamaları farklı ahşap türleri ve tasarımlarda yapılabilir:
+
+- **Doğal Ahşap Deckler:** Teak, çam veya iroko gibi dayanıklı ağaçlardan yapılan klasik deckler.  
+- **Kompozit Deckler:** Ahşap-plastik karışımı, düşük bakım gerektiren modern çözümler.  
+- **Havuz Kenarı Deckleri:** Kaymaz yüzey ve suya dayanıklı malzemeler ile güvenli alan sağlar.  
+
+<ImageRow images={[
+  { src: "/assets/images/blog/deck/ahsap-pergola-fnz-ahsap-marmaris-1.jpg", alt: "Ahsap Pergola Isıklandırma" },
+  { src: "/assets/images/blog/deck/deck-fnz-ahsap-marmaris-1.jpg", alt: "Ev Bahcesinde Ahsap Pergola" }
+]} />
+
+---
+
+## Deck Uygulamasında Dikkat Edilmesi Gerekenler
+
+- **Ahşap Türü ve Kalitesi:** Dayanıklı ve suya karşı dirençli türler tercih edilmelidir.  
+- **Montaj ve Drenaj:** Su birikmesini önleyecek şekilde doğru montaj yapılmalı.  
+- **Tasarım ve Estetik:** Alanın mimarisi ve dekorasyonu ile uyumlu olmalı.  
+- **Bakım ve Dayanıklılık:** Düzenli bakım ile uzun ömürlü kullanım sağlanır.
+
+---
+
+## Dekoratif Fikirler
+
+Decklerinizi daha çekici ve fonksiyonel hale getirmek için:
+
+- Bitkiler ve saksılar ile doğal bir ortam yaratın.  
+- LED veya spot ışıklarla akşam alanlarını da kullanışlı hale getirin.  
+- Şezlong, masa veya oturma platformları ile sosyal alanlar oluşturun.
+
+---
+
+Deck uygulamaları, havuz kenarları, verandalar ve teraslarda estetik, güvenli ve dayanıklı açık alanlar yaratır. Doğru malzeme ve uygulama ile açık alanlarınızı şık ve fonksiyonel hale getirebilirsiniz.
