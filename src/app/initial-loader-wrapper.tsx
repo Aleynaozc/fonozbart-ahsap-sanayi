@@ -10,7 +10,6 @@ export default function InitialLoaderWrapper({ children }: { children: React.Rea
   const [animate, setAnimate] = useState(false)
   const [imagesLoaded, setImagesLoaded] = useState(false)
 
-  // Sayfadaki tüm img’ler yüklendi mi?
   useEffect(() => {
     const images = document.querySelectorAll("img")
     let loadedCount = 0
@@ -32,16 +31,14 @@ export default function InitialLoaderWrapper({ children }: { children: React.Rea
         checkDone()
       } else {
         img.addEventListener("load", checkDone, { once: true })
-        img.addEventListener("error", checkDone, { once: true }) // hata olursa da say
+        img.addEventListener("error", checkDone, { once: true })
       }
     })
-  }, [pathname]) // her route değişiminde tekrar kontrol et
+  }, [pathname])
 
-  // Path değiştiğinde loader başlat
   useEffect(() => {
     if (!pathname) return
     startPageTransition(pathname)
-
     setAnimate(false)
     requestAnimationFrame(() => setAnimate(true))
   }, [pathname])
@@ -51,25 +48,29 @@ export default function InitialLoaderWrapper({ children }: { children: React.Rea
   if (showLoader) {
     return (
       <div className="w-full h-screen flex items-center justify-center bg-[#1e1e1f]">
-        <div className="flex flex-col items-center gap-6">
+        <div className="flex flex-col items-center gap-4">
           {/* Logo */}
-          <img
-            src="/assets/images/fnz-wood-logo-1.png"
-            alt="FNZ Logo"
-            className={`h-30 sm:h-20 transition-all duration-1000 ${animate ? "blur-0 opacity-100" : "blur-md opacity-0"
+          <div className="w-40 sm:w-48 lg:w-60 flex justify-center">
+            <img
+              src="/assets/images/fnz-wood-logo-1.png"
+              alt="FNZ Logo"
+              className={`h-20 sm:h-28 lg:h-40 transition-all duration-1000 ${
+                animate ? "blur-0 opacity-100" : "blur-md opacity-0"
               }`}
-            style={{
-              filter: animate ? "grayscale(0%)" : "grayscale(100%)",
-              transition: "all 1s ease-in-out",
-            }}
-          />
+              style={{
+                filter: animate ? "grayscale(0%)" : "grayscale(100%)",
+                transition: "all 1s ease-in-out",
+              }}
+            />
+          </div>
 
           {/* Loading Bar */}
-          <div className="w-42">
+          <div className="w-40 sm:w-48 lg:w-60">
             <div className="h-1 bg-[#333] rounded-full overflow-hidden">
               <div
-                className={`h-1 bg-[#FF6B35] transition-all duration-1000 ${animate ? "w-full" : "w-0"
-                  }`}
+                className={`h-1 bg-[#FF6B35] transition-all duration-1000 ${
+                  animate ? "w-full" : "w-0"
+                }`}
               ></div>
             </div>
           </div>
