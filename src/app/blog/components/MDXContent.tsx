@@ -15,7 +15,7 @@ interface Props {
 // Yan yana iki resim için özel bileşen
 const ImageRow = ({ images }: { images: { src: string; alt?: string }[] }) => {
   return (
-    <div className="flex flex-col md:flex-row gap-4 my-6 ">
+    <div className="flex gap-4 my-6">
       {images.map((img, idx) => (
         <div key={idx} className="flex-1 relative aspect-[16/9]">
           <Image

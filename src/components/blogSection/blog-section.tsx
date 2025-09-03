@@ -26,7 +26,7 @@ export default async function BlogPageSection() {
             key={post.slug}
             slug={post.slug}
             title={post.title}
-            description={post.excerpt}
+            excerpt={post.excerpt}
             date={post.date}
             coverImage={post.coverImage}
             category={post.category}

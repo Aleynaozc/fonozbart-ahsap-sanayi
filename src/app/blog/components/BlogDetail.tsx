@@ -5,7 +5,7 @@ type BlogDetailProps = {
   post: {
     title: string
     date?: string
-    description: string
+    excerpt: string
     coverImage: string
     tags: string[]
     slug: string

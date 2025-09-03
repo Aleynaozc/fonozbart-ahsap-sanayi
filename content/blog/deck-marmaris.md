@@ -2,7 +2,7 @@
 title: "Deck ile Havuz Kenarları ve Verandalara Şıklık Katın"
 date: "2025-08-27"
 category: "Deck Ahşap Uygulamaları"
-description: "Marmaris’te deck uygulamaları, havuz kenarları, verandalar ve teraslarda şık ve fonksiyonel açık alanlar yaratır. Deck modelleri ve uygulama fikirleri bu yazımızda."
+excerpt: "Marmaris’te deck uygulamaları, havuz kenarları, verandalar ve teraslarda şık ve fonksiyonel açık alanlar yaratır. Deck modelleri ve uygulama fikirleri bu yazımızda."
 coverImage: "/assets/images/blog/deck/deck-fnz-ahsap-marmaris-3.jpg"
 tags: ["Deck Ahşap", "Teras ve Veranda Dekorasyonu", "Marmaris", "Ahşap Deck"]
 seoTitle: "Deck Ahşap Uygulamaları | FNZ Yapı"

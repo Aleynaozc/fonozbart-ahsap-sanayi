@@ -14,8 +14,6 @@ export type PostFrontmatter = {
   seoKeywords?: string[]
   author?: string
   popular?: boolean
-  category?: string
-  readingTime: string
 }
 
 export type Post = {
@@ -30,8 +28,6 @@ export type Post = {
   seoKeywords?: string[]
   author?: string
   popular?: boolean
-  category?: string
-
 }
 
 function readFile(slugOrFile: string) {
@@ -59,7 +55,6 @@ export function getAllPosts(): Post[] {
       seoKeywords: fm.seoKeywords,
       author: fm.author,
       popular: fm.popular ?? false,
-      category: fm.category
     }
   })
 
@@ -93,7 +88,6 @@ export function getPostBySlug(slug: string): Post {
     seoKeywords: fm.seoKeywords,
     author: fm.author,
     popular: fm.popular ?? false,
-    category: fm.category
   }
 }
 

@@ -68,7 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 sameAs: [
                   "https://www.facebook.com/fnzwood",
                   "https://www.instagram.com/fnzwood",
-                  "https://www.linkedin.com/company/fnzwood",
+                  "https://www.linkedin.com/company/fonozbart-ah%C5%9Fap-sanayi?originalSubdomain=tr",
                 ],
                 contactPoint: [
                   {

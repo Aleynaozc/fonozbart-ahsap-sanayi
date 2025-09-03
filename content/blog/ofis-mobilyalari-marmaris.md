@@ -2,7 +2,7 @@
 title: "Modern Ofis Mobilyaları ile Verimli ve Şık Çalışma Alanları"
 date: "2025-09-02"
 category: "Ofis Mobilyaları"
-description: "Ofis mobilyaları seçiminde ergonomi, fonksiyonellik ve estetik ön planda olmalı. Modern ofis mobilyaları ile iş yerinizde verimlilik ve şıklık sağlayın."
+excerpt: "Ofis mobilyaları seçiminde ergonomi, fonksiyonellik ve estetik ön planda olmalı. Modern ofis mobilyaları ile iş yerinizde verimlilik ve şıklık sağlayın."
 coverImage: "/assets/images/blog/ofis-mobilyalari/ofis-mobilyalari-marmaris-fnz-wood-2.jpg"
 tags: ["Ofis Mobilyaları", "Ergonomik Tasarım", "Modern Ofis", "Ahşap Mobilya"]
 seoTitle: "Modern Ofis Mobilyaları | FNZ Ahşap Sanayi"

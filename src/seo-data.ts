@@ -57,55 +57,103 @@ export const defaultMetadata: Metadata = {
 // ✅ Statik sayfa metadata
 export const pageMetadata: Record<string, Partial<Metadata>> = {
   "/": {
-    title: "Ana Sayfa | FNZ Ahşap Sanayi ",
+    title: "FNZ Ahşap Sanayi | Marmaris Özel Mobilya Tasarımı",
     description:
-      "Fnz Ahsap Sanayi | Marmaris merkezli özel mobilya tasarımı ve üretimi. Villa, otel, mutfak, banyo, pergola ve deck projeleri.",
-    keywords: ["ana sayfa", "fnz ahşap", "marmaris mobilya", "özel tasarım mobilya"],
+      "50 yıllık deneyimle Marmaris’te villa, otel, mutfak ve banyo için özel mobilya tasarımı ve üretimi. Pergola, deck ve ahşap kapı çözümleri.",
+    keywords: [
+      "ana sayfa",
+      "fnz ahşap",
+      "marmaris mobilya",
+      "özel tasarım mobilya",
+    ],
     alternates: { canonical: `${baseUrl}/` },
   },
   "/hakkimizda": {
     title: "Hakkımızda | FNZ Ahşap Sanayi",
     description:
-      "Fnz Ahsap Sanayi | 50 yılı aşkın tecrübemizle Marmaris’te özel mobilya tasarımı ve üretimi. Vizyonumuz, değerlerimiz ve müşteri odaklı hizmet anlayışımız.",
-    keywords: ["hakkımızda", "fnz mobilya", "fnz ahşap sanayi", "fnz wood", "marmaris marangoz", "mobilya firması", "marmaris villa mobilyası", "fnz wood iletişim", "mutfak dolabı", "banyo dolabı", "deck pergola"],
+      "50 yılı aşkın tecrübemizle Marmaris’te villa, otel ve özel mobilya üretimi. FNZ Ahşap Sanayi’nin vizyonu, değerleri ve müşteri odaklı hizmeti.",
+    keywords: [
+      "hakkımızda",
+      "fnz mobilya",
+      "fnz ahşap sanayi",
+      "fnz wood",
+      "marmaris marangoz",
+      "mobilya firması",
+      "marmaris villa mobilyası",
+      "mutfak dolabı",
+      "banyo dolabı",
+      "deck pergola",
+    ],
     alternates: { canonical: `${baseUrl}/hakkimizda` },
   },
   "/hizmetlerimiz": {
     title: "Hizmetlerimiz | FNZ Ahşap Sanayi",
     description:
-      "Özel mobilya tasarımı ve üretimi: Mutfak, banyo, ofis, otel mobilyaları, deck, pergola ve ahşap kapı çözümleri. Marmaris ve Türkiye geneli hizmet.",
-    keywords: ["hizmetlerimiz", "özel mobilya üretimi", "otel mobilyası", "mutfak mobilyası"],
+      "Mutfak, banyo, otel, ofis, villa mobilyaları ve deck–pergola çözümleri. Marmaris merkezli özel ahşap mobilya tasarımı ve üretimi.",
+    keywords: [
+      "hizmetlerimiz",
+      "özel mobilya üretimi",
+      "otel mobilyası",
+      "mutfak mobilyası",
+      "villa mobilyası",
+      "banyo mobilyası",
+      "deck pergola",
+    ],
     alternates: { canonical: `${baseUrl}/hizmetlerimiz` },
   },
   "/projeler": {
     title: "Projelerimiz | FNZ Ahşap Sanayi",
     description:
-      "Fnz Ahsap Sanayi | Tamamlanan otel, villa, restoran, mutfak ve banyo mobilya projelerimizi inceleyin. Türkiye genelinden seçilmiş referanslar.",
-    keywords: ["mobilya projeleri", "otel mobilya referansları", "villa tasarımı", "deck pergola projeleri"],
+      "Marmaris ve Türkiye genelinde tamamlanan villa, otel, restoran, mutfak ve banyo mobilya projelerimizi inceleyin.",
+    keywords: [
+      "mobilya projeleri",
+      "otel mobilya referansları",
+      "villa tasarımı",
+      "deck pergola projeleri",
+      "özel mobilya projeleri",
+    ],
     alternates: { canonical: `${baseUrl}/projeler` },
   },
   "/blog": {
     title: "Blog | FNZ Ahşap Sanayi",
     description:
-      "Fnz Ahsap Sanayi Blog | Ahşap mobilya tasarımı, dekorasyon trendleri, ipuçları ve proje hikayeleri.",
-    keywords: ["blog", "mobilya trendleri", "ahşap dekorasyon", "tasarım ipuçları"],
+      "Ahşap mobilya tasarımı, dekorasyon trendleri, ipuçları ve FNZ Ahşap Sanayi’nin özel proje hikayelerini blogumuzda keşfedin.",
+    keywords: [
+      "blog",
+      "mobilya trendleri",
+      "ahşap dekorasyon",
+      "tasarım ipuçları",
+      "özel mobilya blog",
+    ],
     alternates: { canonical: `${baseUrl}/blog` },
   },
   "/iletisim": {
     title: "İletişim | FNZ Ahşap Sanayi",
     description:
-      "Fnz Ahsap Sanayi ile iletişime geçin. Marmaris showroom adresi, telefon numarası ve e-posta bilgileri. Ücretsiz keşif ve danışmanlık hizmeti alın.",
-    keywords: ["iletişim", "fnzwood iletişim", "marmaris mobilya telefonu"],
+      "FNZ Ahşap Sanayi ile iletişime geçin. Marmaris showroom adresi, telefon ve e-posta bilgilerimizle ücretsiz keşif ve danışmanlık hizmeti alın.",
+    keywords: [
+      "iletişim",
+      "fnzwood iletişim",
+      "marmaris mobilya telefonu",
+      "fnz ahşap sanayi iletişim",
+    ],
     alternates: { canonical: `${baseUrl}/iletisim` },
   },
   "/referanslar": {
     title: "Referanslar | FNZ Ahşap Sanayi",
     description:
-      "Fnz Ahsap Sanayi | Türkiye genelinde tamamlanan villa, otel ve ticari alan mobilya projelerinden seçilmiş referanslarımız.",
-    keywords: ["referanslar", "otel mobilya projeleri", "villa referansları", "marmaris mobilya"],
+      "Türkiye genelinde tamamlanan villa, otel ve ticari alan projelerinden seçilmiş FNZ Ahşap Sanayi mobilya referanslarımızı keşfedin.",
+    keywords: [
+      "referanslar",
+      "otel mobilya projeleri",
+      "villa referansları",
+      "marmaris mobilya",
+      "özel mobilya referansları",
+    ],
     alternates: { canonical: `${baseUrl}/referanslar` },
   },
 }
+
 
 // ✅ Blog metadata generator (Markdown frontmatter'dan alıyor)
 export function getBlogMetadata(slug: string): Partial<Metadata> {
