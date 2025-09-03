@@ -16,7 +16,6 @@ export function Header() {
   const pathname = usePathname()
   const [activeMenu, setActiveMenu] = useState("Home")
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
 
   const menuItems = [
     { name: "Home", label: "ANASAYFA", path: "/" },
@@ -42,10 +41,6 @@ export function Header() {
       setActiveMenu(currentItem.name)
     }
 
-
-    const handleScroll = () => setIsScrolled(window.scrollY > 50)
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
   }, [pathname])
 
   const handleMenuClick = (menuName: string, path: string) => {
