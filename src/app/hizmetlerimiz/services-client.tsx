@@ -103,7 +103,7 @@ export default function ServicesPageClient() {
             {SERVICES.map((service, i) => (
               <div
                 key={i}
-                className={`group relative rounded-xl overflow-hidden border bg-[#1e1e1f]/60 border-[#FF6B35]/10 hover:border-[#FF6B35]/30 hover:shadow-lg hover:shadow-[#FF6B35]/20 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+                className={`group relative rounded-xl overflow-hidden border bg-[#1e1e1f]/60 border-[#FF6B35]/10 hover:border-[#FF6B35]/30 hover:shadow-lg hover:shadow-[#FF6B35]/20 transition-all duration-700 `}
               >
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <Image
