@@ -56,8 +56,7 @@ export function Header() {
 
   return (
     <header
-      className={`${poppins.className} fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? "bg-[#1e1e1f]/95 shadow-lg backdrop-blur-lg" : "bg-[#1e1e1f]/80"
-        }`}
+      className={`${poppins.className} fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-[#1e1e1f]`}
     >
       {/* Top Contact Bar - only lg+ */}
       <div className="hidden lg:block border-b border-[#FF6B35]/10 bg-[#1a1a1b]/60">
@@ -88,24 +87,28 @@ export function Header() {
       </div>
 
       {/* Main Header */}
-      <div className="max-w-screen-xl mx-auto px-4 lg:px-8 py-3 lg:py-5 flex justify-between items-center">
+      <div className="max-w-screen-xl mx-auto px-4 lg:px-8 py-3 lg:py-5 flex items-center relative">
         {/* Logo */}
-        <Image
-          src="/assets/images/fnz-wood-logo-1.png"
-          alt="FNZ AHŞAP SANAYİ"
-          width={180}
-          height={50}
-          className="h-10 w-auto object-contain"
-          priority
-        />
+        <div className="flex-1 lg:flex-none flex justify-center lg:justify-start">
+          <Image
+            src="/assets/images/fnz-wood-logo-1.png"
+            alt="FNZ AHŞAP SANAYİ"
+            width={280}
+            height={50}
+            className="h-14 w-auto object-contain"
+            priority
+          />
+        </div>
 
         {/* Desktop Menu */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-8 flex-1 justify-center">
           {menuItems.map((item) => (
             <button
               key={item.name}
               onClick={() => handleMenuClick(item.name, item.path)}
-              className={`relative text-sm font-medium tracking-wide transition ${activeMenu === item.name ? "text-white" : "text-gray-300 hover:text-white"
+              className={`relative cursor-pointer text-md font-medium tracking-wide transition ${activeMenu === item.name
+                  ? "text-white"
+                  : "text-gray-300 hover:text-white"
                 }`}
             >
               {item.label}
@@ -117,7 +120,7 @@ export function Header() {
         </nav>
 
         {/* CTA + Hamburger */}
-        <div className="flex items-center gap-3">
+        <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center gap-3 lg:static lg:translate-y-0">
           <a
             href="tel:+905323335067"
             className="hidden xl:flex items-center gap-2 bg-[#FF6B35] text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-[#e85c27] transition"
@@ -144,7 +147,6 @@ export function Header() {
                 <div className="absolute inset-0 bg-[#FF6B35]/10 rounded-full blur-md scale-0 group-hover/hamburger:scale-150 transition-all duration-500 opacity-0 group-hover/hamburger:opacity-100"></div>
               </div>
             )}
-
           </button>
         </div>
       </div>
