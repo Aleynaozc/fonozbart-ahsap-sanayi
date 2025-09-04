@@ -170,17 +170,21 @@ export default function ServicesSection() {
 
                     <h3 className="text-2xl font-bold mb-2 leading-tight">{project.title}</h3>
 
-                    <p className="text-gray-300 text-sm mb-4 leading-relaxed opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
+                    <p className="text-gray-300 text-sm mb-4 leading-relaxed opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transform translate-y-0 sm:translate-y-4 sm:group-hover:translate-y-0 transition-all duration-500 delay-100">
                       {project.description}
                     </p>
 
                     {/* CTA Button */}
-                    <div className="opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-200">
+                    {/* <div className="
+  opacity-100 sm:opacity-0 sm:group-hover:opacity-100 
+  transform translate-y-0 sm:translate-y-4 sm:group-hover:translate-y-0
+  transition-all duration-500 delay-200
+">
                       <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] px-4 py-2 rounded-lg text-sm font-medium hover:shadow-lg hover:shadow-[#FF6B35]/25 transition-all duration-300">
                         <span>Detayları Gör</span>
                         <ArrowRight className="w-4 h-4" />
                       </div>
-                    </div>
+                    </div> */}
                   </div>
 
                   {/* Decorative Element */}
