@@ -1,10 +1,9 @@
 "use client"
-import { Facebook, Instagram, X, Phone, Mail, MapPin, ArrowRight } from "lucide-react"
+import { Facebook, Instagram, X, Phone, Mail, MapPin, ArrowRight, Linkedin } from "lucide-react"
 import Image from "next/image"
 import { useState, useEffect } from "react"
 import { useRouter, usePathname } from "next/navigation"
 import { Poppins } from "next/font/google"
-import { PiPhoneCall } from "react-icons/pi"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -27,11 +26,27 @@ export function Header() {
     { name: "Blog", label: "BLOG", path: "/blog" },
   ]
 
-  const socialLinks = [
-    { name: "Facebook", icon: Facebook, href: "https://www.facebook.com/fnzwood/" },
-    { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/fnzwood/" },
-  ]
 
+const socialLinks = [
+  {
+    name: "Facebook",
+    icon: Facebook,
+    href: "https://www.facebook.com/fnzwood/",
+    color: "hover:text-blue-500",
+  },
+  {
+    name: "Instagram",
+    icon: Instagram,
+    href: "https://www.instagram.com/fnzwood/",
+    color: "hover:text-pink-500",
+  },
+  {
+    name: "LinkedIn",
+    icon: Linkedin,
+    href: "https://www.linkedin.com/company/fonozbart-ah%C5%9Fap-sanayi/",
+    color: "hover:text-blue-600",
+  },
+]
   useEffect(() => {
 
     const currentItem = menuItems.find((item) =>
@@ -84,7 +99,7 @@ export function Header() {
       {/* Main Header */}
       <div className="max-w-screen-xl mx-auto px-4 lg:px-8 py-3 lg:py-5 flex items-center relative">
         {/* Logo */}
-        <div className="flex-1 lg:flex-none flex justify-center lg:justify-start">
+        <div className="flex-1 lg:flex-none flex justify-start">
           <Image
             src="/assets/images/fnz-wood-logo-1.png"
             alt="FNZ AHŞAP SANAYİ"
@@ -93,6 +108,7 @@ export function Header() {
             className="h-14 w-auto object-contain"
             priority
           />
+          
         </div>
 
         {/* Desktop Menu */}
@@ -102,8 +118,8 @@ export function Header() {
               key={item.name}
               onClick={() => handleMenuClick(item.name, item.path)}
               className={`relative cursor-pointer text-md font-medium tracking-wide transition ${activeMenu === item.name
-                  ? "text-white"
-                  : "text-gray-300 hover:text-white"
+                ? "text-white"
+                : "text-gray-300 hover:text-white"
                 }`}
             >
               {item.label}
@@ -116,6 +132,7 @@ export function Header() {
 
         {/* CTA + Hamburger */}
         <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center gap-3 lg:static lg:translate-y-0">
+         
           <a
             href="tel:+905323335067"
             className="hidden xl:flex items-center gap-2 bg-[#FF6B35] text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-[#e85c27] transition"
@@ -165,6 +182,7 @@ export function Header() {
               height={40}
               className="h-8 w-auto"
             />
+            
             <button
               onClick={() => setIsMobileMenuOpen(false)}
               className="p-2 rounded-lg hover:bg-[#FF6B35]/20 transition-colors"
@@ -199,6 +217,25 @@ export function Header() {
               <Phone className="w-4 h-4" />
               Hemen Ara
             </a>
+          </div>
+          <div className="space-y-3">
+            <div className="flex space-x-3 justify-start sm:justify-start md:justify-start lg:justify-start xl:justify-start  text-center sm:text-left lg:text-left md:text-left">
+              <div className="flex justify-center sm:justify-start space-x-3 w-full">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`group flex items-center justify-center p-2 bg-[#2a2a2b] rounded-lg transition-all duration-300 hover:bg-[#FF6B35] ${social.color}`}
+                    aria-label={social.name}
+                  >
+                    <social.icon className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors duration-300" />
+                  </a>
+
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
