@@ -109,7 +109,7 @@ export default function BlogPageClient({ posts }: { posts: Post[] }) {
           {/* Sol Ana Alan: 3 kolon */}
           <div className="md:col-span-3 space-y-8">
             {/* Kartlar: 3 kolon -> her kart genişliği 1 kolon = sidebar genişliği */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 ">
+            <div className="grid grid-cols-1  gap-8 lg:gap-10 ">
               {paginatedPosts.map((post) => (
                 <BlogCard key={post.slug} {...post} />
               ))}
