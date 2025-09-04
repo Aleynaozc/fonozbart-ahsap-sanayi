@@ -1,8 +1,19 @@
 "use client"
 
-import { Facebook, Instagram, Twitter, Linkedin, Phone, Mail, MapPin, Clock, ArrowRight, Award } from "lucide-react"
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  ArrowRight,
+  Award,
+} from "lucide-react"
 import Image from "next/image"
 import { Poppins } from "next/font/google"
+import { useState } from "react"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -24,19 +35,76 @@ const quickLinks = [
   { name: "Hizmetlerimiz", href: "/hizmetlerimiz" },
   { name: "Projelerimiz", href: "/projeler" },
   { name: "Blog", href: "/blog" },
-  { name: "İletişim", href: "/iletişim" },
+  { name: "İletişim", href: "/iletisim" },
   { name: "Referanslar", href: "/referanslar" },
 ]
 
 const socialLinks = [
-  { name: "Facebook", icon: Facebook, href: "https://www.facebook.com/fnzwood/", color: "hover:text-blue-500" },
-  { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/fnzwood/", color: "hover:text-pink-500" },
-  { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/company/fonozbart-ah%C5%9Fap-sanayi/", color: "hover:text-blue-600" },
+  {
+    name: "Facebook",
+    icon: Facebook,
+    href: "https://www.facebook.com/fnzwood/",
+    color: "hover:text-blue-500",
+  },
+  {
+    name: "Instagram",
+    icon: Instagram,
+    href: "https://www.instagram.com/fnzwood/",
+    color: "hover:text-pink-500",
+  },
+  {
+    name: "LinkedIn",
+    icon: Linkedin,
+    href: "https://www.linkedin.com/company/fonozbart-ah%C5%9Fap-sanayi/",
+    color: "hover:text-blue-600",
+  },
 ]
+function AccordionSection({
+  title,
+  children,
+}: {
+  title: string
+  children: React.ReactNode
+}) {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <div className="lg:space-y-6 border-b border-[#FF6B35]/20 lg:border-none">
+      {/* Başlık */}
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between py-3 lg:py-0 text-white font-bold text-lg lg:cursor-default relative"
+      >
+        <span className="flex items-center gap-2">
+          {title}
+
+          <span className="text-[#FF6B35] text-xl font-bold lg:hidden">
+            {open ? "−" : "+"}
+          </span>
+        </span>
+
+        {/* Büyük ekranlarda alt çizgi */}
+        <div className="hidden lg:block absolute -bottom-2 left-0 w-8 h-0.5 bg-[#FF6B35]"></div>
+      </button>
+
+      {/* İçerik */}
+      <div
+        className={`overflow-hidden transition-all duration-500 ease-in-out lg:max-h-full ${
+          open ? "max-h-96 mt-2" : "max-h-0 lg:mt-0"
+        }`}
+      >
+        <div className="pb-4 lg:pb-0">{children}</div>
+      </div>
+    </div>
+  )
+}
+
 
 export function Footer() {
   return (
-    <footer className={`bg-[#1e1e1f] relative overflow-hidden ${poppins.className}`}>
+    <footer
+      className={`bg-[#1e1e1f] relative overflow-hidden ${poppins.className}`}
+    >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div
@@ -47,11 +115,11 @@ export function Footer() {
         />
       </div>
 
-      {/* Main Footer Content */}
+      {/* Main Footer */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
-          <div className="lg:col-span-1 space-y-6">
+          <div className="space-y-6">
             <div className="space-y-4">
               <Image
                 src="/assets/images/fnz-wood-logo-1.png"
@@ -61,43 +129,47 @@ export function Footer() {
                 className="object-contain h-12 w-auto"
               />
               <p className="text-gray-300 text-sm leading-relaxed">
-                1970'den bu yana Türk ahşap işçiliğinin öncüsü olarak, geleneksel ustalık bilgisini modern teknoloji ile
-                harmanlayıp, prestijli projelerde imza atıyoruz.
+                1970'den bu yana Türk ahşap işçiliğinin öncüsü olarak,
+                geleneksel ustalık bilgisini modern teknoloji ile harmanlayıp,
+                prestijli projelerde imza atıyoruz.
               </p>
             </div>
 
             {/* Awards Badge */}
             <div className="inline-flex items-center space-x-2 px-3 py-2 bg-gradient-to-r from-[#FF6B35]/10 to-[#8B4513]/10 rounded-lg border border-[#FF6B35]/20">
               <Award className="w-4 h-4 text-[#FF6B35]" />
-              <span className="text-[#ee7f1a] text-xs font-medium">50+ Yıl Güvenilir Hizmet</span>
+              <span className="text-[#ee7f1a] text-xs font-medium">
+                50+ Yıl Güvenilir Hizmet
+              </span>
             </div>
 
             {/* Social Media */}
             <div className="space-y-3">
-              <h4 className="text-white font-semibold text-sm">Bizi Takip Edin</h4>
-              <div className="flex space-x-3">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`group relative p-2 bg-[#2a2a2b] rounded-lg transition-all duration-300 hover:bg-[#FF6B35] ${social.color}`}
-                    aria-label={social.name}
-                  >
-                    <social.icon className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors duration-300" />
-                  </a>
-                ))}
+              <h4 className="text-white font-semibold text-sm">
+                Bizi Takip Edin
+              </h4>
+              <div className="flex space-x-3 justify-start sm:justify-start md:justify-start lg:justify-start xl:justify-start  text-center sm:text-left lg:text-left md:text-left">
+                <div className="flex justify-center sm:justify-start space-x-3 w-full">
+                  {socialLinks.map((social) => (
+                    <a
+                      key={social.name}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`group flex items-center justify-center p-2 bg-[#2a2a2b] rounded-lg transition-all duration-300 hover:bg-[#FF6B35] ${social.color}`}
+                      aria-label={social.name}
+                    >
+                      <social.icon className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors duration-300" />
+                    </a>
+
+                  ))}
+                </div>
               </div>
             </div>
           </div>
 
           {/* Services */}
-          <div className="space-y-6">
-            <h3 className="text-white font-bold text-lg relative">
-              Hizmetlerimiz
-              <div className="absolute -bottom-2 left-0 w-8 h-0.5 bg-[#FF6B35]"></div>
-            </h3>
+          <AccordionSection title="Hizmetlerimiz">
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <li key={index}>
@@ -105,20 +177,18 @@ export function Footer() {
                     href="#"
                     className="text-gray-300 hover:text-[#FF6B35] transition-colors duration-300 text-sm flex items-center group"
                   >
-                    <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform -translate-x-2 group-hover:translate-x-0" />
-                    <span className="group-hover:translate-x-1 transition-transform duration-300">{service}</span>
+                    <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-all" />
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">
+                      {service}
+                    </span>
                   </a>
                 </li>
               ))}
             </ul>
-          </div>
+          </AccordionSection>
 
           {/* Quick Links */}
-          <div className="space-y-6">
-            <h3 className="text-white font-bold text-lg relative">
-              Hızlı Linkler
-              <div className="absolute -bottom-2 left-0 w-8 h-0.5 bg-[#FF6B35]"></div>
-            </h3>
+          <AccordionSection title="Hızlı Linkler">
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
@@ -126,13 +196,15 @@ export function Footer() {
                     href={link.href}
                     className="text-gray-300 hover:text-[#FF6B35] transition-colors duration-300 text-sm flex items-center group"
                   >
-                    <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform -translate-x-2 group-hover:translate-x-0" />
-                    <span className="group-hover:translate-x-1 transition-transform duration-300">{link.name}</span>
+                    <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-all" />
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">
+                      {link.name}
+                    </span>
                   </a>
                 </li>
               ))}
             </ul>
-          </div>
+          </AccordionSection>
 
           {/* Contact Info */}
           <div className="space-y-6">
@@ -141,59 +213,56 @@ export function Footer() {
               <div className="absolute -bottom-2 left-0 w-8 h-0.5 bg-[#FF6B35]"></div>
             </h3>
             <div className="space-y-4">
-              <div className="flex items-start space-x-3 group">
-                <div className="p-2 bg-[#FF6B35]/10 rounded-lg group-hover:bg-[#FF6B35]/20 transition-colors duration-300">
-                  <MapPin className="w-4 h-4 text-[#FF6B35]" />
-                </div>
-                <div>
-                  <div className="text-gray-300 text-sm leading-relaxed">
-                    Marmaris, Muğla
-                    <br />
-                    Türkiye
+              {[
+                {
+                  icon: MapPin,
+                  text: (
+                    <>
+                      Marmaris, Muğla
+                      <br />
+                      Türkiye
+                    </>
+                  ),
+                },
+                {
+                  icon: Phone,
+                  text: (
+                    <a
+                      href="https://api.whatsapp.com/send/?phone=%2B905323335067"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-[#FF6B35] transition-colors"
+                    >
+                      +90 532 333 50 67
+                    </a>
+                  ),
+                },
+                {
+                  icon: Mail,
+                  text: (
+                    <a
+                      href="mailto:fonozbart@hotmail.com"
+                      className="hover:text-[#FF6B35] transition-colors"
+                    >
+                      fonozbart@hotmail.com
+                    </a>
+                  ),
+                },
+                {
+                  icon: Clock,
+                  text: "Pazartesi - Cumartesi: 08:00 - 18:30",
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-3 text-gray-300 text-sm"
+                >
+                  <div className="p-2 bg-[#FF6B35]/10 rounded-lg flex items-center justify-center">
+                    <item.icon className="w-4 h-4 text-[#FF6B35]" />
                   </div>
+                  <div className="leading-relaxed">{item.text}</div>
                 </div>
-              </div>
-
-              <div className="flex items-center space-x-3 group">
-                <div className="p-2 bg-[#FF6B35]/10 rounded-lg group-hover:bg-[#FF6B35]/20 transition-colors duration-300">
-                  <Phone className="w-4 h-4 text-[#FF6B35]" />
-                </div>
-                <div>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://api.whatsapp.com/send/?phone=%2B905323335067&text&type=phone_number&app_absent=0"
-                    className="text-gray-300 hover:text-[#FF6B35] transition-colors duration-300 text-sm"
-                  >
-                    +90 532 333 50 67
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3 group">
-                <div className="p-2 bg-[#FF6B35]/10 rounded-lg group-hover:bg-[#FF6B35]/20 transition-colors duration-300">
-                  <Mail className="w-4 h-4 text-[#FF6B35]" />
-                </div>
-                <div>
-                  <a
-                    href="mailto:fonozbart@hotmail.com"
-                    className="text-gray-300 hover:text-[#FF6B35] transition-colors duration-300 text-sm"
-                  >
-                    fonozbart@hotmail.com
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3 group">
-                <div className="p-2 bg-[#FF6B35]/10 rounded-lg group-hover:bg-[#FF6B35]/20 transition-colors duration-300">
-                  <Clock className="w-4 h-4 text-[#FF6B35]" />
-                </div>
-                <div>
-                  <div className="text-gray-300 text-sm ">
-                    <div>Pazartesi - Cumartesi: 08:00 - 18:30</div>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -202,10 +271,8 @@ export function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-[#FF6B35]/20 bg-[#1a1a1b]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-gray-400 text-sm text-center md:text-left">
-              © 2025 FNZ Ahşap Sanayi. Tüm hakları saklıdır.
-            </div>
+          <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left text-gray-400 text-sm">
+            © 2025 FNZ Ahşap Sanayi. Tüm hakları saklıdır.
           </div>
         </div>
       </div>

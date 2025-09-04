@@ -50,11 +50,11 @@ export default function InitialLoaderWrapper({ children }: { children: React.Rea
       <div className="w-full h-screen flex items-center justify-center bg-[#1e1e1f]">
         <div className="flex flex-col items-center gap-4">
           {/* Logo */}
-          <div className="w-40 sm:w-48 lg:w-60 flex justify-center">
+          <div className="  flex justify-center">
             <img
               src="/assets/images/fnz-wood-logo-1.png"
               alt="FNZ Logo"
-              className={`h-20 sm:h-28 lg:h-40 transition-all duration-1000 ${
+              className={`h-20 sm:h-28  transition-all duration-1000 ${
                 animate ? "blur-0 opacity-100" : "blur-md opacity-0"
               }`}
               style={{

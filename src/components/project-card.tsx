@@ -43,16 +43,18 @@ export function ProjectCardSection({
     setModalOpen(true)
   }
 
+  // Başlık için IntersectionObserver (mobil uyumlu)
   useEffect(() => {
+    if (!sectionRef.current) return
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
+        if (entry.isIntersecting) setIsVisible(true)
       },
-      { threshold: 0.2 },
+      { threshold: 0 } // Herhangi bir görünürlükte tetikle
     )
-    if (sectionRef.current) observer.observe(sectionRef.current)
+
+    observer.observe(sectionRef.current)
     return () => observer.disconnect()
   }, [])
 
@@ -74,7 +76,6 @@ export function ProjectCardSection({
           isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
         }`}
       />
-
       <div
         className={`hidden lg:flex absolute bottom-20 left-20 w-8 h-8 bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] rounded-full transition-all duration-2000 delay-500 ${
           isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
@@ -82,7 +83,7 @@ export function ProjectCardSection({
       />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* ✅ Başlık */}
+        {/* Başlık */}
         <div className="text-center mb-12 lg:mb-16">
           <div
             className={`mb-4 lg:mb-6 transition-all duration-1000 delay-200 ${
@@ -114,7 +115,7 @@ export function ProjectCardSection({
           </p>
         </div>
 
-        {/* ✅ Proje Kartları */}
+        {/* Proje Kartları */}
         <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
           {projectsdata.map((project, index) => {
             const [isCardVisible, setIsCardVisible] = useState(false)

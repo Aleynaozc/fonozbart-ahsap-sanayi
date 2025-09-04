@@ -1,4 +1,3 @@
-
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
@@ -50,15 +49,12 @@ profesyonel işçilik ve proje bazlı üretim deneyimi ile <strong>Türkiye gene
   ],
 };
 
-
-
 export default function AboutPageClient() {
-  const [isLoaded, setIsLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement | null>(null);
-  const { currentPage } = useBreadcrumb()
+  const { currentPage } = useBreadcrumb();
+
   useEffect(() => {
-    setIsLoaded(true);
     const io = new IntersectionObserver(
       (entries) => entries.forEach((e) => setIsVisible(e.isIntersecting)),
       { threshold: 0.2 }
@@ -68,9 +64,8 @@ export default function AboutPageClient() {
   }, []);
 
   return (
-    <main className="bg-[#1e1e1f] text-white min-h-screen py-24">
+    <main className="bg-[#1e1e1f] text-white min-h-screen pt-16 sm:pt-20 lg:pt-24">
       {/* HERO */}
-
       <PageHero
         backgroundImage={ABOUT.heroImage}
         badgeText={currentPage}
@@ -80,54 +75,90 @@ export default function AboutPageClient() {
         cta={{ label: "Projelerimizi Keşfedin", href: "/projeler" }}
         icon={<Sparkles className="w-4 h-4" />}
       />
+
       {/* STORY SECTION */}
-      <section ref={sectionRef} className="relative py-16 sm:py-20 lg:py-24 overflow-hidden">
-        <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-10 items-center">
+      <section
+        ref={sectionRef}
+        className="relative py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid gap-10 md:grid-cols-2 items-center">
+          {/* Text */}
           <div
-            className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-6'}`}
+            className={`transition-all duration-700 ${
+              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-6'
+            }`}
           >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">{ABOUT.story.heading}</h2>
-
-            <p className="text-gray-300 leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: ABOUT.story.past }} />
-
-            <p className="text-gray-300 leading-relaxed" dangerouslySetInnerHTML={{ __html: ABOUT.story.today }} />
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+              {ABOUT.story.heading}
+            </h2>
+            <p
+              className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed mb-4"
+              dangerouslySetInnerHTML={{ __html: ABOUT.story.past }}
+            />
+            <p
+              className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: ABOUT.story.today }}
+            />
           </div>
 
+          {/* Image */}
           <div
-            className={`relative aspect-[4/3] rounded-xl overflow-hidden border border-[#FF6B35]/20 bg-black/40 backdrop-blur-sm transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-6'
-              }`}
+            className={`relative aspect-[4/3] rounded-xl overflow-hidden border border-[#FF6B35]/20 bg-black/40 backdrop-blur-sm transition-all duration-700 ${
+              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-6'
+            }`}
           >
-            <Image src={ABOUT.story.image} alt="Atölye" fill className="object-cover" />
+            <Image
+              src={ABOUT.story.image}
+              alt="Atölye"
+              fill
+              className="object-cover object-center"
+            />
             <div className="absolute inset-0 bg-gradient-to-tr from-[#FF6B35]/10 to-transparent" />
           </div>
         </div>
       </section>
 
       {/* VISION SECTION */}
-      <section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden">
-        <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-10 items-center">
+      <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid gap-10 md:grid-cols-2 items-center">
+          {/* Image */}
           <div
-            className={`relative aspect-[4/3] rounded-xl overflow-hidden border border-[#FF6B35]/20 bg-black/40 backdrop-blur-sm transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-6'
-              }`}
+            className={`relative aspect-[4/3] rounded-xl overflow-hidden border border-[#FF6B35]/20 bg-black/40 backdrop-blur-sm transition-all duration-700 ${
+              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-6'
+            }`}
           >
-            <Image src={ABOUT.vision.image} alt="Vizyon" fill className="object-cover" />
+            <Image
+              src={ABOUT.vision.image}
+              alt="Vizyon"
+              fill
+              className="object-cover object-center"
+            />
             <div className="absolute inset-0 bg-gradient-to-tr from-[#FF6B35]/10 to-transparent" />
           </div>
+
+          {/* Text */}
           <div
-            className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-6'
-              }`}
+            className={`transition-all duration-700 ${
+              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-6'
+            }`}
           >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">{ABOUT.vision.heading}</h2>
-            <p className="text-gray-300 leading-relaxed">{ABOUT.vision.text}</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+              {ABOUT.vision.heading}
+            </h2>
+            <p className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed">
+              {ABOUT.vision.text}
+            </p>
           </div>
         </div>
       </section>
 
       {/* VALUES SECTION */}
-      <section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden bg-[#2a2a2b]/30">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">Değerlerimiz</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden bg-[#2a2a2b]/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12">
+            Değerlerimiz
+          </h2>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {ABOUT.values.map((val, i) => (
               <div
                 key={i}
@@ -136,8 +167,12 @@ export default function AboutPageClient() {
                 <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-[#FF6B35]/10 text-[#FF6B35] mb-4">
                   {val.icon}
                 </div>
-                <h3 className="font-semibold text-lg mb-2">{val.title}</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">{val.text}</p>
+                <h3 className="font-semibold text-base sm:text-lg mb-2">
+                  {val.title}
+                </h3>
+                <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+                  {val.text}
+                </p>
                 <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#FF6B35] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
             ))}
@@ -146,18 +181,20 @@ export default function AboutPageClient() {
       </section>
 
       {/* CTA */}
-      <section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">Projelerinize Değer Katmaya Hazırız</h2>
-          <p className="text-gray-300 max-w-2xl mx-auto mb-8">
+      <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
+            Projelerinize Değer Katmaya Hazırız
+          </h2>
+          <p className="text-gray-300 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-6 sm:mb-8">
             FNZ Wood ile prestijli projelerinizde farklılık yaratın. Kalite, özgünlük ve güvenin birleştiği noktadayız.
           </p>
           <a
             href="/iletisim"
-            className="inline-flex items-center bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] px-6 py-3 rounded-lg font-medium hover:shadow-lg hover:shadow-[#FF6B35]/25 transition-all"
+            className="inline-flex items-center bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium text-sm sm:text-base md:text-lg hover:shadow-lg hover:shadow-[#FF6B35]/25 transition-all"
           >
             Bizimle İletişime Geçin
-            <ArrowRight className="ml-2 w-5 h-5" />
+            <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
           </a>
         </div>
       </section>

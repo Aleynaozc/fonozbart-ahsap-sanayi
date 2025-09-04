@@ -43,7 +43,7 @@ export function PageHero({
   }, [])
 
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[60vh] sm:min-h-[80vh] flex items-center justify-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
         {backgroundType === "image" ? (
@@ -51,13 +51,13 @@ export function PageHero({
             src={backgroundImage}
             alt={badgeText || title}
             fill
-            className="object-cover"
+            className="object-cover object-center sm:object-cover"
             priority
           />
         ) : (
           <video
             src={backgroundImage}
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover object-center sm:object-cover"
             autoPlay
             loop
             muted
@@ -70,9 +70,8 @@ export function PageHero({
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className={`max-w-3xl mx-auto text-center transition-all duration-1000 delay-300 ${
-            isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`max-w-3xl mx-auto text-center transition-all duration-1000 delay-300 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
         >
           {/* Badge */}
           {badgeText && (
@@ -84,29 +83,26 @@ export function PageHero({
             </div>
           )}
 
-          {/* Title */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-6">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-3 sm:mb-6">
             {title}
             {highlight && (
-              <span className="block bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] bg-clip-text text-transparent mt-2">
+              <span className="block bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] bg-clip-text text-transparent mt-1 sm:mt-2">
                 {highlight}
               </span>
             )}
           </h1>
 
-          {/* Description */}
           {description && (
-            <p className="text-gray-200 text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8 max-w-2xl mx-auto">
+            <p className="text-gray-200 text-sm sm:text-base md:text-xl leading-relaxed mb-4 sm:mb-8 max-w-md sm:max-w-2xl mx-auto">
               {description}
             </p>
           )}
 
-          {/* CTA */}
           {cta && (
             <Button
               asChild
-              size="lg"
-              className="relative overflow-hidden group bg-[#FF6B35] hover:bg-[#E55A2B] text-white px-6 sm:px-10 py-3 sm:py-4 text-base sm:text-lg rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300"
+              size="sm"
+              className="relative overflow-hidden group bg-[#FF6B35] hover:bg-[#E55A2B] text-white px-4 sm:px-8 py-2 sm:py-4 text-sm sm:text-lg rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300"
             >
               <Link href={cta.href}>
                 <span className="relative z-10">{cta.label}</span>

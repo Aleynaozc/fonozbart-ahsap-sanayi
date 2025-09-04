@@ -161,9 +161,7 @@ export default function ProjectsPageClient() {
   const { currentPage } = useBreadcrumb()
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement | null>(null);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<any>(null);
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
 
 
 
