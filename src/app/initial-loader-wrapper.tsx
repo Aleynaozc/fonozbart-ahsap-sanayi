@@ -65,7 +65,7 @@ export default function InitialLoaderWrapper({ children }: { children: React.Rea
           </div>
 
           {/* Loading Bar */}
-          <div className="w-40 sm:w-48 lg:w-60">
+          <div className="w-50 sm:w-48 lg:w-60">
             <div className="h-1 bg-[#333] rounded-full overflow-hidden">
               <div
                 className={`h-1 bg-[#FF6B35] transition-all duration-1000 ${
