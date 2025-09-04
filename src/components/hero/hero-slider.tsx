@@ -14,7 +14,10 @@ export function HeroSlider() {
   }, [])
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section
+      id="hero"
+      className="relative h-auto min-h-[70vh]sm:min-h-[80vh] md:min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-0 pb-10 md:pb-0  "
+    >
       {/* Background */}
       <div className="absolute inset-0">
         <Image src="/assets/images/sliders/page-hero-fnz-wood-2.jpg" alt="Ahşap işçiliği" fill className="object-cover" priority />
