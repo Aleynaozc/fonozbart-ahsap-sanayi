@@ -14,6 +14,7 @@ popular: true
 # Ahşap Pergola ile Açık Alanlara Şıklık Katın
 
 Marmaris’in sıcak ve güneşli iklimi, bahçelerde ve villalarda fonksiyonel ve estetik alanlar yaratmayı zorunlu kılıyor. Ahşap pergolalar ise hem şıklığı hem de kullanım kolaylığıyla bu ihtiyacı karşılıyor. Bu yazımızda, Marmaris’te ahşap pergola modelleri, kullanım alanları ve dekorasyon fikirlerini keşfedeceksiniz.
+<ImageSingle src="/assets/images/blog/ahsap-pergola/ahsap-pergola-fnz-ahsap-marmaris-5.jpg" alt="Bahçede Ahşap Pergola" />
 
 ---
 
@@ -31,6 +32,11 @@ Marmaris’in villalarında ve bahçelerinde pergolalar, yaşam alanlarını dah
 - **Villalar:** Modern tasarımıyla mimari uyumu sağlar.  
 - **Otel ve Tatil Alanları:** Şezlong ve oturma alanlarıyla estetik ve fonksiyonel bir çözüm sunar.
 
+<ImageGrid images={[
+  { src: "/assets/images/blog/ahsap-pergola/ahsap-pergola-fnz-ahsap-marmaris-10.jpg", alt: "Yatay Pergola Görseli" },
+  { src: "/assets/images/blog/ahsap-pergola/ahsap-pergola-fnz-ahsap-marmaris-9.jpg", alt: "Kare Pergola 1" },
+  { src: "/assets/images/blog/ahsap-pergola/ahsap-pergola-fnz-ahsap-marmaris-7.jpg", alt: "Kare Pergola 2" }
+]} />
 ---
 
 ## Ahşap Pergola Modelleri
@@ -40,11 +46,7 @@ Ahşap pergolalar farklı tasarım ve işlevsellikte üretilir:
 - **Klasik Sabit Pergolalar:** Kalıcı ve dayanıklı yapılar, uzun ömürlü kullanım sağlar.  
 - **Modern Tasarımlar:** Minimalist ve şık çizgiler, küçük ve büyük alanlarda estetik sağlar.
 
-<ImageRow images={[
-  { src: "/assets/images/blog/deck/ahsap-pergola-fnz-ahsap-marmaris-2.jpg", alt: "Ahsap Pergola Isıklandırma" },
-  { src: "/assets/images/blog/ahsap-pergola/ahsap-pergola-fnz-ahsap-marmaris-6.jpg", alt: "Ev Bahcesinde Ahsap Pergola" }
-]} />
-
+<ImageSingle src="/assets/images/blog/ahsap-pergola/ahsap-pergola-fnz-ahsap-marmaris-6.jpg" alt="Bahçede Ahşap Pergola" />
 ---
 
 ## Pergola Seçerken Nelere Dikkat Etmeli?

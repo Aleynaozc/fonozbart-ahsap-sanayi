@@ -41,7 +41,7 @@ export default async function BlogDetailClient({ params }: Props) {
         />
       </div>
 
-      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 max-w-6xl">
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
 
         {/* Floating Decorative Elements */}
         <div
