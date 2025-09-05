@@ -16,7 +16,7 @@ popular: true
 Banyolar sadece temizlik için kullanılan alanlar değil, aynı zamanda evin estetik bütünlüğünü tamamlayan özel yaşam alanlarıdır. **Banyo mobilyaları seçimi**, hem günlük kullanım kolaylığı hem de dekoratif görünüm açısından büyük önem taşır.  
 
 Doğru banyo mobilyaları ile alanınızı hem işlevsel hem de göz alıcı hale getirebilirsiniz.  
-
+<ImageSingle src="/assets/images/blog/banyo-mobilyalari/otel-odası-banyo-fnz-ahsap-sanayi-marmaris-9.jpg" alt="Bahçede Ahşap Pergola" />
 ---
 
 ## Modern Banyo Mobilyası Trendleri
@@ -28,10 +28,13 @@ Son yıllarda öne çıkan **modern banyo mobilyaları** tasarımlarında şu ö
 - **Fonksiyonel Dolaplar:** Depolama alanını maksimum seviyeye çıkarır.  
 - **Dayanıklı Malzemeler:** Suya ve neme dayanıklı özel yüzeyler.  
 
-<ImageRow images={[
-  { src: "/assets/images/blog/banyo-mobilyalari/otel-odası-banyo-fnz-ahsap-sanayi-marmaris-7.jpg", alt: "Modern Banyo Dolabı" },
-  { src: "/assets/images/blog/banyo-mobilyalari/otel-odası-banyo-fnz-ahsap-sanayi-marmaris-6.jpg", alt: "Ahşap Detaylı Lavabo Ünitesi" }
+<ImageGrid images={[
+  
+  { src: "/assets/images/blog/banyo-mobilyalari/otel-odası-banyo-fnz-ahsap-sanayi-marmaris.jpg", alt: "Kare Pergola 2" },
+  { src: "/assets/images/blog/banyo-mobilyalari/otel-odası-banyo-fnz-ahsap-sanayi-marmaris-12.jpg", alt: "Yatay Pergola Görseli" },
+  { src: "/assets/images/blog/banyo-mobilyalari/otel-odası-banyo-fnz-ahsap-sanayi-marmaris-2.jpg", alt: "Kare Pergola 1" },
 ]} />
+
 
 ---
 
@@ -44,10 +47,6 @@ Yeni bir banyo tasarlarken ya da mevcut alanı yenilerken şu unsurlara dikkat e
 - **Estetik:** Banyonun genel dekorasyonuna uyum sağlayan modern tasarımlar tercih edilmeli.  
 - **Uzun Ömürlülük:** Günlük kullanımda deformasyona karşı dayanıklı ürünler seçilmeli.  
 
-<ImageRow images={[
-  { src: "/assets/images/blog/banyo-mobilyalari/banyo-mobilyalari-fnz-wood-4.jpg", alt: "Ahşap Banyo Dolapları" },
-  { src: "/assets/images/blog/banyo-mobilyalari/banyo-mobilyalari-fnz-wood-5.jpg", alt: "Modern Lavabo Ünitesi" }
-]} />
 
 ---
 

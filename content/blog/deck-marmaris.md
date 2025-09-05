@@ -14,7 +14,7 @@ popular: true
 # Deck Ahşap Uygulamaları ile Havuz Kenarları ve Verandalara Şıklık
 
 Deck, açık alanlarda estetik ve fonksiyonel kullanım sağlayan ahşap döşeme sistemidir. Marmaris’in güneşli ikliminde havuz kenarları, veranda ve teraslarda doğru deck uygulaması ile yaşam alanlarınızı daha şık ve dayanıklı hale getirebilirsiniz. Bu yazımızda, Marmaris’te deck uygulamaları, kullanım alanları ve dekoratif fikirleri keşfedeceksiniz.
-
+<ImageSingle src="/assets/images/blog/deck/deck-fnz-ahsap-marmaris-3.jpg" alt="Bahçede Deck Uygulaması" />
 ---
 
 ## Deck Nedir?
@@ -33,9 +33,10 @@ Deckler, farklı alanlarda şık ve fonksiyonel çözümler sağlar:
 - **Otel ve Villa Açık Alanları:** Estetik ve dayanıklı açık alan çözümleri.
 
 ---
-<ImageRow images={[
-  { src: "/assets/images/blog/deck/deck-fnz-ahsap-marmaris-5.jpg", alt: "Ahsap Pergola Isıklandırma" },
-  { src: "/assets/images/blog/deck/deck-fnz-ahsap-marmaris-4.jpg", alt: "Ev Bahcesinde Ahsap Pergola" }
+<ImageGrid images={[
+  { src: "/assets/images/blog/deck/deck-fnz-ahsap-marmaris-6.jpg", alt: "Havuz Kenarı Deck Uygulaması" },
+  { src: "/assets/images/blog/deck/deck-fnz-ahsap-marmaris-7.jpg", alt: "Havuz Kenarı Deck Uygulaması"},
+  { src: "/assets/images/blog/ahsap-pergola/ahsap-pergola-fnz-ahsap-marmaris-7.jpg", alt: "Varenda Deck Uygulaması" }
 ]} />
 ## Deck Modelleri ve Malzemeleri
 
@@ -44,11 +45,9 @@ Deck uygulamaları farklı ahşap türleri ve tasarımlarda yapılabilir:
 - **Doğal Ahşap Deckler:** Teak, çam veya iroko gibi dayanıklı ağaçlardan yapılan klasik deckler.  
 - **Kompozit Deckler:** Ahşap-plastik karışımı, düşük bakım gerektiren modern çözümler.  
 - **Havuz Kenarı Deckleri:** Kaymaz yüzey ve suya dayanıklı malzemeler ile güvenli alan sağlar.  
+<ImageSingle src="/assets/images/blog/deck/deck-fnz-ahsap-marmaris-1.jpg" alt="Ev Bahcesinde Ahsap Deck" />
+<ImageSingle src="/assets/images/blog/deck/ahsap-pergola-fnz-ahsap-marmaris-1.jpg" alt="Ev Bahcesinde Ahsap Deck" />
 
-<ImageRow images={[
-  { src: "/assets/images/blog/deck/ahsap-pergola-fnz-ahsap-marmaris-1.jpg", alt: "Ahsap Pergola Isıklandırma" },
-  { src: "/assets/images/blog/deck/deck-fnz-ahsap-marmaris-1.jpg", alt: "Ev Bahcesinde Ahsap Pergola" }
-]} />
 
 ---
 

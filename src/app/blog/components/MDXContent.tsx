@@ -79,71 +79,81 @@ const ImageSingle = ({ src, alt }: { src: string; alt?: string }) => (
 )
 
 const components = (frontmatter: { category: string; title: string }) => ({
+  /* Ana Başlık (H1) */
   h1: (props: any) => {
     const category = frontmatter.category ?? ""
     const titleText = props.children as string
     const parts = titleText.split(category)
 
     return (
-      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 md:mb-8 leading-snug">
+      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 lg:mb-8 leading-snug">
         {parts[0]}
         <span className="relative inline-block text-[#FF6B35]">{category}</span>
         {parts[1]}
       </h1>
     )
   },
-
+hr: () => null,
+  /* Alt Başlık (H2) */
   h2: (props: any) => (
     <h2
-      className="text-xl sm:text-2xl md:text-3xl font-semibold mt-8 md:mt-10 mb-4 leading-snug"
+      className="text-2xl sm:text-3xl font-semibold mt-8 lg:mt-10 mb-4 leading-snug text-white"
       {...props}
     >
-      <div className="flex items-center gap-1">
-        <RxDoubleArrowRight className="text-orange-500 w-5 h-5 md:w-6 md:h-6" />
+      <div className="flex items-center gap-2">
+        <RxDoubleArrowRight className="text-orange-500 w-5 h-5 sm:w-6 sm:h-6" />
         {props.children}
       </div>
     </h2>
   ),
 
+  /* Alt Başlık (H3) */
   h3: (props: any) => (
     <h3
-      className="text-lg sm:text-xl md:text-2xl font-semibold mt-6 mb-3 flex items-center"
+      className="text-xl sm:text-2xl font-semibold mt-6 mb-3 flex items-center text-white"
       {...props}
     >
       {props.children}
     </h3>
   ),
 
-  hr: () => null,
-
+  /* Paragraflar */
   p: (props: any) => (
     <p
-      className="text-gray-100 text-sm sm:text-base md:text-lg leading-relaxed mb-4 md:mb-6"
+      className="text-gray-200 text-base sm:text-lg leading-relaxed mb-4 sm:mb-6"
       {...props}
     />
   ),
 
+  /* Liste */
   ul: (props: any) => (
     <ul
-      className="list-none pl-0 mb-4 md:mb-6 space-y-2 text-gray-100 text-sm sm:text-base md:text-lg"
+      className="list-none pl-0 mb-4 sm:mb-6 space-y-2 text-gray-200 text-base sm:text-lg"
       {...props}
     />
   ),
 
   li: (props: any) => (
     <li className="flex items-start gap-2 leading-relaxed">
-      <TbArrowBadgeRightFilled className="text-[#FF6B35] w-4 h-4 md:w-5 md:h-5 mt-1 flex-shrink-0" />
+      <TbArrowBadgeRightFilled className="text-[#FF6B35] w-4 h-4 sm:w-5 sm:h-5 mt-1 flex-shrink-0" />
       <span>{props.children}</span>
     </li>
   ),
 
+  /* Alıntılar */
   blockquote: (props: any) => (
     <blockquote
-      className="border-l-4 border-orange-500 pl-3 md:pl-4 italic text-gray-200 my-4 md:my-6 text-sm sm:text-base md:text-lg"
+      className="border-l-4 border-orange-500 pl-3 sm:pl-4 italic text-gray-300 my-4 sm:my-6 text-base sm:text-lg leading-relaxed"
       {...props}
     />
   ),
 
+  /* Meta bilgiler (örneğin tarih, kategori üstü) */
+  small: (props: any) => (
+    <small className="text-sm text-gray-400" {...props} />
+  ),
+
+  /* Görsel Bileşenler */
   ImageRow,
   ImageGrid,
   ImageSingle,
