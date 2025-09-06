@@ -43,6 +43,7 @@ Marmaris’te kullanılan otel mobilyaları, tasarım ve dayanıklılık açıs�
 
 - **Klasik ve Dayanıklı Modeller:** Ahşap ve metal kombinasyonlu uzun ömürlü mobilyalar.  
 - **Modern Tasarımlar:** Minimalist çizgiler ve şık detaylar ile modern oteller için ideal.  
+<ImageSingle src="/assets/images/selected-project/CLASS_UNIQUE_fnz-wood-renovasyon-2.jpg" alt="Modern Açık Renk Otel Odası" />
 
 <ImageRow images={[
   { src: "/assets/images/selected-project/CLASS_UNIQUE_fnz-wood-renovasyon.jpg", alt: "Otel Mobilyası Modern Tasarım" },
@@ -68,5 +69,5 @@ Otel mobilyalarını daha çekici ve kullanışlı hale getirmek için:
 - Konfor ve estetiği birleştirerek misafir deneyimini artırın.
 
 ---
-
+<ImageSingle src="/assets/images/blog/otel-mobilyalari/otel-odası-acik-renk-fnz-ahsap-sanayi.png" alt="Modern Açık Renk Otel Odası" />
 Marmaris’te otel mobilyaları, estetik ve fonksiyonelliği bir arada sunar. Doğru malzeme ve tasarım seçimi ile otelinizde hem konforlu hem de şık alanlar oluşturabilirsiniz.

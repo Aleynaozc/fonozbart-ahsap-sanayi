@@ -26,10 +26,8 @@ Son yıllarda öne çıkan **modern ofis mobilyaları** tasarımlarında şu öz
 - **Doğal Malzemeler:** Ahşap detaylar ile sıcaklık ve samimiyet.  
 - **Modüler Sistemler:** İhtiyaca göre şekillenen çözümler.  
 
-<ImageRow images={[
-  { src: "/assets/images/blog/ofis-mobilyalari/ofis-mobilyalari-marmaris-fnz-wood-1.jpg", alt: "Modern Ofis Masa Takımı" },
-  { src: "/assets/images/blog/ofis-mobilyalari/ofis-mobilyalari-marmaris-fnz-wood-3.jpg", alt: "Ahşap Ofis Dolapları" }
-]} />
+<ImageSingle src="/assets/images/blog/ofis-mobilyalari/ofis-mobilyaları-kahverengi-fnz-ahsap-mobilya-marmaris-3.png" alt="Modern Açık Renk Otel Odası" />
+
 
 ---
 
@@ -42,10 +40,7 @@ Yeni bir ofis kurarken veya mevcut alanı yenilerken şu unsurlara dikkat etmek 
 - **Estetik:** Marka kimliğini yansıtan modern ve şık tasarımlar.  
 - **Dayanıklılık:** Uzun ömürlü kullanım için kaliteli malzemeler.  
 
-<ImageRow images={[
-  { src: "/assets/images/blog/ofis-mobilyalari/ofis-mobilyalari-marmaris-fnz-wood-6.jpg", alt: "Ergonomik Ofis Sandalyesi" },
-  { src: "/assets/images/blog/ofis-mobilyalari/ofis-mobilyalari-marmaris-fnz-wood-7.jpg", alt: "Minimalist Ofis Tasarımı" }
-]} />
+<ImageSingle src="/assets/images/blog/ofis-mobilyalari/ofis-mobilyaları-acik-fnz-ahsap-mobilya-marmaris-2.png" alt="Modern Açık Renk Otel Odası" />
 
 ---
 
@@ -55,10 +50,11 @@ FNZ Ahşap Sanayi olarak, modern ve işlevsel **ofis mobilyaları** üretiyoruz.
 
 - **Özel tasarım çözümler** ile her ofise özgün bir karakter katıyoruz.  
 - **Endüstriyel ölçekli üretim** sayesinde kurumsal ofis projelerine toplu çözümler sunuyoruz.  
+<ImageSingle src="/assets/images/blog/ofis-mobilyalari/ofis-mobilyaları-kahverengi-fnz-ahsap-mobilya-marmaris-4.png" alt="Modern lüks yönetici ofisi, geniş ahşap masa, deri koltuklar, mermer zemin ve entegre raf aydınlatmalarıyla şık iç mekan." />
 
 <ImageRow images={[
-  { src: "/assets/images/blog/ofis-mobilyalari/ofis-mobilyalari-marmaris-fnz-wood-8.jpg", alt: "FNZ Ahşap Özel Tasarım Ofis Mobilyaları" },
-  { src: "/assets/images/blog/ofis-mobilyalari/ofis-mobilyalari-marmaris-fnz-wood-8.jpg", alt: "Kurumsal Ofis Mobilya Projeleri" }
+  { src: "/assets/images/blog/ofis-mobilyalari/ofis-mobilyaları-kahverengi-fnz-ahsap-mobilya-marmaris.png", alt: "FNZ Ahşap Özel Tasarım Ofis Mobilyaları" },
+  { src: "/assets/images/blog/ofis-mobilyalari/ofis-mobilyaları-kahverengi-fnz-ahsap-mobilya-marmaris-5.png", alt: "Minimalist yönetici ofisi, ahşap lamelli masa ve konsol, büyük soyut duvar resmi ve modern siyah sarkıt lamba." }
 ]} />
 
 ---

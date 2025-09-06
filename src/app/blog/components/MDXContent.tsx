@@ -11,6 +11,9 @@ interface Props {
     category: string
     title: string
   }
+  wideSrc: string; // geniş açı görsel
+  detailSrc: string; // çekmeceli yakın plan
+  alt?: string;
 }
 
 /* Yan yana iki resim */
@@ -23,6 +26,9 @@ const ImageRow = ({ images }: { images: { src: string; alt?: string }[] }) => {
             src={img.src}
             alt={img.alt || "Blog image"}
             fill
+            sizes="(max-width: 640px) 100vw,
+         (max-width: 1024px) 50vw,
+         33vw"
             className="rounded-xl shadow-md object-cover"
           />
         </div>
@@ -68,16 +74,44 @@ const ImageGrid = ({ images }: { images: { src: string; alt?: string }[] }) => {
 
 /* Tek görsel */
 const ImageSingle = ({ src, alt }: { src: string; alt?: string }) => (
-  <div className="my-6 relative aspect-[16/9]">
+  <div className="my-6 relative ">
     <Image
       src={src}
       alt={alt || "Blog image"}
-      fill
-      className="rounded-xl shadow-md object-cover"
+      width={1000}   // max genişlik
+      height={0}     // height otomatik hesaplanır
+      sizes="100vw"
+      className="rounded-xl shadow-md h-auto w-full object-cover"
     />
   </div>
 )
+export const ImageDetailCombo = ({ wideSrc, detailSrc, alt }: Props) => {
+  return (
+    <div className="relative my-8">
+      {/* Geniş açı görsel */}
+      <div className="rounded-xl shadow-md overflow-hidden relative">
+        <Image
+          src={wideSrc}
+          alt={alt || "Wide angle bathroom"}
+          width={1200}
+          height={675}
+          className="w-full h-auto object-cover"
+        />
+      </div>
 
+      {/* Yakın plan detay görselini hafif üst üste ve sağa kaydırılmış şekilde koyuyoruz */}
+      <div className="absolute bottom-4 right-4 w-1/3 rounded-xl shadow-lg overflow-hidden border-2 border-white">
+        <Image
+          src={detailSrc}
+          alt={alt || "Drawer detail"}
+          width={400}
+          height={400}
+          className="w-full h-auto object-cover"
+        />
+      </div>
+    </div>
+  );
+};
 const components = (frontmatter: { category: string; title: string }) => ({
   /* Ana Başlık (H1) */
   h1: (props: any) => {
@@ -93,7 +127,7 @@ const components = (frontmatter: { category: string; title: string }) => ({
       </h1>
     )
   },
-hr: () => null,
+  hr: () => null,
   /* Alt Başlık (H2) */
   h2: (props: any) => (
     <h2
@@ -157,6 +191,7 @@ hr: () => null,
   ImageRow,
   ImageGrid,
   ImageSingle,
+  ImageDetailCombo
 })
 
 export default function MDXContent({ source, frontmatter }: Props) {

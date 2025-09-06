@@ -16,7 +16,7 @@ popular: true
 Banyolar sadece temizlik için kullanılan alanlar değil, aynı zamanda evin estetik bütünlüğünü tamamlayan özel yaşam alanlarıdır. **Banyo mobilyaları seçimi**, hem günlük kullanım kolaylığı hem de dekoratif görünüm açısından büyük önem taşır.  
 
 Doğru banyo mobilyaları ile alanınızı hem işlevsel hem de göz alıcı hale getirebilirsiniz.  
-<ImageSingle src="/assets/images/blog/banyo-mobilyalari/otel-odası-banyo-fnz-ahsap-sanayi-marmaris-9.jpg" alt="Bahçede Ahşap Pergola" />
+<ImageSingle src="/assets/images/blog/banyo-mobilyalari/otel-odası-banyo-fnz-ahsap-sanayi-marmaris-9.jpg" alt="Yeşil Modern Banyo Dolabı" />
 ---
 
 ## Modern Banyo Mobilyası Trendleri
@@ -28,12 +28,7 @@ Son yıllarda öne çıkan **modern banyo mobilyaları** tasarımlarında şu ö
 - **Fonksiyonel Dolaplar:** Depolama alanını maksimum seviyeye çıkarır.  
 - **Dayanıklı Malzemeler:** Suya ve neme dayanıklı özel yüzeyler.  
 
-<ImageGrid images={[
-  
-  { src: "/assets/images/blog/banyo-mobilyalari/otel-odası-banyo-fnz-ahsap-sanayi-marmaris.jpg", alt: "Kare Pergola 2" },
-  { src: "/assets/images/blog/banyo-mobilyalari/otel-odası-banyo-fnz-ahsap-sanayi-marmaris-12.jpg", alt: "Yatay Pergola Görseli" },
-  { src: "/assets/images/blog/banyo-mobilyalari/otel-odası-banyo-fnz-ahsap-sanayi-marmaris-2.jpg", alt: "Kare Pergola 1" },
-]} />
+<ImageDetailCombo wideSrc="/assets/images/blog/banyo-mobilyalari/banyo-fnz-ahsap-sanayi-marmaris-13.png" detailSrc="/assets/images/blog/banyo-mobilyalari/banyo-fnz-ahsap-sanayi-marmaris-13-detail.png" alt="Modern beyaz lake banyo mobilyaları" />
 
 
 ---
@@ -56,11 +51,10 @@ FNZ Ahşap Sanayi olarak, **modern ve fonksiyonel banyo mobilyaları** üretiyor
 
 - **Özel tasarım çözümler** ile banyolara estetik ve kullanım kolaylığı katıyoruz.  
 - **Endüstriyel ölçekte üretim** ile otel, villa ve toplu projelere kaliteli çözümler sunuyoruz.  
+<ImageDetailCombo wideSrc="/assets/images/blog/banyo-mobilyalari/banyo-fnz-ahsap-sanayi-marmaris-18.png" detailSrc="/assets/images/blog/banyo-mobilyalari/banyo-fnz-ahsap-sanayi-marmaris-18-detail.png" alt="Modern beyaz lake banyo mobilyaları" />
+<ImageDetailCombo wideSrc="/assets/images/blog/banyo-mobilyalari/banyo-fnz-ahsap-sanayi-marmaris-17.png" detailSrc="/assets/images/blog/banyo-mobilyalari/banyo-fnz-ahsap-sanayi-marmaris-17-detail.png" alt="Modern banyo" />
 
-<ImageRow images={[
-  { src: "/assets/images/blog/banyo-mobilyalari/banyo-mobilyalari-fnz-wood-6.jpg", alt: "FNZ Ahşap Özel Tasarım Banyo Mobilyaları" },
-  { src: "/assets/images/blog/banyo-mobilyalari/banyo-mobilyalari-fnz-wood-7.jpg", alt: "Kurumsal Banyo Mobilya Projeleri" }
-]} />
+
 
 ---
 
