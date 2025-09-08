@@ -33,7 +33,7 @@ export function TagCloud({ posts }: { posts: Post[] }) {
             key={tag}
             className="text-sm px-3 py-1 rounded-md bg-[#2a2a2b] text-white cursor-not-allowed"
           >
-            {tag} ({count})
+            {tag} 
           </span>
         ))}
       </div>
