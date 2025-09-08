@@ -1,9 +1,9 @@
 ---
-title: "2025 Modern Mutfaklar: Şıklık ve Fonksiyonelliği Buluşturan Tasarımlar"
+title: "2025 Modern Mutfak Tasarımları: Şıklık ve Fonksiyonelliği Buluşturan Tasarımlar"
 date: "2025-09-06"
 category: "Mutfak Tasarımları"
 excerpt: "2025 modern mutfak trendleri ile tanışın. Doğal ahşap detaylar, mermer yüzeyler ve minimalist çizgilerle tasarlanan mutfaklarda hem estetik hem de fonksiyonelliği bir araya getirin."
-coverImage: "/assets/images/blog/mutfak/modern-mutfak-2025-fnz-ahsap.jpg"
+coverImage: "/assets/images/blog/mutfak-mobilyalari/ada-mutfak-ceviz-fnz-ahsap-mobilya-marmaris-6.png"
 tags: ["Modern Mutfak", "Mutfak Tasarımları", "Ahşap Mutfak", "Minimalist Mutfak"]
 seoTitle: "2025 Modern Mutfak Tasarımları | FNZ Ahşap Sanayi"
 seoDescription: "2025 modern mutfak trendleri: ahşap dokular, mermer detaylar ve minimalist çizgilerle şıklığı mutfağınıza taşıyın. FNZ Ahşap Sanayi ile özel tasarım mutfak çözümleri."
@@ -11,12 +11,12 @@ seoKeywords: "modern mutfak, 2025 mutfak trendleri, ahşap mutfak, minimalist mu
 popular: true
 ---
 
-# 2025 Modern Mutfaklar: Şıklık ve Fonksiyonelliği Buluşturan Tasarımlar
+# 2025 Modern Mutfak Tasarımları: Şıklık ve Fonksiyonelliği Buluşturan Tasarımlar
 
 Modern mutfaklar, artık yalnızca yemek hazırlama alanı değil, aynı zamanda evlerin sosyal yaşam merkezlerinden biri haline geldi. 2025 yılında öne çıkan mutfak tasarımları; **doğallık, işlevsellik ve estetiği** bir arada sunuyor.  
 
 FNZ Ahşap Sanayi olarak, modern çizgileri ahşap işçiliğimizin sıcaklığıyla buluşturuyor ve yaşam alanlarınıza değer katıyoruz.  
-
+<ImageSingle src="/assets/images/blog/mutfak-mobilyalari/mutfak-mobilyaları-koyu-fnz-ahsap-mobilya-marmaris.png" alt="Sıcak nötr tonlar, taş ada, ahşap dolaplar, ortam aydınlatmalı açık raflar ve tavandan tabana pencerelerle modern ve lüks bir mutfak " />
 ---
 
 ## 2025 Mutfak Trendleri
@@ -29,7 +29,7 @@ Yeni nesil mutfak tasarımlarında şu öne çıkan unsurlar dikkat çekiyor:
 - **Fonksiyonel Depolama:** Çekmece içi düzenleyiciler ve akıllı çözümler.  
 - **Doğal Işık:** Büyük pencereler ve açık renkler ile aydınlık mutfaklar.  
 
-<ImageSingle src="/assets/images/blog/mutfak-mobilyalari/mutfak-mobilyaları-koyu-fnz-ahsap-mobilya-marmaris.png" alt="Sıcak nötr tonlar, taş ada, ahşap dolaplar, ortam aydınlatmalı açık raflar ve tavandan tabana pencerelerle modern ve lüks bir mutfak " />
+<ImageSingle src="/assets/images/blog/mutfak-mobilyalari/mutfak-mobilyaları-siyah-fnz-ahsap-mobilya-marmaris-3.png" alt="Sıcak nötr tonlar, taş ada, ahşap dolaplar, ortam aydınlatmalı açık raflar ve tavandan tabana pencerelerle modern ve lüks bir mutfak " />
 
 ---
 
@@ -50,7 +50,7 @@ Yeni nesil mutfak tasarımlarında şu öne çıkan unsurlar dikkat çekiyor:
 
 Modern mutfaklarda yalnızca estetik değil, **kullanışlı detaylar** da ön planda. Özellikle ada mutfak çekmecelerinde kullanılan ahşap bölücüler, çatal bıçak düzenleyiciler ve minimalist depolama çözümleri günlük hayatı kolaylaştırıyor.  
 
-<ImageSingle src="/assets/images/blog/mutfak/modern-mutfak-fnz-ahsap-detay.jpg" alt="Modern mutfak adasında çekmece içi detay: ahşap bölücüler, çatal bıçak düzenleyiciler ve minimalist depolama." />
+<ImageDetailCombo wideSrc="/assets/images/blog/mutfak-mobilyalari/ada-mutfak-açık-koyu-fnz-ahsap-mobilya-marmaris-4.png" detailSrc="/assets/images/blog/mutfak-mobilyalari/ada-mutfak-açık-koyu-fnz-ahsap-mobilya-marmaris-4-detail.png" alt="Modern minimalist mutfak tasarımı – beyaz mat dolaplar, siyah mermer ada ve doğal ahşap bar alanıyla lüks ve fonksiyonel bir iç mekan dekorasyonu" />
 
 ---
 
@@ -61,11 +61,9 @@ FNZ Ahşap Sanayi olarak, 2025 modern mutfak trendlerini yakından takip ediyor 
 - **Kişiye özel tasarımlar** ile her eve farklı bir kimlik kazandırıyoruz.  
 - **Endüstriyel üretim gücümüz** ile büyük ölçekli projelere çözüm sağlıyoruz.  
 - **Ahşap işçiliği ve modern teknolojiyi** bir araya getirerek mutfaklarınıza estetik ve fonksiyonellik katıyoruz.  
+<ImageSingle src="/assets/images/blog/mutfak-mobilyalari/ada-mutfak-açık-koyu-fnz-ahsap-mobilya-marmaris-5.png" alt="Sıcak nötr tonlar, taş ada, ahşap dolaplar, ortam aydınlatmalı açık raflar ve tavandan tabana pencerelerle modern ve lüks bir mutfak " />
+<ImageSingle src="/assets/images/blog/mutfak-mobilyalari/ada-mutfak-ceviz-fnz-ahsap-mobilya-marmaris-6.png" alt="Modern ahşap detaylı ada mutfak tasarımı – dikey çizgili meşe kaplama dolaplar, mat siyah tezgah ve ocak adası, LED aydınlatmalı raflar ve dekoratif bitkilerle şık ve fonksiyonel bir mutfak. " />
 
-<ImageRow images={[  
-  { src: "/assets/images/blog/mutfak/modern-mutfak-fnz-ahsap-3.jpg", alt: "Beyaz mermer ada ve ahşap detaylarla tasarlanmış modern mutfak." },  
-  { src: "/assets/images/blog/mutfak/modern-mutfak-fnz-ahsap-4.jpg", alt: "Minimalist beyaz dolaplar, mermer backsplash ve ahşap dokularla modern mutfak tasarımı." }  
-]} />
 
 ---
 
