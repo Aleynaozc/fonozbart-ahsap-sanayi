@@ -144,6 +144,78 @@ const PROJECTS = [
       "Konfor & Estetik",
     ],
   },
+ {
+  id: 7,
+  title: "TUI BLUE GRAND AZUR",
+  category: "Beach Kabana Tasarımı",
+  location: "Marmaris, Muğla",
+  year: "2018",
+  client: "TUI BLUE GRAND AZUR",
+  description:
+    "TUI BLUE Grand Azur otelinin beach alanı için özel kabana tasarımı ve uygulaması gerçekleştirildi. Estetik, konforlu ve otelin genel mimari kimliğine uygun çözümler sunuldu.",
+  images: [
+    "/assets/images/selected-project/tui-grand-azur-marmaris-kabana-tasarımı.jpg",
+    "/assets/images/selected-project/tui-grand-azur-marmaris-kabana-tasarımı-2.jpg",
+  ],
+  stats: {
+    rooms: "Belirtilmemiş",
+  },
+  features: [
+    "Kabana Tasarımı",
+    "Özel Uygulama",
+    "Konfor & Estetik",
+    "Dayanıklı Malzeme",
+  ],
+},
+{
+  id: 8,
+  title: "AHU HASTANESİ RESEPSİYON",
+  category: "Resepsiyon Mobilya Tefrişatı",
+  location: "Marmaris, Muğla",
+  year: "2019",
+  client: "Ahu Hastanesi",
+  description:
+    "Ahu Hastanesi için resepsiyon alanının mobilya tefrişatı gerçekleştirildi. Fonksiyonel, modern ve kullanıcı dostu çözümler sunuldu.",
+  images: [
+    "/assets/images/selected-project/ahu-hastanesi-resepsiyon-marmaris-fnz-ahşap-sanayi.jpg",
+    "/assets/images/selected-project/ahu-hastanesi-resepsiyon-marmaris-fnz-ahşap-sanayi-2.jpg",
+    "/assets/images/selected-project/ahu-hastanesi-resepsiyon-marmaris-fnz-ahşap-sanayi-3.jpg",
+  ],
+  stats: {
+    rooms: "Belirtilmemiş",
+  },
+  features: [
+    "Resepsiyon Mobilyaları",
+    "Fonksiyonel Tasarım",
+    "Modern Çizgiler",
+    "Kullanıcı Dostu Çözümler",
+  ],
+},
+{
+  id: 9,
+  title: "AHU HASTANESİ DOKTOR ODALARI",
+  category: "Masa, Dolap ve Kapı Tefrişatı",
+  location: "Marmaris, Muğla",
+  year: "2019",
+  client: "Ahu Hastanesi",
+  description:
+    "Ahu Hastanesi doktor odaları için masa, dolap ve kapı tefrişatı gerçekleştirildi. Dayanıklı, işlevsel ve estetik çözümler sunuldu.",
+  images: [
+    "/assets/images/selected-project/ahu-hastanesi-doktor-odasi-1.jpg",
+    "/assets/images/selected-project/ahu-hastanesi-doktor-odasi-2.jpg",
+  ],
+  stats: {
+    rooms: "Belirtilmemiş",
+  },
+  features: [
+    "Doktor Odası Mobilyaları",
+    "Masa ve Dolap Üretimi",
+    "Kapı Tefrişatı",
+    "Dayanıklı & İşlevsel Çözümler",
+  ],
+},
+
+
 ]
 const PROJECTSDATA = {
   heroImage: '/assets/images/selected-project/aurora-capri2.webp',
