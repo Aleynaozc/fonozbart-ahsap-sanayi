@@ -1,4 +1,3 @@
-// app/hizmetler/page.tsx
 import BlogPageClient from "./blog-client";
 
 import { getSeoMetadata } from "@/hooks/useSeoMetadata";

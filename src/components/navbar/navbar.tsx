@@ -1,5 +1,5 @@
 "use client"
-import { Facebook, Instagram, X, Phone, Mail, MapPin, ArrowRight, Linkedin } from "lucide-react"
+import { Facebook, Instagram, X, Phone, Mail, MapPin,Linkedin } from "lucide-react"
 import Image from "next/image"
 import { useState, useEffect } from "react"
 import { useRouter, usePathname } from "next/navigation"

@@ -102,20 +102,20 @@ export function CTASection() {
                 }`}
             >
               <div className="flex justify-center sm:justify-start">
-  <Button
-    size="lg"
-    className="bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] 
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] 
                hover:from-[#E55A2B] hover:to-[#FF6B35] 
                text-white px-4 py-2 sm:px-8 sm:py-4 
                text-sm sm:text-lg font-semibold 
                transition-all duration-300 shadow-lg hover:shadow-2xl 
                flex items-center justify-center space-x-1 sm:space-x-2"
-  >
-    <Phone className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-    <span>Hemen Arayın</span>
-    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" />
-  </Button>
-</div>
+                >
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                  <span>Hemen Arayın</span>
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </div>
               {/* Quick Contact Info */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-[#FF6B35]/20 text-sm sm:text-base">
                 <div className="flex items-center space-x-3 text-gray-300">

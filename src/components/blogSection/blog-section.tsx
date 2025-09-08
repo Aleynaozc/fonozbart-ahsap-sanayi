@@ -17,8 +17,6 @@ export default async function BlogPageSection() {
 
   return (
     <main className="mx-auto px-4 py-12 bg-[#1e1e1f]">
- 
-
       <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 items-stretch py-12 lg:py-20 ">
         {randomPosts.map((post) => (
           <BlogCard

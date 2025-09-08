@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { ArrowRight, Users, Eye, PhoneCall, } from "lucide-react"
+import { Eye, PhoneCall, } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ProjectCardSection } from "../project-card"

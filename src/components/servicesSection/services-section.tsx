@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { Poppins } from "next/font/google"
 import { useState, useEffect } from "react"
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -117,8 +117,6 @@ export default function ServicesSection() {
   return (
 
     <section id="services" className={`relative w-full overflow-hidden bg-[#1e1e1f] ${poppins.className} font-normal`}>
-
-
       <div className="relative">
         {/* Navigation Arrows */}
         <button
@@ -128,7 +126,6 @@ export default function ServicesSection() {
         >
           <ChevronLeft className="w-5 h-5 text-white group-hover:text-[#FF6B35] transition-colors duration-300" />
         </button>
-
         <button
           onClick={nextSlide}
           className="cursor-pointer absolute right-0 top-1/2 -translate-y-1/2 z-30 bg-gradient-to-r from-[#FF6B35]/20 to-[#E55A2B]/20 hover:from-[#FF6B35]/30 hover:to-[#E55A2B]/30 backdrop-blur-xl border border-[#FF6B35]/20 rounded-full p-3 transition-all duration-300 group"
@@ -173,20 +170,7 @@ export default function ServicesSection() {
                     <p className="text-gray-300 text-sm mb-4 leading-relaxed opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transform translate-y-0 sm:translate-y-4 sm:group-hover:translate-y-0 transition-all duration-500 delay-100">
                       {project.description}
                     </p>
-
-                    {/* CTA Button */}
-                    {/* <div className="
-  opacity-100 sm:opacity-0 sm:group-hover:opacity-100 
-  transform translate-y-0 sm:translate-y-4 sm:group-hover:translate-y-0
-  transition-all duration-500 delay-200
-">
-                      <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] px-4 py-2 rounded-lg text-sm font-medium hover:shadow-lg hover:shadow-[#FF6B35]/25 transition-all duration-300">
-                        <span>Detayları Gör</span>
-                        <ArrowRight className="w-4 h-4" />
-                      </div>
-                    </div> */}
                   </div>
-
                   {/* Decorative Element */}
                   <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#FF6B35] via-[#E55A2B] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
@@ -196,9 +180,6 @@ export default function ServicesSection() {
           </div>
         </div>
       </div>
-
-
-
     </section>
   )
 }

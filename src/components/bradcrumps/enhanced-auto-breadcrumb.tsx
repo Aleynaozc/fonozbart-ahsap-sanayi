@@ -2,15 +2,11 @@
 
 import type React from "react"
 import { ChevronRight} from "lucide-react"
-import { Cairo } from "next/font/google"
 import { useBreadcrumb } from "@/hooks/use-breadcrumb"
 import { SEOBreadcrumb } from "./seo-breadcrumb"
 import Link from "next/link"
 
-const cairo = Cairo({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-})
+
 
 interface EnhancedAutoBreadcrumbProps {
   className?: string

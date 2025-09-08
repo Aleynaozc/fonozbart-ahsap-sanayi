@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
 
 import { ProjectCardSection } from "@/components/project-card";
 import { Sparkles } from "lucide-react";
