@@ -7,34 +7,39 @@ import { Sparkles } from "lucide-react";
 import { PageHero } from "@/components/pageHero/page-hero";
 import { useBreadcrumb } from "@/hooks/use-breadcrumb"
 const PROJECTS = [
-  {
-    id: 1,
-    title: "D-Maris Bay Hotel - NUSRET Restaurant ",
-    category: "Ahşap Deck & Dış Mekan",
+ {
+  id: 1,
+  title: "D-Maris Bay Hotel NUSRET Restaurant Ahşap Deck Uygulaması | Marmaris",
+  category: "Ahşap Deck Uygulamaları, Dış Mekan Ahşap Zemin Kaplama, Lüks Restoran Projeleri",
     location: "Marmaris, Muğla",
     year: "2025",
     client: "D-Maris Bay Hotel",
     description:
-      "NUSRET Restaurant için özel ahşap deck uygulamaları. Dayanıklı ve estetik dış mekan zemin kaplamaları ile lüks konseptin tamamlanması.",
-    images: [
-      "/assets/images/selected-project/D-maris-nusret-fnz-wood-4.jpg",
-      "/assets/images/selected-project/D-maris-nusret-fnz-wood.jpg",
-      "/assets/images/selected-project/D-maris-nusret-fnz-wood-3.jpg",
-    ],
-    stats: {
-      area: "280m²",
-    },
-    features: ["Ahşap Deck", "Dış Mekan Dayanıklılığı", "Estetik", "Hızlı Uygulama"],
+      "Marmaris D-Maris Bay Hotel NUSRET Restaurant için özel ahşap deck uygulaması. Lüks oteller için estetik ve dayanıklı dış mekan ahşap zemin kaplama çözümleri.",  images: [
+    "/assets/images/selected-project/D-maris-nusret-fnz-wood-4.jpg",
+    "/assets/images/selected-project/D-maris-nusret-fnz-wood.jpg",
+    "/assets/images/selected-project/D-maris-nusret-fnz-wood-3.jpg",
+  ],
+  stats: {
+    area: "280m²",
   },
+  features: [
+    "Marmaris Ahşap Deck Uygulaması",
+    "Otel Dış Mekan Ahşap Zemin",
+    "Lüks Restoran Projesi",
+    "Dayanıklı & Estetik Ahşap",
+  ],
+}
+,
   {
     id: 2,
-    title: "D-Maris Bay Hotel - AURORA Restaurant ",
-    category: "Ahşap Deck & Dış Mekan",
+   title: "D-Maris Bay Hotel AURORA Restaurant Ahşap Deck Projesi | Marmaris",
+    category: "Ahşap Deck, Otel Dış Mekan Uygulamaları, Ahşap Zemin Kaplama",
     location: "Marmaris, Muğla",
     year: "2025",
     client: "D-Maris Bay Hotel",
     description:
-      "AURORA Restaurant için özel ahşap deck uygulamaları. Dayanıklı ve estetik dış mekan zemin kaplamaları ile lüks konseptin tamamlanması.",
+      "Marmaris D-Maris Bay Hotel AURORA Restaurant için ahşap deck uygulaması. Lüks otel dış mekanlarında estetik ve dayanıklı ahşap zemin çözümleri.",
     images: [
       "/assets/images/selected-project/aurora-capri.webp",
       "/assets/images/selected-project/aurora-capri2.webp",
@@ -43,17 +48,46 @@ const PROJECTS = [
     stats: {
       area: "285m²",
     },
-    features: ["Ahşap Deck", "Dış Mekan Dayanıklılığı", "Estetik", "Hızlı Uygulama"],
+    features: [
+      "Ahşap Deck Uygulaması",
+      "Lüks Restoran Dış Mekan",
+      "Dayanıklı Zemin Kaplama",
+      "Estetik Tasarım",
+    ],
+  },
+   {
+    id: 3,
+    title: "TUI BLUE Tropical & Palace Otel Mobilya Renovasyonu | Sarıgerme",
+    category: "Otel Mobilya Renovasyonu, Ahşap Mobilya Bakımı, Otel İç Mekan Tasarımları",
+    location: "Sarigerme, Muğla",
+    year: "2025",
+    client: "TUI BLUE Tropical & Palace",
+    description:
+      "Muğla Sarıgerme’de TUI BLUE Tropical & Palace otelinin 200 odasında mobilya renovasyonu ve bakım işleri yapıldı. Dayanıklı ve modern otel mobilya çözümleri.",
+   images: [
+          "/assets/images/selected-project/tui-blue-oda-fnz-wood-2.jpg",
+      "/assets/images/selected-project/tui-blue-oda-fnz-wood-3.jpg",
+      "/assets/images/selected-project/tui-blue-oda-fnz-wood-1.jpg",
+    ],
+    stats: {
+      rooms: "200 Oda",
+    },
+    features: [
+      "Otel Mobilya Renovasyonu",
+      "Ahşap Mobilya Bakımı",
+      "Modern Otel Tasarımları",
+      "Dayanıklı Malzeme Kullanımı",
+    ],
   },
   {
-    id: 3,
-    title: "Ahu Hastanesi Diyaliz Binası",
-    category: "Sağlık Yapıları Mobilya ve Ahşap Uygulamaları",
+    id: 4,
+     title: "Ahu Hastanesi Diyaliz Binası Ahşap ve Mobilya Uygulamaları | Marmaris",
+    category: "Sağlık Yapıları Ahşap Uygulamaları, Hastane Mobilya Tefrişatı, Özel Kapı Tasarımları",
     location: "Marmaris, Muğla",
     year: "2025",
     client: "Ahu Hastanesi",
     description:
-      "Diyaliz binası için mobilya tefrişatı, özel kapılar ve ahşap uygulamaları. Fonksiyonellik ve hijyen öncelikli tasarımlar.",
+      "Marmaris Ahu Hastanesi Diyaliz Binası için mobilya tefrişatı, hijyenik kapılar ve ahşap uygulamaları yapıldı. Sağlık yapıları için fonksiyonel ve estetik çözümler.",
     images: [
       "/assets/images/selected-project/ahu-diyaliz-fnz-wood-2-2025.jpg",
       "/assets/images/selected-project/ahu-diyaliz-fnz-wood-3-2025.jpg",
@@ -64,17 +98,22 @@ const PROJECTS = [
       floors: "1 Kat",
 
     },
-    features: ["Hijyenik Malzeme", "Özel Kapılar", "Mobilya Tefrişatı", "Ahşap Uygulama"],
+     features: [
+      "Hastane Mobilya Tefrişatı",
+      "Hijyenik Ahşap Malzemeler",
+      "Özel Kapı Uygulamaları",
+      "Fonksiyonel & Estetik Tasarım",
+    ],
   },
   {
-    id: 4,
-    title: "TUI BLUE Tropical & Palace ",
-    category: "Otel Mobilya Renovasyonu ve Bakım İşleri",
+    id: 5,
+    title: "TUI BLUE Tropical & Palace Otel Mobilya Renovasyonu | Muğla",
+    category: "Otel Mobilya Yenileme, Ahşap Mobilya Onarımı, İç Mekan Mobilya Tasarımı",
     location: "Sarıgerme, Muğla",
     year: "2025",
     client: "TUI BLUE Hotels",
     description:
-      "TUI BLUE Tropical & Palace otelinin 200 odasında mobilya renovasyonu ve bakım işleri gerçekleştirildi. Mevcut mobilyaların yenilenmesi, bakım ve onarımları ile birlikte bazı özel üretim parçalar eklenerek otelin konfor ve estetiği güçlendirildi.",
+      "Muğla Sarıgerme’de TUI BLUE Tropical & Palace otelinde 200 odalık mobilya renovasyonu yapıldı. Otel konforunu artıran modern ve dayanıklı mobilya çözümleri sunuldu.",
     images: [
       "/assets/images/selected-project/tui-blue-oda-fnz-wood-2.jpg",
       "/assets/images/selected-project/tui-blue-oda-fnz-wood-3.jpg",
@@ -84,22 +123,22 @@ const PROJECTS = [
       rooms: "200 Oda",
     },
     features: [
-      "Mobilya Renovasyonu",
-      "Bakım ve Onarım İşleri",
-      "Hızlı Teslimat",
+      "Otel Mobilya Renovasyonu",
+      "Ahşap Mobilya Onarımı",
+      "Modern İç Mekan Tasarımı",
       "Dayanıklı Malzemeler",
-      "Otel Standartlarına Uygun",
+      "Hızlı Teslimat",
     ],
   },
   {
-    id: 5,
-    title: "FNZ YAPI – Özel Villa Projesi",
-    category: "Anahtar Teslim Villa İnşaatı ve Mobilya Tefrişatı",
+    id: 6,
+   title: "FNZ YAPI Özel Villa İnşaatı ve Mobilya Tefrişatı | Marmaris",
+    category: "Anahtar Teslim Villa İnşaatı, Özel Mobilya Üretimi, Ahşap İç Mekan Tasarımları",
     location: "Marmaris, Muğla",
     year: "2023",
     client: "FNZ YAPI",
     description:
-      "Modern mimari anlayışla inşa edilen bu özel villa projesinde FNZ YAPI, inşaat sürecinden iç mekan tasarımına ve mobilya üretimine kadar tüm aşamaları üstlendi. Şık detaylar, doğal ahşap uygulamaları ve özel mobilya çözümleriyle lüks bir yaşam alanı oluşturuldu.",
+      "Marmaris’te FNZ YAPI tarafından inşa edilen özel villa projesi. Anahtar teslim villa inşaatı, ahşap uygulamalar ve özel mobilya tefrişatı ile lüks yaşam alanı oluşturuldu.",
     images: [
       "/assets/images/selected-project/fnz-yapi-villa-fnz-wood.webp",
       "/assets/images/selected-project/fnz-yapi-villa-fnz-wood-4.webp",
@@ -111,22 +150,21 @@ const PROJECTS = [
       area: "500m²",
     },
     features: [
-      "Modern Mimari",
-      "Anahtar Teslim İnşaat",
-      "Özel Mobilya Tefrişatı",
-      "Doğal Ahşap Uygulamaları",
+      "Anahtar Teslim Villa İnşaatı",
       "Lüks İç Mekan Tasarımı",
+      "Özel Mobilya Üretimi",
+      "Doğal Ahşap Uygulamaları",
     ],
   },
   {
-    id: 6,
-    title: "Class Unique Beach Hotel ",
-    category: "Beach & Kabana Tasarımı ve Otel Mobilya Renovasyonu ",
+    id: 7,
+    title: "Class Unique Beach Hotel Mobilya Renovasyonu & Kabana Tasarımı | Marmaris",
+    category: "Otel Mobilya Yenileme, Beach Kabana Tasarımı, Ahşap Dış Mekan Mobilyaları",
     location: "Marmaris, Muğla",
     year: "2023",
     client: "Class Unique Beach Hotel",
     description:
-      "Class Unique Beach Hotel’de 62 odanın mobilya renovasyonu gerçekleştirilirken, aynı zamanda beach alanı için özel tasarım kabana ve şezlong uygulamaları yapıldı. Hem iç mekan hem de dış mekan konseptinde dayanıklı, estetik ve konforlu çözümler sunuldu.",
+      "Marmaris Class Unique Beach Hotel’de 62 odalık mobilya renovasyonu ve özel tasarım beach kabana uygulamaları yapıldı. Estetik ve konforlu otel mobilya çözümleri sunuldu.",
     images: [
       "/assets/images/selected-project/CLASS_UNIQUE_fnz-wood-renovasyon3.jpg",
       "/assets/images/selected-project/CLASS_UNIQUE_fnz-wood-renovasyon-4.jpg",
@@ -137,23 +175,22 @@ const PROJECTS = [
       rooms: "62 Oda",
     },
     features: [
-      "Mobilya Renovasyonu",
+      "Otel Mobilya Renovasyonu",
       "Beach Kabana Tasarımı",
-      "Şezlong Üretimi",
-      "Dayanıklı Malzemeler",
-      "Konfor & Estetik",
+      "Şezlong ve Dış Mekan Mobilyaları",
+      "Estetik & Konforlu Çözümler",
     ],
   },
 
   {
     id: 8,
-    title: "AHU HASTANESİ RESEPSİYON",
-    category: "Resepsiyon Mobilya Tefrişatı",
+   title: "Ahu Hastanesi Resepsiyon Mobilya Tefrişatı | Marmaris",
+    category: "Resepsiyon Mobilya Tasarımları, Sağlık Yapıları Ahşap Uygulamaları",
     location: "Marmaris, Muğla",
     year: "2019",
     client: "Ahu Hastanesi",
     description:
-      "Marmaris Ahu Hastanesi resepsiyon mobilya tefrişatı. Modern, fonksiyonel ve kullanıcı dostu tasarımlarla estetik çözümler.",
+      "Marmaris Ahu Hastanesi resepsiyon alanı için özel mobilya tefrişatı yapıldı. Modern, fonksiyonel ve estetik resepsiyon mobilyaları ile kullanıcı dostu çözümler sunuldu.",
     images: [
       "/assets/images/selected-project/ahu-hastanesi-resepsiyon-marmaris-fnz-ahşap-sanayi.jpg",
       "/assets/images/selected-project/ahu-hastanesi-resepsiyon-marmaris-fnz-ahşap-sanayi-2.jpg",
@@ -162,22 +199,22 @@ const PROJECTS = [
     stats: {
       rooms: "1",
     },
-    features: [
-      "Resepsiyon Mobilyaları",
-      "Fonksiyonel Tasarım",
-      "Modern Çizgiler",
+     features: [
+      "Resepsiyon Mobilya Tefrişatı",
+      "Modern Ahşap Tasarımlar",
       "Kullanıcı Dostu Çözümler",
+      "Fonksiyonel & Estetik Tasarım",
     ],
   },
   {
     id: 9,
-    title: "AHU HASTANESİ DOKTOR ODALARI",
-    category: "Masa, Dolap ve Kapı Tefrişatı",
+    title: "Ahu Hastanesi Doktor Odaları Mobilya Tefrişatı | Marmaris",
+    category: "Hastane Mobilya Tasarımları, Ahşap Masa ve Dolap Üretimi, Kapı Tefrişatı",
     location: "Marmaris, Muğla",
     year: "2019",
     client: "Ahu Hastanesi",
     description:
-      "Marmaris Ahu Hastanesi doktor odaları için masa, dolap ve kapı mobilya tefrişatı. Dayanıklı, işlevsel ve estetik çözümler.",
+      "Marmaris Ahu Hastanesi doktor odaları için masa, dolap ve kapı mobilya tefrişatı yapıldı. Dayanıklı, estetik ve işlevsel sağlık yapıları için özel mobilya çözümleri.",
     images: [
       "/assets/images/selected-project/ahu-hastanesi-doktor-odasi-fnz-ahsap-sanayi-marmaris.jpg",
       "/assets/images/selected-project/ahu-hastanesi-doktor-odasi-fnz-ahsap-sanayi-marmaris-2.jpg",
@@ -186,22 +223,22 @@ const PROJECTS = [
     stats: {
       rooms: "+10",
     },
-    features: [
+     features: [
       "Doktor Odası Mobilyaları",
-      "Masa ve Dolap Üretimi",
+      "Ahşap Masa ve Dolap Üretimi",
       "Kapı Tefrişatı",
-      "Dayanıklı & İşlevsel Çözümler",
+      "Dayanıklı Sağlık Yapıları Çözümleri",
     ],
   },
   {
-    id: 12,
-    title: "HİSARÖNÜ JANDARMA KAMPI",
-    category: "Beach Kabana Tasarımı ve Uygulaması",
+    id: 10,
+     title: "Hisarönü Jandarma Kampı Beach Kabana Tasarımı | Muğla",
+    category: "Beach Kabana Tasarımı, Ahşap İskele Bakımı, Dış Mekan Ahşap Uygulamaları",
     location: "Hisarönü, Muğla",
     year: "2019",
     client: "Hisarönü Jandarma Kampı",
     description:
-      "Muğla Hisarönü Jandarma Kampı’nda özel ahşap beach kabana tasarımı, iskele bakımı ve apart odalar için şık ahşap seperatör uygulamaları yapıldı.",
+      "Muğla Hisarönü Jandarma Kampı’nda ahşap beach kabana tasarımı, iskele bakımı ve apart odalara özel ahşap seperatör uygulamaları yapıldı.",
     images: [
       "/assets/images/selected-project/hisaronu-jandarma-kampi-beach-cabana-iskele.jpg",
       "/assets/images/selected-project/hisaronu-jandarma-kampi-beach-cabana.jpg",
@@ -213,23 +250,22 @@ const PROJECTS = [
     stats: {
       area: "Beach Alanı",
     },
-    features: [
+   features: [
       "Beach Kabana Tasarımı",
-      "Özel Uygulama",
-      "Konfor & Estetik",
-      "Dayanıklı Malzeme",
-      "Doğa ile Uyumlu Çözümler"
-    ]
+      "Ahşap İskele Bakımı",
+      "Dayanıklı Dış Mekan Uygulamaları",
+      "Doğa ile Uyumlu Tasarım",
+    ],
   },
   {
-    id: 10,
-    title: "TUI BLUE YALANCI BOĞAZ",
-    category: "Ahşap Uygulama & Mobilya Tefrişatı",
+    id: 11,
+   title: "TUI BLUE Yalancıboğaz Lobby Ahşap Uygulamaları | Marmaris",
+    category: "Lobby Ahşap Uygulamaları, Otel Mobilya Tefrişatı, Bar Alanı Tasarımları",
     location: "Marmaris, Muğla",
     year: "2018",
     client: "TUI BLUE",
     description:
-      "Marmaris TUI BLUE Yalancıboğaz otelinde lobby ahşap uygulamaları gerçekleştirildi. Resepsiyon bankosu,banko arkası, bar alanı, kitaplık ve bar masaları modern ahşap tasarımlarla yenilendi.",
+      "Marmaris TUI BLUE Yalancıboğaz otelinde lobby ahşap uygulamaları yapıldı. Resepsiyon bankosu, bar alanı ve kitaplık tasarımlarıyla modern otel çözümleri.",
     images: [
       "/assets/images/selected-project/tui-blue-yalancibogaz-lobby-1.jpg",
       "/assets/images/selected-project/tui-blue-yalancibogaz-lobby-2.jpg",
@@ -239,23 +275,22 @@ const PROJECTS = [
     stats: {
       area: "Lobby",
     },
-    features: [
-      "Resepsiyon Ahşap Panelleri",
-      "Bar Alanı Ahşap Uygulamaları",
-      "Kitaplık Tasarımı",
-      "Bar Masası & Ahşap Detaylar",
-      "Modern & Estetik Çözümler"
-    ]
+   features: [
+      "Resepsiyon Bankosu Ahşap Uygulamaları",
+      "Bar Alanı Tasarımı",
+      "Kitaplık ve Masa Üretimi",
+      "Modern & Estetik Otel Çözümleri",
+    ],
   },
   {
-    id: 7,
-    title: "TUI BLUE GRAND AZUR",
-    category: "Beach Kabana Tasarımı",
+    id: 12,
+   title: "TUI BLUE Grand Azur Beach Kabana Tasarımı | Marmaris",
+    category: "Beach Kabana Uygulamaları, Dış Mekan Ahşap Tasarımlar, Otel Plaj Projeleri",
     location: "Marmaris, Muğla",
     year: "2018",
-    client: "TUI BLUE GRAND AZUR",
+    client: "TUI BLUE Grand Azur",
     description:
-      "Marmaris TUI BLUE Grand Azur oteli için özel beach kabana tasarımı ve uygulaması. Estetik, konforlu ve mimariye uyumlu çözümler.",
+      "Marmaris TUI BLUE Grand Azur oteli için özel beach kabana tasarımı yapıldı. Estetik, konforlu ve mimariye uyumlu otel plaj alanı çözümleri.",
     images: [
       "/assets/images/selected-project/tui-grand-azur-marmaris-kabana-tasarımı.jpg",
       "/assets/images/selected-project/tui-grand-azur-marmaris-kabana-tasarımı-2.jpg",
@@ -264,21 +299,21 @@ const PROJECTS = [
       area: "Beach Alanı",
     },
     features: [
-      "Kabana Tasarımı",
-      "Özel Uygulama",
-      "Konfor & Estetik",
-      "Dayanıklı Malzeme",
+      "Beach Kabana Tasarımı",
+      "Konforlu Plaj Alanı Çözümleri",
+      "Dayanıklı Ahşap Uygulamalar",
+      "Estetik & Mimariye Uyumlu Tasarım",
     ],
   },
   {
-    id: 11,
-    title: "ASLI BOUTIQUE OTEL",
-    category: "Mobilya Tefrişatı",
+    id: 13,
+    title: "Aslı Boutique Otel Mobilya Tefrişatı | Marmaris",
+    category: "Otel Mobilya Üretimi, Ahşap Kapı İmalatı, İç Mekan Mobilya Tasarımları",
     location: "Marmaris, Muğla",
     year: "2017",
     client: "Aslı Boutique Otel",
     description:
-      "Marmaris Aslı Boutique Otel için mobilya tefrişatı. Komodin, şifonyer, ikram ünitesi, TV ünitesi, giyinme dolabı ve kapı imalatı ile modern ve estetik çözümler.",
+      "Marmaris Aslı Boutique Otel için mobilya tefrişatı yapıldı. Giyinme dolabı, TV ünitesi, şifonyer ve kapı imalatı ile modern ve estetik otel çözümleri sunuldu.",
     images: [
       "/assets/images/selected-project/asli-boutique-otel-giyinme-dolabi-fnz-ahsap-sanayi.jpg",
       "/assets/images/selected-project/asli-boutique-otel-giyinme-dolabi-fnz-ahsap-sanayi-2.jpg",
@@ -288,14 +323,62 @@ const PROJECTS = [
     stats: {
       rooms: "70",
     },
+features: [
+      "Otel Mobilya Tefrişatı",
+      "Ahşap Kapı İmalatı",
+      "Giyinme Dolabı & TV Ünitesi",
+      "Modern & Estetik Mobilya Tasarımları",
+    ],
+  },{
+    id: 14,
+      title: "D-Maris Bay Hotel Beach Kabana ve Deck Uygulamaları | Marmaris",
+    category: "Beach Kabana Tasarımı, Ahşap Deck Uygulamaları, Otel Plaj Alanı Projeleri",
+    location: "Marmaris, Muğla",
+    year: "2016",
+    client: "D-Maris Bay Hotel",
+    description:
+      "Marmaris D-Maris Bay Hotel plaj alanında beach kabana ve ahşap deck uygulamaları yapıldı. Lüks otel plajlarında estetik ve konforlu çözümler sunuldu.",
+    images: [
+      "/assets/images/selected-project/d-maris-bay-beach-iskele-bakim-fnz-ahsap-sanayi-marmaris.jpg",
+      "/assets/images/selected-project/d-maris-bay-beach-sezlong-fnz-ahsap-sanayi-marmaris.jpg",
+      "/assets/images/selected-project/d-maris-bay-beach-sezlong-fnz-ahsap-sanayi-marmaris-2.jpg",
+      "/assets/images/selected-project/d-maris-bay-beach-cabana-fnz-ahsap-sanayi-marmaris.jpg",
+    ],
+    stats: {
+      area: "Beach Alanı",
+    },
     features: [
-      "Komodin ve Şifonyer Tasarımı",
-      "İkram Ünitesi ve TV Ünitesi",
-      "Giyinme Dolabı",
-      "Kapı İmalatı",
-      "Modern & Estetik Çözümler"
+      "Beach Kabana Tasarımı",
+      "Ahşap Deck Uygulamaları",
+      "Otel Plaj Alanı Çözümleri",
+      "Estetik & Konforlu Tasarım",
     ],
   },
+  {
+    id: 15,
+   title: "TUI BLUE Grand Azur Otel Mobilya Tefrişatı | Marmaris",
+    category: "Otel Mobilya Tefrişatı, Ahşap Mobilya Üretimi, İç Mekan Tasarımları",
+    location: "Marmaris, Muğla",
+    year: "2016",
+    client: "TUI BLUE Grand Azur",
+    description:
+      "Marmaris TUI BLUE Grand Azur oteli için mobilya tefrişatı yapıldı. Modern ve estetik ahşap mobilya çözümleri ile konforlu otel iç mekanları oluşturuldu.",
+    images: [
+      "/assets/images/selected-project/tui-blue-oda-fnz-wood-2.jpg",
+      "/assets/images/selected-project/tui-blue-oda-fnz-wood-3.jpg",
+      "/assets/images/selected-project/tui-blue-oda-fnz-wood-1.jpg",
+    ],
+    stats: {
+      rooms: "100 Oda",
+    },
+    features: [
+      "Otel Mobilya Tefrişatı",
+      "Ahşap Mobilya Üretimi",
+      "Modern İç Mekan Tasarımları",
+      "Estetik & Fonksiyonel Çözümler",
+    ],
+  },
+ 
 
 ]
 const PROJECTSDATA = {

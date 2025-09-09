@@ -58,9 +58,9 @@ export function ProjectCard({
   return (
     <div
       ref={cardRef}
-      className={`bg-[#2a2a2b]/30 rounded-2xl overflow-hidden border border-[#FF6B35]/10 flex flex-col transform transition-all duration-700 ease-out ${isCardVisible
-          ? "opacity-100 translate-y-0"
-          : "opacity-0 translate-y-6"
+      className={`group bg-[#2a2a2b]/30 rounded-2xl overflow-hidden border border-[#FF6B35]/10 flex flex-col transform transition-all duration-700 ease-out ${isCardVisible
+        ? "opacity-100 translate-y-0"
+        : "opacity-0 translate-y-6"
         }`}
       style={{ transitionDelay: `${index * 150}ms` }}
     >
@@ -70,20 +70,20 @@ export function ProjectCard({
           src={project.images[currentImage]}
           alt={project.title}
           fill
-          className="object-cover cursor-pointer"
+          className="object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105"
           onClick={() => onImageClick(currentImage)}
         />
         {project.images.length > 1 && (
           <>
             <button
               onClick={prevImage}
-              className="absolute cursor-pointer left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full"
+              className="absolute cursor-pointer left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
             <button
               onClick={nextImage}
-              className="absolute cursor-pointer right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full"
+              className="absolute cursor-pointer right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
@@ -104,12 +104,12 @@ export function ProjectCard({
       {/* İçerik */}
       <div className="p-6 flex-1 flex flex-col">
         {/* Başlık */}
-        <h3 className="text-xl font-bold text-white mb-3 line-clamp-2">
+        <h3 className="text-xl font-bold text-white mb-3 line-clamp-2 transition-colors duration-300 group-hover:text-[#FF6B35]">
           {project.title}
         </h3>
 
         {/* Konum + Client */}
-        <div className="flex items-center space-x-4 text-gray-300 text-sm mb-4">
+        <div className="flex items-center space-x-4 text-gray-300 text-sm mb-4 transition-colors duration-300 group-hover:text-white">
           <div className="flex items-center space-x-1">
             <MapPin className="w-3 h-3 text-[#FF6B35]" />
             <span>{project.location}</span>
@@ -125,8 +125,9 @@ export function ProjectCard({
           {project.description}
         </p>
 
+        {/* Alt kısım: Stats ve Features */}
         <div className="mt-auto">
-          {/* Stats alanı kutucuklu */}
+          {/* Stats */}
           {project.stats && (
             <div className="grid grid-cols-3 gap-2 mb-4">
               {Object.entries(project.stats).map(([key, value]) => (
@@ -151,7 +152,7 @@ export function ProjectCard({
             </div>
           )}
 
-          {/* Features alanı */}
+          {/* Features */}
           {project.features && (
             <div className="flex flex-wrap gap-1">
               {project.features.slice(0, 3).map((feature, i) => (
@@ -172,6 +173,7 @@ export function ProjectCard({
         </div>
       </div>
     </div>
+
   );
 }
 
