@@ -101,11 +101,11 @@ const PROJECTS = [
     description:
       "Modern mimari anlayışla inşa edilen bu özel villa projesinde FNZ YAPI, inşaat sürecinden iç mekan tasarımına ve mobilya üretimine kadar tüm aşamaları üstlendi. Şık detaylar, doğal ahşap uygulamaları ve özel mobilya çözümleriyle lüks bir yaşam alanı oluşturuldu.",
     images: [
-      "/assets/images/selected-project/fnz-yapi-villa-fnz-wood-5.webp",
+      "/assets/images/selected-project/fnz-yapi-villa-fnz-wood.webp",
+      "/assets/images/selected-project/fnz-yapi-villa-fnz-wood-4.webp",
       "/assets/images/selected-project/fnz-yapi-villa-fnz-wood-2.webp",
       "/assets/images/selected-project/fnz-yapi-villa-fnz-wood-3.webp",
-      "/assets/images/selected-project/fnz-yapi-villa-fnz-wood-4.webp",
-      "/assets/images/selected-project/fnz-yapi-villa-fnz-wood.webp",
+      "/assets/images/selected-project/fnz-yapi-villa-fnz-wood-5.webp",
     ],
     stats: {
       area: "500m²",
@@ -144,97 +144,174 @@ const PROJECTS = [
       "Konfor & Estetik",
     ],
   },
- {
-  id: 7,
-  title: "TUI BLUE GRAND AZUR",
-  category: "Beach Kabana Tasarımı",
-  location: "Marmaris, Muğla",
-  year: "2018",
-  client: "TUI BLUE GRAND AZUR",
-  description:
-    "TUI BLUE Grand Azur otelinin beach alanı için özel kabana tasarımı ve uygulaması gerçekleştirildi. Estetik, konforlu ve otelin genel mimari kimliğine uygun çözümler sunuldu.",
-  images: [
-    "/assets/images/selected-project/tui-grand-azur-marmaris-kabana-tasarımı.jpg",
-    "/assets/images/selected-project/tui-grand-azur-marmaris-kabana-tasarımı-2.jpg",
-  ],
-  stats: {
-    rooms: "Belirtilmemiş",
-  },
-  features: [
-    "Kabana Tasarımı",
-    "Özel Uygulama",
-    "Konfor & Estetik",
-    "Dayanıklı Malzeme",
-  ],
-},
-{
-  id: 8,
-  title: "AHU HASTANESİ RESEPSİYON",
-  category: "Resepsiyon Mobilya Tefrişatı",
-  location: "Marmaris, Muğla",
-  year: "2019",
-  client: "Ahu Hastanesi",
-  description:
-    "Ahu Hastanesi için resepsiyon alanının mobilya tefrişatı gerçekleştirildi. Fonksiyonel, modern ve kullanıcı dostu çözümler sunuldu.",
-  images: [
-    "/assets/images/selected-project/ahu-hastanesi-resepsiyon-marmaris-fnz-ahşap-sanayi.jpg",
-    "/assets/images/selected-project/ahu-hastanesi-resepsiyon-marmaris-fnz-ahşap-sanayi-2.jpg",
-    "/assets/images/selected-project/ahu-hastanesi-resepsiyon-marmaris-fnz-ahşap-sanayi-3.jpg",
-  ],
-  stats: {
-    rooms: "Belirtilmemiş",
-  },
-  features: [
-    "Resepsiyon Mobilyaları",
-    "Fonksiyonel Tasarım",
-    "Modern Çizgiler",
-    "Kullanıcı Dostu Çözümler",
-  ],
-},
-{
-  id: 9,
-  title: "AHU HASTANESİ DOKTOR ODALARI",
-  category: "Masa, Dolap ve Kapı Tefrişatı",
-  location: "Marmaris, Muğla",
-  year: "2019",
-  client: "Ahu Hastanesi",
-  description:
-    "Ahu Hastanesi doktor odaları için masa, dolap ve kapı tefrişatı gerçekleştirildi. Dayanıklı, işlevsel ve estetik çözümler sunuldu.",
-  images: [
-    "/assets/images/selected-project/ahu-hastanesi-doktor-odasi-1.jpg",
-    "/assets/images/selected-project/ahu-hastanesi-doktor-odasi-2.jpg",
-  ],
-  stats: {
-    rooms: "Belirtilmemiş",
-  },
-  features: [
-    "Doktor Odası Mobilyaları",
-    "Masa ve Dolap Üretimi",
-    "Kapı Tefrişatı",
-    "Dayanıklı & İşlevsel Çözümler",
-  ],
-},
 
+  {
+    id: 8,
+    title: "AHU HASTANESİ RESEPSİYON",
+    category: "Resepsiyon Mobilya Tefrişatı",
+    location: "Marmaris, Muğla",
+    year: "2019",
+    client: "Ahu Hastanesi",
+    description:
+      "Marmaris Ahu Hastanesi resepsiyon mobilya tefrişatı. Modern, fonksiyonel ve kullanıcı dostu tasarımlarla estetik çözümler.",
+    images: [
+      "/assets/images/selected-project/ahu-hastanesi-resepsiyon-marmaris-fnz-ahşap-sanayi.jpg",
+      "/assets/images/selected-project/ahu-hastanesi-resepsiyon-marmaris-fnz-ahşap-sanayi-2.jpg",
+      "/assets/images/selected-project/ahu-hastanesi-resepsiyon-marmaris-fnz-ahşap-sanayi-3.jpg",
+    ],
+    stats: {
+      rooms: "1",
+    },
+    features: [
+      "Resepsiyon Mobilyaları",
+      "Fonksiyonel Tasarım",
+      "Modern Çizgiler",
+      "Kullanıcı Dostu Çözümler",
+    ],
+  },
+  {
+    id: 9,
+    title: "AHU HASTANESİ DOKTOR ODALARI",
+    category: "Masa, Dolap ve Kapı Tefrişatı",
+    location: "Marmaris, Muğla",
+    year: "2019",
+    client: "Ahu Hastanesi",
+    description:
+      "Marmaris Ahu Hastanesi doktor odaları için masa, dolap ve kapı mobilya tefrişatı. Dayanıklı, işlevsel ve estetik çözümler.",
+    images: [
+      "/assets/images/selected-project/ahu-hastanesi-doktor-odasi-fnz-ahsap-sanayi-marmaris.jpg",
+      "/assets/images/selected-project/ahu-hastanesi-doktor-odasi-fnz-ahsap-sanayi-marmaris-2.jpg",
+      "/assets/images/selected-project/ahu-hastanesi-doktor-odasi-fnz-ahsap-sanayi-marmaris-3.jpg",
+    ],
+    stats: {
+      rooms: "+10",
+    },
+    features: [
+      "Doktor Odası Mobilyaları",
+      "Masa ve Dolap Üretimi",
+      "Kapı Tefrişatı",
+      "Dayanıklı & İşlevsel Çözümler",
+    ],
+  },
+  {
+    id: 12,
+    title: "HİSARÖNÜ JANDARMA KAMPI",
+    category: "Beach Kabana Tasarımı ve Uygulaması",
+    location: "Hisarönü, Muğla",
+    year: "2019",
+    client: "Hisarönü Jandarma Kampı",
+    description:
+      "Muğla Hisarönü Jandarma Kampı’nda özel ahşap beach kabana tasarımı, iskele bakımı ve apart odalar için şık ahşap seperatör uygulamaları yapıldı.",
+    images: [
+      "/assets/images/selected-project/hisaronu-jandarma-kampi-beach-cabana-iskele.jpg",
+      "/assets/images/selected-project/hisaronu-jandarma-kampi-beach-cabana.jpg",
+      "/assets/images/selected-project/hisaronu-jandarma-kampi-beach-cabana-2.jpg",
+      "/assets/images/selected-project/hisaronu-jandarma-kampi-beach-cabana-3.jpg",
+      "/assets/images/selected-project/hisaronu-jandarma-kampi-beach-seperator.jpg",
+
+    ],
+    stats: {
+      area: "Beach Alanı",
+    },
+    features: [
+      "Beach Kabana Tasarımı",
+      "Özel Uygulama",
+      "Konfor & Estetik",
+      "Dayanıklı Malzeme",
+      "Doğa ile Uyumlu Çözümler"
+    ]
+  },
+  {
+    id: 10,
+    title: "TUI BLUE YALANCI BOĞAZ",
+    category: "Ahşap Uygulama & Mobilya Tefrişatı",
+    location: "Marmaris, Muğla",
+    year: "2018",
+    client: "TUI BLUE",
+    description:
+      "Marmaris TUI BLUE Yalancıboğaz otelinde lobby ahşap uygulamaları gerçekleştirildi. Resepsiyon bankosu,banko arkası, bar alanı, kitaplık ve bar masaları modern ahşap tasarımlarla yenilendi.",
+    images: [
+      "/assets/images/selected-project/tui-blue-yalancibogaz-lobby-1.jpg",
+      "/assets/images/selected-project/tui-blue-yalancibogaz-lobby-2.jpg",
+      "/assets/images/selected-project/tui-blue-yalancibogaz-lobby-3.jpg",
+      "/assets/images/selected-project/tui-blue-yalancibogaz-lobby-4.jpg",
+    ],
+    stats: {
+      area: "Lobby",
+    },
+    features: [
+      "Resepsiyon Ahşap Panelleri",
+      "Bar Alanı Ahşap Uygulamaları",
+      "Kitaplık Tasarımı",
+      "Bar Masası & Ahşap Detaylar",
+      "Modern & Estetik Çözümler"
+    ]
+  },
+  {
+    id: 7,
+    title: "TUI BLUE GRAND AZUR",
+    category: "Beach Kabana Tasarımı",
+    location: "Marmaris, Muğla",
+    year: "2018",
+    client: "TUI BLUE GRAND AZUR",
+    description:
+      "Marmaris TUI BLUE Grand Azur oteli için özel beach kabana tasarımı ve uygulaması. Estetik, konforlu ve mimariye uyumlu çözümler.",
+    images: [
+      "/assets/images/selected-project/tui-grand-azur-marmaris-kabana-tasarımı.jpg",
+      "/assets/images/selected-project/tui-grand-azur-marmaris-kabana-tasarımı-2.jpg",
+    ],
+    stats: {
+      area: "Beach Alanı",
+    },
+    features: [
+      "Kabana Tasarımı",
+      "Özel Uygulama",
+      "Konfor & Estetik",
+      "Dayanıklı Malzeme",
+    ],
+  },
+  {
+    id: 11,
+    title: "ASLI BOUTIQUE OTEL",
+    category: "Mobilya Tefrişatı",
+    location: "Marmaris, Muğla",
+    year: "2017",
+    client: "Aslı Boutique Otel",
+    description:
+      "Marmaris Aslı Boutique Otel için mobilya tefrişatı. Komodin, şifonyer, ikram ünitesi, TV ünitesi, giyinme dolabı ve kapı imalatı ile modern ve estetik çözümler.",
+    images: [
+      "/assets/images/selected-project/asli-boutique-otel-giyinme-dolabi-fnz-ahsap-sanayi.jpg",
+      "/assets/images/selected-project/asli-boutique-otel-giyinme-dolabi-fnz-ahsap-sanayi-2.jpg",
+      "/assets/images/selected-project/asli-boutique-otel-ikram-unitesi-fnz-ahsap-sanayi.jpg",
+      "/assets/images/selected-project/asli-boutique-otel-kapı-imalat-fnz-ahsap-sanayi.jpg",
+    ],
+    stats: {
+      rooms: "70",
+    },
+    features: [
+      "Komodin ve Şifonyer Tasarımı",
+      "İkram Ünitesi ve TV Ünitesi",
+      "Giyinme Dolabı",
+      "Kapı İmalatı",
+      "Modern & Estetik Çözümler"
+    ],
+  },
 
 ]
 const PROJECTSDATA = {
-  heroImage: '/assets/images/selected-project/aurora-capri2.webp',
+  heroImage: "/assets/images/selected-project/aurora-capri2.webp",
   intro: {
-    title: 'Projelerimiz',
-    heading: 'Lüks otellerden özel villalara',
-    highlight: 'projelerimizden seçmeler. ',
-    text: 'FNZ Ahşap Sanayi olarak, yılların deneyimini modern tasarım anlayışı ile buluşturuyoruz. FNZ markası, otel mobilyaları, villa dekorasyonları ve özel projelerde kaliteye olan bağlılığımızın bir yansımasıdır.',
+    title: "Projelerimiz",
+    heading: "Lüks otellerden özel villalara",
+    highlight: "projelerimizden seçmeler. ",
+    text: "FNZ Ahşap Sanayi olarak, yılların deneyimini modern tasarım anlayışı ile buluşturuyoruz. FNZ markası, otel mobilyaları, villa dekorasyonları ve özel projelerde kaliteye olan bağlılığımızın bir yansımasıdır.",
   },
-
-
 };
+
 export default function ProjectsPageClient() {
-  const { currentPage } = useBreadcrumb()
+  const { currentPage } = useBreadcrumb();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement | null>(null);
-
-
-
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -244,7 +321,6 @@ export default function ProjectsPageClient() {
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
-
 
   return (
     <main className="bg-[#1e1e1f] text-white min-h-screen py-24">
@@ -258,6 +334,8 @@ export default function ProjectsPageClient() {
         cta={{ label: "İletişime Geç", href: "/iletisim" }}
         icon={<Sparkles className="w-4 h-4" />}
       />
+
+      {/* PROJE KARTLARI */}
       <ProjectCardSection
         projectsdata={PROJECTS}
         title="Projelerimiz"
@@ -266,7 +344,6 @@ export default function ProjectsPageClient() {
         subtitle3="Keşfedin"
         description="Türkiye’nin farklı bölgelerinde gerçekleştirdiğimiz projeler"
       />
-
     </main>
   );
 }
