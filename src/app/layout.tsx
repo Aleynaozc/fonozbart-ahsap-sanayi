@@ -1,43 +1,52 @@
-import type React from "react"
-import type { Metadata } from "next"
-import "./globals.css"
-import { BreadcrumbProvider } from "@/components/bradcrumps/breadcrumb-provider"
-import { LoadingBar } from "@/components/loading-bar"
-import { PageTransition } from "@/components/page-transition"
-import { LoadingProvider } from "@/hooks/use-loading"
-import { Header } from "@/components/navbar/navbar"
-import { Footer } from "@/components/footer"
-import InitialLoaderWrapper from "./initial-loader-wrapper"
-import { defaultMetadata, pageMetadata, getBlogMetadata } from "@/seo-data"
+import type React from "react";
+import type { Metadata } from "next";
+import "./globals.css";
+import { BreadcrumbProvider } from "@/components/bradcrumps/breadcrumb-provider";
+import { LoadingBar } from "@/components/loading-bar";
+import { PageTransition } from "@/components/page-transition";
+import { LoadingProvider } from "@/hooks/use-loading";
+import { Header } from "@/components/navbar/navbar";
+import { Footer } from "@/components/footer";
+import InitialLoaderWrapper from "./initial-loader-wrapper";
+import { defaultMetadata, pageMetadata, getBlogMetadata } from "@/seo-data";
 
-
-
-
+/**
+ * ✅ Tek metadata fonksiyonu:
+ * - favicon + manifest (sabit)
+ * - title + description (dinamik)
+ */
 export function generateMetadata({ params }: { params?: { slug?: string[] } }): Metadata {
-  const slugArray = params?.slug || []
-  const path = "/" + slugArray.join("/")
+  const slugArray = params?.slug || [];
+  const path = "/" + slugArray.join("/");
 
-  // ✅ Eğer params boşsa ve path="/" çıkıyorsa
-  // aslında bu index değil, farklı bir static route olabilir.
-  // Bu durumda "pageMetadata" kontrolünü yapalım:
+  let dynamicMeta: Metadata = defaultMetadata;
+
   if (pageMetadata[path]) {
-    return { ...defaultMetadata, ...pageMetadata[path] }
+    dynamicMeta = { ...defaultMetadata, ...pageMetadata[path] };
+  } else if (slugArray.length === 2 && slugArray[0] === "blog") {
+    dynamicMeta = { ...defaultMetadata, ...getBlogMetadata(slugArray[1]) };
+  } else if (slugArray.length === 1 && pageMetadata[`/${slugArray[0]}`]) {
+    dynamicMeta = { ...defaultMetadata, ...pageMetadata[`/${slugArray[0]}`] };
   }
 
-  // ✅ Blog yazısı (ör: /blog/modern-mutfak-tasarimi)
-  if (slugArray.length === 2 && slugArray[0] === "blog") {
-    return { ...defaultMetadata, ...getBlogMetadata(slugArray[1]) }
-  }
-
-  // ✅ Statik sayfaları yakala (ör: /hakkimizda)
-  if (slugArray.length === 1 && pageMetadata[`/${slugArray[0]}`]) {
-    return { ...defaultMetadata, ...pageMetadata[`/${slugArray[0]}`] }
-  }
-
-  // ✅ Fallback
-  return defaultMetadata
+  return {
+    ...dynamicMeta,
+    icons: {
+      icon: [
+        { url: "/favicon.ico", sizes: "any" },
+        { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+        { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+        { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
+        { url: "/favicon.svg", type: "image/svg+xml" }
+      ],
+      apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }]
+    },
+    manifest: "/site.webmanifest",
+    appleWebApp: {
+      title: "FNZ" // ✅ <meta name="apple-mobile-web-app-title" content="FNZ" />
+    }
+  };
 }
-
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -68,7 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 sameAs: [
                   "https://www.facebook.com/fnzwood",
                   "https://www.instagram.com/fnzwood",
-                  "https://www.linkedin.com/company/fonozbart-ah%C5%9Fap-sanayi?originalSubdomain=tr",
+                  "https://www.linkedin.com/company/fonozbart-ah%C5%9Fap-sanayi?originalSubdomain=tr"
                 ],
                 contactPoint: [
                   {
@@ -76,17 +85,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     telephone: "+90-532-000-0000",
                     contactType: "customer service",
                     areaServed: "TR",
-                    availableLanguage: ["Turkish", "English"],
-                  },
-                ],
+                    availableLanguage: ["Turkish", "English"]
+                  }
+                ]
               },
               null,
               2
-            ),
+            )
           }}
         />
 
-        {/* ✅ WebSite Schema (arama kutusu için) */}
+        {/* ✅ WebSite Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -95,15 +104,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 "@context": "https://schema.org",
                 "@type": "WebSite",
                 url: "https://fnzwood.com",
-                name: "Fnz Ahsap Sanayi",
+                name: "Fnz Ahsap Sanayi"
               },
               null,
               2
-            ),
+            )
           }}
         />
 
-        {/* ✅ LocalBusiness Schema (Google Maps + Yerel SEO için) */}
+        {/* ✅ LocalBusiness Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -123,12 +132,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   addressLocality: "Marmaris",
                   addressRegion: "Muğla",
                   postalCode: "48700",
-                  addressCountry: "TR",
+                  addressCountry: "TR"
                 },
                 geo: {
                   "@type": "GeoCoordinates",
-                  "latitude": 36.852365,
-                  "longitude": 28.274382
+                  latitude: 36.852365,
+                  longitude: 28.274382
                 },
                 openingHoursSpecification: [
                   {
@@ -139,25 +148,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                       "Wednesday",
                       "Thursday",
                       "Friday",
-                      "Saturday",
+                      "Saturday"
                     ],
                     opens: "08:30",
-                    closes: "18:30",
-                  },
+                    closes: "18:30"
+                  }
                 ],
                 sameAs: [
                   "https://www.facebook.com/fnzwood",
                   "https://www.instagram.com/fnzwood",
-                  "https://www.linkedin.com/company/fonozbart-ah%C5%9Fap-sanayi/",
-                ],
+                  "https://www.linkedin.com/company/fonozbart-ah%C5%9Fap-sanayi/"
+                ]
               },
               null,
               2
-            ),
+            )
           }}
         />
       </body>
     </html>
-  )
+  );
 }
-
