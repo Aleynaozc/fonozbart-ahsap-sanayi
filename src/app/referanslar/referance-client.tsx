@@ -1,6 +1,7 @@
 "use client";
 
 import { PageHero } from "@/components/pageHero/page-hero";
+import { useBreadcrumb } from "@/hooks/use-breadcrumb";
 import { Sparkles } from "lucide-react";
 import { useState } from "react";
 import {
@@ -91,7 +92,7 @@ const categoryIcons: any = {
 
 export default function ReferencesPageClient() {
   const [activeCategory, setActiveCategory] = useState("all");
-
+  const { currentPage } = useBreadcrumb()
   const filteredRefs =
     activeCategory === "all"
       ? references
@@ -102,7 +103,7 @@ export default function ReferencesPageClient() {
       {/* HERO */}
       <PageHero
         backgroundImage={Referances.heroImage}
-        badgeText={"Referanslar"}
+       badgeText={currentPage}
         title={Referances.intro.heading}
         highlight={Referances.intro.highlight}
         description={Referances.intro.text}

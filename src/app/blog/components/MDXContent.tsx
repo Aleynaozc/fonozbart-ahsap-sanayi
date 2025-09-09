@@ -11,8 +11,8 @@ interface Props {
     category: string
     title: string
   }
-  wideSrc: string; // geniş açı görsel
-  detailSrc: string; // çekmeceli yakın plan
+  wideSrc?: string; // geniş açı görsel
+  detailSrc?: string; // çekmeceli yakın plan
   alt?: string;
 }
 
@@ -89,7 +89,8 @@ export const ImageDetailCombo = ({ wideSrc, detailSrc, alt }: Props) => {
   return (
     <div className="relative my-8">
       {/* Geniş açı görsel */}
-      <div className="rounded-xl shadow-md overflow-hidden relative">
+       {wideSrc && (
+        <div className="rounded-xl shadow-md overflow-hidden relative">
         <Image
           src={wideSrc}
           alt={alt || "Wide angle bathroom"}
@@ -98,17 +99,18 @@ export const ImageDetailCombo = ({ wideSrc, detailSrc, alt }: Props) => {
           className="w-full h-auto object-cover"
         />
       </div>
-
-      {/* Yakın plan detay görselini hafif üst üste ve sağa kaydırılmış şekilde koyuyoruz */}
-      <div className="absolute bottom-4 right-4 w-1/3 rounded-xl shadow-lg overflow-hidden border-2 border-white">
-        <Image
-          src={detailSrc}
-          alt={alt || "Drawer detail"}
-          width={400}
-          height={400}
-          className="w-full h-auto object-cover"
-        />
-      </div>
+      )}
+      {detailSrc && (
+        <div className="absolute bottom-4 right-4 w-1/3 rounded-xl shadow-lg overflow-hidden border-2 border-white">
+          <Image
+            src={detailSrc}
+            alt={alt || "Drawer detail"}
+            width={400}
+            height={400}
+            className="w-full h-auto object-cover"
+          />
+        </div>
+      )}
     </div>
   );
 };
