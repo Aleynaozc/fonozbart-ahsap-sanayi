@@ -82,10 +82,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 contactPoint: [
                   {
                     "@type": "ContactPoint",
-                    telephone: "+90-532-000-0000",
+                    telephone: "+90-532-333-50-67",
                     contactType: "customer service",
                     areaServed: "TR",
-                    availableLanguage: ["Turkish", "English"]
+                    availableLanguage: ["Turkish"]
                   }
                 ]
               },
@@ -122,7 +122,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 "@type": "LocalBusiness",
                 "@id": "https://fnzwood.com/#localbusiness",
                 name: "Fnz Ahsap Sanayi",
-                image: "https://fnzwood.com/assets/images/logo.png",
+                image: "https://fnzwood.com/assets/images/fnz-beyaz.png",
                 url: "https://fnzwood.com",
                 telephone: "+90-532-000-0000",
                 priceRange: "$$",

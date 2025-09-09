@@ -1,10 +1,13 @@
 import ContactPageClient from "./contact-client";
 
-import { getSeoMetadata } from "@/hooks/useSeoMetadata";
+import { defaultMetadata, pageMetadata } from "@/seo-data";
 import type { Metadata } from "next"
 
 
-export const metadata: Metadata = getSeoMetadata("/iletisim")
+export const metadata: Metadata = {
+  ...defaultMetadata,
+  ...pageMetadata["/iletisim"],
+}
 export default function ContactPage() {
  return <ContactPageClient />;
 }

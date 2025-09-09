@@ -7,11 +7,11 @@ export function BlogSchema({ post }: any) {
     dateModified: post.date,
     author: {
       "@type": "Organization",
-      name: "FNZ Yapı",
+      name: "FNZ AHŞAP SANAYİ",
     },
     publisher: {
       "@type": "Organization",
-      name: "FNZ Yapı",
+      name: "FNZ AHŞAP SANAYİ",
     },
     image: post.coverImage,
   }
