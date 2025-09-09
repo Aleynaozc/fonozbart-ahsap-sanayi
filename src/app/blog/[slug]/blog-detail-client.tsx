@@ -11,7 +11,7 @@ import {  Sparkles } from "lucide-react"
 import { LiaEdit } from "react-icons/lia"
 import { CgCalendarDates } from "react-icons/cg"
 import PopularPosts from "@/components/sidebar/popularPost"
-
+import { EnhancedAutoBreadcrumb } from "@/components/bradcrumps/enhanced-auto-breadcrumb"
 interface Props {
   params: { slug: string }
 }
@@ -31,6 +31,7 @@ export default async function BlogDetailClient({ params }: Props) {
         cta={{ label: "İletişime Geç", href: "/iletisim" }}
         icon={<Sparkles className="w-4 h-4" />}
       />
+        <EnhancedAutoBreadcrumb className="bg-black/20 backdrop-blur-sm border-b border-white/10" />
       <div className="absolute inset-0">
         {/* Main background pattern */}
         <div
