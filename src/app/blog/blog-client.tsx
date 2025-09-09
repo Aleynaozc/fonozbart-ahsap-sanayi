@@ -124,7 +124,7 @@ export default function BlogPageClient({ posts }: { posts: Post[] }) {
 
           {/* Sağ Sidebar: 1 kolon, sticky */}
           <aside className="md:col-span-1 sticky top-30 self-start mb-10">
-            <div className="bg-[#1f1f1f] p-5 rounded-2xl">
+            <div className="bg-[#1e1e1f] p-5 rounded-2xl">
               <TagCloud posts={posts} />
             </div>
             <div className="mt-6 mb-10 flex justify-center gap-6">
