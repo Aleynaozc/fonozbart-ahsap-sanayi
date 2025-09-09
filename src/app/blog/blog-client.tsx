@@ -64,7 +64,7 @@ export default function BlogPageClient({ posts }: { posts: Post[] }) {
   const paginatedPosts = filteredPosts.slice((page - 1) * perPage, page * perPage)
 
   return (
-    <main className="">
+    <main className="bg-gradient-to-br from-[#1e1e1f] via-[#2a2a2b] to-[#1e1e1f]">
       <PageHero
         backgroundImage="/assets/images/sliders/page-hero-fnz-wood-1.jpg"
         badgeText="Blog"
@@ -74,6 +74,7 @@ export default function BlogPageClient({ posts }: { posts: Post[] }) {
         cta={{ label: "Daha Fazla Bilgi Alın", href: "/iletisim" }}
         icon={<Sparkles className="w-4 h-4" />}
       />
+       
       {/* Search & Category (ortada hizalı) */}
 
       <div className="mt-10 w-full flex flex-col items-center gap-4 mb-10">
@@ -96,13 +97,8 @@ export default function BlogPageClient({ posts }: { posts: Post[] }) {
           />
         </div>
       </div>
-
-
-
       {/* WRAPPER: daha geniş container + hizalama */}
       <div className="mx-auto px-6 lg:px-40 ">
-
-
         {featured && <FeaturedPost {...featured} />}
         {/* Content + Sidebar: 4 eşit kolon, gap görsel oranında */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-10">
