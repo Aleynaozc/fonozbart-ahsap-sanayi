@@ -10,6 +10,7 @@ export type PostFrontmatter = {
   description: string
   date: string
   coverImage?: string
+  image?: string // ✅ any yerine tipte tanımladık
   tags?: string[]
   seoKeywords?: string[]
   author?: string
@@ -49,7 +50,7 @@ export function getAllPosts(): Post[] {
       title: fm.title,
       description: fm.description,
       date: fm.date,
-      coverImage: fm.coverImage || (fm as any).image,
+      coverImage: fm.coverImage || fm.image, // ✅ artık any yok
       tags: fm.tags ?? [],
       readingTime: readingTime(content).text,
       seoKeywords: fm.seoKeywords,
@@ -81,7 +82,7 @@ export function getPostBySlug(slug: string): Post {
     title: fm.title,
     description: fm.description,
     date: fm.date,
-    coverImage: fm.coverImage || (fm as any).image,
+    coverImage: fm.coverImage || fm.image, // ✅ any kalktı
     tags: fm.tags ?? [],
     readingTime: readingTime(content).text,
     content,

@@ -2,6 +2,7 @@ import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
 import { serialize } from "next-mdx-remote/serialize"
+import type { MDXRemoteSerializeResult } from "next-mdx-remote"
 
 export type Post = {
   title: string
@@ -10,7 +11,7 @@ export type Post = {
   coverImage: string
   tags: string[]
   slug: string
-  content: any
+  content: MDXRemoteSerializeResult   // ✅ any yerine doğru tip
   category?: string
 }
 
@@ -27,7 +28,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
   const fileContent = fs.readFileSync(filePath, "utf-8")
   const { data, content } = matter(fileContent)
 
-  // Zorunlu alan kontrolü (title, date vs.)
+  // Zorunlu alan kontrolü
   if (!data.title || !data.date) return null
 
   const mdxSource = await serialize(content)
@@ -51,6 +52,5 @@ export async function getAllPosts(): Promise<Post[]> {
   // null dönenleri filtrele
   const validPosts: Post[] = posts.filter((p): p is Post => p !== null)
 
-  // date her zaman string → sort çalışır
   return validPosts.sort((a, b) => (a.date > b.date ? -1 : 1))
 }
