@@ -38,7 +38,7 @@ export const defaultMetadata: Metadata = {
       "50 yılı aşkın tecrübemizle modern ve özel ahşap mobilya tasarımı & üretimi. Otel, villa, mutfak, banyo, pergola, deck ve daha fazlası.",
     images: [
       {
-        url: "/placeholder-logo.png",
+        url: "//assets/images/fnz-antrasit.png",
         width: 1200,
         height: 630,
         alt: siteName,
@@ -49,7 +49,7 @@ export const defaultMetadata: Metadata = {
     card: "summary_large_image",
     title: `${siteName} - Özel Mobilya Tasarımı`,
     description: "Marmaris'te otel, villa, mutfak ve özel ahşap mobilya üretimi. Fnz Ahsap Sanayi.",
-    images: ["/placeholder-logo.png"],
+    images: ["//assets/images/fnz-antrasit.png"],
   },
 }
 
@@ -156,7 +156,7 @@ export function getBlogMetadata(slug: string): Partial<Metadata> {
       }
 
       // Second priority: company logo for brand consistency
-      return "/placeholder-logo.png"
+      return "/assets/images/fnz-antrasit.png"
     }
 
     const ogImageUrl = getOgImage()
