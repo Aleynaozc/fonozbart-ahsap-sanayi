@@ -14,7 +14,7 @@ import {
   FaUniversity,
   FaHome,
 } from "react-icons/fa";
-
+import type { IconType } from "react-icons"
 const references = [
   { title: "Elmadağ Nato Tesisleri Büro", desc: "Mobilya Teşrifatı", category: "devlet" },
   { title: "Hava Kuvvetleri Mobileks Dinlenme Tesisleri", desc: "Mobilya Teşrifatı", category: "devlet" },
@@ -81,7 +81,9 @@ const Referances = {
 };
 
 // kategoriye göre ikon eşleme
-const categoryIcons: any = {
+
+
+const categoryIcons: Record<string, IconType> = {
   devlet: FaLandmark,
   eğitim: FaGraduationCap,
   hastane: FaHospital,
@@ -89,8 +91,7 @@ const categoryIcons: any = {
   restoran: FaUtensils,
   banka: FaUniversity,
   konut: FaHome,
-};
-
+}
 export default function ReferencesPageClient() {
   const [activeCategory, setActiveCategory] = useState("all");
   const { currentPage } = useBreadcrumb()

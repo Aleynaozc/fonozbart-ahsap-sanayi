@@ -1,4 +1,6 @@
-export function BlogSchema({ post }: any) {
+import type { Post } from "@/lib/markdown"
+
+export function BlogSchema({ post }: { post: Post }) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -17,6 +19,9 @@ export function BlogSchema({ post }: any) {
   }
 
   return (
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
   )
 }

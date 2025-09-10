@@ -61,7 +61,7 @@ export function Footer() {
                 className="object-contain h-12 w-auto"
               />
               <p className="text-gray-300 text-sm leading-relaxed">
-                1970'den bu yana Türk ahşap işçiliğinin öncüsü olarak, geleneksel ustalık bilgisini modern teknoloji ile
+                1970&apos;den bu yana Türk ahşap işçiliğinin öncüsü olarak, geleneksel ustalık bilgisini modern teknoloji ile
                 harmanlayıp, prestijli projelerde imza atıyoruz.
               </p>
             </div>

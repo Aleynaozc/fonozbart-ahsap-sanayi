@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { MDXRemote } from "next-mdx-remote/rsc"
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote/rsc"
 
 type BlogDetailProps = {
   post: {
@@ -9,7 +9,7 @@ type BlogDetailProps = {
     coverImage: string
     tags: string[]
     slug: string
-    content: any
+    content: MDXRemoteSerializeResult 
     category?: string
   }
 }
@@ -18,8 +18,6 @@ export function BlogDetail({ post }: BlogDetailProps) {
   return (
     <article className="prose lg:prose-xl mx-auto">
       <h1 className="mb-2">{post.title}</h1>
-
- 
       <Image
         src={post.coverImage}
         alt={post.title}
@@ -27,7 +25,6 @@ export function BlogDetail({ post }: BlogDetailProps) {
         height={600}
         className="rounded-xl mb-6"
       />
-
       <MDXRemote source={post.content} />
     </article>
   )

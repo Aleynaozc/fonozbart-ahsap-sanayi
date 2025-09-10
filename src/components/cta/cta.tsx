@@ -83,7 +83,7 @@ export function CTASection() {
                 <span className="text-[#FF6B35]">Birlikte Gerçekleştirelim</span>
               </h2>
               <p className="hidden sm:block text-gray-300 text-lg leading-relaxed max-w-xl">
-                Türkiye'nin dört bir yanında gerçekleştirdiğimiz başarılı projelerle, ahşap mobilya ve dekorasyon alanında güvenilir çözüm ortağınızız. Ücretsiz keşif hizmeti ile projenizi değerlendiriyoruz.
+                Türkiye&apos;nin dört bir yanında gerçekleştirdiğimiz başarılı projelerle, ahşap mobilya ve dekorasyon alanında güvenilir çözüm ortağınızız. Ücretsiz keşif hizmeti ile projenizi değerlendiriyoruz.
               </p>
 
               {/* Mobil başlık */}
@@ -116,6 +116,7 @@ export function CTASection() {
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" />
                 </Button>
               </div>
+
               {/* Quick Contact Info */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-[#FF6B35]/20 text-sm sm:text-base">
                 <div className="flex items-center space-x-3 text-gray-300">

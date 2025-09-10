@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, useCallback, useEffect, useRef, type ReactNode } from "react"
 
-interface CacheItem<T = any> {
+interface CacheItem<T = unknown> {
   data: T
   timestamp: number
   ttl: number // Time to live in milliseconds
