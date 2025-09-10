@@ -38,7 +38,7 @@ export const defaultMetadata: Metadata = {
       "50 yılı aşkın tecrübemizle modern ve özel ahşap mobilya tasarımı & üretimi. Otel, villa, mutfak, banyo, pergola, deck ve daha fazlası.",
     images: [
       {
-        url: "/assets/images/og-image.jpg",
+        url: "/placeholder-logo.png",
         width: 1200,
         height: 630,
         alt: siteName,
@@ -48,9 +48,8 @@ export const defaultMetadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${siteName} - Özel Mobilya Tasarımı`,
-    description:
-      "Marmaris’te otel, villa, mutfak, banyo ve özel ahşap mobilya üretimi. Fnz Ahsap Sanayi.",
-    images: ["/assets/images/og-image.jpg"],
+    description: "Marmaris'te otel, villa, mutfak ve özel ahşap mobilya üretimi. Fnz Ahsap Sanayi.",
+    images: ["/placeholder-logo.png"],
   },
 }
 
@@ -60,12 +59,7 @@ export const pageMetadata: Record<string, Partial<Metadata>> = {
     title: "FNZ Ahşap Sanayi | Marmaris Özel Mobilya Tasarımı",
     description:
       "50 yıllık deneyimle Marmaris’te villa, otel, mutfak ve banyo için özel mobilya tasarımı ve üretimi. Pergola, deck ve ahşap kapı çözümleri.",
-    keywords: [
-      "ana sayfa",
-      "fnz ahşap",
-      "marmaris mobilya",
-      "özel tasarım mobilya",
-    ],
+    keywords: ["ana sayfa", "fnz ahşap", "marmaris mobilya", "özel tasarım mobilya"],
     alternates: { canonical: `${baseUrl}/` },
   },
   "/hakkimizda": {
@@ -101,7 +95,7 @@ export const pageMetadata: Record<string, Partial<Metadata>> = {
       "marmaris mobilya",
       "vestiyer",
       "yatak odası gardrop",
-      "giysi dolabı"
+      "giysi dolabı",
     ],
     alternates: { canonical: `${baseUrl}/hizmetlerimiz` },
   },
@@ -122,25 +116,14 @@ export const pageMetadata: Record<string, Partial<Metadata>> = {
     title: "Blog | FNZ Ahşap Sanayi",
     description:
       "Ahşap mobilya tasarımı, dekorasyon trendleri, ipuçları ve FNZ Ahşap Sanayi’nin özel proje hikayelerini blogumuzda keşfedin.",
-    keywords: [
-      "blog",
-      "mobilya trendleri",
-      "ahşap dekorasyon",
-      "tasarım ipuçları",
-      "özel mobilya blog",
-    ],
+    keywords: ["blog", "mobilya trendleri", "ahşap dekorasyon", "tasarım ipuçları", "özel mobilya blog"],
     alternates: { canonical: `${baseUrl}/blog` },
   },
   "/iletisim": {
     title: "İletişim | FNZ Ahşap Sanayi",
     description:
       "FNZ Ahşap Sanayi ile iletişime geçin. Marmaris showroom adresi, telefon ve e-posta bilgilerimizle ücretsiz keşif ve danışmanlık hizmeti alın.",
-    keywords: [
-      "iletişim",
-      "fnzwood iletişim",
-      "marmaris mobilya telefonu",
-      "fnz ahşap sanayi iletişim",
-    ],
+    keywords: ["iletişim", "fnzwood iletişim", "marmaris mobilya telefonu", "fnz ahşap sanayi iletişim"],
     alternates: { canonical: `${baseUrl}/iletisim` },
   },
   "/referanslar": {
@@ -161,11 +144,22 @@ export const pageMetadata: Record<string, Partial<Metadata>> = {
   },
 }
 
-
 // ✅ Blog metadata generator (Markdown frontmatter'dan alıyor)
 export function getBlogMetadata(slug: string): Partial<Metadata> {
   try {
     const post = getPostBySlug(slug)
+
+    const getOgImage = () => {
+      // First priority: post's cover image
+      if (post.coverImage) {
+        return post.coverImage
+      }
+
+      // Second priority: company logo for brand consistency
+      return "/placeholder-logo.png"
+    }
+
+    const ogImageUrl = getOgImage()
 
     return {
       title: `${post.title} | Fnz Ahsap Sanayi Blog`,
@@ -181,7 +175,7 @@ export function getBlogMetadata(slug: string): Partial<Metadata> {
         siteName,
         images: [
           {
-            url: post.coverImage || "/assets/images/og-image.jpg",
+            url: ogImageUrl,
             width: 1200,
             height: 630,
             alt: post.title,
@@ -192,14 +186,19 @@ export function getBlogMetadata(slug: string): Partial<Metadata> {
         card: "summary_large_image",
         title: post.title,
         description: post.description,
-        images: [post.coverImage || "/assets/images/og-image.jpg"],
+        images: [ogImageUrl],
       },
     }
   } catch {
     return {
       title: `Fnz Ahsap Sanayi Blog`,
       description: `Mobilya tasarımı, dekorasyon trendleri ve proje ipuçları.`,
+      openGraph: {
+        images: ["/assets/images/fnz-antrasit.png"],
+      },
+      twitter: {
+        images: ["/assets/images/fnz-antrasit.png"],
+      },
     }
   }
 }
-
