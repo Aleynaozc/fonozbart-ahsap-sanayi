@@ -91,7 +91,7 @@ export function EnhancedAutoBreadcrumb({
         return {
           container: "backdrop-blur-sm",
           link: "text-gray-300/70 hover:text-white transition-colors duration-200 px-1 sm:px-2 py-1 rounded-md hover:bg-white/5 text-xs sm:text-sm",
-          current: "text-white font-medium px-1 sm:px-2 py-1 bg-orange-600/80 rounded-md text-xs sm:text-sm",
+          current: "text-white font-medium px-1 sm:px-2 py-1  rounded-md text-xs sm:text-sm",
           separator: "text-gray-400/60",
         }
     }

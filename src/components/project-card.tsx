@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, MapPin, Users } from "lucide-react";
 import { ImageModal } from "./ImageModal";
+import { EnhancedAutoBreadcrumb } from "./bradcrumps/enhanced-auto-breadcrumb";
 
 type Project = {
   id: number;
@@ -204,6 +205,7 @@ export function ProjectCardSection({
 
   return (
     <section className="container mx-auto px-6 lg:px-12 py-16">
+      <EnhancedAutoBreadcrumb variant="default" enableSEO={true} showRichSnippets={true} className="pt-20" />
       {/* Başlık alanı */}
       <header className="mb-12 text-center">
         <h2 className="text-3xl font-bold">

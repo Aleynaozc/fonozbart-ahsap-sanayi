@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { PageHero } from '@/components/pageHero/page-hero';
 import { useBreadcrumb } from '@/hooks/use-breadcrumb';
+import { EnhancedAutoBreadcrumb } from '@/components/bradcrumps/enhanced-auto-breadcrumb';
 
 const ABOUT = {
   heroImage: '/assets/images/sliders/fnz-wood-hakkımızda-hero.mp4',
@@ -68,25 +69,25 @@ export default function AboutPageClient() {
       {/* HERO */}
       <PageHero
         backgroundImage={ABOUT.heroImage}
-        badgeText={currentPage?? undefined}
+        badgeText={currentPage ?? undefined}
         title={ABOUT.intro.heading}
         highlight={ABOUT.intro.highlight}
         description={ABOUT.intro.text}
         cta={{ label: "Projelerimizi Keşfedin", href: "/projeler" }}
         icon={<Sparkles className="w-4 h-4" />}
       />
-
+     
       {/* STORY SECTION */}
       <section
         ref={sectionRef}
         className="relative py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden"
       >
+         <EnhancedAutoBreadcrumb variant="default" enableSEO={true} showRichSnippets={true} className="pt-20" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid gap-10 md:grid-cols-2 items-center">
           {/* Text */}
           <div
-            className={`transition-all duration-700 ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-6'
-            }`}
+            className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-6'
+              }`}
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
               {ABOUT.story.heading}
@@ -103,9 +104,8 @@ export default function AboutPageClient() {
 
           {/* Image */}
           <div
-            className={`relative aspect-[4/3] rounded-xl overflow-hidden border border-[#FF6B35]/20 bg-black/40 backdrop-blur-sm transition-all duration-700 ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-6'
-            }`}
+            className={`relative aspect-[4/3] rounded-xl overflow-hidden border border-[#FF6B35]/20 bg-black/40 backdrop-blur-sm transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-6'
+              }`}
           >
             <Image
               src={ABOUT.story.image}
@@ -123,9 +123,8 @@ export default function AboutPageClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid gap-10 md:grid-cols-2 items-center">
           {/* Image */}
           <div
-            className={`relative aspect-[4/3] rounded-xl overflow-hidden border border-[#FF6B35]/20 bg-black/40 backdrop-blur-sm transition-all duration-700 ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-6'
-            }`}
+            className={`relative aspect-[4/3] rounded-xl overflow-hidden border border-[#FF6B35]/20 bg-black/40 backdrop-blur-sm transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-6'
+              }`}
           >
             <Image
               src={ABOUT.vision.image}
@@ -138,9 +137,8 @@ export default function AboutPageClient() {
 
           {/* Text */}
           <div
-            className={`transition-all duration-700 ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-6'
-            }`}
+            className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-6'
+              }`}
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
               {ABOUT.vision.heading}

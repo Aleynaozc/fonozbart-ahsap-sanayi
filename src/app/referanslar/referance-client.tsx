@@ -1,5 +1,6 @@
 "use client";
 
+import { EnhancedAutoBreadcrumb } from "@/components/bradcrumps/enhanced-auto-breadcrumb";
 import { PageHero } from "@/components/pageHero/page-hero";
 import { useBreadcrumb } from "@/hooks/use-breadcrumb";
 import { Sparkles } from "lucide-react";
@@ -103,7 +104,7 @@ export default function ReferencesPageClient() {
       {/* HERO */}
       <PageHero
         backgroundImage={Referances.heroImage}
-       badgeText={currentPage?? undefined}
+        badgeText={currentPage ?? undefined}
         title={Referances.intro.heading}
         highlight={Referances.intro.highlight}
         description={Referances.intro.text}
@@ -121,7 +122,9 @@ export default function ReferencesPageClient() {
       </div>
 
       <div className="max-w-6xl mx-auto px-4 py-12 lg:py-20 relative">
-         {/* Floating Decorative Elements */}
+        <EnhancedAutoBreadcrumb variant="default" enableSEO={true} showRichSnippets={true} className="pt-20" />
+
+        {/* Floating Decorative Elements */}
         <div
           className={`absolute top-20 right-2 w-12 h-12 border-2 border-[#FF6B35]/30 rotate-45 transition-all duration-2000`}
         />
@@ -131,11 +134,10 @@ export default function ReferencesPageClient() {
             <button
               key={cat.key}
               onClick={() => setActiveCategory(cat.key)}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition ${
-                activeCategory === cat.key
+              className={`px-4 py-2 rounded-md text-sm font-medium transition ${activeCategory === cat.key
                   ? "bg-orange-500 text-white"
                   : "bg-[#14171b] text-gray-300 hover:bg-orange-500/20 hover:text-orange-400"
-              }`}
+                }`}
             >
               {cat.label}
             </button>

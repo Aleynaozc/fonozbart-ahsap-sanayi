@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Sparkles, ArrowRight } from 'lucide-react';
 import { PageHero } from '@/components/pageHero/page-hero';
 import { useBreadcrumb } from '@/hooks/use-breadcrumb';
+import { EnhancedAutoBreadcrumb } from '@/components/bradcrumps/enhanced-auto-breadcrumb';
 
 const SERVICES = [
   {
@@ -98,6 +99,7 @@ export default function ServicesPageClient() {
 
       {/* SERVICES GRID */}
       <section ref={sectionRef} className="relative py-16 sm:py-20 lg:py-24">
+        <EnhancedAutoBreadcrumb variant="default" enableSEO={true} showRichSnippets={true} className="pt-20" />
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {SERVICES.map((service, i) => (

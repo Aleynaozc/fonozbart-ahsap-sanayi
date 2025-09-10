@@ -408,6 +408,7 @@ export default function ProjectsPageClient() {
   return (
     <main className="bg-[#1e1e1f] text-white min-h-screen py-24">
       {/* HERO */}
+       
       <PageHero
         backgroundImage={PROJECTSDATA.heroImage}
         badgeText={currentPage?? undefined}
