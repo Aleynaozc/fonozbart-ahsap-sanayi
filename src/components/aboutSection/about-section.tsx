@@ -73,7 +73,7 @@ export function AboutSection() {
   return (
     <section ref={sectionRef} id="about" className="bg-[#1e1e1f] relative min-h-screen overflow-hidden">
       {/* Animated Background with Floating Particles */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 pointer-events-none">
         {/* Main background pattern */}
         <div
           className={`absolute inset-0 opacity-5 transition-all duration-3000 ${isVisible ? "scale-100 rotate-0" : "scale-110 rotate-3"

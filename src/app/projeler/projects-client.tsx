@@ -410,7 +410,7 @@ export default function ProjectsPageClient() {
       {/* HERO */}
       <PageHero
         backgroundImage={PROJECTSDATA.heroImage}
-        badgeText={currentPage}
+        badgeText={currentPage?? undefined}
         title={PROJECTSDATA.intro.heading}
         highlight={PROJECTSDATA.intro.highlight}
         description={PROJECTSDATA.intro.text}

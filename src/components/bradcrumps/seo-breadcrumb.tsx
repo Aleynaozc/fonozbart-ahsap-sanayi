@@ -51,11 +51,11 @@ export function SEOBreadcrumb() {
     })
 
     // Add current page (without item URL as it's the current page)
-    if (pathname !== "/") {
+    if (pathname !== "/" && currentPage) {
       breadcrumbItems.push({
         "@type": "ListItem",
         position: breadcrumbItems.length + 1,
-        name: currentPage,
+        name: currentPage, // Now TypeScript knows currentPage is not null
         // Current page doesn't need item URL according to Google guidelines
       })
     }

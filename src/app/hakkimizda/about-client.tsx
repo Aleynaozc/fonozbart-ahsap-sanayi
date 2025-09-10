@@ -68,7 +68,7 @@ export default function AboutPageClient() {
       {/* HERO */}
       <PageHero
         backgroundImage={ABOUT.heroImage}
-        badgeText={currentPage}
+        badgeText={currentPage?? undefined}
         title={ABOUT.intro.heading}
         highlight={ABOUT.intro.highlight}
         description={ABOUT.intro.text}

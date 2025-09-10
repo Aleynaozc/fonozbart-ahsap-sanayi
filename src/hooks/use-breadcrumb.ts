@@ -1,159 +1,89 @@
-"use client";
+"use client"
 
-import { usePathname } from "next/navigation";
-import { useMemo } from "react";
+import { usePathname } from "next/navigation"
+import { useMemo } from "react"
 
-export interface BreadcrumbItem {
-  label: string;
-  href: string;
-  active?: boolean;
+interface BreadcrumbItem {
+  label: string
+  href: string
+  active: boolean
 }
 
-/**
- * URL segment -> Görünecek label eşleştirmeleri
- */
-const breadcrumbConfig: Record<string, string> = {
-  // Ana sayfalar
-  "": "Ana Sayfa",
-  hakkimizda: "Hakkımızda",
-  hizmetlerimiz: "Hizmetlerimiz",
-  projeler: "Projelerimiz",
-  blog: "Blog",
-  iletisim: "İletişim",
+interface UseBreadcrumbReturn {
+  items: BreadcrumbItem[]
+  currentPage: string | null
+  fullPath: string
+}
 
-  // Proje kategorileri
-  completed: "Tamamlanan Projeler",
-  ongoing: "Devam Eden Projeler",
-  residential: "Konut Projeleri",
-  commercial: "Ticari Projeler",
-  hospitality: "Otel Projeleri",
+let breadcrumbConfig: Record<string, string> = {}
+let pageTitles: Record<string, string> = {}
 
-  // Blog kategorileri
-  news: "Haberler",
-  tips: "İpuçları",
-  trends: "Trendler",
-  "case-studies": "Vaka Çalışmaları",
+export function updateBreadcrumbConfig(config: Record<string, string>) {
+  breadcrumbConfig = { ...breadcrumbConfig, ...config }
+}
 
-  // Genel
-  details: "Detaylar",
-  portfolio: "Portföy",
-  categories: "Kategoriler",
-  search: "Arama",
-  results: "Sonuçlar",
-};
+export function updatePageTitles(titles: Record<string, string>) {
+  pageTitles = { ...pageTitles, ...titles }
+}
 
-/**
- * Path -> Başlık eşleştirmeleri
- */
-const pageTitle: Record<string, string> = {
-  "/": "Ana Sayfa",
-  "/hakkimizda": "Hakkımızda",
-  "/hizmetlerimiz": "Hizmetlerimiz",
-  "/projeler": "Projelerimiz",
-  "/blog": "Blog",
-  "/blog/news": "Haberler",
-  "/blog/tips": "İpuçları",
-  "/iletisim": "İletişim",
- 
-};
+function toTitleCase(str: string): string {
+  const result = str
+    .split(" ")
+    .map((word) => {
+      if (!word) return ""
+      const processed = word.charAt(0).toLocaleUpperCase("tr-TR") + word.slice(1).toLocaleLowerCase("tr-TR")
+      return processed
+    })
+    .join(" ")
 
-/**
- * Path -> Meta description eşleştirmeleri
- */
-const pageDescriptions: Record<string, string> = {
-  "/": "50 yılı aşkın tecrübemizle modern ahşap mobilya tasarımı ve üretimi alanında kaliteli hizmet sunuyoruz.",
-  "/hakkimizda":
-    "FNZ Wood olarak yarım asrı aşkın tecrübemizle ahşap mobilya sektöründe güvenilir bir marka olmayı başardık.",
-  "/hizmetlerimiz":
-    "Otel mobilyaları, mutfak tasarımı, banyo mobilyaları ve daha fazlası için profesyonel hizmetlerimizi keşfedin.",
-  "/projeler":
-    "Tamamladığımız mobilya projelerini inceleyin. Otel, ofis, konut ve ticari alan projelerimiz.",
-  "/iletisim":
-    "FNZ Wood ile iletişime geçin. Ücretsiz keşif ve danışmanlık hizmeti için bize ulaşın.",
-};
+  return result
+}
 
-/**
- * Breadcrumb hook
- */
-export function useBreadcrumb() {
-  const pathname = usePathname();
+export function useBreadcrumb(): UseBreadcrumbReturn {
+  const pathname = usePathname()
 
   return useMemo(() => {
-    // Ana sayfa özel durumu
-    if (pathname === "/") {
-      return {
-        items: [],
-        currentPage: "Ana Sayfa",
-        fullPath: pathname,
-        description: pageDescriptions["/"] || "",
-        keywords: ["FNZ Wood", "ana sayfa", "ahşap mobilya", "mobilya tasarımı"],
-      };
-    }
+    const segments = pathname.split("/").filter(Boolean)
+    const items: BreadcrumbItem[] = []
 
-    const segments = pathname.split("/").filter(Boolean);
-    const items: BreadcrumbItem[] = [];
-    let currentPath = "";
+    // Ana sayfa
+    items.push({
+      label: "Ana Sayfa",
+      href: "/",
+      active: false,
+    })
 
+    // Her segment için breadcrumb item oluştur
     segments.forEach((segment, index) => {
-      currentPath += `/${segment}`;
-      const isLast = index === segments.length - 1;
+      const href = "/" + segments.slice(0, index + 1).join("/")
+      const isLast = index === segments.length - 1
 
-      // URL segment temizle
-      const cleanSegment = decodeURIComponent(segment);
-
-      // Label bul
-      let label = breadcrumbConfig[cleanSegment] || cleanSegment;
-
-      // Dinamik route kontrolü ([id], [slug] vb.)
-      if (/^\[.*\]$/.test(cleanSegment) || /^\d+$/.test(cleanSegment)) {
-        label = "Detay";
+      if (segment.startsWith("[") && segment.endsWith("]")) {
+        return
       }
 
-      // İlk harfi büyük yap
-      label = label.charAt(0).toUpperCase() + label.slice(1);
+      const withSpaces = segment.replace(/-/g, " ")
+      let label = breadcrumbConfig[segment] || toTitleCase(withSpaces)
 
-      // Breadcrumb item ekle
+      // Özel case: blog
+      if (segment === "blog") {
+        label = "Blog"
+      }
+
       items.push({
         label,
-        href: currentPath,
+        href,
         active: isLast,
-      });
-    });
+      })
+    })
 
-    const currentPage =
-      pageTitle[pathname] || items[items.length - 1]?.label || "Sayfa";
-
-    const description =
-      pageDescriptions[pathname] ||
-      `${currentPage} - FNZ Wood hizmetleri ve ürünleri hakkında detaylı bilgi.`;
-
-    const keywords = [
-      "FNZ Wood",
-      currentPage.toLowerCase(),
-      ...items.map((item) => item.label.toLowerCase()),
-      "ahşap mobilya",
-      "mobilya tasarımı",
-    ];
+    // Son item'ı currentPage olarak ayır
+    const currentPage = items.length > 1 ? items.pop()?.label || null : null
 
     return {
-      items,
+      items: items.filter((item) => !item.active),
       currentPage,
       fullPath: pathname,
-      description,
-      keywords,
-    };
-  }, [pathname]);
-}
-
-/**
- * Config güncelleme yardımcıları
- */
-export function updateBreadcrumbConfig(newConfig: Record<string, string>) {
-  Object.assign(breadcrumbConfig, newConfig);
-}
-export function updatePageTitles(newTitles: Record<string, string>) {
-  Object.assign(pageTitle, newTitles);
-}
-export function updatePageDescriptions(newDescriptions: Record<string, string>) {
-  Object.assign(pageDescriptions, newDescriptions);
+    }
+  }, [pathname])
 }

@@ -54,7 +54,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <LoadingProvider>
           <InitialLoaderWrapper>
-            <BreadcrumbProvider>
+            <BreadcrumbProvider initialConfig={{
+              "": "Ana Sayfa",      
+              hakkimizda: "Hakkımızda",
+              hizmetlerimiz: "Hizmetlerimiz",
+              projeler: "Projelerimiz",
+              iletisim: "İletişim",
+              blog: "Blog",
+              referanslar: "Referanslarımız",
+            }}>
               <LoadingBar />
               <Header />
               <PageTransition>{children}</PageTransition>
