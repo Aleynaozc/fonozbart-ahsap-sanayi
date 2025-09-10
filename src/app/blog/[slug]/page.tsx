@@ -2,19 +2,16 @@ import type { Metadata } from "next"
 import BlogDetailClient from "./blog-detail-client"
 import { getBlogMetadata } from "@/seo-data"
 
-type PageProps = {
-  params: {
-    slug: string
-  }
-}
-
 // ✅ Dinamik metadata
 export async function generateMetadata(
-  { params }: PageProps
+  { params }: { params: { slug: string } }
 ): Promise<Metadata> {
   return getBlogMetadata(params.slug)
 }
 
-export default async function BlogDetailPage({ params }: PageProps) {
+// ✅ Dinamik sayfa
+export default function BlogDetailPage(
+  { params }: { params: { slug: string } }
+) {
   return <BlogDetailClient params={params} />
 }
