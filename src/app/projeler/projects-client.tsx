@@ -197,7 +197,7 @@ const PROJECTS = [
       "/assets/images/selected-project/ahu-hastanesi-resepsiyon-marmaris-fnz-ahşap-sanayi-3.jpg",
     ],
     stats: {
-      rooms: "1",
+      area: "Resepsiyon",
     },
      features: [
       "Resepsiyon Mobilya Tefrişatı",

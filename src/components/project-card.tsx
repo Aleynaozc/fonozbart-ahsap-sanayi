@@ -205,7 +205,7 @@ export function ProjectCardSection({
 
   return (
     <section className="container mx-auto px-6 lg:px-12 py-16">
-      <EnhancedAutoBreadcrumb variant="default" enableSEO={true} showRichSnippets={true} className="pt-20" />
+      <EnhancedAutoBreadcrumb variant="default" enableSEO={true} showRichSnippets={true} className="sm:pt-20" />
       {/* Başlık alanı */}
       <header className="mb-12 text-center">
         <h2 className="text-3xl font-bold">
