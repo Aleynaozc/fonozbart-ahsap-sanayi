@@ -64,7 +64,7 @@ const projects = [
   {
     id: 8,
     category: "Kapı Sistemleri",
-    title: "Yangın Kapısı",
+    title: "Yangına Dayanaklı Kapı",
     description: "Isıya Dayanıklı",
     image: "/assets/images/services-section/yangın-kapısı-fnz-wood.jpg"
   }

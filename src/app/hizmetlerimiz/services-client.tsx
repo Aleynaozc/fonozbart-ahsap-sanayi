@@ -51,7 +51,7 @@ const SERVICES = [
     icon: "/assets/images/services/kapi-icon-fnz-wood.png",
   },
   {
-    title: "Yangın Kapısı",
+    title: "Yangına Dayanaklı Kapı",
     desc: "FNZ Ahşap Sanayi tarafından tedarik edilen sertifikalı ve güvenli yangın kapısı çözümleri.",
     image: "/assets/images/services-section/yangın-kapısı-fnz-wood-2.jpg",
     icon: "/assets/images/services/yangın-kapı-icon-fnz-wood.png",
