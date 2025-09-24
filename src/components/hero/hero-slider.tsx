@@ -48,7 +48,7 @@ export function HeroSlider() {
               isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            Ahşapın
+            Ahşabın
             <span className="block text-[#FF6B35] mt-1 sm:mt-0">Sanatla Buluşması</span>
           </h1>
 
