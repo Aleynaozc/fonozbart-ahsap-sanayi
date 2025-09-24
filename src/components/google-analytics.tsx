@@ -3,9 +3,20 @@
 import { useEffect } from "react"
 import { usePathname, useSearchParams } from "next/navigation"
 
+interface GtagConfig {
+  page_path?: string
+  page_title?: string
+  page_location?: string
+  [key: string]: unknown
+}
+
 declare global {
   interface Window {
-    gtag: (command: string, targetId: string, config?: Record<string, any>) => void
+    gtag: (
+      command: "config" | "event" | "js",
+      targetId: string,
+      config?: GtagConfig
+    ) => void
   }
 }
 
@@ -16,7 +27,7 @@ export function GoogleAnalytics({ measurementId }: { measurementId: string }) {
   useEffect(() => {
     if (!measurementId) return
 
-    // Google Analytics script'ini yükle
+    // Load Google Analytics script
     const script1 = document.createElement("script")
     script1.async = true
     script1.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`
@@ -43,9 +54,9 @@ export function GoogleAnalytics({ measurementId }: { measurementId: string }) {
   useEffect(() => {
     if (!measurementId || !window.gtag) return
 
-    const url = pathname + searchParams.toString()
+    const url = pathname + (searchParams.toString() ? `?${searchParams}` : "")
 
-    // Sayfa görüntüleme takibi
+    // Track page view
     window.gtag("config", measurementId, {
       page_path: url,
       page_title: document.title,
