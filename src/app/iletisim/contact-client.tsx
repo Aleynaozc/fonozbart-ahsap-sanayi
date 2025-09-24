@@ -20,7 +20,7 @@ import { EnhancedAutoBreadcrumb } from '@/components/bradcrumps/enhanced-auto-br
  */
 const CONTACT = {
   addressTitle: 'Adres',
-  addressText: 'Marmaris, Muğla, Türkiye',
+  addressText: 'Hisarönü, Marmaris Datça Yolu No:49, 48700 Marmaris/Muğla',
   addressLink: 'https://www.google.com/maps/place/Fonozbart+Ah%C5%9Fap+Sanayi/@36.8329249,28.1403155,17z/data=!3m1!4b1!4m6!3m5!1s0x14bfb9542100a983:0x897c830fcb7a8d3!8m2!3d36.8329206!4d28.1428904!16s%2Fg%2F11hdjgj0tt?entry=ttu&g_ep=EgoyMDI1MDgxOS4wIKXMDSoASAFQAw%3D%3D',
   phoneTitle: 'Telefon',
   phone: ' +90 532 333 50 67',

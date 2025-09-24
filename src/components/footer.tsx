@@ -147,7 +147,7 @@ export function Footer() {
                 </div>
                 <div>
                   <div className="text-gray-300 text-sm leading-relaxed">
-                    Marmaris, Muğla
+                    Hisarönü, Marmaris Datça Yolu No:49, 48700 Marmaris/Muğla
                     <br />
                     Türkiye
                   </div>
