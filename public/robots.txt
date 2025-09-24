@@ -1,0 +1,20 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+Disallow: /_next/
+
+# Googlebot
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+
+# Host
+Host: https://www.fnzwood.com
+
+# Sitemaps
+Sitemap: https://www.fnzwood.com/sitemap.xml
