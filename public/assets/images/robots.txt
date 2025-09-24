@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.fnzwood.com/sitemap.xml
+
+# Block admin and private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+# Allow important pages
+Allow: /
+Allow: /hakkinda
+Allow: /hizmetlerimiz
+Allow: /projelerimiz
+Allow: /referanslarimiz
+Allow: /blog
+Allow: /iletisim
+
+# Crawl delay (optional)
+Crawl-delay: 1

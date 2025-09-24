@@ -1,14 +1,15 @@
-import type React from "react";
-import type { Metadata } from "next";
-import "./globals.css";
-import { BreadcrumbProvider } from "@/components/bradcrumps/breadcrumb-provider";
-import { LoadingBar } from "@/components/loading-bar";
-import { PageTransition } from "@/components/page-transition";
-import { LoadingProvider } from "@/hooks/use-loading";
-import { Header } from "@/components/navbar/navbar";
-import { Footer } from "@/components/footer";
-import InitialLoaderWrapper from "./initial-loader-wrapper";
-import { defaultMetadata, pageMetadata, getBlogMetadata } from "@/seo-data";
+import type React from "react"
+import type { Metadata } from "next"
+import "./globals.css"
+import { BreadcrumbProvider } from "@/components/bradcrumps/breadcrumb-provider"
+import { LoadingBar } from "@/components/loading-bar"
+import { PageTransition } from "@/components/page-transition"
+import { LoadingProvider } from "@/hooks/use-loading"
+import { Header } from "@/components/navbar/navbar"
+import { Footer } from "@/components/footer"
+import InitialLoaderWrapper from "./initial-loader-wrapper"
+import { defaultMetadata, pageMetadata, getBlogMetadata } from "@/seo-data"
+import { GoogleAnalytics } from "@/components/google-analytics"
 
 /**
  * ✅ Tek metadata fonksiyonu:
@@ -16,17 +17,17 @@ import { defaultMetadata, pageMetadata, getBlogMetadata } from "@/seo-data";
  * - title + description (dinamik)
  */
 export function generateMetadata({ params }: { params?: { slug?: string[] } }): Metadata {
-  const slugArray = params?.slug || [];
-  const path = "/" + slugArray.join("/");
+  const slugArray = params?.slug || []
+  const path = "/" + slugArray.join("/")
 
-  let dynamicMeta: Metadata = defaultMetadata;
+  let dynamicMeta: Metadata = defaultMetadata
 
   if (pageMetadata[path]) {
-    dynamicMeta = { ...defaultMetadata, ...pageMetadata[path] };
+    dynamicMeta = { ...defaultMetadata, ...pageMetadata[path] }
   } else if (slugArray.length === 2 && slugArray[0] === "blog") {
-    dynamicMeta = { ...defaultMetadata, ...getBlogMetadata(slugArray[1]) };
+    dynamicMeta = { ...defaultMetadata, ...getBlogMetadata(slugArray[1]) }
   } else if (slugArray.length === 1 && pageMetadata[`/${slugArray[0]}`]) {
-    dynamicMeta = { ...defaultMetadata, ...pageMetadata[`/${slugArray[0]}`] };
+    dynamicMeta = { ...defaultMetadata, ...pageMetadata[`/${slugArray[0]}`] }
   }
 
   return {
@@ -37,32 +38,43 @@ export function generateMetadata({ params }: { params?: { slug?: string[] } }): 
         { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
         { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
         { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
-        { url: "/favicon.svg", type: "image/svg+xml" }
+        { url: "/favicon.svg", type: "image/svg+xml" },
       ],
-      apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }]
+      apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
     },
     manifest: "/site.webmanifest",
     appleWebApp: {
-      title: "FNZ" // ✅ <meta name="apple-mobile-web-app-title" content="FNZ" />
-    }
-  };
+      title: "FNZ", // ✅ <meta name="apple-mobile-web-app-title" content="FNZ" />
+    },
+  }
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="tr">
+      <head>
+        {process.env.NEXT_PUBLIC_GSC_VERIFICATION && (
+          <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GSC_VERIFICATION} />
+        )}
+      </head>
       <body>
+        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+          <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+        )}
+
         <LoadingProvider>
           <InitialLoaderWrapper>
-            <BreadcrumbProvider initialConfig={{
-              "": "Ana Sayfa",      
-              hakkimizda: "Hakkımızda",
-              hizmetlerimiz: "Hizmetlerimiz",
-              projeler: "Projelerimiz",
-              iletisim: "İletişim",
-              blog: "Blog",
-              referanslar: "Referanslarımız",
-            }}>
+            <BreadcrumbProvider
+              initialConfig={{
+                "": "Ana Sayfa",
+                hakkimizda: "Hakkımızda",
+                hizmetlerimiz: "Hizmetlerimiz",
+                projeler: "Projelerimiz",
+                iletisim: "İletişim",
+                blog: "Blog",
+                referanslar: "Referanslarımız",
+              }}
+            >
               <LoadingBar />
               <Header />
               <PageTransition>{children}</PageTransition>
@@ -85,7 +97,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 sameAs: [
                   "https://www.facebook.com/fnzwood",
                   "https://www.instagram.com/fnzwood",
-                  "https://www.linkedin.com/company/fonozbart-ah%C5%9Fap-sanayi?originalSubdomain=tr"
+                  "https://www.linkedin.com/company/fonozbart-ah%C5%9Fap-sanayi?originalSubdomain=tr",
                 ],
                 contactPoint: [
                   {
@@ -93,13 +105,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     telephone: "+90-532-333-50-67",
                     contactType: "customer service",
                     areaServed: "TR",
-                    availableLanguage: ["Turkish"]
-                  }
-                ]
+                    availableLanguage: ["Turkish"],
+                  },
+                ],
               },
               null,
-              2
-            )
+              2,
+            ),
           }}
         />
 
@@ -112,11 +124,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 "@context": "https://schema.org",
                 "@type": "WebSite",
                 url: "https://fnzwood.com",
-                name: "Fnz Ahsap Sanayi"
+                name: "Fnz Ahsap Sanayi",
               },
               null,
-              2
-            )
+              2,
+            ),
           }}
         />
 
@@ -140,40 +152,95 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   addressLocality: "Marmaris",
                   addressRegion: "Muğla",
                   postalCode: "48700",
-                  addressCountry: "TR"
+                  addressCountry: "TR",
                 },
                 geo: {
                   "@type": "GeoCoordinates",
                   latitude: 36.852365,
-                  longitude: 28.274382
+                  longitude: 28.274382,
                 },
                 openingHoursSpecification: [
                   {
                     "@type": "OpeningHoursSpecification",
-                    dayOfWeek: [
-                      "Monday",
-                      "Tuesday",
-                      "Wednesday",
-                      "Thursday",
-                      "Friday",
-                      "Saturday"
-                    ],
+                    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
                     opens: "08:30",
-                    closes: "18:30"
-                  }
+                    closes: "18:30",
+                  },
                 ],
                 sameAs: [
                   "https://www.facebook.com/fnzwood",
                   "https://www.instagram.com/fnzwood",
-                  "https://www.linkedin.com/company/fonozbart-ah%C5%9Fap-sanayi/"
-                ]
+                  "https://www.linkedin.com/company/fonozbart-ah%C5%9Fap-sanayi/",
+                ],
               },
               null,
-              2
-            )
+              2,
+            ),
+          }}
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                headline: "FNZ Ahşap Sanayi Blog",
+                description: "Ahşap işçiliği, mutfak tasarımları ve pergola modelleri hakkında uzman içerikler",
+                author: {
+                  "@type": "Organization",
+                  name: "FNZ Ahşap Sanayi",
+                },
+                publisher: {
+                  "@type": "Organization",
+                  name: "FNZ Ahşap Sanayi",
+                  logo: {
+                    "@type": "ImageObject",
+                    url: "https://fnzwood.com/assets/images/logo.png",
+                  },
+                },
+              },
+              null,
+              2,
+            ),
+          }}
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: "Ana Sayfa",
+                    item: "https://fnzwood.com",
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 2,
+                    name: "Hizmetlerimiz",
+                    item: "https://fnzwood.com/hizmetlerimiz",
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 3,
+                    name: "Blog",
+                    item: "https://fnzwood.com/blog",
+                  },
+                ],
+              },
+              null,
+              2,
+            ),
           }}
         />
       </body>
     </html>
-  );
+  )
 }

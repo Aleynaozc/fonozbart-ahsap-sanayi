@@ -1,41 +1,103 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://fnzwood.com",
+  siteUrl: "https://www.fnzwood.com",
   generateRobotsTxt: true,
   sitemapSize: 7000,
 
-  // 🔄 Default ayarlar
-  changefreq: "daily",
+  changefreq: "weekly",
   priority: 0.7,
 
-  exclude: ["/admin/*"],
+  exclude: ["/admin/*", "/api/*", "/private/*", "/_next/*", "/404", "/500"],
+
+  additionalPaths: async (config) => [
+    await config.transform(config, "/hakkimizda"),
+    await config.transform(config, "/hizmetlerimiz"),
+    await config.transform(config, "/projelerimiz"),
+    await config.transform(config, "/referanslarimiz"),
+    await config.transform(config, "/iletisim"),
+    await config.transform(config, "/blog"),
+  ],
 
   robotsTxtOptions: {
-    additionalSitemaps: [
-      "https://fnzwood.com/sitemap.xml",
+    policies: [
+      {
+        userAgent: "*",
+        allow: "/",
+        disallow: ["/admin/", "/api/", "/private/", "/_next/"],
+      },
+      {
+        userAgent: "Googlebot",
+        allow: "/",
+        disallow: ["/admin/", "/api/", "/private/"],
+      },
     ],
   },
 
-  // 🔧 Route bazlı özelleştirme
   transform: async (config, path) => {
-    // Blog yazıları için farklı ayar
-    if (path.startsWith("/blog/")) {
-      return {
-        loc: path, // URL
-        changefreq: "weekly", // blog daha seyrek güncellenir
-        priority: 0.6,
-        lastmod: new Date().toISOString(),
-      };
-    }
-
-    // Ana sayfa daha önemli
+    // Ana sayfa - en yüksek öncelik
     if (path === "/") {
       return {
         loc: path,
         changefreq: "daily",
         priority: 1.0,
         lastmod: new Date().toISOString(),
-      };
+        alternateRefs: [
+          {
+            href: "https://www.fnzwood.com",
+            hreflang: "tr",
+          },
+        ],
+      }
+    }
+
+    // Blog ana sayfası
+    if (path === "/blog") {
+      return {
+        loc: path,
+        changefreq: "daily",
+        priority: 0.9,
+        lastmod: new Date().toISOString(),
+      }
+    }
+
+    // Blog yazıları için özel ayarlar
+    if (path.startsWith("/blog/") && path !== "/blog") {
+      return {
+        loc: path,
+        changefreq: "monthly",
+        priority: 0.8,
+        lastmod: new Date().toISOString(),
+      }
+    }
+
+    // Hizmetler sayfası - yüksek öncelik
+    if (path === "/hizmetlerimiz") {
+      return {
+        loc: path,
+        changefreq: "weekly",
+        priority: 0.9,
+        lastmod: new Date().toISOString(),
+      }
+    }
+
+    // Projeler ve referanslar - orta öncelik
+    if (path === "/projelerimiz" || path === "/referanslarimiz") {
+      return {
+        loc: path,
+        changefreq: "weekly",
+        priority: 0.8,
+        lastmod: new Date().toISOString(),
+      }
+    }
+
+    // Hakkında ve iletişim - düşük öncelik
+    if (path === "/hakkimizda" || path === "/iletisim") {
+      return {
+        loc: path,
+        changefreq: "monthly",
+        priority: 0.6,
+        lastmod: new Date().toISOString(),
+      }
     }
 
     // Diğer sayfalar için varsayılan
@@ -44,6 +106,6 @@ module.exports = {
       changefreq: config.changefreq,
       priority: config.priority,
       lastmod: new Date().toISOString(),
-    };
+    }
   },
-};
+}
