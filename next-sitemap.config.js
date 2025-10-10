@@ -1,4 +1,20 @@
 /** @type {import('next-sitemap').IConfig} */
+
+const fs = require("fs")
+const path = require("path")
+
+// 📁 Blog dizinini belirtiyoruz
+const blogDir = path.join(process.cwd(), "content/blog")
+
+// Blog slug’larını (dosya adlarını) otomatik al
+function getBlogSlugs() {
+  if (!fs.existsSync(blogDir)) return []
+  return fs
+    .readdirSync(blogDir)
+    .filter((f) => f.endsWith(".md"))
+    .map((f) => f.replace(/\.md$/, ""))
+}
+
 module.exports = {
   siteUrl: "https://www.fnzwood.com",
   generateRobotsTxt: true,
@@ -9,14 +25,28 @@ module.exports = {
 
   exclude: ["/admin/*", "/api/*", "/private/*", "/_next/*", "/404", "/500"],
 
-  additionalPaths: async (config) => [
-    await config.transform(config, "/hakkimizda"),
-    await config.transform(config, "/hizmetlerimiz"),
-    await config.transform(config, "/projeler"),
-    await config.transform(config, "/referanslar"),
-    await config.transform(config, "/iletisim"),
-    await config.transform(config, "/blog"),
-  ],
+  // 📍 Hem sabit sayfaları hem de blog slug’larını ekliyoruz
+  additionalPaths: async (config) => {
+    const staticPaths = [
+      "/hakkimizda",
+      "/hizmetlerimiz",
+      "/projeler",
+      "/referanslar",
+      "/iletisim",
+      "/blog",
+    ]
+
+    // Blog slug'larını /blog/slug şeklinde oluştur
+    const blogPaths = getBlogSlugs().map((slug) => `/blog/${slug}`)
+
+    // Tüm yolları birleştir
+    const allPaths = [...staticPaths, ...blogPaths]
+
+    // Hepsini sitemap formatına dönüştür
+    return Promise.all(
+      allPaths.map(async (url) => await config.transform(config, url))
+    )
+  },
 
   robotsTxtOptions: {
     policies: [
@@ -34,13 +64,15 @@ module.exports = {
   },
 
   transform: async (config, path) => {
-    // Ana sayfa - en yüksek öncelik
+    const now = new Date().toISOString()
+
+    // Ana sayfa
     if (path === "/") {
       return {
         loc: path,
         changefreq: "daily",
         priority: 1.0,
-        lastmod: new Date().toISOString(),
+        lastmod: now,
         alternateRefs: [
           {
             href: "https://www.fnzwood.com",
@@ -52,60 +84,35 @@ module.exports = {
 
     // Blog ana sayfası
     if (path === "/blog") {
-      return {
-        loc: path,
-        changefreq: "daily",
-        priority: 0.9,
-        lastmod: new Date().toISOString(),
-      }
+      return { loc: path, changefreq: "daily", priority: 0.9, lastmod: now }
     }
 
-    // Blog yazıları için özel ayarlar
+    // Blog yazıları (slug bazlı)
     if (path.startsWith("/blog/") && path !== "/blog") {
-      return {
-        loc: path,
-        changefreq: "monthly",
-        priority: 0.8,
-        lastmod: new Date().toISOString(),
-      }
+      return { loc: path, changefreq: "monthly", priority: 0.8, lastmod: now }
     }
 
-    // Hizmetler sayfası - yüksek öncelik
+    // Hizmetler
     if (path === "/hizmetlerimiz") {
-      return {
-        loc: path,
-        changefreq: "weekly",
-        priority: 0.9,
-        lastmod: new Date().toISOString(),
-      }
+      return { loc: path, changefreq: "weekly", priority: 0.9, lastmod: now }
     }
 
-    // Projeler ve referanslar - orta öncelik
+    // Projeler & Referanslar
     if (path === "/projeler" || path === "/referanslar") {
-      return {
-        loc: path,
-        changefreq: "weekly",
-        priority: 0.8,
-        lastmod: new Date().toISOString(),
-      }
+      return { loc: path, changefreq: "weekly", priority: 0.8, lastmod: now }
     }
 
-    // Hakkında ve iletişim - düşük öncelik
+    // Hakkımızda & İletişim
     if (path === "/hakkimizda" || path === "/iletisim") {
-      return {
-        loc: path,
-        changefreq: "monthly",
-        priority: 0.6,
-        lastmod: new Date().toISOString(),
-      }
+      return { loc: path, changefreq: "monthly", priority: 0.6, lastmod: now }
     }
 
-    // Diğer sayfalar için varsayılan
+    // Varsayılan
     return {
       loc: path,
       changefreq: config.changefreq,
       priority: config.priority,
-      lastmod: new Date().toISOString(),
+      lastmod: now,
     }
   },
 }
