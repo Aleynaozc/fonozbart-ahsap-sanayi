@@ -12,8 +12,8 @@ module.exports = {
   additionalPaths: async (config) => [
     await config.transform(config, "/hakkimizda"),
     await config.transform(config, "/hizmetlerimiz"),
-    await config.transform(config, "/projelerimiz"),
-    await config.transform(config, "/referanslarimiz"),
+    await config.transform(config, "/projeler"),
+    await config.transform(config, "/referanslar"),
     await config.transform(config, "/iletisim"),
     await config.transform(config, "/blog"),
   ],
@@ -81,7 +81,7 @@ module.exports = {
     }
 
     // Projeler ve referanslar - orta öncelik
-    if (path === "/projelerimiz" || path === "/referanslarimiz") {
+    if (path === "/projeler" || path === "/referanslar") {
       return {
         loc: path,
         changefreq: "weekly",
