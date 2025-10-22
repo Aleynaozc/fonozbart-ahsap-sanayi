@@ -716,3 +716,7 @@ a:focus-visible {
     -webkit-text-size-adjust: 100%;
   }
 }
+::selection {
+  background-color: #1f0d01; /* Arka plan rengi (kahve tonu) */
+  color: #fff; /* Metin rengi, tercihe bağlı */
+}
