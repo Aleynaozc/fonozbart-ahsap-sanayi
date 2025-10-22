@@ -1,7 +1,7 @@
 ---
 title: "Küçük Mutfak Yerleşim Çözümleri – Fonksiyonel ve Estetik Fikirler"
 date: "2025-09-07"
-category: "Mutfak Tasarımı"
+category: "Mutfak Tasarımları"
 excerpt: "Küçük mutfaklarda alanı verimli kullanmanın en pratik çözümleri: akıllı dolap sistemleri, ada üniteleri, gizli depolama fikirleri ve ahşap tasarım önerileri."
 coverImage: "/assets/images/blog/mutfak-mobilyalari/kucuk-mutfak-tasarimlari-yerlesim-cozumleri.png"
 tags: ["Küçük Mutfak", "Mutfak Dolapları", "Ahşap Mobilya", "Mutfak Yerleşim"]
@@ -10,7 +10,7 @@ seoDescription: "Küçük mutfaklarda yerleşim çözümleri: akıllı dolap sis
 seoKeywords: "küçük mutfak yerleşimi, küçük mutfak dolap çözümleri, Marmaris mutfak mobilya, ahşap mutfak tasarımı"
 ---
 
-# Küçük Mutfak Tasarımı & Yerleşim Çözümleri – Fonksiyonel ve Estetik Fikirler
+# Küçük Mutfak Tasarımları & Yerleşim Çözümleri – Fonksiyonel ve Estetik Fikirler
 
 Küçük mutfaklara sahipseniz, doğru **yerleşim ve mobilya çözümleri** ile hem şık hem de işlevsel bir alan yaratabilirsiniz. Özellikle Marmaris gibi modern yaşamın yoğun olduğu bölgelerde, mutfak metrekareleri sınırlı olsa bile doğru tasarımlar sayesinde alanı en verimli şekilde kullanmak mümkün.
 
