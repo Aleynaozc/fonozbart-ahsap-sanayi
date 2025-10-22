@@ -3,7 +3,7 @@ title: "Marmaris Mutfak Dolapları: Estetik, Dayanıklılık ve Özel Tasarımı
 date: "2025-10-22"
 category: "Mutfak Dolapları"
 excerpt: "Marmaris’te mutfak dolabı yaptırmayı düşünenler için en yeni trendleri, malzeme seçeneklerini ve FNZ Ahşap Sanayi’nin özel üretim çözümlerini keşfedin."
-coverImage: "/assets/images/blog/mutfak-mobilyalari/marmaris-ozel-tasarim-mutfak-fnz-ahsap-sanayi.png"
+coverImage: "/assets/images/blog/mutfak-mobilyalari/marmaris-mutfak-dolaplari-fnz-ahsap-sanayi.jpg"
 tags: ["Marmaris Mutfak", "Mutfak Dolabı", "Ahşap Mutfak", "Özel Tasarım"]
 seoTitle: "Marmaris Mutfak Dolapları | Özel Tasarım Modern Mutfaklar | FNZ Ahşap Sanayi"
 seoDescription: "Marmaris mutfak dolapları için modern tasarımlar, dayanıklı malzemeler ve kişiye özel üretim. FNZ Ahşap Sanayi ile mutfaklarınızda estetik ve fonksiyonelliği bir araya getirin."
