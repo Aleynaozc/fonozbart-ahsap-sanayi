@@ -3,7 +3,7 @@ title: "Küçük Banyolar için Akıllı Dolap Tasarımları"
 date: "2025-11-10"
 category: "Banyo Dolapları"
 excerpt: "Küçük banyolarda alan kazanmak akıllı tasarımlarla mümkün. Modern ve fonksiyonel banyo dolapları ile dar alanlarda bile konfor ve estetiği yakalayın."
-coverImage: "/assets/images/blog/banyo-mobilyalari/kucuk-banyo-dolaplari-fnz-ahsap-marmaris-1.jpg"
+coverImage: "/assets/images/blog/banyo-mobilyalari/kucuk-banyo-dolaplari-fnz-ahsap-marmaris-1.png"
 tags: ["Banyo Dolapları", "Küçük Banyolar", "Fonksiyonel Tasarım", "Ahşap Mobilya"]
 seoTitle: "Küçük Banyolar için Akıllı Dolap Tasarımları | FNZ Ahşap Sanayi"
 seoDescription: "Küçük banyolarda alan kazanmak için akıllı dolap çözümleri. FNZ Ahşap Sanayi, modern ve özel tasarım banyo dolapları ile fonksiyonelliği estetikle buluşturur."
