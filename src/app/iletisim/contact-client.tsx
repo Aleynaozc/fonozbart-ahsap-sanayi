@@ -50,7 +50,7 @@ export default function ContactPageClient() {
 
   return (
     <main className="bg-[#1e1e1f] text-white">
-   
+
       {/* HERO */}
       <section id="contact-hero" className="relative min-h-[60vh] sm:min-h-[70vh] flex items-center overflow-hidden">
         {/* Background */}
@@ -67,7 +67,7 @@ export default function ContactPageClient() {
 
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div
             className={`inline-flex items-center space-x-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-[#FF6B35]/10 to-[#E55A2B]/10 rounded-full border border-[#FF6B35]/20 backdrop-blur-sm transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
               }`}
@@ -133,7 +133,7 @@ export default function ContactPageClient() {
         className="relative overflow-hidden py-12 sm:py-16 lg:py-20"
       >
         {/* Background pattern + floating particles (landing ile tutarlı) */}
-           <EnhancedAutoBreadcrumb variant="default" enableSEO={true} showRichSnippets={true} className="pt-20" />
+        <EnhancedAutoBreadcrumb variant="default" enableSEO={true} showRichSnippets={true} className="pt-20" />
         <div className="absolute inset-0 pointer-events-none">
           <div
             className={`absolute inset-0 opacity-5 transition-all duration-[1800ms] ${isVisible ? 'scale-100 rotate-0' : 'scale-110 rotate-3'

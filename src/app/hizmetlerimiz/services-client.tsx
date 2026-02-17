@@ -89,7 +89,7 @@ export default function ServicesPageClient() {
       {/* HERO */}
       <PageHero
         backgroundImage={Services.heroImage}
-        badgeText={currentPage??undefined}
+        badgeText={currentPage ?? undefined}
         title={Services.intro.heading}
         highlight={Services.intro.highlight}
         description={Services.intro.text}
