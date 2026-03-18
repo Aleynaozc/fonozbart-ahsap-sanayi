@@ -3,7 +3,7 @@ import path from "path"
 import matter from "gray-matter"
 import { serialize } from "next-mdx-remote/serialize"
 import type { MDXRemoteSerializeResult } from "next-mdx-remote"
-
+import remarkGfm from "remark-gfm"
 export type Post = {
   title: string
   date: string
@@ -28,10 +28,13 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
   const fileContent = fs.readFileSync(filePath, "utf-8")
   const { data, content } = matter(fileContent)
 
-  // Zorunlu alan kontrolü
   if (!data.title || !data.date) return null
 
-  const mdxSource = await serialize(content)
+  const mdxSource = await serialize(content, {
+    mdxOptions: {
+      remarkPlugins: [remarkGfm],
+    },
+  })
 
   return {
     title: data.title,
