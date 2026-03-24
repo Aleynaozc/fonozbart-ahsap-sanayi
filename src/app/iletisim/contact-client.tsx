@@ -130,10 +130,10 @@ export default function ContactPageClient() {
       {/* CONTENT */}
       <section
         ref={sectionRef}
-        className="relative overflow-hidden py-12 sm:py-16 lg:py-20"
+        className="relative overflow-hidden  sm:py-16 lg:py-20"
       >
         {/* Background pattern + floating particles (landing ile tutarlı) */}
-        <EnhancedAutoBreadcrumb variant="default" enableSEO={true} showRichSnippets={true} className="pt-20" />
+        <EnhancedAutoBreadcrumb variant="default" enableSEO={true} showRichSnippets={true} className="" />
         <div className="absolute inset-0 pointer-events-none">
           <div
             className={`absolute inset-0 opacity-5 transition-all duration-[1800ms] ${isVisible ? 'scale-100 rotate-0' : 'scale-110 rotate-3'
@@ -156,11 +156,10 @@ export default function ContactPageClient() {
           ))}
         </div>
 
-        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Info Grid */}
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+        <div className="relative sm:container w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-start">
             {/* Left: Cards */}
-            <div className="space-y-4 sm:space-y-6">
+            <div className="space-y-4 sm:space-y-6 w-full">
               <InfoCard
                 icon={<MapPin className="w-5 h-5" />}
                 title={CONTACT.addressTitle}
@@ -213,7 +212,7 @@ export default function ContactPageClient() {
 
             {/* Right: Map / Image with glass overlay */}
             <div
-              className={`relative rounded-2xl overflow-hidden border border-[#FF6B35]/20 bg-black/40 backdrop-blur-sm transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              className={`relative w-full rounded-2xl overflow-hidden border border-[#FF6B35]/20 bg-black/40 backdrop-blur-sm transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}
               style={{ transitionDelay: '200ms' }}
             >
@@ -314,7 +313,7 @@ function InfoCard({ icon, title, lines, action, isVisible, delay = 0 }: InfoCard
           </div>
           <div className="mt-1 sm:mt-1.5 text-gray-300 text-sm sm:text-base leading-relaxed">
             {lines.map((l, i) => (
-              <p key={i} className="truncate">{l}</p>
+              <p key={i} className="break-words sm:truncate">{l}</p>
             ))}
           </div>
         </div>
