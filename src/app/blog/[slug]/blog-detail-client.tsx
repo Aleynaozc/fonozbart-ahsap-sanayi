@@ -24,8 +24,8 @@ export default async function BlogDetailClient({ params }: Props) {
     <section className="bg-[#414141] min-h-screen text-white relative">
       <PageHero
         backgroundImage={post.coverImage}
-        badgeText={post.title || "Blog Detay"}
-        title={post.category ?? "Blog"}
+        badgeText={post.badgeText || "Blog Detay"}
+        title={post.title ?? "Blog"}
         highlight=""
         description=""
         cta={{ label: "İletişime Geç", href: "/iletisim" }}

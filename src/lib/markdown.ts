@@ -11,6 +11,7 @@ export type Post = {
   coverImage: string
   tags: string[]
   slug: string
+  badgeText: string
   content: MDXRemoteSerializeResult   // ✅ any yerine doğru tip
   category?: string
 }
@@ -18,11 +19,11 @@ export type Post = {
 const contentPath = path.join(process.cwd(), "content", "blog")
 
 export async function getAllSlugs(): Promise<string[]> {
-  return fs.readdirSync(contentPath).map((file) => file.replace(/\.md$/, ""))
+  return fs.readdirSync(contentPath).map((file) => file.replace(/\.mdx$/, ""))
 }
 
 export async function getPostBySlug(slug: string): Promise<Post | null> {
-  const filePath = path.join(contentPath, `${slug}.md`)
+  const filePath = path.join(contentPath, `${slug}.mdx`)
   if (!fs.existsSync(filePath)) return null
 
   const fileContent = fs.readFileSync(filePath, "utf-8")
@@ -43,6 +44,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     coverImage: data.coverImage ?? "",
     tags: data.tags ?? [],
     slug,
+    badgeText:data.badgeText??"",
     content: mdxSource,
     category: data.category ?? "",
   }

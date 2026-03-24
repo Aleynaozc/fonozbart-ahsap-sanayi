@@ -32,16 +32,16 @@ export type Post = {
 }
 
 function readFile(slugOrFile: string) {
-  const isFile = slugOrFile.endsWith(".md")
-  const fullPath = path.join(blogDir, isFile ? slugOrFile : `${slugOrFile}.md`)
+  const isFile = slugOrFile.endsWith(".mdx")
+  const fullPath = path.join(blogDir, isFile ? slugOrFile : `${slugOrFile}.mdx`)
   const fileContents = fs.readFileSync(fullPath, "utf8")
   return { fullPath, fileContents }
 }
 
 export function getAllPosts(): Post[] {
-  const files = fs.readdirSync(blogDir).filter((f) => f.endsWith(".md"))
+  const files = fs.readdirSync(blogDir).filter((f) => f.endsWith(".mdx"))
   const posts = files.map((file) => {
-    const slug = file.replace(/\.md$/, "")
+    const slug = file.replace(/\.mdx$/, "")
     const { fileContents } = readFile(file)
     const { data, content } = matter(fileContents)
     const fm = data as PostFrontmatter
@@ -70,8 +70,8 @@ export function getPopularPosts(limit = 5) {
 }
 
 export function getPostBySlug(slug: string): Post {
-  const realSlug = slug.replace(/\.md$/, "")
-  const fullPath = path.join(blogDir, `${realSlug}.md`) // ✅ artık blogDir kullanıyor
+  const realSlug = slug.replace(/\.mdx$/, "")
+  const fullPath = path.join(blogDir, `${realSlug}.mdx`) // ✅ artık blogDir kullanıyor
   const fileContents = fs.readFileSync(fullPath, "utf8")
 
   const { data, content } = matter(fileContents)
@@ -94,6 +94,6 @@ export function getPostBySlug(slug: string): Post {
 
 export function getAllSlugs() {
   return fs.readdirSync(blogDir)
-    .filter((f) => f.endsWith(".md"))
-    .map((f) => f.replace(/\.md$/, ""))
+    .filter((f) => f.endsWith(".mdx"))
+    .map((f) => f.replace(/\.mdx$/, ""))
 }

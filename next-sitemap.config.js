@@ -11,8 +11,8 @@ function getBlogSlugs() {
   if (!fs.existsSync(blogDir)) return []
   return fs
     .readdirSync(blogDir)
-    .filter((f) => f.endsWith(".md"))
-    .map((f) => f.replace(/\.md$/, ""))
+    .filter((f) => f.endsWith(".mdx"))
+    .map((f) => f.replace(/\.mdx$/, ""))
 }
 
 module.exports = {
