@@ -1,5 +1,5 @@
 export const SITE = {
-  name: "FNZ Yapı",
+  name: "FNZ Ahşap Sanayi",
   url: "https://fnzwood.com",
   logo: "/logo.png",
   socials: {

@@ -22,7 +22,7 @@ export function HeroSlider() {
       <div className="absolute inset-0">
         <Image
           src="/assets/images/sliders/page-hero-fnz-wood-2.jpg"
-          alt="Ahşap işçiliği"
+          alt="Marmaris Otel, Villa Ahşap Mobilya Üretimi ve Tasarımı"
           fill
           className="object-cover"
           priority

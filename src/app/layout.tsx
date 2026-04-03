@@ -142,9 +142,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 "@type": "LocalBusiness",
                 "@id": "https://fnzwood.com/#localbusiness",
                 name: "Fnz Ahsap Sanayi",
+                description: "Marmaris ve Muğla çevresinde otel mobilya üretimi, ahşap işleri, havuz kenarı deck, mutfak mobilyaları ve özel ahşap dekorasyon hizmetleri veren lider ahşap sanayi firması.",
                 image: "https://fnzwood.com/assets/images/fnz-beyaz.png",
                 url: "https://fnzwood.com",
-                telephone: "+90-532-000-0000",
+                telephone: "+90-532-333-50-67",
                 priceRange: "$$",
                 address: {
                   "@type": "PostalAddress",
@@ -159,6 +160,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   latitude: 36.852365,
                   longitude: 28.274382,
                 },
+                areaServed: [
+                  {
+                    "@type": "City",
+                    name: "Marmaris"
+                  },
+                  {
+                    "@type": "City",
+                    name: "Muğla"
+                  },
+                  {
+                    "@type": "City",
+                    name: "Datça"
+                  },
+                  {
+                    "@type": "City",
+                    name: "Bodrum"
+                  },
+                  {
+                    "@type": "City",
+                    name: "Fethiye"
+                  }
+                ],
                 openingHoursSpecification: [
                   {
                     "@type": "OpeningHoursSpecification",
@@ -172,6 +195,50 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   "https://www.instagram.com/fnzwood",
                   "https://www.linkedin.com/company/fonozbart-ah%C5%9Fap-sanayi/",
                 ],
+              },
+              null,
+              2,
+            ),
+          }}
+        />
+
+        {/* ✅ Service Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              {
+                "@context": "https://schema.org",
+                "@type": "Service",
+                serviceType: "Özel Mobilya Tasarımı ve Üretimi",
+                provider: {
+                  "@type": "LocalBusiness",
+                  name: "Fnz Ahsap Sanayi",
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "Marmaris",
+                    addressRegion: "Muğla"
+                  }
+                },
+                areaServed: {
+                  "@type": "State",
+                  name: "Muğla"
+                },
+                hasOfferCatalog: {
+                  "@type": "OfferCatalog",
+                  name: "Otel ve Bireysel Mobilya Üretimi",
+                  itemListElement: [
+                    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Otel Mobilya Üretimi" } },
+                    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Ahşap Dekorasyon" } },
+                    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Havuz Kenarı Deck Uygulamaları" } },
+                    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mutfak Mobilyaları (Adalı Mutfak, Masa)" } },
+                    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Banyo Dolapları" } },
+                    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Giyinme Dolapları ve Gardırop" } },
+                    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Ahşap Yatak Başlığı ve Yatak Bazası" } },
+                    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Komodin ve Makyaj Masası" } },
+                    { "@type": "Offer", itemOffered: { "@type": "Service", name: "TV Ünitesi" } }
+                  ]
+                }
               },
               null,
               2,

@@ -12,7 +12,7 @@ export default function Home() {
 
 
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
+    <main className="min-h-screen bg-white overflow-x-hidden">
    
       {/* Hero Section */}
       <HeroSlider />
@@ -27,6 +27,6 @@ export default function Home() {
       {/* Cta Section */}
       <CTASection />
       <BlogPageSection/>
-    </div>
+    </main>
   )
 }

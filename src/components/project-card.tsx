@@ -69,10 +69,11 @@ export function ProjectCard({
       <div className="relative w-full h-64 overflow-hidden">
         <Image
           src={project.images[currentImage]}
-          alt={project.title}
+          alt={`${project.title} - Marmaris Ahşap Projeleri`}
           fill
           className="object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105"
           onClick={() => onImageClick(currentImage)}
+          loading="lazy"
         />
         {project.images.length > 1 && (
           <>

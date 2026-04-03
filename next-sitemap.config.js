@@ -16,10 +16,10 @@ function getBlogSlugs() {
 }
 
 module.exports = {
-  siteUrl: "https://www.fnzwood.com",
+  siteUrl: "https://fnzwood.com",
   generateRobotsTxt: true,
   sitemapSize: 7000,
-
+  
   changefreq: "weekly",
   priority: 0.7,
 
@@ -75,7 +75,7 @@ module.exports = {
         lastmod: now,
         alternateRefs: [
           {
-            href: "https://www.fnzwood.com",
+            href: "https://fnzwood.com",
             hreflang: "tr",
           },
         ],

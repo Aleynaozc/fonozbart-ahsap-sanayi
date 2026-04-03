@@ -7,12 +7,16 @@ const blogDir = path.join(process.cwd(), "content/blog") // ✅ tek directory
 
 export type PostFrontmatter = {
   title: string
-  description: string
+  description?: string
+  excerpt?: string
   date: string
   coverImage?: string
   image?: string // ✅ any yerine tipte tanımladık
   tags?: string[]
-  seoKeywords?: string[]
+  category?: string
+  seoTitle?: string
+  seoDescription?: string
+  seoKeywords?: string | string[]
   author?: string
   popular?: boolean
 }
@@ -21,12 +25,16 @@ export type Post = {
   slug: string
   title: string
   description: string
+  excerpt: string
   date: string
+  category: string
   coverImage?: string
   tags: string[]
   readingTime: string
   content?: string
-  seoKeywords?: string[]
+  seoTitle?: string
+  seoDescription?: string
+  seoKeywords?: string | string[]
   author?: string
   popular?: boolean
 }
@@ -48,11 +56,15 @@ export function getAllPosts(): Post[] {
     return {
       slug,
       title: fm.title,
-      description: fm.description,
+      description: fm.description || fm.excerpt || "",
+      excerpt: fm.excerpt || fm.description || "",
+      category: fm.category || "",
       date: fm.date,
       coverImage: fm.coverImage || fm.image, // ✅ artık any yok
       tags: fm.tags ?? [],
       readingTime: readingTime(content).text,
+      seoTitle: fm.seoTitle,
+      seoDescription: fm.seoDescription,
       seoKeywords: fm.seoKeywords,
       author: fm.author,
       popular: fm.popular ?? false,
@@ -80,12 +92,16 @@ export function getPostBySlug(slug: string): Post {
   return {
     slug: realSlug,
     title: fm.title,
-    description: fm.description,
+    description: fm.description || fm.excerpt || "",
+    excerpt: fm.excerpt || fm.description || "",
+    category: fm.category || "",
     date: fm.date,
     coverImage: fm.coverImage || fm.image, // ✅ any kalktı
     tags: fm.tags ?? [],
     readingTime: readingTime(content).text,
     content,
+    seoTitle: fm.seoTitle,
+    seoDescription: fm.seoDescription,
     seoKeywords: fm.seoKeywords,
     author: fm.author,
     popular: fm.popular ?? false,

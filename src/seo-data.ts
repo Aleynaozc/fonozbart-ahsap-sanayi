@@ -11,16 +11,30 @@ export const defaultMetadata: Metadata = {
     template: `%s | ${siteName}`,
   },
   description:
-    "Fnz Ahsap Sanayi, Marmaris merkezli özel mobilya tasarımı ve üretim firmasıdır. Otel, villa, mutfak, banyo, pergola ve deck uygulamalarıyla 50 yılı aşkın deneyim.",
+    "Fnz Ahsap Sanayi, Marmaris merkezli özel mobilya tasarımı ve üretim firmasıdır. Otel mobilya üretimi, ahşap işleri, havuz kenarı deck, mutfak mobilyaları, giyinme dolapları, ahşap yatak başlığı ve daha fazlası ile 50 yılı aşkın deneyim.",
   keywords: [
     "fnzwood",
     "marmaris marangoz",
+    "marmaris",
+    "muğla",
     "özel mobilya tasarımı",
-    "otel mobilyaları",
-    "mutfak mobilyası",
-    "banyo mobilyası",
-    "deck pergola",
-    "ahşap kapı üretimi",
+    "otel mobilya üretimi",
+    "ahşap dekorasyon",
+    "ahşap işleri",
+    "havuz kenarı deck",
+    "deck işleri",
+    "mutfak mobilyaları",
+    "adalı mutfak",
+    "masa",
+    "dolap",
+    "banyo dolapları",
+    "giyinme dolapları",
+    "gardrop",
+    "ahşap yatak başlığı",
+    "ahşap yatak bazası",
+    "komodin",
+    "makyaj masası",
+    "tv ünitesi",
     "villa mobilya tasarımı",
   ],
   authors: [{ name: siteName }],
@@ -35,7 +49,7 @@ export const defaultMetadata: Metadata = {
     siteName,
     title: `${siteName} - Marmaris Özel Mobilya Tasarımı ve Üretimi`,
     description:
-      "50 yılı aşkın tecrübemizle modern ve özel ahşap mobilya tasarımı & üretimi. Otel, villa, mutfak, banyo, pergola, deck ve daha fazlası.",
+      "50 yılı aşkın tecrübemizle modern ve özel ahşap mobilya tasarımı & üretimi. Otel mobilyaları, havuz kenarı deck, mutfak ve banyo dolapları, ahşap yatak başlıkları ve daha fazlası.",
     images: [
       {
         url: "//assets/images/fnz-antrasit.png",
@@ -48,7 +62,7 @@ export const defaultMetadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${siteName} - Özel Mobilya Tasarımı`,
-    description: "Marmaris'te otel, villa, mutfak ve özel ahşap mobilya üretimi. Fnz Ahsap Sanayi.",
+    description: "Marmaris'te otel mobilya üretimi, ahşap işleri, mutfak ve banyo dolapları, giyinme dolapları ve özel ahşap mobilya üretimi. Fnz Ahsap Sanayi.",
     images: ["//assets/images/fnz-antrasit.png"],
   },
 }
@@ -161,16 +175,30 @@ export function getBlogMetadata(slug: string): Partial<Metadata> {
 
     const ogImageUrl = getOgImage()
 
+    const seoTitle = post.seoTitle || `${post.title} | Fnz Ahsap Sanayi Blog`
+    const seoDescription = post.seoDescription || post.excerpt || post.description
+    
+    let seoKeywords: string[] = ["fnz mobilya blog", "ahşap mobilya", "mobilya tasarımı"]
+    if (post.seoKeywords) {
+      if (typeof post.seoKeywords === "string") {
+        seoKeywords = post.seoKeywords.split(",").map(k => k.trim())
+      } else if (Array.isArray(post.seoKeywords)) {
+        seoKeywords = post.seoKeywords
+      }
+    } else if (post.tags && post.tags.length > 0) {
+      seoKeywords = post.tags
+    }
+
     return {
-      title: `${post.title} | Fnz Ahsap Sanayi Blog`,
-      description: post.description,
-      keywords: post.seoKeywords || ["fnz mobilya blog", "ahşap mobilya", "mobilya tasarımı"],
+      title: seoTitle,
+      description: seoDescription,
+      keywords: seoKeywords,
       authors: [{ name: post.author || "Fnz Ahsap Sanayi" }],
       alternates: { canonical: `${baseUrl}/blog/${slug}` },
       openGraph: {
         type: "article",
-        title: post.title,
-        description: post.description,
+        title: seoTitle,
+        description: seoDescription,
         url: `${baseUrl}/blog/${slug}`,
         siteName,
         images: [
@@ -178,14 +206,14 @@ export function getBlogMetadata(slug: string): Partial<Metadata> {
             url: ogImageUrl,
             width: 1200,
             height: 630,
-            alt: post.title,
+            alt: seoTitle,
           },
         ],
       },
       twitter: {
         card: "summary_large_image",
-        title: post.title,
-        description: post.description,
+        title: seoTitle,
+        description: seoDescription,
         images: [ogImageUrl],
       },
     }

@@ -150,9 +150,10 @@ export default function ServicesSection() {
               >
                 <Image
                   src={project.image || "/placeholder.svg"}
-                  alt={project.title}
+                  alt={`${project.title} - Marmaris Özel Ahşap Mobilya Üretimi`}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
 

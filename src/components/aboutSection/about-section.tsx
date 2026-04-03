@@ -286,9 +286,10 @@ export function AboutSection() {
           <div className="relative h-screen lg:min-h-[700px]">
             <Image
               src="/assets/images/about-sections/about-section-fnz-wood-2.png"
-              alt="Ahşap atölye"
+              alt="Marmaris Ahşap Atölyesi ve Özel Mobilya Üretimi"
               fill
               className="object-cover"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30 sm:from-black/60 sm:via-black/40 sm:to-transparent"></div>
 
@@ -357,9 +358,10 @@ export function AboutSection() {
             >
               <Image
                 src="/assets/images/about-sections/about-section-fnz-wood-2.png"
-                alt="Ahşap atölye"
+                alt="Marmaris Ahşap Atölyesi ve Özel Mobilya Üretimi"
                 fill
                 className="object-cover"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
               <div className="absolute bottom-4 left-4 right-4 bg-gradient-to-r from-black/90 to-black/70 backdrop-blur-sm px-4 py-3 rounded-xl border border-[#FF6B35]/20">
