@@ -20,7 +20,7 @@ interface Props {
 /* Yan yana iki resim */
 const ImageRow = ({ images }: { images?: { src: string; alt?: string }[] }) => {
   if (!images || images.length === 0) return null
-  
+
   return (
     <div className="flex flex-col sm:flex-row gap-4 my-6">
       {images.map((img, idx) => (
@@ -73,7 +73,7 @@ const ImageGrid = ({ images }: { images?: { src: string; alt?: string }[] }) => 
 /* Tek gorsel */
 const ImageSingle = ({ src, alt }: { src?: string; alt?: string }) => {
   if (!src) return null
-  
+
   return (
     <div className="my-6 relative">
       <Image
@@ -200,7 +200,7 @@ const components = (frontmatter: { category: string; title: string }) => ({
   h3: (props: ComponentPropsWithoutRef<"h3">) => (
     <h3
       {...props}
-      className="text-xl sm:text-2xl font-semibold mt-6 mb-3 flex items-center text-white"
+      className="text-xl sm:text-2xl font-semibold mt-8 mb-4 text-white pl-4 border-l-[3px] border-[#FF6B35] bg-gradient-to-r from-[#FF6B35]/10 to-transparent py-1.5 rounded-r-md"
     />
   ),
 
