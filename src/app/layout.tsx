@@ -1,4 +1,5 @@
 import type React from "react"
+import { Suspense } from "react"
 import type { Metadata } from "next"
 import "./globals.css"
 import { BreadcrumbProvider } from "@/components/bradcrumps/breadcrumb-provider"
@@ -35,14 +36,11 @@ export function generateMetadata({ params }: { params?: { slug?: string[] } }): 
     icons: {
       icon: [
         { url: "/favicon.ico", sizes: "any" },
-        { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
-        { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
-        { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
-        { url: "/favicon.svg", type: "image/svg+xml" },
+        { url: "/icon1.png", type: "image/png", sizes: "any" },
       ],
-      apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+      apple: [{ url: "/apple-icon.png", sizes: "180x180" }],
     },
-    manifest: "/site.webmanifest",
+    manifest: "/manifest.json",
     appleWebApp: {
       title: "FNZ", // ✅ <meta name="apple-mobile-web-app-title" content="FNZ" />
     },
@@ -59,7 +57,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
-          <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+          <Suspense fallback={null}>
+            <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+          </Suspense>
         )}
 
         <LoadingProvider>
@@ -93,7 +93,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 "@type": "Organization",
                 name: "Fnz Ahsap Sanayi",
                 url: "https://fnzwood.com",
-                logo: "https://fnzwood.com/assets/images/logo.png",
+                logo: "https://fnzwood.com/assets/images/fnz-antrasit.png",
                 sameAs: [
                   "https://www.facebook.com/fnzwood",
                   "https://www.instagram.com/fnzwood",
@@ -264,7 +264,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   name: "FNZ Ahşap Sanayi",
                   logo: {
                     "@type": "ImageObject",
-                    url: "https://fnzwood.com/assets/images/logo.png",
+                    url: "https://fnzwood.com/assets/images/fnz-antrasit.png",
                   },
                 },
               },

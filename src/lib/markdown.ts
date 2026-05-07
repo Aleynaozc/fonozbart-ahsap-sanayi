@@ -14,6 +14,9 @@ export type Post = {
   badgeText: string
   content: MDXRemoteSerializeResult   // ✅ any yerine doğru tip
   category?: string
+  seoTitle?: string
+  seoDescription?: string
+  author?: string
 }
 
 const contentPath = path.join(process.cwd(), "content", "blog")
@@ -47,6 +50,9 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     badgeText:data.badgeText??"",
     content: mdxSource,
     category: data.category ?? "",
+    seoTitle: data.seoTitle ?? "",
+    seoDescription: data.seoDescription ?? "",
+    author: data.author ?? "FNZ Ahşap Sanayi",
   }
 }
 

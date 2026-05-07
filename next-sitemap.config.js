@@ -15,6 +15,18 @@ function getBlogSlugs() {
     .map((f) => f.replace(/\.mdx$/, ""))
 }
 
+function getLastModForPath(urlPath) {
+  if (urlPath.startsWith("/blog/")) {
+    const slug = urlPath.replace("/blog/", "")
+    const filePath = path.join(blogDir, `${slug}.mdx`)
+    if (fs.existsSync(filePath)) {
+      return fs.statSync(filePath).mtime.toISOString()
+    }
+  }
+
+  return new Date().toISOString()
+}
+
 module.exports = {
   siteUrl: "https://fnzwood.com",
   generateRobotsTxt: true,
@@ -23,7 +35,18 @@ module.exports = {
   changefreq: "weekly",
   priority: 0.7,
 
-  exclude: ["/admin/*", "/api/*", "/private/*", "/_next/*", "/404", "/500"],
+  exclude: [
+    "/admin/*",
+    "/api/*",
+    "/private/*",
+    "/_next/*",
+    "/404",
+    "/500",
+    "/apple-icon.png",
+    "/icon0.svg",
+    "/icon1.png",
+    "/manifest.json",
+  ],
 
   // 📍 Hem sabit sayfaları hem de blog slug’larını ekliyoruz
   additionalPaths: async (config) => {
@@ -64,7 +87,7 @@ module.exports = {
   },
 
   transform: async (config, path) => {
-    const now = new Date().toISOString()
+    const lastmod = getLastModForPath(path)
 
     // Ana sayfa
     if (path === "/") {
@@ -72,7 +95,7 @@ module.exports = {
         loc: path,
         changefreq: "daily",
         priority: 1.0,
-        lastmod: now,
+        lastmod,
         alternateRefs: [
           {
             href: "https://fnzwood.com",
@@ -84,27 +107,27 @@ module.exports = {
 
     // Blog ana sayfası
     if (path === "/blog") {
-      return { loc: path, changefreq: "daily", priority: 0.9, lastmod: now }
+      return { loc: path, changefreq: "daily", priority: 0.9, lastmod }
     }
 
     // Blog yazıları (slug bazlı)
     if (path.startsWith("/blog/") && path !== "/blog") {
-      return { loc: path, changefreq: "monthly", priority: 0.8, lastmod: now }
+      return { loc: path, changefreq: "monthly", priority: 0.8, lastmod }
     }
 
     // Hizmetler
     if (path === "/hizmetlerimiz") {
-      return { loc: path, changefreq: "weekly", priority: 0.9, lastmod: now }
+      return { loc: path, changefreq: "weekly", priority: 0.9, lastmod }
     }
 
     // Projeler & Referanslar
     if (path === "/projeler" || path === "/referanslar") {
-      return { loc: path, changefreq: "weekly", priority: 0.8, lastmod: now }
+      return { loc: path, changefreq: "weekly", priority: 0.8, lastmod }
     }
 
     // Hakkımızda & İletişim
     if (path === "/hakkimizda" || path === "/iletisim") {
-      return { loc: path, changefreq: "monthly", priority: 0.6, lastmod: now }
+      return { loc: path, changefreq: "monthly", priority: 0.6, lastmod }
     }
 
     // Varsayılan
@@ -112,7 +135,7 @@ module.exports = {
       loc: path,
       changefreq: config.changefreq,
       priority: config.priority,
-      lastmod: now,
+      lastmod,
     }
   },
 }

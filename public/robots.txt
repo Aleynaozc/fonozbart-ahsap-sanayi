@@ -14,7 +14,7 @@ Disallow: /api/
 Disallow: /private/
 
 # Host
-Host: https://www.fnzwood.com
+Host: https://fnzwood.com
 
 # Sitemaps
-Sitemap: https://www.fnzwood.com/sitemap.xml
+Sitemap: https://fnzwood.com/sitemap.xml

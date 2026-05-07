@@ -52,7 +52,7 @@ export const defaultMetadata: Metadata = {
       "50 yılı aşkın tecrübemizle modern ve özel ahşap mobilya tasarımı & üretimi. Otel mobilyaları, havuz kenarı deck, mutfak ve banyo dolapları, ahşap yatak başlıkları ve daha fazlası.",
     images: [
       {
-        url: "//assets/images/fnz-antrasit.png",
+        url: "/assets/images/fnz-antrasit.png",
         width: 1200,
         height: 630,
         alt: siteName,
@@ -63,7 +63,7 @@ export const defaultMetadata: Metadata = {
     card: "summary_large_image",
     title: `${siteName} - Özel Mobilya Tasarımı`,
     description: "Marmaris'te otel mobilya üretimi, ahşap işleri, mutfak ve banyo dolapları, giyinme dolapları ve özel ahşap mobilya üretimi. Fnz Ahsap Sanayi.",
-    images: ["//assets/images/fnz-antrasit.png"],
+    images: ["/assets/images/fnz-antrasit.png"],
   },
 }
 
