@@ -28,7 +28,7 @@ function getLastModForPath(urlPath) {
 }
 
 module.exports = {
-  siteUrl: "https://fnzwood.com",
+  siteUrl: "https://www.fnzwood.com",
   generateRobotsTxt: true,
   sitemapSize: 7000,
   
@@ -98,7 +98,7 @@ module.exports = {
         lastmod,
         alternateRefs: [
           {
-            href: "https://fnzwood.com",
+            href: "https://www.fnzwood.com",
             hreflang: "tr",
           },
         ],

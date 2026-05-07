@@ -4,9 +4,9 @@ import type { NextRequest } from "next/server";
 export function proxy(request: NextRequest) {
   const hostname = request.headers.get("host") || "";
 
-  if (hostname === "www.fnzwood.com") {
+  if (hostname === "fnzwood.com") {
     const url = request.nextUrl.clone();
-    url.hostname = "fnzwood.com";
+    url.hostname = "www.fnzwood.com";
     url.protocol = "https";
 
     return NextResponse.redirect(url, 308);

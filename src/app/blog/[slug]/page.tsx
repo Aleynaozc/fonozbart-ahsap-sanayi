@@ -21,10 +21,10 @@ export async function generateStaticParams() {
 export default async function BlogDetailPage({ params }: BlogParams) {
   const resolvedParams = await params
   const post = await getPostBySlug(resolvedParams.slug)
-  const pageUrl = `https://fnzwood.com/blog/${resolvedParams.slug}`
+  const pageUrl = `https://www.fnzwood.com/blog/${resolvedParams.slug}`
   const imageUrl = post?.coverImage?.startsWith("http")
     ? post.coverImage
-    : `https://fnzwood.com${post?.coverImage || "/assets/images/fnz-antrasit.png"}`
+    : `https://www.fnzwood.com${post?.coverImage || "/assets/images/fnz-antrasit.png"}`
 
   const articleSchema = post
     ? {
@@ -48,7 +48,7 @@ export default async function BlogDetailPage({ params }: BlogParams) {
           name: "FNZ Ahşap Sanayi",
           logo: {
             "@type": "ImageObject",
-            url: "https://fnzwood.com/assets/images/fnz-antrasit.png",
+            url: "https://www.fnzwood.com/assets/images/fnz-antrasit.png",
           },
         },
       }

@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { getPostBySlug } from "@/lib/blog" // blog.ts'ten çekiyoruz
 
-const baseUrl = "https://fnzwood.com"
+const baseUrl = "https://www.fnzwood.com"
 const siteName = "Fnz Ahsap Sanayi"
 
 export const defaultMetadata: Metadata = {
