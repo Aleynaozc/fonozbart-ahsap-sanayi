@@ -4,7 +4,6 @@ Allow: /
 Disallow: /admin/
 Disallow: /api/
 Disallow: /private/
-Disallow: /_next/
 
 # Googlebot
 User-agent: Googlebot

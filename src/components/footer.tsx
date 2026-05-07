@@ -2,13 +2,6 @@
 
 import { Facebook, Instagram, Twitter, Linkedin, Phone, Mail, MapPin, Clock, ArrowRight, Award } from "lucide-react"
 import Image from "next/image"
-import { Poppins } from "next/font/google"
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal"],
-})
 
 const services = [
   "Otel Mobilyaları",
@@ -36,7 +29,7 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className={`bg-[#1e1e1f] relative overflow-hidden ${poppins.className}`}>
+    <footer className="bg-[#1e1e1f] relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div

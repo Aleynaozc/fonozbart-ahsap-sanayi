@@ -76,7 +76,7 @@ module.exports = {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/admin/", "/api/", "/private/", "/_next/"],
+        disallow: ["/admin/", "/api/", "/private/"],
       },
       {
         userAgent: "Googlebot",
