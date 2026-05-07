@@ -11,6 +11,7 @@ import { Footer } from "@/components/footer"
 import InitialLoaderWrapper from "./initial-loader-wrapper"
 import { defaultMetadata, pageMetadata, getBlogMetadata } from "@/seo-data"
 import { GoogleAnalytics } from "@/components/google-analytics"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 /**
  * ✅ Tek metadata fonksiyonu:
@@ -307,6 +308,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             ),
           }}
         />
+        <SpeedInsights />
       </body>
     </html>
   )
