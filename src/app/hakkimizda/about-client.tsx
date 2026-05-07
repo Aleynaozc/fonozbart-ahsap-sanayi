@@ -14,7 +14,7 @@ import { useBreadcrumb } from '@/hooks/use-breadcrumb';
 import { EnhancedAutoBreadcrumb } from '@/components/bradcrumps/enhanced-auto-breadcrumb';
 
 const ABOUT = {
-  heroImage: '/assets/images/sliders/fnz-wood-hakkımızda-hero.mp4',
+  heroImage: '/assets/images/sliders/fnz-wood-hakkimizda-hero.mp4',
   intro: {
     title: 'Hakkımızda',
     heading: 'Zanaatten Sanata,',
