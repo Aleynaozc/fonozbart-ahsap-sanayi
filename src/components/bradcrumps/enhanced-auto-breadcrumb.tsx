@@ -23,7 +23,7 @@ export function EnhancedAutoBreadcrumb({
   maxItems = 5,
   separator = <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400/70 mx-1 sm:mx-2 flex-shrink-0" />,
   enableSEO = true,
-  showRichSnippets = true,
+  showRichSnippets = false,
   variant = "blog",
   currentPageOverride,  // 🔥 destructure
 }: EnhancedAutoBreadcrumbProps) {
